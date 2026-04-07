@@ -23,7 +23,7 @@ export const CTAWithImage = {
     <div class="cta-block cta-block--with-image">
       <img
         class="cta-block__image"
-        src="https://abbvie.scene7.com/is/image/abbviecorp/woman-in-conference-room?fmt=webp"
+        src="/images/culture-conference.webp"
         alt="AbbVie professionals collaborating in a conference room"
       />
       <div class="cta-block__content">

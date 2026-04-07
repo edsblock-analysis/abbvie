@@ -9,9 +9,9 @@ export const QuickLinks = {
   args: {
     heading: "AbbVie's Positions & Views",
     links: [
-      { label: 'Our Environmental Stewardship', href: '/sustainability/environment.html' },
-      { label: 'Pricing and Access', href: '/patients/pricing-and-access.html' },
-      { label: "AbbVie's Code of Conduct", href: '/who-we-are/code-of-conduct.html' },
+      { label: 'Our Environmental Stewardship', href: 'https://www.abbvie.com/sustainability/environment.html', external: true },
+      { label: 'Pricing and Access of Our Innovative Medicines', href: 'https://www.abbvie.com/patients/pricing-and-access.html', external: true },
+      { label: "AbbVie's Code of Conduct", href: 'https://www.abbvie.com/who-we-are/code-of-conduct.html', external: true },
     ],
   },
 };

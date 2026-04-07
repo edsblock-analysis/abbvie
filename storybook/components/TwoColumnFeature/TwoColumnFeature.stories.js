@@ -9,12 +9,12 @@ export const ImageLeft = {
     <div class="two-column-feature">
       <div class="two-column-feature__image-wrapper">
         <img
-          src="https://abbvie.scene7.com/is/image/abbviecorp/woman-in-lab-looking-down?fmt=webp"
+          src="/images/hero-lab.webp"
           alt="AbbVie scientist examining research samples in the lab"
         />
       </div>
       <div class="two-column-feature__content">
-        <h2 class="two-column-feature__heading">Striving for Breakthroughs</h2>
+        <h2 class="two-column-feature__heading">Striving for Breakthroughs: First, Faster and for Patients</h2>
         <p class="two-column-feature__body">
           At AbbVie, our science-first approach means we tackle the toughest
           challenges in healthcare. By combining deep expertise with bold
@@ -32,7 +32,7 @@ export const ImageRight = {
     <div class="two-column-feature two-column-feature--reversed">
       <div class="two-column-feature__image-wrapper">
         <img
-          src="https://abbvie.scene7.com/is/image/abbviecorp/young-woman-smiling?fmt=webp"
+          src="/images/culture-smile.webp"
           alt="AbbVie employee smiling"
         />
       </div>
@@ -54,18 +54,18 @@ export const VideoLeft = {
     <div class="two-column-feature">
       <div class="two-column-feature__image-wrapper two-column-feature__image-wrapper--video">
         <img
-          src="https://abbvie.scene7.com/is/image/abbviecorp/man-looking-at-testtube-feature-tall-2?fmt=webp"
-          alt="Researcher examining a test tube"
+          src="/images/hero-parkinsons.webp"
+          alt="Advancing Parkinson's research"
         />
-        <button class="two-column-feature__play-btn" aria-label="Play video">
+        <div class="two-column-feature__play-btn" aria-label="Play video">
           <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
             <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.55)"/>
             <polygon points="26,20 26,44 46,32" fill="#fff"/>
           </svg>
-        </button>
+        </div>
       </div>
       <div class="two-column-feature__content">
-        <h2 class="two-column-feature__heading">Beyond the Diagnosis</h2>
+        <h2 class="two-column-feature__heading">Advancing Parkinson's Research</h2>
         <p class="two-column-feature__body">
           Watch how AbbVie researchers are pioneering new approaches to
           Parkinson's disease—moving beyond symptom management to explore

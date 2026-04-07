@@ -5,8 +5,6 @@ export default {
   title: 'Components/CardGrid',
 };
 
-const scene7 = (name) => `https://abbvie.scene7.com/is/image/abbviecorp/${name}?fmt=webp`;
-
 /**
  * ThreeColumnCards - A 3-column grid featuring AbbVie focus areas:
  * Science, Patients, and Careers.
@@ -17,7 +15,7 @@ export const ThreeColumnCards = () => {
     <div class="card-grid">
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('man-looking-at-testtube-feature-tall-2')}" alt="Scientist examining a test tube" />
+          <img src="/images/card-science.webp" alt="Scientist examining molecular data" />
         </div>
         <div class="card-content">
           <h3 class="card-title">Our Science</h3>
@@ -27,7 +25,7 @@ export const ThreeColumnCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('young-woman-smiling')}" alt="Young woman smiling" />
+          <img src="/images/culture-smile.webp" alt="Three women meeting in a collaborative workspace" />
         </div>
         <div class="card-content">
           <h3 class="card-title">For Patients</h3>
@@ -37,7 +35,7 @@ export const ThreeColumnCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('woman-in-conference-room')}" alt="Professional in conference room" />
+          <img src="/images/culture-conference.webp" alt="Woman speaking to colleague at a conference" />
         </div>
         <div class="card-content">
           <h3 class="card-title">Join Us</h3>
@@ -60,7 +58,7 @@ export const FourColumnStoryCards = () => {
     <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('the-persistence-lab-promo')}" alt="Persistence lab" />
+          <img src="/images/podcast-promo.webp" alt="The Persistence Lab podcast" />
         </div>
         <div class="card-content">
           <span class="card-category">Innovation</span>
@@ -72,7 +70,7 @@ export const FourColumnStoryCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('ambily-card-image')}" alt="AbbVie employee spotlight" />
+          <img src="/images/card-science.webp" alt="AbbVie employee spotlight" />
         </div>
         <div class="card-content">
           <span class="card-category">People</span>
@@ -84,7 +82,7 @@ export const FourColumnStoryCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('kids-playing-soccer-grass')}" alt="Children playing soccer" />
+          <img src="/images/hero-soccer.webp" alt="Children playing soccer outdoors" />
         </div>
         <div class="card-content">
           <span class="card-category">Community</span>
@@ -96,7 +94,7 @@ export const FourColumnStoryCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('rob-michael-headshot-square')}" alt="Rob Michael headshot" />
+          <img src="/images/culture-testtube.webp" alt="Researcher working with test tubes in the lab" />
         </div>
         <div class="card-content">
           <span class="card-category">Leadership</span>
@@ -121,7 +119,7 @@ export const ArticleCards = () => {
     <div class="card-grid">
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('woman-in-lab-looking-down')}" alt="Scientist in immunology lab" />
+          <img src="/images/card-science.webp" alt="Scientist in immunology lab" />
         </div>
         <div class="card-content">
           <span class="card-category">Immunology</span>
@@ -133,7 +131,7 @@ export const ArticleCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('man-looking-at-testtube-feature-tall-2')}" alt="Oncology researcher" />
+          <img src="/images/card-story.webp" alt="Oncology research story" />
         </div>
         <div class="card-content">
           <span class="card-category">Oncology</span>
@@ -145,7 +143,7 @@ export const ArticleCards = () => {
       </a>
       <a class="card" href="#">
         <div class="card-image">
-          <img src="${scene7('phil-hajduk-headshot-1')}" alt="Neuroscience research lead" />
+          <img src="/images/hero-parkinsons.webp" alt="Neuroscience research focus" />
         </div>
         <div class="card-content">
           <span class="card-category">Neuroscience</span>

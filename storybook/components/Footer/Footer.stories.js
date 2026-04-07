@@ -8,6 +8,7 @@ export default {
 export const Default = {
   args: {
     logoText: 'AbbVie',
+    logoSrc: '/images/abbvie-logo.svg',
     sections: [
       {
         heading: 'Who We Are',
@@ -56,19 +57,20 @@ export const Default = {
       },
     ],
     socialLinks: [
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/abbvie/', icon: 'Li' },
-      { label: 'X', href: 'https://twitter.com/abbvie', icon: 'X' },
-      { label: 'Facebook', href: 'https://www.facebook.com/AbbVie', icon: 'Fb' },
-      { label: 'YouTube', href: 'https://www.youtube.com/user/AbbVie', icon: 'Yt' },
-      { label: 'Instagram', href: 'https://www.instagram.com/abbvie/', icon: 'Ig' },
+      { label: 'Facebook', href: 'https://www.facebook.com/AbbVieGlobal', iconSrc: '/images/icon-facebook.svg' },
+      { label: 'X', href: 'https://twitter.com/abbvie', iconSrc: '/images/icon-twitter.svg' },
+      { label: 'Instagram', href: 'https://www.instagram.com/abbvie/', iconSrc: '/images/icon-instagram.svg' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/abbvie/', iconSrc: '/images/icon-linkedin.svg' },
+      { label: 'YouTube', href: 'https://www.youtube.com/user/AbbVie', iconSrc: '/images/icon-youtube.svg' },
+      { label: 'TikTok', href: 'https://www.tiktok.com/@abbvie', iconSrc: '/images/icon-tiktok.svg' },
     ],
-    copyright: '\u00a9 2026 AbbVie Inc. All rights reserved.',
+    copyright: '\u00a9 2026 AbbVie Inc. North Chicago, Illinois, U.S.A.',
     legalLinks: [
+      { label: 'Contact Us', href: '/contact-us.html' },
+      { label: 'Accessibility Statement', href: '/legal/accessibility.html' },
+      { label: 'Site Map', href: '/site-map.html' },
       { label: 'Terms of Use', href: '/legal/terms-of-use.html' },
-      { label: 'Privacy Policy', href: '/legal/privacy-policy.html' },
-      { label: 'Cookie Preferences', href: '/legal/cookie-preferences.html' },
-      { label: 'Accessibility', href: '/legal/accessibility.html' },
-      { label: 'AdChoices', href: '/legal/adchoices.html' },
+      { label: 'Privacy Notice', href: '/legal/privacy-notice.html' },
     ],
   },
 };

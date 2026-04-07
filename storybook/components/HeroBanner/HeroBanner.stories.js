@@ -4,8 +4,6 @@ export default {
   title: 'Components/HeroBanner',
 };
 
-const scene7 = (name) => `https://abbvie.scene7.com/is/image/abbviecorp/${name}?fmt=webp`;
-
 const pauseIcon = `
   <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <rect x="3" y="2" width="4" height="12"/>
@@ -31,7 +29,7 @@ export const VideoHero = () => {
         muted
         loop
         playsinline
-        poster="${scene7('woman-in-lab-looking-down')}"
+        poster="/images/hero-lab.webp"
       >
         <source src="" type="video/mp4" />
       </video>
@@ -83,7 +81,7 @@ export const ImageHero = () => {
     <div class="hero-banner">
       <img
         class="hero-banner__media"
-        src="${scene7('kids-playing-soccer-grass')}"
+        src="/images/hero-soccer.webp"
         alt="Children playing soccer outdoors"
         loading="eager"
       />
@@ -96,7 +94,7 @@ export const ImageHero = () => {
           Build a career where your work helps transform the lives of patients around the world.
           We offer bold opportunities in research, manufacturing, commercial, and beyond.
         </p>
-        <a href="#" class="hero-banner__cta">Search Open Positions</a>
+        <a href="#" class="hero-banner__cta">Browse Jobs</a>
       </div>
     </div>
   `;
@@ -113,8 +111,8 @@ export const SimpleHero = () => {
     <div class="hero-banner hero-banner--simple">
       <img
         class="hero-banner__media"
-        src="${scene7('two-women-scientist-talking-hero')}"
-        alt="Two women scientists in discussion"
+        src="/images/hero-parkinsons.webp"
+        alt="Two women in conversation about Parkinson's disease"
         loading="eager"
         style="position:relative;"
       />
@@ -133,8 +131,8 @@ export const DetailPageHero = () => {
     <div class="hero-banner hero-banner--detail">
       <img
         class="hero-banner__media"
-        src="${scene7('man-looking-screen-hero-1')}"
-        alt="Researcher reviewing data on screen"
+        src="/images/scientist-examining.webp"
+        alt="Woman scientist examining research data"
         loading="eager"
       />
 

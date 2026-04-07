@@ -9,7 +9,7 @@ export const Default = {
   args: {
     date: 'September 25, 2024',
     category: 'Science',
-    categoryHref: '/science.html',
+    categoryHref: '/who-we-are/our-stories/science-stories.html',
     readTime: '6 Minute Read',
   },
 };

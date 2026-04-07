@@ -8,14 +8,14 @@ export const WithHeadshot = {
   render: () => `
     <blockquote class="pull-quote">
       <p class="pull-quote__text">
-        "Our ability to integrate computational chemistry with high-throughput
-        screening has fundamentally changed the speed and precision of drug
-        discovery at AbbVie."
+        "Our ability to integrate AI and machine learning into our research
+        pipeline is accelerating drug discovery in ways we couldn't have
+        imagined just a few years ago."
       </p>
       <div class="pull-quote__attribution">
         <img
           class="pull-quote__headshot"
-          src="https://abbvie.scene7.com/is/image/abbviecorp/phil-hajduk-headshot-1?fmt=webp"
+          src="/images/headshot-phil-hajduk.webp"
           alt="Phil Hajduk, Ph.D."
         />
         <div class="pull-quote__author-info">

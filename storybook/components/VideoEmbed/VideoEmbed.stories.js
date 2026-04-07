@@ -9,12 +9,12 @@ export const StandaloneVideo = () => {
   wrapper.style.maxWidth = '640px';
   wrapper.innerHTML = `
     <div class="video-embed-container">
-      <img class="video-embed-poster" src="https://abbvie.scene7.com/is/image/abbviecorp/man-looking-at-testtube-feature-tall-2?fmt=webp" alt="Advancing Parkinson's Research" />
+      <img class="video-embed-poster" src="/images/hero-parkinsons.webp" alt="Advancing Parkinson's Research: One Patient's Journey, One Scientist's Mission" />
       <button class="video-embed-play-button" aria-label="Play video"></button>
       <span class="video-embed-duration">3:49</span>
     </div>
-    <div class="video-embed-title">Advancing Parkinson's Research</div>
-    <p class="video-embed-description">Discover how AbbVie neuroscience researchers are working to develop transformative therapies for people living with Parkinson's disease, from early-stage discovery through late-stage clinical trials.</p>
+    <div class="video-embed-title">Advancing Parkinson's Research: One Patient's Journey, One Scientist's Mission</div>
+    <p class="video-embed-description">Discover how AbbVie neuroscience researchers are partnering with patients and caregivers to develop transformative therapies for people living with Parkinson's disease, following one patient's personal journey alongside the scientist dedicated to finding new treatments.</p>
   `;
 
   const playBtn = wrapper.querySelector('.video-embed-play-button');
@@ -48,12 +48,12 @@ export const InlineVideo = () => {
   wrapper.style.maxWidth = '480px';
   wrapper.innerHTML = `
     <p style="font-family: Roboto, sans-serif; font-size: 16px; line-height: 24px; color: #071d49; margin-bottom: 16px;">
-      Watch the video below to learn how AbbVie is harnessing artificial intelligence and machine learning to accelerate drug discovery and bring new treatments to patients faster.
+      Watch the video below to learn how AbbVie scientists are pushing the boundaries of research to develop next-generation therapies across immunology, oncology, and neuroscience.
     </p>
     <div class="video-embed-container">
-      <img class="video-embed-poster" src="https://abbvie.scene7.com/is/image/abbviecorp/ambily-card-image?fmt=webp" alt="AbbVie AI-Powered Drug Discovery" />
+      <img class="video-embed-poster" src="/images/card-science.webp" alt="AbbVie Science: Pushing the Boundaries of Research" />
       <button class="video-embed-play-button" aria-label="Play video"></button>
-      <span class="video-embed-duration">0:30</span>
+      <span class="video-embed-duration">1:08</span>
     </div>
   `;
 

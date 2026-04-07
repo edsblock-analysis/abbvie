@@ -11,7 +11,7 @@ export const DefaultModal = () => {
       <div class="exit-modal-dialog">
         <h2 class="exit-modal-title">You are about to leave the AbbVie website</h2>
         <p class="exit-modal-body">
-          The link you clicked will take you to a site maintained by a third party, which is solely responsible for its content. AbbVie does not control, influence, or endorse this site, and the opinions, claims, or comments expressed on this site should not be attributed to AbbVie. AbbVie accepts no responsibility for the content of any third-party site or for the use of any personal information you may provide while visiting this site.
+          The link you clicked will take you to a site maintained by a third party, who is solely responsible for its content. AbbVie Inc. does not control, influence, or endorse this site, and the opinions, claims, or comments expressed on this site should not be attributed to AbbVie Inc.
         </p>
         <div class="exit-modal-buttons">
           <button class="exit-modal-btn-disagree">No, I disagree</button>
@@ -30,7 +30,7 @@ export const DefaultModal = () => {
   });
 
   agreeBtn.addEventListener('click', () => {
-    window.alert('You have agreed to leave the AbbVie website. In a live environment, you would now be redirected to the third-party site.');
+    window.alert('Navigating to external site...');
   });
 
   return wrapper;

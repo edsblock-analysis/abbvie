@@ -9,19 +9,19 @@ export const Default = {
   args: {
     slides: [
       {
-        date: 'January 7, 2025',
-        headline: 'Allergan Aesthetics Announces New Data Reinforcing the Long-Term Safety and Efficacy of BOTOX Cosmetic',
-        href: '/news/press-releases/allergan-aesthetics-botox-data.html',
+        date: 'April 7, 2026',
+        headline: 'Allergan Aesthetics Third State-of-the-Art AMI Center Opens in Austin',
+        href: '/news/press-releases/allergan-aesthetics-ami-center-austin.html',
       },
       {
-        date: 'November 15, 2024',
-        headline: 'AbbVie to Host CoolSculpting Elite Launch Event Highlighting Next-Generation Body Contouring Technology',
-        href: '/news/press-releases/coolsculpting-elite-launch.html',
+        date: 'March 31, 2026',
+        headline: 'Allergan Aesthetics Announces Fourth Annual, All-Access CoolMonth with Deals on CoolSculpting',
+        href: '/news/press-releases/allergan-aesthetics-coolmonth-2026.html',
       },
       {
-        date: 'October 30, 2024',
-        headline: 'AbbVie Reports Third-Quarter 2024 Financial Results and Hosts Earnings Conference Call',
-        href: '/news/press-releases/q3-2024-earnings.html',
+        date: 'March 31, 2026',
+        headline: 'AbbVie to Host First-Quarter 2026 Earnings Conference Call',
+        href: '/news/press-releases/q1-2026-earnings-call.html',
       },
     ],
   },

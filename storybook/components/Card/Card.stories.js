@@ -4,8 +4,6 @@ export default {
   title: 'Components/Card',
 };
 
-const scene7 = (name) => `https://abbvie.scene7.com/is/image/abbviecorp/${name}?fmt=webp`;
-
 /**
  * FeatureCard - Highlights a key AbbVie science area with an image,
  * description, and call-to-action link.
@@ -15,7 +13,7 @@ export const FeatureCard = () => {
   el.innerHTML = `
     <a class="card" href="#" style="max-width: 380px;">
       <div class="card-image">
-        <img src="${scene7('man-looking-at-testtube-feature-tall-2')}" alt="Scientist examining a test tube" />
+        <img src="/images/card-science.webp" alt="Scientist examining molecular data" />
       </div>
       <div class="card-content">
         <h3 class="card-title">Pushing the Boundaries of Science</h3>
@@ -36,7 +34,7 @@ export const StoryCard = () => {
   el.innerHTML = `
     <a class="card" href="#" style="max-width: 380px;">
       <div class="card-image">
-        <img src="${scene7('the-persistence-lab-promo')}" alt="Inside the persistence lab" />
+        <img src="/images/podcast-promo.webp" alt="The Persistence Lab podcast promo" />
       </div>
       <div class="card-content">
         <span class="card-category">Data Science</span>
@@ -59,7 +57,7 @@ export const ArticleCard = () => {
   el.innerHTML = `
     <a class="card" href="#" style="max-width: 380px;">
       <div class="card-image">
-        <img src="${scene7('two-women-scientist-talking-hero')}" alt="Scientists discussing oncology research" />
+        <img src="/images/card-story.webp" alt="AbbVie oncology research story" />
       </div>
       <div class="card-content">
         <span class="card-category">Oncology</span>
@@ -82,7 +80,7 @@ export const ResourceCard = () => {
   el.innerHTML = `
     <a class="card" href="/assets/documents/abbvie-patient-assistance.pdf" style="max-width: 380px;">
       <div class="card-image">
-        <img src="${scene7('young-woman-smiling')}" alt="Patient smiling" />
+        <img src="/images/culture-smile.webp" alt="Three women meeting and smiling" />
       </div>
       <div class="card-content">
         <h3 class="card-title">myAbbVie Assist Patient Savings Program</h3>

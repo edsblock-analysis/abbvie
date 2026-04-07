@@ -1,16 +1,24 @@
 import './Footer.css';
 
-export const Footer = ({ logoText = 'Company', sections = [], socialLinks = [], legalLinks = [], copyright }) => {
+export const Footer = ({ logoText = 'Company', logoSrc, sections = [], socialLinks = [], legalLinks = [], copyright }) => {
   const footer = document.createElement('footer');
   footer.className = 'footer';
 
   // Logo
   const logo = document.createElement('div');
   logo.className = 'footer-logo';
-  const logoSpan = document.createElement('span');
-  logoSpan.className = 'footer-logo-placeholder';
-  logoSpan.textContent = logoText;
-  logo.appendChild(logoSpan);
+  if (logoSrc) {
+    const logoImg = document.createElement('img');
+    logoImg.className = 'footer-logo-image';
+    logoImg.src = logoSrc;
+    logoImg.alt = logoText || 'Logo';
+    logo.appendChild(logoImg);
+  } else {
+    const logoSpan = document.createElement('span');
+    logoSpan.className = 'footer-logo-placeholder';
+    logoSpan.textContent = logoText;
+    logo.appendChild(logoSpan);
+  }
   footer.appendChild(logo);
 
   // Grid of link sections
@@ -52,7 +60,15 @@ export const Footer = ({ logoText = 'Company', sections = [], socialLinks = [], 
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
       a.setAttribute('aria-label', link.label);
-      a.textContent = link.icon || link.label.charAt(0);
+      if (link.iconSrc) {
+        const img = document.createElement('img');
+        img.src = link.iconSrc;
+        img.alt = link.label;
+        img.className = 'footer-social-icon-image';
+        a.appendChild(img);
+      } else {
+        a.textContent = link.icon || link.label.charAt(0);
+      }
       social.appendChild(a);
     });
     footer.appendChild(social);
