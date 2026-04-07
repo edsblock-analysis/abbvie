@@ -134,7 +134,9 @@ a {
   transition: var(--transition-color);
 }
 
-a:hover {
+/* Only apply hover color to plain text links, NOT button-style CTAs.
+   Button CTAs define their own hover colors in component CSS. */
+a:hover:not([class*="cta"]):not([class*="button"]):not([class*="btn"]) {
   color: var(--color-blue-light);
 }
 
