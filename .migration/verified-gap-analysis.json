@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Verified Gap Analysis — All 321 URLs Crawled",
+    "crawlDate": "2026-04-07",
+    "totalURLs": 321,
+    "successfulCrawls": 320,
+    "failedCrawls": 1,
+    "method": "Automated HTML crawl of every URL in siteurl.txt with pattern matching for AEM component classes"
+  },
+
+  "verifiedBlockInventory": {
+    "description": "Every AEM block type found across all 321 pages with exact page counts",
+    "blocks": [
+      { "block": "xf-header (Navigation Header)", "pages": 318, "pct": "99%", "storybook": "MISSING", "priority": "P0" },
+      { "block": "xf-footer (Global Footer)", "pages": 318, "pct": "99%", "storybook": "Footer", "priority": "done" },
+      { "block": "abbvie-container (Layout Wrapper)", "pages": 318, "pct": "99%", "storybook": "MISSING", "priority": "P0" },
+      { "block": "separator", "pages": 318, "pct": "99%", "storybook": "MISSING (12 heights)", "priority": "P0" },
+      { "block": "cardpagestory", "pages": 311, "pct": "97%", "storybook": "Card (PARTIAL — 9 variants missing)", "priority": "P1" },
+      { "block": "dashboardcards", "pages": 310, "pct": "97%", "storybook": "MISSING", "priority": "P0" },
+      { "block": "accordion", "pages": 310, "pct": "97%", "storybook": "Accordion (PARTIAL — tabs missing)", "priority": "P1" },
+      { "block": "accordion-tabs (show-tabs-desktop)", "pages": 310, "pct": "97%", "storybook": "MISSING (in nav accordion)", "priority": "P2" },
+      { "block": "breadcrumb", "pages": 158, "pct": "49%", "storybook": "Breadcrumb", "priority": "done" },
+      { "block": "back-cta", "pages": 130, "pct": "41%", "storybook": "MISSING", "priority": "P1" },
+      { "block": "storyinfo (Article Metadata)", "pages": 115, "pct": "36%", "storybook": "ArticleMetadata", "priority": "done" },
+      { "block": "grid-custom", "pages": 111, "pct": "35%", "storybook": "CardGrid (PARTIAL)", "priority": "P1" },
+      { "block": "quote", "pages": 108, "pct": "34%", "storybook": "PullQuote (PARTIAL — dark, outdented missing)", "priority": "P1" },
+      { "block": "video", "pages": 83, "pct": "26%", "storybook": "VideoEmbed (PARTIAL — 2-col missing)", "priority": "P1" },
+      { "block": "teaser", "pages": 31, "pct": "10%", "storybook": "SectionHeading (PARTIAL — CTA variant missing)", "priority": "P1" },
+      { "block": "image-positioned", "pages": 8, "pct": "3%", "storybook": "LeaderBio", "priority": "done" },
+      { "block": "teaser-with-cta", "pages": 5, "pct": "2%", "storybook": "MISSING", "priority": "P2" },
+      { "block": "grid-full-page", "pages": 4, "pct": "1%", "storybook": "MISSING", "priority": "P3" },
+      { "block": "teaser-h4", "pages": 1, "pct": "0%", "storybook": "MISSING", "priority": "P3" },
+      { "block": "homepage-hero-controller", "pages": 1, "pct": "0%", "storybook": "HeroBanner (PARTIAL — carousel missing)", "priority": "P1" }
+    ]
+  },
+
+  "verifiedVariants": {
+    "cardVariants": {
+      "found": ["card-dashboard", "card-medium", "card-small", "card-standard", "hide-description", "hide-image", "hide-publish-date", "show-publish-date", "standard-title"],
+      "total": 9,
+      "inStorybook": ["card-medium (as FeatureCard/StoryCard/ArticleCard/ResourceCard)"],
+      "missing": ["card-dashboard layout", "card-standard layout", "card-small size", "hide-description", "hide-image", "hide-publish-date", "show-publish-date", "standard-title"]
+    },
+    "containerVariants": {
+      "found": ["default-radius", "medium-radius", "large-radius", "height-default", "height-short", "height-tall", "homepage-overlap", "overlap-predecessor", "semi-transparent-layer", "size-full-width", "size-large", "size-medium", "size-x-large", "size-xx-large", "size-xxx-large"],
+      "total": 15,
+      "inStorybook": 0,
+      "missing": "ALL 15 — no AbbVie Container component exists in Storybook"
+    },
+    "separatorHeights": {
+      "found": [1, 8, 16, 24, 32, 48, 64, 80, 96, 112, 128, 144],
+      "total": 12,
+      "inStorybook": "1 generic hr (no height control)",
+      "missing": "ALL 12 height-specific variants"
+    },
+    "themeVariants": {
+      "found": ["dark-theme", "light-theme", "light-theme-no-stroke", "light-theme-stroke", "medium-theme", "medium-theme-stroke"],
+      "total": 6,
+      "inStorybook": ["light-theme (on some blocks)"],
+      "missing": ["dark-theme (on Card, Quote, Button)", "medium-theme", "medium-theme-stroke", "light-theme-stroke", "light-theme-no-stroke"]
+    }
+  },
+
+  "storybookCoverage": {
+    "summary": {
+      "liveBlockTypes": 20,
+      "fullyImplemented": 4,
+      "partiallyImplemented": 7,
+      "completelyMissing": 9,
+      "coverageScore": "20%"
+    },
+    "existingComponents": {
+      "complete": [
+        { "component": "Breadcrumb", "maps": "breadcrumb", "pages": 158 },
+        { "component": "ArticleMetadata", "maps": "storyinfo", "pages": 115 },
+        { "component": "Footer", "maps": "xf-footer", "pages": 318 },
+        { "component": "LeaderBio", "maps": "image-positioned", "pages": 8 }
+      ],
+      "partial": [
+        { "component": "HeroBanner", "maps": "homepage-hero-controller", "missing": "carousel variant", "pages": 1 },
+        { "component": "Card", "maps": "cardpagestory", "missing": "8 of 9 card variants", "pages": 311 },
+        { "component": "Accordion", "maps": "accordion", "missing": "tabs-on-desktop variant", "pages": 310 },
+        { "component": "CardGrid", "maps": "grid-custom", "missing": "tall-card grid variant", "pages": 111 },
+        { "component": "PullQuote", "maps": "quote", "missing": "dark-theme, format-outdented, size variants", "pages": 108 },
+        { "component": "VideoEmbed", "maps": "video", "missing": "2-col overlay variant", "pages": 83 },
+        { "component": "SectionHeading", "maps": "teaser", "missing": "CTA variant (teaser-with-cta)", "pages": 31 }
+      ],
+      "storybookOnlyNotInLiveBlocks": [
+        { "component": "AcquisitionHero", "note": "Composition of abbvie-container (large-radius) + overlap-predecessor — valid composite" },
+        { "component": "FeatureCardRow", "note": "Composition of grid within container on blue bg — valid composite" },
+        { "component": "CTABlock", "note": "Composition of abbvie-container medium-radius — valid composite" },
+        { "component": "TwoColumnFeature", "note": "Composition of abbvie-container with 2 grid children — valid composite" },
+        { "component": "StatCounter", "note": "Rendered by dashboardcards in AEM — should be merged" },
+        { "component": "RelatedContent", "note": "Composition of cardpagestory cards — valid composite" },
+        { "component": "PressReleaseCarousel", "note": "Splide within homepage-overlap container — valid composite" },
+        { "component": "ExitModal", "note": "popup-departure dialog — global component" },
+        { "component": "ProfileCardGrid", "note": "grid + cardpagestory card-standard — valid composite" },
+        { "component": "LinkList", "note": "list component — valid" },
+        { "component": "SectionHeading", "note": "Teaser (heading-only) — valid mapping" }
+      ]
+    },
+    "missingComponents": [
+      { "component": "NavigationHeader", "maps": "xf-header", "pages": 318, "priority": "P0", "reason": "Every page needs a header" },
+      { "component": "AbbVieContainer", "maps": "abbvie-container", "pages": 318, "priority": "P0", "reason": "Layout wrapper with 15 variants used on 99% of pages" },
+      { "component": "Separator", "maps": "separator", "pages": 318, "priority": "P0", "reason": "12 height variants, used as layout spacers on 99% of pages" },
+      { "component": "DashboardCards", "maps": "dashboardcards", "pages": 310, "priority": "P0", "reason": "Metric/stat cards on 97% of pages" },
+      { "component": "BackButton", "maps": "back-cta", "pages": 130, "priority": "P1", "reason": "Back navigation on 41% of pages" },
+      { "component": "TeaserWithCTA", "maps": "teaser-with-cta", "pages": 5, "priority": "P2", "reason": "Low page count but functional requirement" },
+      { "component": "GridFullPage", "maps": "grid-full-page", "pages": 4, "priority": "P3", "reason": "Only 4 pages" },
+      { "component": "TeaserH4", "maps": "teaser-h4", "pages": 1, "priority": "P3", "reason": "Only 1 page" },
+      { "component": "HeroCarousel", "maps": "homepage-hero-controller (carousel)", "pages": 1, "priority": "P1", "reason": "Homepage only but high visibility" }
+    ]
+  },
+
+  "previousReportCorrections": {
+    "description": "Corrections to earlier reports based on verified crawl data",
+    "corrections": [
+      {
+        "item": "accordion-tabs (show-tabs-desktop) page count",
+        "previous": "Reported as only on science landing page",
+        "verified": "Found on 310 pages — it is part of the navigation accordion, NOT just content accordion. The nav menu uses show-tabs-desktop for top-level nav rendering.",
+        "impact": "Lower priority than previously reported — it is a nav pattern, not a content block"
+      },
+      {
+        "item": "dashboardcards page count",
+        "previous": "Reported as mainly on science and homepage",
+        "verified": "Found on 310 pages — it is used in the footer experience fragment for popular pages / external links sections across the site",
+        "impact": "Much higher usage than previously thought"
+      },
+      {
+        "item": "separator height-128",
+        "previous": "Not documented — only had 1,8,16,24,32,48,64,80,96,112,144",
+        "verified": "Height 128 exists, bringing total to 12 unique separator heights",
+        "impact": "One additional separator variant needed"
+      },
+      {
+        "item": "back-cta page count",
+        "previous": "Reported as story pages only",
+        "verified": "Found on 130 pages — used on all story articles AND many content pages",
+        "impact": "Higher priority than previously thought (41% of site)"
+      },
+      {
+        "item": "hero border-radius",
+        "previous": "Initially reported as 80px, then corrected to 64px",
+        "verified": "The Aliada acquisition pages show 80px. Homepage shows 64px. Both values exist depending on the container class (large-radius=80px at full-width, others=64px)",
+        "impact": "Both 80px and 64px are valid — depends on container size variant"
+      }
+    ]
+  }
+}
