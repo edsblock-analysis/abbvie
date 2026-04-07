@@ -1,4 +1,5 @@
 import { Breadcrumb } from './Breadcrumb';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/Breadcrumb',
@@ -20,6 +21,12 @@ export const MultiLevel = {
       { label: 'Robert A. Michael' },
     ],
   },
+  render: (args) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = refBanner([{label:'Robert Michael Bio',url:'https://www.abbvie.com/who-we-are/our-leaders/robert-michael.html'}]);
+    wrapper.appendChild(Breadcrumb(args));
+    return wrapper;
+  },
 };
 
 export const SingleLevel = {
@@ -27,5 +34,11 @@ export const SingleLevel = {
     items: [
       { label: 'All Stories', href: '/who-we-are/our-stories.html' },
     ],
+  },
+  render: (args) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = refBanner([{label:'Our Stories',url:'https://www.abbvie.com/who-we-are/our-stories.html'}]);
+    wrapper.appendChild(Breadcrumb(args));
+    return wrapper;
   },
 };

@@ -1,4 +1,5 @@
 import { LeaderBio } from './LeaderBio';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/LeaderBio',
@@ -9,7 +10,12 @@ export default {
       },
     },
   },
-  render: (args) => LeaderBio(args),
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Robert Michael',url:'https://www.abbvie.com/who-we-are/our-leaders/robert-michael.html'},{label:'Thomas Hudson',url:'https://www.abbvie.com/who-we-are/our-leaders/thomas-hudson.html'}]);
+    w.appendChild(LeaderBio(args));
+    return w;
+  },
 };
 
 /**

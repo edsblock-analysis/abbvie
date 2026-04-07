@@ -1,4 +1,5 @@
 import './TwoColumnFeature.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/TwoColumnFeature',
@@ -12,7 +13,7 @@ export default {
 };
 
 export const ImageLeft = {
-  render: () => `
+  render: () => refBanner([{label:'Homepage (Podcast)',url:'https://www.abbvie.com/'}]) + `
     <div class="two-column-feature">
       <div class="two-column-feature__image-wrapper">
         <img
@@ -35,7 +36,7 @@ export const ImageLeft = {
 };
 
 export const ImageRight = {
-  render: () => `
+  render: () => refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
     <div class="two-column-feature two-column-feature--reversed">
       <div class="two-column-feature__image-wrapper">
         <img
@@ -58,7 +59,7 @@ export const ImageRight = {
 
 export const VideoLeft = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Homepage (Parkinson\'s Video)',url:'https://www.abbvie.com/'}]) + `
     <div class="two-column-feature">
       <div class="two-column-feature__image-wrapper two-column-feature__image-wrapper--video" style="position:relative; cursor:pointer;">
         <img

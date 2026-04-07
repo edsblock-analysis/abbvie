@@ -1,4 +1,5 @@
 import './SectionHeading.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/SectionHeading',
@@ -12,7 +13,7 @@ export default {
 };
 
 export const WithLabel = {
-  render: () => `
+  render: () => refBanner([{label:'Homepage (Science & Innovation)',url:'https://www.abbvie.com/'}]) + `
     <div class="section-heading">
       <p class="section-heading__label">SCIENCE &amp; INNOVATION</p>
       <h2 class="section-heading__headline">We solve the tough challenges.</h2>
@@ -26,7 +27,7 @@ export const WithLabel = {
 };
 
 export const Simple = {
-  render: () => `
+  render: () => refBanner([{label:'Science Areas',url:'https://www.abbvie.com/science/areas-of-focus.html'}]) + `
     <div class="section-heading section-heading--small">
       <h2 class="section-heading__headline">Areas of Focus</h2>
       <p class="section-heading__body">

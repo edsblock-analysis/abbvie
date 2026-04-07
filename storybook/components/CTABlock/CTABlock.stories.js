@@ -1,4 +1,5 @@
 import './CTABlock.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/CTABlock',
@@ -12,7 +13,7 @@ export default {
 };
 
 export const CenteredCTA = {
-  render: () => `
+  render: () => refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}]) + `
     <div class="cta-block">
       <h2 class="cta-block__heading">Explore Opportunities</h2>
       <p class="cta-block__body">
@@ -26,7 +27,7 @@ export const CenteredCTA = {
 };
 
 export const CTAWithImage = {
-  render: () => `
+  render: () => refBanner([{label:'Science',url:'https://www.abbvie.com/science.html'}]) + `
     <div class="cta-block cta-block--with-image">
       <img
         class="cta-block__image"

@@ -1,0 +1,40 @@
+/* Reference banner shown above each story in Canvas view */
+.story-reference {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  background: #f0f4ff;
+  border: 1px solid #c5d1e8;
+  border-left: 4px solid #0066f5;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin: 0 0 20px 0;
+}
+
+.story-reference strong {
+  color: #071d49;
+}
+
+.story-reference a {
+  color: #0066f5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.story-reference a:hover {
+  text-decoration: underline;
+}
+
+.story-reference .story-reference__label {
+  display: inline-block;
+  background: #0066f5;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+}

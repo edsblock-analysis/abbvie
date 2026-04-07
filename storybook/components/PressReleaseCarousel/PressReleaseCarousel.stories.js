@@ -1,4 +1,5 @@
 import { PressReleaseCarousel } from './PressReleaseCarousel';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/PressReleaseCarousel',
@@ -9,7 +10,12 @@ export default {
       },
     },
   },
-  render: (args) => PressReleaseCarousel(args),
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}]);
+    w.appendChild(PressReleaseCarousel(args));
+    return w;
+  },
 };
 
 export const Default = {

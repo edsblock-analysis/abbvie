@@ -1,4 +1,5 @@
 import { RelatedContent } from './RelatedContent';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/RelatedContent',
@@ -13,6 +14,12 @@ export default {
 };
 
 export const ArticleRelated = {
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Story Article (bottom)',url:'https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html'}]);
+    w.appendChild(RelatedContent(args));
+    return w;
+  },
   args: {
     heading: 'Related Articles',
     variant: 'cards',
@@ -43,6 +50,12 @@ export const ArticleRelated = {
 };
 
 export const TopicLinks = {
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Oncology',url:'https://www.abbvie.com/science/areas-of-focus/oncology.html'}]);
+    w.appendChild(RelatedContent(args));
+    return w;
+  },
   args: {
     heading: 'Explore Topics',
     variant: 'topics',

@@ -1,4 +1,5 @@
 import { ProfileCardGrid } from './ProfileCardGrid';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/ProfileCardGrid',
@@ -13,6 +14,12 @@ export default {
 };
 
 export const ExecutiveGrid = {
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Our Leaders',url:'https://www.abbvie.com/who-we-are/our-leaders.html'},{label:'R&D Leaders',url:'https://www.abbvie.com/science/our-people/our-rd-leaders.html'}]);
+    w.appendChild(ProfileCardGrid(args));
+    return w;
+  },
   args: {
     profiles: [
       {

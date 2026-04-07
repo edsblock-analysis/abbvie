@@ -1,4 +1,5 @@
 import './FeatureCardRow.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/FeatureCardRow',
@@ -16,7 +17,7 @@ export default {
  * Matches live site: https://www.abbvie.com/aliada-therapeutics.html
  * Each card: image (left) + content (right) with divider, H3, body, CTA.
  */
-export const AcquisitionFeatures = () => `
+export const AcquisitionFeatures = () => refBanner([{label:'Aliada Therapeutics',url:'https://www.abbvie.com/aliada-therapeutics.html'}]) + `
   <div class="feature-card-row">
     <div class="feature-card-row__card">
       <img
@@ -63,7 +64,7 @@ export const AcquisitionFeatures = () => `
 /**
  * SingleFeatureCard — Just one feature card (reusable pattern).
  */
-export const SingleFeatureCard = () => `
+export const SingleFeatureCard = () => refBanner([{label:'Cerevel',url:'https://www.abbvie.com/cerevel.html'}]) + `
   <div class="feature-card-row" style="padding-bottom: 4rem;">
     <div class="feature-card-row__card">
       <img

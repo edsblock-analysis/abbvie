@@ -1,4 +1,5 @@
 import './AcquisitionHero.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/AcquisitionHero',
@@ -18,7 +19,7 @@ export default {
  *
  * Hero image: 80px top-left radius, card: 40px top-left, -112px overlap.
  */
-export const Default = () => `
+export const Default = () => refBanner([{label:'Aliada',url:'https://www.abbvie.com/aliada-therapeutics.html'},{label:'Cerevel',url:'https://www.abbvie.com/cerevel.html'},{label:'ImmunoGen',url:'https://www.abbvie.com/immunogen.html'}]) + `
   <div class="acquisition-hero">
     <div class="acquisition-hero__image-section">
       <div class="acquisition-hero__image-wrapper">

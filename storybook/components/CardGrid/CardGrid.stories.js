@@ -1,5 +1,6 @@
 import './CardGrid.css';
 import '../Card/Card.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/CardGrid',
@@ -18,7 +19,7 @@ export default {
  */
 export const FeatureCards = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
     <div class="card-grid">
       <a class="card" href="#">
         <div class="card-image">
@@ -61,7 +62,7 @@ export const FeatureCards = () => {
  */
 export const StoryCards = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Homepage',url:'https://www.abbvie.com/'},{label:'Science',url:'https://www.abbvie.com/science.html'}]) + `
     <div class="card-grid">
       <a class="card" href="#">
         <div class="card-image">

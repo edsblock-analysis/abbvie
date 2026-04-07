@@ -1,4 +1,5 @@
 import './HeroBanner.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/HeroBanner',
@@ -28,7 +29,7 @@ const playIcon = `
  */
 export const VideoHero = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}]) + `
     <div class="hero-banner">
       <div class="hero-banner__media-wrapper">
         <video
@@ -86,7 +87,7 @@ export const VideoHero = () => {
  */
 export const ImageHero = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
     <div class="hero-banner">
       <div class="hero-banner__media-wrapper">
         <img
@@ -118,7 +119,7 @@ export const ImageHero = () => {
  */
 export const SimpleHero = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Story Article',url:'https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html'}]) + `
     <div class="hero-banner hero-banner--simple">
       <div class="hero-banner__media-wrapper">
         <img
@@ -139,7 +140,7 @@ export const SimpleHero = () => {
  */
 export const DetailPageHero = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Oncology',url:'https://www.abbvie.com/science/areas-of-focus/oncology.html'}]) + `
     <div class="hero-banner hero-banner--detail">
       <div class="hero-banner__media-wrapper">
         <img

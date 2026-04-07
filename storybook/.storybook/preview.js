@@ -1,4 +1,5 @@
 import '../styles/global.css';
+import '../styles/reference-banner.css';
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {

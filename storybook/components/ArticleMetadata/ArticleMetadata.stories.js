@@ -1,8 +1,14 @@
 import { ArticleMetadata } from './ArticleMetadata';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/ArticleMetadata',
-  render: (args) => ArticleMetadata(args),
+  render: (args) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = refBanner([{label:'AI Drug Discovery Story',url:'https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html'}]);
+    wrapper.appendChild(ArticleMetadata(args));
+    return wrapper;
+  },
   parameters: {
     docs: {
       description: {

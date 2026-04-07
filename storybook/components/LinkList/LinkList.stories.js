@@ -1,4 +1,5 @@
 import { LinkList } from './LinkList';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/LinkList',
@@ -13,6 +14,12 @@ export default {
 };
 
 export const QuickLinks = {
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Homepage ESG Section',url:'https://www.abbvie.com/'}]);
+    w.appendChild(LinkList(args));
+    return w;
+  },
   args: {
     heading: "AbbVie's Positions & Views",
     links: [
@@ -24,6 +31,12 @@ export const QuickLinks = {
 };
 
 export const TopicsList = {
+  render: (args) => {
+    const w = document.createElement('div');
+    w.innerHTML = refBanner([{label:'Patient Assistance',url:'https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html'}]);
+    w.appendChild(LinkList(args));
+    return w;
+  },
   args: {
     links: [
       { label: 'Pipeline', href: '/science/pipeline.html' },

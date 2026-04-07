@@ -1,4 +1,5 @@
 import './StatCounter.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/StatCounter',
@@ -12,7 +13,7 @@ export default {
 };
 
 export const InlineStat = {
-  render: () => `
+  render: () => refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}]) + `
     <div class="stat-counter">
       <div>
         <span class="stat-counter__number">75</span><span class="stat-counter__suffix">+</span>
@@ -23,7 +24,7 @@ export const InlineStat = {
 };
 
 export const GridStats = {
-  render: () => `
+  render: () => refBanner([{label:'Science',url:'https://www.abbvie.com/science.html'}]) + `
     <div class="stat-counter-grid">
       <div class="stat-counter">
         <div>

@@ -1,4 +1,5 @@
 import './VideoEmbed.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/VideoEmbed',
@@ -14,7 +15,7 @@ export default {
 export const StandaloneVideo = () => {
   const wrapper = document.createElement('div');
   wrapper.style.maxWidth = '640px';
-  wrapper.innerHTML = `
+  wrapper.innerHTML = refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}]) + `
     <div class="video-embed-container">
       <img class="video-embed-poster" src="/images/hero-parkinsons.webp" alt="Advancing Parkinson's Research" />
       <video class="video-embed-player" style="display:none; width:100%; border-radius:4px;" controls>
@@ -46,7 +47,7 @@ export const StandaloneVideo = () => {
 export const InlineVideo = () => {
   const wrapper = document.createElement('div');
   wrapper.style.maxWidth = '480px';
-  wrapper.innerHTML = `
+  wrapper.innerHTML = refBanner([{label:'Story Article',url:'https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html'}]) + `
     <p style="font-family: Roboto, sans-serif; font-size: 16px; line-height: 24px; color: #071d49; margin-bottom: 16px;">
       Watch the video below to learn how AbbVie scientists are pushing the boundaries of research to develop next-generation therapies.
     </p>

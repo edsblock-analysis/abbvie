@@ -1,4 +1,5 @@
 import './Accordion.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/Accordion',
@@ -56,7 +57,7 @@ function attachAccordionJS(container) {
  */
 export const Default = () => {
   const wrapper = document.createElement('div');
-  wrapper.innerHTML = `
+  wrapper.innerHTML = refBanner([{label:'Science FAQ',url:'https://www.abbvie.com/science.html'},{label:'Medicine List',url:'https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html'},{label:'Disease Categories',url:'https://www.abbvie.com/science/areas-of-focus/oncology.html'}]) + `
     <div class="accordion-container">
       <div class="accordion-controls">
         <button class="accordion-toggle-all" data-action="expand">Expand All</button>

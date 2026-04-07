@@ -1,4 +1,5 @@
 import { Footer } from './Footer';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/Footer',
@@ -9,7 +10,12 @@ export default {
       },
     },
   },
-  render: (args) => Footer(args),
+  render: (args) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = refBanner([{label:'All Pages (scroll to bottom)',url:'https://www.abbvie.com/'}]);
+    wrapper.appendChild(Footer(args));
+    return wrapper;
+  },
 };
 
 export const Default = {

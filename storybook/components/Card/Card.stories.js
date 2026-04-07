@@ -1,4 +1,5 @@
 import './Card.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/Card',
@@ -18,7 +19,7 @@ export default {
  */
 export const FeatureCard = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
     <a class="card" href="#" style="max-width: 380px;">
       <div class="card-image">
         <img src="/images/card-science.webp" alt="Scientist examining molecular data" />
@@ -39,7 +40,7 @@ export const FeatureCard = () => {
  */
 export const StoryCard = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Our Stories',url:'https://www.abbvie.com/who-we-are/our-stories.html'}]) + `
     <a class="card" href="#" style="max-width: 380px;">
       <div class="card-image">
         <img src="/images/podcast-promo.webp" alt="The Persistence Lab podcast promo" />
@@ -62,7 +63,7 @@ export const StoryCard = () => {
  */
 export const ArticleCard = () => {
   const el = document.createElement('div');
-  el.innerHTML = `
+  el.innerHTML = refBanner([{label:'Science',url:'https://www.abbvie.com/science.html'}]) + `
     <a class="card" href="#" style="max-width: 380px;">
       <div class="card-image">
         <img src="/images/card-story.webp" alt="AbbVie oncology research story" />

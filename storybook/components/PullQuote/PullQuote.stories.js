@@ -1,4 +1,5 @@
 import './PullQuote.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/PullQuote',
@@ -12,7 +13,7 @@ export default {
 };
 
 export const WithHeadshot = {
-  render: () => `
+  render: () => refBanner([{label:'AI Drug Discovery Story',url:'https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html'}]) + `
     <blockquote class="pull-quote">
       <p class="pull-quote__text">
         "Our ability to integrate AI and machine learning into our research
@@ -35,7 +36,7 @@ export const WithHeadshot = {
 };
 
 export const Testimonial = {
-  render: () => `
+  render: () => refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
     <blockquote class="pull-quote">
       <p class="pull-quote__text">
         "What drew me to AbbVie was the culture of ownership—everyone here

@@ -1,4 +1,5 @@
 import './ExitModal.css';
+import { refBanner } from '../../helpers/reference';
 
 export default {
   title: 'Components/ExitModal',
@@ -13,7 +14,7 @@ export default {
 
 export const DefaultModal = () => {
   const wrapper = document.createElement('div');
-  wrapper.innerHTML = `
+  wrapper.innerHTML = refBanner([{label:'Any Page (click external link)',url:'https://www.abbvie.com/'}]) + `
     <div class="exit-modal-overlay" style="position: relative; min-height: 400px;">
       <div class="exit-modal-dialog">
         <h2 class="exit-modal-title">You are about to leave the AbbVie website</h2>
