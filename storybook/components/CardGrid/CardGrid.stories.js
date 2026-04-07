@@ -3,6 +3,13 @@ import '../Card/Card.css';
 
 export default {
   title: 'Components/CardGrid',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [join-us](https://www.abbvie.com/join-us.html) (3-col feature cards), [homepage](https://www.abbvie.com/) (story cards section), [science](https://www.abbvie.com/science.html) (article grid)\n\nResponsive card grid: 3-col desktop, 2-col tablet, 1-col mobile. Column count controlled by CSS.',
+      },
+    },
+  },
 };
 
 /**

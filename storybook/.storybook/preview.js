@@ -14,6 +14,9 @@ const preview = {
         xlDesktop: { name: 'XL Desktop', styles: { width: '1920px', height: '1080px' } },
       },
     },
+    docs: {
+      toc: true,
+    },
   },
 };
 

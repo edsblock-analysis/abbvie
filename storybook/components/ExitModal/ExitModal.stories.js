@@ -2,6 +2,13 @@ import './ExitModal.css';
 
 export default {
   title: 'Components/ExitModal',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** All pages — triggered by clicking external links on [abbvie.com](https://www.abbvie.com/)\n\nModal dialog warning users they are leaving AbbVie website. "No, I disagree" closes modal, "Yes, I agree" navigates to external URL. Present on all 321 pages.',
+      },
+    },
+  },
 };
 
 export const DefaultModal = () => {

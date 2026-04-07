@@ -2,6 +2,13 @@ import './Card.css';
 
 export default {
   title: 'Components/Card',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (featured story card), [science](https://www.abbvie.com/science.html) (article cards), [our-stories](https://www.abbvie.com/who-we-are/our-stories.html) (story listing)\n\nCard component used as cardpagestory in AEM. Found on 311 of 321 pages. Variants: FeatureCard (image+title+body+CTA), StoryCard (with category/date/readtime), ArticleCard (full metadata+CTA).',
+      },
+    },
+  },
 };
 
 /**

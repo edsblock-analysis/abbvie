@@ -2,6 +2,13 @@ import './PullQuote.css';
 
 export default {
   title: 'Components/PullQuote',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [AI drug discovery story](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html) (WithHeadshot — Phil Hajduk quote), [join-us](https://www.abbvie.com/join-us.html) (Testimonial — employee quote)\n\nBlockquote with blue left border. WithHeadshot: includes circular headshot + name + title. Testimonial: text only with attribution. AEM component: quote. Found on 108 pages.',
+      },
+    },
+  },
 };
 
 export const WithHeadshot = {

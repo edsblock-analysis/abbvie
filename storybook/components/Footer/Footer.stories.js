@@ -2,6 +2,13 @@ import { Footer } from './Footer';
 
 export default {
   title: 'Components/Footer',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** All pages — [abbvie.com](https://www.abbvie.com/) (scroll to bottom)\n\nGlobal footer with AbbVie logo, 5 nav sections, 6 social media icons, Popular Pages, External Links, legal bar, and copyright. AEM component: experiencefragment cmp-experiencefragment--footer. Present on all 321 pages.',
+      },
+    },
+  },
   render: (args) => Footer(args),
 };
 

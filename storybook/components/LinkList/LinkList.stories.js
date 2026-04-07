@@ -2,6 +2,13 @@ import { LinkList } from './LinkList';
 
 export default {
   title: 'Components/LinkList',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (ESG Quick Links section, Investor Resources links), [available-programs](https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html) (related topics)\n\nGrouped list of links. QuickLinks: with heading + external link indicators. TopicsList: simple list, no heading.',
+      },
+    },
+  },
   render: (args) => LinkList(args),
 };
 

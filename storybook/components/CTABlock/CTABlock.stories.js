@@ -2,6 +2,13 @@ import './CTABlock.css';
 
 export default {
   title: 'Components/CTABlock',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (Explore Opportunities section), [science](https://www.abbvie.com/science.html) (Explore R&D Opportunities)\n\nCall-to-action block with heading, body, and button. CenteredCTA: text-only centered. CTAWithImage: side-by-side image + text. Wrapped in abbvie-container medium-radius on live site.',
+      },
+    },
+  },
 };
 
 export const CenteredCTA = {

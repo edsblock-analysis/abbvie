@@ -2,6 +2,13 @@ import { ProfileCardGrid } from './ProfileCardGrid';
 
 export default {
   title: 'Components/ProfileCardGrid',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [our-leaders](https://www.abbvie.com/who-we-are/our-leaders.html), [our-rd-leaders](https://www.abbvie.com/science/our-people/our-rd-leaders.html)\n\nResponsive grid of profile cards: 3-col desktop, 2-col tablet, 1-col mobile. Each card shows circular headshot, name, title, and "Meet [Name]" link. Used on 2 listing pages.',
+      },
+    },
+  },
   render: (args) => ProfileCardGrid(args),
 };
 

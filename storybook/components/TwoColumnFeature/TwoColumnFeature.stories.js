@@ -2,6 +2,13 @@ import './TwoColumnFeature.css';
 
 export default {
   title: 'Components/TwoColumnFeature',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (Persistence Lab Podcast section, Parkinson\'s Research video), [join-us](https://www.abbvie.com/join-us.html) (employee testimonial sections)\n\n50/50 split layout with 40px top-left border-radius. ImageLeft: image left, text+CTA right. ImageRight: reversed with CSS modifier. VideoLeft: poster image with play button that swaps to real video.',
+      },
+    },
+  },
 };
 
 export const ImageLeft = {

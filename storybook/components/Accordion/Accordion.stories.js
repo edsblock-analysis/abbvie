@@ -2,6 +2,13 @@ import './Accordion.css';
 
 export default {
   title: 'Components/Accordion',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [science.html](https://www.abbvie.com/science.html) (FAQ accordion), [available-programs](https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html) (medicine list with 65 items), [oncology](https://www.abbvie.com/science/areas-of-focus/oncology.html) (disease category accordion)\n\nExpandable/collapsible panels with Expand All / Collapse All control. Same accordion shell for all content types.',
+      },
+    },
+  },
 };
 
 function attachAccordionJS(container) {

@@ -3,6 +3,13 @@ import { ArticleMetadata } from './ArticleMetadata';
 export default {
   title: 'Components/ArticleMetadata',
   render: (args) => ArticleMetadata(args),
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [AI drug discovery story](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html)\n\nArticle metadata bar showing date, category tag (linked), and reading time. AEM component: storyinfo. Found on 115 story article pages.',
+      },
+    },
+  },
 };
 
 export const Default = {

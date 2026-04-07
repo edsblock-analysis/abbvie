@@ -2,6 +2,13 @@ import './StatCounter.css';
 
 export default {
   title: 'Components/StatCounter',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (75+ conditions treated, ~57k employees), [science](https://www.abbvie.com/science.html) (90+ compounds, ~50 NMEs, 9 R&D centers, etc.), [sustainability](https://www.abbvie.com/sustainability.html) (32% GHG reduction)\n\nLarge numerical display with prefix/suffix and label. InlineStat: single metric. GridStats: row of 6 metrics. AEM component: dashboardcards (fact variant).',
+      },
+    },
+  },
 };
 
 export const InlineStat = {

@@ -2,6 +2,13 @@ import { RelatedContent } from './RelatedContent';
 
 export default {
   title: 'Components/RelatedContent',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [story article](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html) (3 related article cards at bottom), [oncology](https://www.abbvie.com/science/areas-of-focus/oncology.html) (related topics links)\n\nBottom-of-page section. ArticleRelated: 3-col card grid with image + category + title. TopicLinks: horizontal list of topic links.',
+      },
+    },
+  },
   render: (args) => RelatedContent(args),
 };
 

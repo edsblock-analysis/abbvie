@@ -2,6 +2,13 @@ import { LeaderBio } from './LeaderBio';
 
 export default {
   title: 'Components/LeaderBio',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [robert-michael](https://www.abbvie.com/who-we-are/our-leaders/robert-michael.html), [thomas-hudson](https://www.abbvie.com/who-we-are/our-leaders/thomas-hudson.html), [philip-hajduk](https://www.abbvie.com/science/our-people/our-rd-leaders/philip-hajduk.html)\n\nFull biography page with square headshot, H1 name, subtitle title, multi-paragraph bio, and LinkedIn link. Same structure for executive leaders (24 pages) and R&D leaders (13 pages).',
+      },
+    },
+  },
   render: (args) => LeaderBio(args),
 };
 

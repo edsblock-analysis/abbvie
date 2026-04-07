@@ -2,6 +2,13 @@ import './HeroBanner.css';
 
 export default {
   title: 'Components/HeroBanner',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [abbvie.com](https://www.abbvie.com/) (VideoHero), [join-us](https://www.abbvie.com/join-us.html) (ImageHero), [story article](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html) (SimpleHero), [oncology](https://www.abbvie.com/science/areas-of-focus/oncology.html) (DetailPageHero)\n\nFull-width hero with 64px top-left border-radius on image container. Responsive: 32px on mobile.',
+      },
+    },
+  },
 };
 
 const pauseIcon = `

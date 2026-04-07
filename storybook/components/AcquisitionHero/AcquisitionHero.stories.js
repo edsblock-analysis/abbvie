@@ -2,6 +2,13 @@ import './AcquisitionHero.css';
 
 export default {
   title: 'Components/AcquisitionHero',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [aliada-therapeutics](https://www.abbvie.com/aliada-therapeutics.html), [cerevel](https://www.abbvie.com/cerevel.html), [immunogen](https://www.abbvie.com/immunogen.html), [capstan](https://www.abbvie.com/capstan-therapeutics.html), [celsius](https://www.abbvie.com/celsius-therapeutics.html), [mitokinin](https://www.abbvie.com/mitokinin.html), [nimble](https://www.abbvie.com/nimbletherapeutics.html)\n\nFull-width hero image (80px top-left radius) with overlapping white content card (40px radius, -112px negative margin). Used on all acquisition/company pages.',
+      },
+    },
+  },
 };
 
 /**

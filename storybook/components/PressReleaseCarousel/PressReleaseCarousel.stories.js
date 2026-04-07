@@ -2,6 +2,13 @@ import { PressReleaseCarousel } from './PressReleaseCarousel';
 
 export default {
   title: 'Components/PressReleaseCarousel',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (Press Releases section, top of page below hero)\n\nSplide-style carousel showing latest press releases. Arrows positioned bottom-right (not overlapping text). Slide counter shows "1 of 3". Each slide has date, headline, and Read More link. Homepage only.',
+      },
+    },
+  },
   render: (args) => PressReleaseCarousel(args),
 };
 

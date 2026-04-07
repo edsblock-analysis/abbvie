@@ -2,6 +2,13 @@ import './SectionHeading.css';
 
 export default {
   title: 'Components/SectionHeading',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (Science & Innovation section, Culture of Curiosity section, Investor Resources section, ESG section)\n\nSection header with optional uppercase label, H2/H3 headline, and body text. AEM component: teaser (heading-only config). WithLabel adds colored eyebrow above headline. Simple variant uses --small modifier.',
+      },
+    },
+  },
 };
 
 export const WithLabel = {

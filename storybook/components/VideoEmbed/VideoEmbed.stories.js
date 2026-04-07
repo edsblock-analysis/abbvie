@@ -2,6 +2,13 @@ import './VideoEmbed.css';
 
 export default {
   title: 'Components/VideoEmbed',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (Parkinson\'s Research video — Watch 3:49), [science](https://www.abbvie.com/science.html) (research videos), [story articles](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html) (inline article video)\n\nVideo player with poster image, play button, and duration badge. StandaloneVideo: full block with title + description. InlineVideo: embedded in article body. Click play replaces poster with actual video. Found on 83 pages.',
+      },
+    },
+  },
 };
 
 export const StandaloneVideo = () => {

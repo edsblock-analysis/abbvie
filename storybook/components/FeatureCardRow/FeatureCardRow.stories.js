@@ -2,6 +2,13 @@ import './FeatureCardRow.css';
 
 export default {
   title: 'Components/FeatureCardRow',
+  parameters: {
+    docs: {
+      description: {
+        component: '**Production reference:** [aliada-therapeutics](https://www.abbvie.com/aliada-therapeutics.html), [cerevel](https://www.abbvie.com/cerevel.html), [immunogen](https://www.abbvie.com/immunogen.html)\n\nSide-by-side image + text feature cards on #f1f3ff light blue background. Image has 40px top-left radius. Each card has navy divider, H3 heading, body, outline CTA button. Used on acquisition pages below the hero.',
+      },
+    },
+  },
 };
 
 /**
