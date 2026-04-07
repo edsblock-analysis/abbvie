@@ -1,0 +1,113 @@
+/* ==========================================================
+   FeatureCardRow — Side-by-side feature cards with image + text,
+   on a light blue background. Used on acquisition pages.
+
+   VERIFIED from live site (aliada-therapeutics.html):
+   - Background: rgb(241, 243, 255) (#f1f3ff)
+   - Each card: image left, text right (H3 + body + outline CTA)
+   - Cards stacked vertically within a full-width container
+   - Divider line (hr) above each heading
+   - CTA: outline button (border: 2px solid #0066f5)
+   ========================================================== */
+
+.feature-card-row {
+  background: #f1f3ff;
+  padding: 8rem 5.5rem 0;
+  width: 100%;
+}
+
+.feature-card-row__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+
+.feature-card-row__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 40px 0px 0px 0px;
+}
+
+.feature-card-row__content {
+  padding: 4rem 6rem;
+}
+
+.feature-card-row__divider {
+  border: none;
+  border-top: 2px solid #071d49;
+  width: 4rem;
+  margin: 0 0 2.4rem;
+}
+
+.feature-card-row__heading {
+  font-family: 'F37 Lineca Medium', Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  line-height: 3.4rem;
+  font-weight: 800;
+  color: #071d49;
+  margin: 0 0 1.6rem;
+}
+
+.feature-card-row__body {
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  font-weight: 400;
+  color: #071d49;
+  margin: 0 0 2.4rem;
+}
+
+.feature-card-row__cta {
+  display: inline-block;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  color: #0066f5;
+  text-decoration: none;
+  border: 2px solid #0066f5;
+  padding: 1.2rem 3.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.feature-card-row__cta:hover,
+.feature-card-row__cta:focus {
+  background-color: #0066f5;
+  color: #ffffff;
+}
+
+/* --- Separator between cards --- */
+.feature-card-row__separator {
+  border: none;
+  height: 9.6rem;
+}
+
+/* --- Mobile --- */
+@media (max-width: 743px) {
+  .feature-card-row {
+    padding: 4rem 2rem 0;
+  }
+
+  .feature-card-row__card {
+    grid-template-columns: 1fr;
+    margin-bottom: 5.6rem;
+  }
+
+  .feature-card-row__image {
+    border-radius: 24px 0px 0px 0px;
+  }
+
+  .feature-card-row__content {
+    padding: 2.4rem 0;
+  }
+
+  .feature-card-row__heading {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+}
