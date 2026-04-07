@@ -1,6 +1,19 @@
+/* ==========================================================
+   PressReleaseCarousel — Splide-style carousel for press releases.
+
+   VERIFIED from live site (2026-04-07):
+   - Parent: padding-bottom 60px to create space for arrows
+   - Arrows: position absolute, bottom-right of parent (NOT overlapping text)
+   - Arrows: 40x40, no background, no border, navy SVG icons
+   - Slide: date + headline + "Read More" link
+   - No dots navigation — uses "1 of 3" text counter (Splide)
+   ========================================================== */
+
 .press-release-carousel {
   position: relative;
   overflow: hidden;
+  padding-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .press-release-carousel-track {
@@ -10,12 +23,12 @@
 
 .press-release-carousel-slide {
   min-width: 100%;
-  padding: 2.4rem;
+  padding: 0 2.4rem 0 0;
   box-sizing: border-box;
 }
 
 .press-release-carousel-date {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
   color: #666b7a;
@@ -23,7 +36,7 @@
 }
 
 .press-release-carousel-headline {
-  font-family: 'F37 Lineca', sans-serif;
+  font-family: 'F37 Lineca Book', Helvetica, Arial, sans-serif;
   font-weight: 650;
   font-size: 2.8rem;
   line-height: 3.2rem;
@@ -32,10 +45,11 @@
 }
 
 .press-release-carousel-link {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   text-transform: uppercase;
+  letter-spacing: 0.84px;
   color: #0066f5;
   text-decoration: none;
 }
@@ -44,53 +58,52 @@
   text-decoration: underline;
 }
 
-.press-release-carousel-arrow {
+/* Arrow controls — positioned bottom-right, NOT overlapping content */
+.press-release-carousel-controls {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.press-release-carousel-arrow {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: #071d49;
-  color: white;
+  background: none;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  z-index: 1;
-}
-
-.press-release-carousel-arrow:hover {
-  opacity: 0.85;
-}
-
-.press-release-carousel-arrow--prev {
-  left: 1.6rem;
-}
-
-.press-release-carousel-arrow--next {
-  right: 1.6rem;
-}
-
-.press-release-carousel-dots {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  padding: 1.6rem 0;
-}
-
-.press-release-carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #c4c4c4;
-  border: none;
-  cursor: pointer;
+  color: #071d49;
   padding: 0;
 }
 
-.press-release-carousel-dot--active {
-  background: #071d49;
+.press-release-carousel-arrow:hover {
+  opacity: 0.6;
+}
+
+.press-release-carousel-arrow svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}
+
+/* Slide counter (e.g., "1 of 3") */
+.press-release-carousel-counter {
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  color: #666b7a;
+  margin-left: 1.2rem;
+}
+
+/* Remove old dot styles — live site uses counter not dots */
+
+@media (max-width: 743px) {
+  .press-release-carousel-headline {
+    font-size: 2rem;
+    line-height: 2.6rem;
+  }
 }
