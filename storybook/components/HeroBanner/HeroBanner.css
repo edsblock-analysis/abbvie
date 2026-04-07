@@ -1,19 +1,26 @@
-:root {
-  font-size: 62.5%; /* 10px base */
-}
-
 /* =========================================================
    HeroBanner - Full-width hero component
-   Matches AbbVie live site styling
+   Matches AbbVie live site styling exactly.
+
+   CRITICAL: Live site uses border-radius: 80px 0 0 0 on the
+   image container (top-left only) with overflow: hidden.
+   Other containers use 64px 0 0 0 or 40px 0 0 0.
    ========================================================= */
 
 .hero-banner {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 50rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+}
+
+/* Image/video container — applies the signature top-left radius */
+.hero-banner__media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  border-radius: 80px 0px 0px 0px;
   overflow: hidden;
 }
 
@@ -44,16 +51,20 @@
 
 /* Content area */
 .hero-banner__content {
-  position: relative;
+  position: absolute;
+  bottom: 8rem;
+  left: 0;
+  right: 0;
   z-index: 3;
   text-align: center;
   max-width: 80rem;
+  margin: 0 auto;
   padding: 2rem;
 }
 
 /* H1 heading */
 .hero-banner__title {
-  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', sans-serif;
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', Helvetica, Arial, sans-serif;
   font-size: 4rem;
   line-height: 4.4rem;
   font-weight: 800;
@@ -64,7 +75,7 @@
 
 /* Subheading paragraph */
 .hero-banner__subheading {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   line-height: 2.6rem;
   font-weight: 400;
@@ -76,7 +87,7 @@
 /* CTA link */
 .hero-banner__cta {
   display: inline-block;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -126,9 +137,19 @@
 
 /* ---------------------------------------------------------
    Simple Hero variant (image only, no overlay or text)
+   Still keeps the top-left radius
    --------------------------------------------------------- */
 .hero-banner--simple {
   min-height: auto;
+}
+
+.hero-banner--simple .hero-banner__media-wrapper {
+  min-height: auto;
+}
+
+.hero-banner--simple .hero-banner__media {
+  position: relative;
+  height: auto;
 }
 
 .hero-banner--simple .hero-banner__overlay {
@@ -137,13 +158,18 @@
 
 /* ---------------------------------------------------------
    Detail Page Hero variant (centered topic heading)
+   Uses 64px radius (smaller than homepage 80px)
    --------------------------------------------------------- */
+.hero-banner--detail .hero-banner__media-wrapper {
+  border-radius: 64px 0px 0px 0px;
+}
+
 .hero-banner--detail .hero-banner__content {
   padding: 4rem 2rem;
 }
 
 .hero-banner--detail .hero-banner__topic {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -154,11 +180,31 @@
 }
 
 /* ---------------------------------------------------------
+   Container radius variants (used across site)
+   --------------------------------------------------------- */
+.hero-banner--radius-large .hero-banner__media-wrapper {
+  border-radius: 80px 0px 0px 0px;
+}
+
+.hero-banner--radius-medium .hero-banner__media-wrapper {
+  border-radius: 64px 0px 0px 0px;
+}
+
+.hero-banner--radius-small .hero-banner__media-wrapper {
+  border-radius: 40px 0px 0px 0px;
+}
+
+/* ---------------------------------------------------------
    Responsive: mobile breakpoint (max-width: 743px)
+   Radius reduces on mobile
    --------------------------------------------------------- */
 @media (max-width: 743px) {
   .hero-banner {
     min-height: 36rem;
+  }
+
+  .hero-banner__media-wrapper {
+    border-radius: 40px 0px 0px 0px;
   }
 
   .hero-banner__title {
@@ -172,6 +218,7 @@
   }
 
   .hero-banner__content {
+    bottom: 4rem;
     padding: 1.6rem;
   }
 

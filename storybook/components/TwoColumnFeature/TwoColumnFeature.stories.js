@@ -49,15 +49,20 @@ export const ImageRight = {
   `,
 };
 
-export const VideoLeft = {
-  render: () => `
+export const VideoLeft = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
     <div class="two-column-feature">
-      <div class="two-column-feature__image-wrapper two-column-feature__image-wrapper--video">
+      <div class="two-column-feature__image-wrapper two-column-feature__image-wrapper--video" style="position:relative; cursor:pointer;">
         <img
           src="/images/hero-parkinsons.webp"
           alt="Advancing Parkinson's research"
+          class="two-col-poster"
         />
-        <div class="two-column-feature__play-btn" aria-label="Play video">
+        <video class="two-col-video" style="display:none; width:100%; height:100%; object-fit:cover;" controls>
+          <source src="/videos/sample-hero.mp4" type="video/mp4" />
+        </video>
+        <div class="two-column-feature__play-btn" aria-label="Play video" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); cursor:pointer;">
           <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
             <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.55)"/>
             <polygon points="26,20 26,44 46,32" fill="#fff"/>
@@ -68,11 +73,24 @@ export const VideoLeft = {
         <h2 class="two-column-feature__heading">Advancing Parkinson's Research</h2>
         <p class="two-column-feature__body">
           Watch how AbbVie researchers are pioneering new approaches to
-          Parkinson's disease—moving beyond symptom management to explore
+          Parkinson's disease — moving beyond symptom management to explore
           treatments that target the underlying causes of neurodegeneration.
         </p>
-        <a href="#" class="two-column-feature__cta">Watch Video</a>
+        <a href="#" class="two-column-feature__cta">Watch 3:49</a>
       </div>
     </div>
-  `,
+  `;
+
+  const playBtn = el.querySelector('.two-column-feature__play-btn');
+  const poster = el.querySelector('.two-col-poster');
+  const video = el.querySelector('.two-col-video');
+
+  playBtn.addEventListener('click', () => {
+    poster.style.display = 'none';
+    playBtn.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
+  });
+
+  return el.firstElementChild;
 };

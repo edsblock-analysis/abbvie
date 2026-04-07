@@ -16,38 +16,40 @@ const playIcon = `
   </svg>`;
 
 /**
- * VideoHero - Hero banner with a video background.
- * Uses a poster image as fallback and includes working pause/play controls.
+ * VideoHero — Hero with background video, 80px top-left radius, pause/play.
+ * Matches live site: border-radius: 80px 0 0 0 on image container.
  */
 export const VideoHero = () => {
   const el = document.createElement('div');
   el.innerHTML = `
     <div class="hero-banner">
-      <video
-        class="hero-banner__media hero-banner__media--video"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="/images/hero-lab.webp"
-      >
-        <source src="" type="video/mp4" />
-      </video>
+      <div class="hero-banner__media-wrapper">
+        <video
+          class="hero-banner__media hero-banner__media--video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="/images/hero-lab.webp"
+        >
+          <source src="/videos/sample-hero.mp4" type="video/mp4" />
+        </video>
 
-      <div class="hero-banner__overlay"></div>
+        <div class="hero-banner__overlay"></div>
 
-      <div class="hero-banner__content">
-        <h1 class="hero-banner__title">We find answers that make life better for patients and our world.</h1>
-        <p class="hero-banner__subheading">
-          At AbbVie, our science drives innovative therapies across immunology, oncology,
-          neuroscience, eye care, and aesthetics &mdash; reaching patients in more than 175 countries.
-        </p>
-        <a href="#" class="hero-banner__cta">Explore Our Science</a>
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__title">We find answers that make life better for patients and our world.</h1>
+          <p class="hero-banner__subheading">
+            At AbbVie, our science drives innovative therapies across immunology, oncology,
+            neuroscience, eye care, and aesthetics &mdash; reaching patients in more than 175 countries.
+          </p>
+          <a href="#" class="hero-banner__cta">Explore Our Science</a>
+        </div>
+
+        <button class="hero-banner__pause-btn" aria-label="Pause background video" type="button">
+          ${pauseIcon}
+        </button>
       </div>
-
-      <button class="hero-banner__pause-btn" aria-label="Pause background video" type="button">
-        ${pauseIcon}
-      </button>
     </div>
   `;
 
@@ -72,29 +74,31 @@ export const VideoHero = () => {
 };
 
 /**
- * ImageHero - Hero banner with a static background image.
- * Careers-focused messaging with heading, subheading, and CTA.
+ * ImageHero — Static background image with 80px top-left radius.
+ * Careers-focused messaging.
  */
 export const ImageHero = () => {
   const el = document.createElement('div');
   el.innerHTML = `
     <div class="hero-banner">
-      <img
-        class="hero-banner__media"
-        src="/images/hero-soccer.webp"
-        alt="Children playing soccer outdoors"
-        loading="eager"
-      />
+      <div class="hero-banner__media-wrapper">
+        <img
+          class="hero-banner__media"
+          src="/images/hero-soccer.webp"
+          alt="Children playing soccer outdoors"
+          loading="eager"
+        />
 
-      <div class="hero-banner__overlay"></div>
+        <div class="hero-banner__overlay"></div>
 
-      <div class="hero-banner__content">
-        <h1 class="hero-banner__title">Join AbbVie</h1>
-        <p class="hero-banner__subheading">
-          Build a career where your work helps transform the lives of patients around the world.
-          We offer bold opportunities in research, manufacturing, commercial, and beyond.
-        </p>
-        <a href="#" class="hero-banner__cta">Browse Jobs</a>
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__title">Join AbbVie</h1>
+          <p class="hero-banner__subheading">
+            Build a career where your work helps transform the lives of patients around the world.
+            We offer bold opportunities in research, manufacturing, commercial, and beyond.
+          </p>
+          <a href="#" class="hero-banner__cta">Browse Jobs</a>
+        </div>
       </div>
     </div>
   `;
@@ -102,45 +106,48 @@ export const ImageHero = () => {
 };
 
 /**
- * SimpleHero - Image-only hero with no text overlay.
- * Typically used as a visual lead-in for article or content pages.
+ * SimpleHero — Image-only hero with no text overlay.
+ * Still has the 80px top-left radius clipping.
  */
 export const SimpleHero = () => {
   const el = document.createElement('div');
   el.innerHTML = `
     <div class="hero-banner hero-banner--simple">
-      <img
-        class="hero-banner__media"
-        src="/images/hero-parkinsons.webp"
-        alt="Two women in conversation about Parkinson's disease"
-        loading="eager"
-        style="position:relative;"
-      />
+      <div class="hero-banner__media-wrapper">
+        <img
+          class="hero-banner__media"
+          src="/images/hero-parkinsons.webp"
+          alt="Two women in conversation about Parkinson's disease"
+          loading="eager"
+        />
+      </div>
     </div>
   `;
   return el.firstElementChild;
 };
 
 /**
- * DetailPageHero - Hero with a centered topic heading.
- * Used on detail/interior pages with a category label above the title.
+ * DetailPageHero — Interior page hero with 64px top-left radius.
+ * Category label above title. Used on science area pages.
  */
 export const DetailPageHero = () => {
   const el = document.createElement('div');
   el.innerHTML = `
     <div class="hero-banner hero-banner--detail">
-      <img
-        class="hero-banner__media"
-        src="/images/scientist-examining.webp"
-        alt="Woman scientist examining research data"
-        loading="eager"
-      />
+      <div class="hero-banner__media-wrapper">
+        <img
+          class="hero-banner__media"
+          src="/images/scientist-examining.webp"
+          alt="Woman scientist examining research data"
+          loading="eager"
+        />
 
-      <div class="hero-banner__overlay"></div>
+        <div class="hero-banner__overlay"></div>
 
-      <div class="hero-banner__content">
-        <p class="hero-banner__topic">Areas of Focus</p>
-        <h1 class="hero-banner__title">Oncology</h1>
+        <div class="hero-banner__content">
+          <p class="hero-banner__topic">Areas of Focus</p>
+          <h1 class="hero-banner__title">Oncology</h1>
+        </div>
       </div>
     </div>
   `;
