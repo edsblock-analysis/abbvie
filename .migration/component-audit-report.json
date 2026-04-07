@@ -1,0 +1,656 @@
+{
+  "version": "1.0.0",
+  "auditDate": "2026-04-07",
+  "site": "https://www.abbvie.com",
+  "pagesAudited": 321,
+  "representativePagesInspected": [
+    "https://www.abbvie.com/",
+    "https://www.abbvie.com/science.html",
+    "https://www.abbvie.com/join-us.html",
+    "https://www.abbvie.com/who-we-are/our-leaders.html",
+    "https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html"
+  ],
+  "summary": {
+    "totalAEMComponentsFound": 21,
+    "totalBlocksInInventory": 28,
+    "totalStorybookComponents": 19,
+    "missingFromStorybook": 9,
+    "missingFromMigrationDashboard": 7,
+    "criticalStylingDrifts": 5,
+    "highPriorityGaps": 8,
+    "mediumPriorityGaps": 11,
+    "lowPriorityGaps": 6
+  },
+  "sections": [
+    {
+      "pageSectionName": "Homepage Hero (Patient Carousel)",
+      "aemComponentClass": "homepage-hero-controller",
+      "likelyComponentName": "HeroBanner",
+      "variantName": "hero-banner--carousel",
+      "status": "MISSING_VARIANT",
+      "keyProps": {
+        "slides": "3 patient stories (Devan, Mike, Rhonda) with Splide.js carousel",
+        "heading": "H1 with per-slide content",
+        "video": "Background video with Brightcove player",
+        "pausePlay": "Pause/Play toggle button",
+        "imageContainer": {
+          "borderRadius": "64px 0px 0px 0px (top-left only)",
+          "overflow": "hidden"
+        }
+      },
+      "gapsOrMismatches": [
+        "CRITICAL: Storybook HeroBanner has border-radius: 0px. Live site has border-radius: 64px 0px 0px 0px on image container with overflow: hidden",
+        "MISSING: Carousel variant with Splide.js (3 patient slides) not in Storybook — only static hero variants exist",
+        "MISSING: Per-slide H1 content that changes with carousel",
+        "DRIFT: Storybook uses min-height: 50rem. Live site uses dynamic height from carousel",
+        "MISSING: The homepage hero is actually a 'homepage-hero-controller' AEM component, not a simple image/video hero"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Homepage Overlap Container (Press Releases + Featured)",
+      "aemComponentClass": "container abbvie-container homepage-overlap medium-radius",
+      "likelyComponentName": "OverlapContainer",
+      "variantName": "overlap-container--press-featured",
+      "status": "MISSING_COMPONENT",
+      "keyProps": {
+        "gridColumns": "8-column (62.5px repeat)",
+        "gap": "20px",
+        "margin": "-128px 70px 80px (negative top margin creates overlap effect)",
+        "radiusModifier": "medium-radius",
+        "children": ["PressReleaseCarousel (Splide)", "FeaturedStoryCard"]
+      },
+      "gapsOrMismatches": [
+        "MISSING: No 'OverlapContainer' or 'AbbVieContainer' component in Storybook — this is a critical layout wrapper used site-wide",
+        "CRITICAL: The -128px negative top margin creates a visual overlap with the hero section — not represented in any Storybook component",
+        "MISSING from .migration/block-inventory.json: 'abbvie-container' with radius modifiers is not documented as a block"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Press Releases Carousel",
+      "aemComponentClass": "splide (within homepage-overlap container)",
+      "likelyComponentName": "PressReleaseCarousel",
+      "variantName": "press-release-carousel--default",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "slides": "3 press releases with date + headline",
+        "navigation": "prev/next arrows + slide counter '1 of 3'",
+        "library": "Splide.js"
+      },
+      "gapsOrMismatches": [
+        "DRIFT: Storybook carousel uses CSS translateX transitions. Live site uses Splide.js library with different animation",
+        "DRIFT: Storybook has dot navigation. Live site has 'Go to last slide' / 'Next slide' buttons with '1 of 3' counter text",
+        "MINOR: Live carousel is inside the overlap container, not standalone"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Featured Story Card",
+      "aemComponentClass": "cardpagestory (within homepage-overlap container)",
+      "likelyComponentName": "Card",
+      "variantName": "card--story (featured)",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "image": "Square crop ($Square$ preset)",
+        "date": "December 15, 2025",
+        "category": "Neuroscience",
+        "title": "Beyond the Diagnosis",
+        "description": "Multi-line excerpt",
+        "readTime": "3 Minute Read",
+        "cta": "Read story"
+      },
+      "gapsOrMismatches": [
+        "DRIFT: Live featured card is larger than standard card — occupies more grid columns in the overlap container",
+        "DRIFT: The 'Read story' CTA text differs from Storybook 'Read Article' CTA text"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Patient Focus Teaser",
+      "aemComponentClass": "teaser",
+      "likelyComponentName": "SectionHeading",
+      "variantName": "section-heading--with-cta",
+      "status": "MISSING_VARIANT",
+      "keyProps": {
+        "heading": "H3 'Patients are at the heart of everything we do.'",
+        "body": "Explore the real life stories...",
+        "cta": "Learn more → /patients.html"
+      },
+      "gapsOrMismatches": [
+        "MISSING_VARIANT: SectionHeading in Storybook has no CTA link. The AEM 'teaser' component supports heading + body + CTA link, which is more than a section heading",
+        "The AEM 'teaser' component is used in many places with different configs — it's the most versatile block and maps to multiple Storybook components"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Parkinson's Research Video Block",
+      "aemComponentClass": "video video-default cmp-video-xx-large",
+      "likelyComponentName": "VideoEmbed",
+      "variantName": "video-embed--two-column",
+      "status": "MISSING_VARIANT",
+      "keyProps": {
+        "gridColumns": "12-column (8 video + 4 empty = text overlay)",
+        "poster": "wp-sponsorship-hero ($Hero$ preset)",
+        "heading": "H2 'Advancing Parkinson's Research'",
+        "subheading": "One Patient's Journey, One Scientist's Mission",
+        "watchButton": "'Watch 3:49' with Brightcove player",
+        "player": "Brightcove (videojs)"
+      },
+      "gapsOrMismatches": [
+        "MISSING_VARIANT: Storybook VideoEmbed has 'Standalone' and 'Inline' variants but not a '2-column with heading overlay' variant that the live site uses",
+        "DRIFT: Live site uses Brightcove player (videojs). Storybook uses placeholder click handlers",
+        "DRIFT: Live video component uses 12-column grid with 8-col span for video. Storybook uses simple max-width container"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Section Dividers",
+      "aemComponentClass": "separator separator-height-{N}",
+      "likelyComponentName": "SectionDivider",
+      "variantName": "multiple height variants",
+      "status": "INCOMPLETE",
+      "keyProps": {
+        "heightVariants": ["1", "16", "24", "32", "48", "64", "80", "112", "144"],
+        "typeVariants": ["separator-divider (visible line)", "separator-standard (spacing only)"]
+      },
+      "gapsOrMismatches": [
+        "MISSING: Storybook SectionDivider is a single <hr> element. Live site uses 9 different height variants (1px to 144px) plus visible/invisible variants",
+        "MISSING from .migration dashboard: Height variants not documented",
+        "These are critical layout spacers — every page uses 4-8 separators with different heights"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Science & Innovation Section Heading",
+      "aemComponentClass": "teaser light-theme",
+      "likelyComponentName": "SectionHeading",
+      "variantName": "section-heading--with-label",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "label": "H2 'Science & Innovation'",
+        "headline": "H3 'We solve the tough challenges.'",
+        "body": "By working closely with patients and physicians..."
+      },
+      "gapsOrMismatches": [
+        "NOTE: In AEM this is a 'teaser light-theme' component, not a dedicated section-heading. The teaser component is polymorphic"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Science Card + Stats Row",
+      "aemComponentClass": "grid cmp-grid-custom",
+      "likelyComponentName": "CardGrid + StatCounter (composite)",
+      "variantName": "card-stats-composite",
+      "status": "MISSING_VARIANT",
+      "keyProps": {
+        "layout": "3-column: 1 large card + 2 stat counters in same row",
+        "card": "ambily-card-image with Science heading + 'Learn More' CTA",
+        "stats": ["75+ conditions treated", "~57k employees"]
+      },
+      "gapsOrMismatches": [
+        "MISSING: This is a composite layout — a single card next to 2 stat counters in 1 row. Neither CardGrid nor StatCounter Storybook stories show this combined layout",
+        "In Storybook, CardGrid shows 3 equal cards. StatCounter shows stats alone. The combined layout is a distinct variant"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Podcast Feature (Two-Column)",
+      "aemComponentClass": "container abbvie-container default-radius cmp-container-xxx-large",
+      "likelyComponentName": "TwoColumnFeature",
+      "variantName": "two-column-feature--image-left",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "image": "the-persistence-lab-promo",
+        "category": "H2 'Science'",
+        "title": "H5 'The Persistence Lab Podcast'",
+        "body": "Discover The Persistence Lab...",
+        "cta": "Learn more"
+      },
+      "gapsOrMismatches": [
+        "DRIFT: Live site wraps this in an abbvie-container with default-radius and 8-column grid. Storybook uses simple CSS Grid 50/50 split",
+        "DRIFT: Live site has H2 category label above H5 title. Storybook only has one heading level"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Culture of Curiosity - Section Heading",
+      "aemComponentClass": "teaser",
+      "likelyComponentName": "SectionHeading",
+      "variantName": "section-heading--with-label",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "label": "H2 'a culture of curiosity'",
+        "headline": "H3 'We find the answers together.'",
+        "body": "We make investments that empower..."
+      },
+      "gapsOrMismatches": [],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Three-Column Culture Cards",
+      "aemComponentClass": "grid cmp-grid-custom no-bottom-margin",
+      "likelyComponentName": "CardGrid",
+      "variantName": "card-grid--three-column-tall",
+      "status": "MISSING_VARIANT",
+      "keyProps": {
+        "cards": 3,
+        "layout": "Tall image ($Tall$ preset) + body text + uppercase CTA link",
+        "images": ["man-looking-at-testtube", "three-women-in-meeting", "woman-speaking-to-man"],
+        "ctas": ["SCIENCE", "Learning and Development", "Partnerships"]
+      },
+      "gapsOrMismatches": [
+        "MISSING_VARIANT: These cards use tall/portrait images ($Tall$ preset) without titles — just image + body + CTA. Storybook CardGrid only has landscape image cards with titles",
+        "DRIFT: CTA text is mixed — some uppercase ('SCIENCE'), some title case ('Learning and Development'). Storybook normalizes all to uppercase"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Explore Opportunities CTA",
+      "aemComponentClass": "container abbvie-container medium-radius cmp-container-xxx-large height-short",
+      "likelyComponentName": "CTABlock",
+      "variantName": "cta-block--centered",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "heading": "H4 'Explore opportunities'",
+        "body": "If you thrive as part of a diverse, collaborative team...",
+        "cta": "Browse jobs → careers.abbvie.com"
+      },
+      "gapsOrMismatches": [
+        "DRIFT: Live CTA is inside a medium-radius abbvie-container. Storybook CTABlock has no border-radius wrapper"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Investor Resources Section",
+      "aemComponentClass": "teaser + grid",
+      "likelyComponentName": "InvestorResources (composite)",
+      "variantName": "investor-resources--default",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "sectionHeading": "H2 'INVESTOR RESOURCES' + H3 'We invest in creating better futures.'",
+        "earningsCard": "Linked card with H2 'Quarterly Earnings' + H4 title",
+        "quickLinks": "3 external links (Events, Stakeholders, Annual report)"
+      },
+      "gapsOrMismatches": [
+        "NOTE: This is a page-specific composition of teaser + grid, not reusable elsewhere"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "ESG Section (Full-Width Container)",
+      "aemComponentClass": "container abbvie-container large-radius cmp-container-full-width",
+      "likelyComponentName": "StatCounter + Card + LinkList (composite)",
+      "variantName": "esg-composite-section",
+      "status": "MISSING_VARIANT",
+      "keyProps": {
+        "backgroundImage": "kids-playing-soccer-grass (full-width)",
+        "stat": "32% with label",
+        "card": "SUSTAINABILITY / Environmental, Social & Governance with 'Learn More' CTA",
+        "quickLinks": "AbbVie's Positions & Views with 3 PDF links"
+      },
+      "gapsOrMismatches": [
+        "MISSING: This is a complex composite section with background image + stat + card + link list inside a large-radius full-width container. No single Storybook component represents this",
+        "The large-radius container has a background image which is unique to this section"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Global Header",
+      "aemComponentClass": "experiencefragment cmp-experiencefragment--header",
+      "likelyComponentName": "NavigationHeader",
+      "variantName": "navigation-header--default",
+      "status": "NOT_IN_STORYBOOK",
+      "keyProps": {
+        "logo": "AbbVie logo SVG",
+        "nav": "5 primary items with accordion mega-menu",
+        "search": "Search input",
+        "regionSelector": "Globe icon"
+      },
+      "gapsOrMismatches": [
+        "MISSING: NavigationHeader is in block-inventory.json but has NO Storybook component",
+        "This is a shared experience fragment used on all 321 pages"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Global Footer",
+      "aemComponentClass": "experiencefragment cmp-experiencefragment--footer",
+      "likelyComponentName": "Footer",
+      "variantName": "footer--default",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "logo": "AbbVie logo",
+        "sections": "5 nav columns + social icons + popular pages + external links + legal",
+        "socialIcons": "6 SVG icons (Facebook, Twitter, Instagram, LinkedIn, YouTube, TikTok)"
+      },
+      "gapsOrMismatches": [
+        "DRIFT: Live footer has a 'Scroll to top' button that is not in the Storybook Footer component",
+        "DRIFT: Live footer social icons use SVG img elements. Storybook Footer recently updated to support iconSrc but needs verification"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Cookie Consent Banner",
+      "aemComponentClass": "alertdialog (OneTrust/cookie consent)",
+      "likelyComponentName": "CookieBanner",
+      "variantName": "cookie-banner--default",
+      "status": "NOT_IN_STORYBOOK",
+      "keyProps": {
+        "body": "Privacy notice about cookies and tracking",
+        "button": "'Cookies Settings' button",
+        "close": "Close button",
+        "links": "Privacy Notice, Tracking Technologies"
+      },
+      "gapsOrMismatches": [
+        "MISSING: Cookie banner is in fragments.json but has NO Storybook component",
+        "Used on all 321 pages (conditional display)"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Breadcrumb (Leaders, Story, Content pages)",
+      "aemComponentClass": "breadcrumb abbvie-breadcrumb",
+      "likelyComponentName": "Breadcrumb",
+      "variantName": "breadcrumb--multi-level, breadcrumb--single-level",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "classes": "cmp-breadcrumb, cmp-breadcrumb__list, cmp-breadcrumb__item, cmp-breadcrumb__item--active"
+      },
+      "gapsOrMismatches": [
+        "MINOR: Live breadcrumb uses BEM-style AEM classes (cmp-breadcrumb__item). Storybook uses simpler class names"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Story Info (Article Metadata)",
+      "aemComponentClass": "storyinfo",
+      "likelyComponentName": "ArticleMetadata",
+      "variantName": "article-metadata--default",
+      "status": "CONFIRMED",
+      "keyProps": {
+        "date": "Published date",
+        "category": "Linked category tag",
+        "readTime": "X Minute Read"
+      },
+      "gapsOrMismatches": [
+        "NOTE: AEM component name is 'storyinfo', not 'article-metadata'. Naming alignment needed"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Dashboard Cards (Science page)",
+      "aemComponentClass": "dashboardcards",
+      "likelyComponentName": "DashboardCards",
+      "variantName": "multiple variants",
+      "status": "MISSING_COMPONENT",
+      "keyProps": {
+        "variants": [
+          "dark-theme hide-image",
+          "medium-theme",
+          "medium-theme-stroke",
+          "size-medium-horizontal medium-theme-stroke hide-image",
+          "size-medium-vertical",
+          "size-medium-vertical light-theme-no-stroke",
+          "size-medium-vertical medium-theme"
+        ]
+      },
+      "gapsOrMismatches": [
+        "MISSING: 'dashboardcards' is a distinct AEM component not in block-inventory.json or Storybook",
+        "Has 7+ variants with theme and size modifiers",
+        "Used on Science landing page for stat/metric displays"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Card Page Story (multiple variants)",
+      "aemComponentClass": "cardpagestory",
+      "likelyComponentName": "Card",
+      "variantName": "multiple variants",
+      "status": "INCOMPLETE",
+      "keyProps": {
+        "layoutVariants": ["card-dashboard", "card-standard"],
+        "sizeVariants": ["card-medium", "card-small"],
+        "themeVariants": ["dark-theme", "medium-theme-stroke", "light-theme-stroke"],
+        "displayModifiers": ["hide-description", "hide-image", "hide-image-hide-desc", "hide-image-show-desc", "hide-publish-date", "show-publish-date", "show-publish-date_dashboard", "standard-title"]
+      },
+      "gapsOrMismatches": [
+        "INCOMPLETE: Storybook Card has 4 variants (Feature, Story, Article, Resource). Live site cardpagestory has 12+ variant combinations",
+        "MISSING: card-dashboard layout (horizontal card), card-standard layout (vertical card), size variants, dark-theme, hide/show modifiers",
+        "These modifiers control which fields are visible — they're authoring-level toggles"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "AbbVie Container (Layout Wrapper)",
+      "aemComponentClass": "container abbvie-container",
+      "likelyComponentName": "AbbVieContainer",
+      "variantName": "multiple radius/size/height variants",
+      "status": "MISSING_COMPONENT",
+      "keyProps": {
+        "radiusVariants": ["default-radius", "medium-radius", "large-radius"],
+        "sizeVariants": ["cmp-container-medium", "cmp-container-large", "cmp-container-x-large", "cmp-container-xx-large", "cmp-container-xxx-large", "cmp-container-full-width"],
+        "heightVariants": ["height-default", "height-short", "height-tall"],
+        "specialModifiers": ["homepage-overlap", "overlap-predecessor", "semi-transparent-layer", "footer-overlap", "minimize-n-maximize", "no-bottom-margin", "no-padding", "align-center", "mega-nav-padding"]
+      },
+      "gapsOrMismatches": [
+        "CRITICAL MISSING: The 'abbvie-container' is the most important layout component on the site — it wraps nearly every content block with radius, size, and height variants",
+        "Not in block-inventory.json, not in Storybook, not in migration dashboard",
+        "This is the container that applies the distinctive rounded corners seen throughout the site"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Teaser Component (Polymorphic)",
+      "aemComponentClass": "teaser",
+      "likelyComponentName": "Maps to multiple: SectionHeading, TwoColumnFeature, CTABlock",
+      "variantName": "teaser, teaser-h4, teaser light-theme",
+      "status": "NEEDS_CLARIFICATION",
+      "keyProps": {
+        "variants": ["bare teaser (heading + body)", "teaser light-theme (with theme)", "teaser-h4 (heading size variant)"],
+        "behavior": "The AEM teaser component is polymorphic — it renders as section headings, feature blocks, or CTA blocks depending on configuration"
+      },
+      "gapsOrMismatches": [
+        "NOTE: The AEM 'teaser' component maps to 3-4 different Storybook components (SectionHeading, TwoColumnFeature, CTABlock, FeaturedStory). This 1-to-many mapping should be documented in the migration dashboard",
+        "NEEDS SOURCE CONFIRMATION: Whether the teaser is a single component with variants or multiple distinct components"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Accordion (Science, Patient Assistance)",
+      "aemComponentClass": "accordion (panelcontainer)",
+      "likelyComponentName": "Accordion",
+      "variantName": "multiple: cmp-accordion-large, cmp-accordion-xx-large, show-tabs-desktop",
+      "status": "INCOMPLETE",
+      "keyProps": {
+        "sizeVariants": ["cmp-accordion-large", "cmp-accordion-xx-large"],
+        "displayVariants": ["show-tabs-desktop (renders as tabs on desktop, accordion on mobile)"]
+      },
+      "gapsOrMismatches": [
+        "MISSING_VARIANT: 'show-tabs-desktop' variant renders as horizontal tabs on desktop but accordion on mobile — completely different UI. Storybook only has accordion view",
+        "MISSING: Size variants (large vs xx-large) not reflected in Storybook"
+      ],
+      "priority": "high"
+    },
+    {
+      "pageSectionName": "Quote Component (Story, Join Us pages)",
+      "aemComponentClass": "quote",
+      "likelyComponentName": "PullQuote",
+      "variantName": "multiple: cmp-quote-xx-large, cmp-quote-x-large, dark-theme, quote-h5",
+      "status": "INCOMPLETE",
+      "keyProps": {
+        "sizeVariants": ["cmp-quote-xx-large", "cmp-quote-x-large"],
+        "themeVariants": ["dark-theme"],
+        "headingSize": ["quote-h5"]
+      },
+      "gapsOrMismatches": [
+        "MISSING: Dark theme quote variant (white text on dark background) not in Storybook",
+        "MISSING: Size variants and heading size modifiers not reflected"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Search Input",
+      "aemComponentClass": "searchinput",
+      "likelyComponentName": "SearchInput",
+      "variantName": "searchinput--default",
+      "status": "NOT_IN_STORYBOOK",
+      "keyProps": {
+        "placeholder": "Search AbbVie.com",
+        "validation": "Please enter a valid search term"
+      },
+      "gapsOrMismatches": [
+        "MISSING: No SearchInput component in Storybook or block-inventory.json"
+      ],
+      "priority": "medium"
+    },
+    {
+      "pageSectionName": "Back CTA Button (Story pages)",
+      "aemComponentClass": "button back-cta light-theme",
+      "likelyComponentName": "BackButton",
+      "variantName": "back-cta--light-theme",
+      "status": "NOT_IN_STORYBOOK",
+      "keyProps": {
+        "label": "Back navigation link",
+        "theme": "light-theme"
+      },
+      "gapsOrMismatches": [
+        "MISSING: Story pages have a 'back-cta' button that returns to the stories listing. Not in Storybook"
+      ],
+      "priority": "low"
+    },
+    {
+      "pageSectionName": "Story Page Header",
+      "aemComponentClass": "header standard-header-with-divider",
+      "likelyComponentName": "StoryHeader",
+      "variantName": "header--with-divider",
+      "status": "NOT_IN_STORYBOOK",
+      "keyProps": {
+        "variant": "standard-header-with-divider (different from mini-header regular-font on other pages)"
+      },
+      "gapsOrMismatches": [
+        "MISSING: Story pages use a different header variant ('standard-header-with-divider') than landing pages ('mini-header regular-font'). Neither variant is a Storybook component"
+      ],
+      "priority": "low"
+    }
+  ],
+  "heroBorderRadiusAudit": {
+    "finding": "CRITICAL MISMATCH",
+    "livesite": {
+      "imageContainerBorderRadius": "64px 0px 0px 0px",
+      "imageContainerOverflow": "hidden",
+      "imageObjectFit": "cover",
+      "imagePosition": "absolute",
+      "imageOverflow": "clip"
+    },
+    "storybook": {
+      "heroBannerBorderRadius": "0px",
+      "heroBannerOverflow": "visible (or hidden with no radius)"
+    },
+    "verdict": "The live site hero has a distinctive 64px top-left border-radius with overflow clipping on the image container. The Storybook HeroBanner component has NO border-radius and does NOT clip the image. This creates a significant visual mismatch. Additionally, the container radius varies by page type (medium-radius, large-radius on other containers)."
+  },
+  "missingComponents": {
+    "notInStorybook": [
+      {
+        "name": "AbbVieContainer",
+        "aemClass": "container abbvie-container",
+        "reason": "Critical layout wrapper with radius/size/height variants used on every page",
+        "priority": "high"
+      },
+      {
+        "name": "DashboardCards",
+        "aemClass": "dashboardcards",
+        "reason": "Metric/stat cards with 7+ theme/size variants on Science page",
+        "priority": "high"
+      },
+      {
+        "name": "NavigationHeader",
+        "aemClass": "experiencefragment--header",
+        "reason": "Global header with mega-menu, search, region selector",
+        "priority": "high"
+      },
+      {
+        "name": "CookieBanner",
+        "aemClass": "alertdialog (OneTrust)",
+        "reason": "Cookie consent banner on all pages",
+        "priority": "medium"
+      },
+      {
+        "name": "SearchInput",
+        "aemClass": "searchinput",
+        "reason": "Site search within header",
+        "priority": "medium"
+      },
+      {
+        "name": "ScrollToTop",
+        "aemClass": "button back-to-top",
+        "reason": "Scroll-to-top button in footer area",
+        "priority": "low"
+      },
+      {
+        "name": "BackButton",
+        "aemClass": "button back-cta",
+        "reason": "Back navigation CTA on story pages",
+        "priority": "low"
+      },
+      {
+        "name": "StoryHeader",
+        "aemClass": "header standard-header-with-divider",
+        "reason": "Story-specific header variant",
+        "priority": "low"
+      },
+      {
+        "name": "HeroCarousel",
+        "aemClass": "homepage-hero-controller (Splide.js)",
+        "reason": "Homepage carousel hero with patient slides — not a static hero",
+        "priority": "high"
+      }
+    ],
+    "notInMigrationDashboard": [
+      "AbbVieContainer (layout wrapper with radius variants)",
+      "DashboardCards (metric cards)",
+      "Separator height variants (9 distinct heights: 1-144px)",
+      "Teaser-to-component mapping (1 AEM teaser → multiple blocks)",
+      "Card display modifiers (hide-image, hide-description, show-publish-date)",
+      "Accordion tabs variant (show-tabs-desktop)",
+      "Container special modifiers (homepage-overlap, overlap-predecessor, semi-transparent-layer)"
+    ]
+  },
+  "stylingDrifts": [
+    {
+      "component": "HeroBanner",
+      "property": "border-radius",
+      "liveValue": "64px 0px 0px 0px (on image container)",
+      "storybookValue": "0px",
+      "severity": "critical"
+    },
+    {
+      "component": "HeroBanner",
+      "property": "overflow",
+      "liveValue": "hidden (on image container)",
+      "storybookValue": "visible / hidden (no radius clipping)",
+      "severity": "critical"
+    },
+    {
+      "component": "All blocks inside containers",
+      "property": "container border-radius",
+      "liveValue": "Varies: default-radius / medium-radius / large-radius",
+      "storybookValue": "No container wrapper with radius",
+      "severity": "critical"
+    },
+    {
+      "component": "SectionDivider",
+      "property": "height",
+      "liveValue": "9 variants: 1px, 16px, 24px, 32px, 48px, 64px, 80px, 112px, 144px",
+      "storybookValue": "Single <hr> with margin: 4rem 0",
+      "severity": "high"
+    },
+    {
+      "component": "PressReleaseCarousel",
+      "property": "navigation UI",
+      "liveValue": "Splide.js with prev/next buttons + '1 of 3' counter",
+      "storybookValue": "Custom CSS transitions with dots",
+      "severity": "medium"
+    }
+  ]
+}
