@@ -2,9 +2,11 @@
    HeroBanner - Full-width hero component
    Matches AbbVie live site styling exactly.
 
-   CRITICAL: Live site uses border-radius: 80px 0 0 0 on the
-   image container (top-left only) with overflow: hidden.
-   Other containers use 64px 0 0 0 or 40px 0 0 0.
+   VERIFIED LIVE VALUES (2026-04-07):
+   Desktop (>=768px): border-radius: 64px 0 0 0
+   Mobile  (<768px):  border-radius: 32px 0 0 0
+   Container medium-radius child: 40px 0 0 0 (desktop), 24px 0 0 0 (mobile)
+   Container large-radius child:  64px 0 0 0 (desktop), 32px 0 0 0 (mobile)
    ========================================================= */
 
 .hero-banner {
@@ -20,7 +22,7 @@
   width: 100%;
   height: 100%;
   min-height: inherit;
-  border-radius: 80px 0px 0px 0px;
+  border-radius: 64px 0px 0px 0px;
   overflow: hidden;
 }
 
@@ -183,15 +185,15 @@
    Container radius variants (used across site)
    --------------------------------------------------------- */
 .hero-banner--radius-large .hero-banner__media-wrapper {
-  border-radius: 80px 0px 0px 0px;
-}
-
-.hero-banner--radius-medium .hero-banner__media-wrapper {
   border-radius: 64px 0px 0px 0px;
 }
 
-.hero-banner--radius-small .hero-banner__media-wrapper {
+.hero-banner--radius-medium .hero-banner__media-wrapper {
   border-radius: 40px 0px 0px 0px;
+}
+
+.hero-banner--radius-small .hero-banner__media-wrapper {
+  border-radius: 24px 0px 0px 0px;
 }
 
 /* ---------------------------------------------------------
@@ -204,7 +206,7 @@
   }
 
   .hero-banner__media-wrapper {
-    border-radius: 40px 0px 0px 0px;
+    border-radius: 32px 0px 0px 0px;
   }
 
   .hero-banner__title {

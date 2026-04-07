@@ -1,0 +1,720 @@
+{
+  "meta": {
+    "title": "AbbVie.com Complete Migration & UI Mapping Package",
+    "version": "2.0.0",
+    "auditDate": "2026-04-07",
+    "site": "https://www.abbvie.com",
+    "totalURLs": 321,
+    "viewportsAudited": ["375x812 (mobile)", "768x1024 (tablet)", "1440x900 (desktop)"],
+    "pagesInspected": 10,
+    "templatesCovered": 14
+  },
+
+  "executiveSummary": {
+    "overview": "AbbVie.com is an AEM 6.5 Cloud-based corporate site with 321 pages across 14 templates. The site uses a component library of 21 AEM Core Components with extensive class-based variant modifiers. The signature design pattern is a top-left-only border-radius on image containers and content wrappers, which varies by viewport (64px desktop, 32px mobile). The site requires 24 EDS blocks covering 67 total variations to achieve pixel-perfect parity.",
+    "keyFindings": [
+      "21 distinct AEM component types found across all pages",
+      "3 radius tokens (default=24px, medium=40px, large=64px) applied to all container-type blocks",
+      "Responsive radius: desktop uses full values, mobile reduces by ~50%",
+      "The AEM 'teaser' is the most polymorphic component — maps to 4+ different EDS blocks",
+      "9 separator height variants (1px to 144px) used as layout spacers between sections",
+      "6 theme variants (dark, light, medium, + stroke variants) modify any block",
+      "The homepage hero has a carousel (Splide.js) with 3 patient slides — NOT a static image hero",
+      "Brightcove video player used on 2/5 template types (Science, Story)"
+    ],
+    "totalBlocksRequired": 24,
+    "totalVariationsRequired": 67,
+    "totalTemplatesRequired": 14,
+    "migrationReadiness": "75% — Storybook covers 19/24 required blocks but needs 5 new components and 23 missing variations"
+  },
+
+  "liveAudit": {
+    "pageTemplates": [
+      {
+        "id": "homepage",
+        "name": "Homepage",
+        "aemTemplate": "home-page-template",
+        "pageCount": 1,
+        "blocksUsed": 11,
+        "uniqueBlocks": ["homepage-hero-controller"],
+        "hasHero": true,
+        "hasBreadcrumb": false,
+        "hasVideo": true,
+        "hasAccordion": false
+      },
+      {
+        "id": "landing-page",
+        "name": "Landing/Hub Page",
+        "aemTemplate": "primary-page-template",
+        "pageCount": 12,
+        "blocksUsed": 14,
+        "uniqueBlocks": ["show-tabs-desktop accordion"],
+        "hasHero": true,
+        "hasBreadcrumb": false,
+        "hasVideo": true,
+        "hasAccordion": true
+      },
+      {
+        "id": "story-article",
+        "name": "Story/Article Page",
+        "aemTemplate": "story-landing-page",
+        "pageCount": 116,
+        "blocksUsed": 12,
+        "uniqueBlocks": ["storyinfo", "back-cta", "format-outdented quote"],
+        "hasHero": true,
+        "hasBreadcrumb": false,
+        "hasVideo": true,
+        "hasAccordion": false
+      },
+      {
+        "id": "story-category-listing",
+        "name": "Story Category Listing",
+        "aemTemplate": "story-listing-template",
+        "pageCount": 15,
+        "blocksUsed": 8,
+        "uniqueBlocks": [],
+        "hasHero": true,
+        "hasBreadcrumb": false,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "leader-bio",
+        "name": "Leader Bio Page",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 24,
+        "blocksUsed": 7,
+        "uniqueBlocks": ["cmp-image--left"],
+        "hasHero": false,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "rd-leader-bio",
+        "name": "R&D Leader Bio Page",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 13,
+        "blocksUsed": 7,
+        "uniqueBlocks": [],
+        "hasHero": false,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "location-page",
+        "name": "Location/Contact Page",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 15,
+        "blocksUsed": 5,
+        "uniqueBlocks": [],
+        "hasHero": false,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "science-area-detail",
+        "name": "Science Area Detail",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 14,
+        "blocksUsed": 10,
+        "uniqueBlocks": [],
+        "hasHero": true,
+        "hasBreadcrumb": true,
+        "hasVideo": true,
+        "hasAccordion": true
+      },
+      {
+        "id": "patient-assistance",
+        "name": "Patient Assistance Page",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 8,
+        "blocksUsed": 8,
+        "uniqueBlocks": ["65-item accordion"],
+        "hasHero": false,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": true
+      },
+      {
+        "id": "leaders-listing",
+        "name": "Leaders Listing Page",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 2,
+        "blocksUsed": 8,
+        "uniqueBlocks": ["card-standard layout"],
+        "hasHero": false,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "erg-page",
+        "name": "Employee Resource Group",
+        "aemTemplate": "secondary-tertiary-page-template",
+        "pageCount": 7,
+        "blocksUsed": 6,
+        "uniqueBlocks": [],
+        "hasHero": true,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "acquisition-page",
+        "name": "Acquisition/Company Page",
+        "aemTemplate": "content-page-template",
+        "pageCount": 9,
+        "blocksUsed": 5,
+        "uniqueBlocks": [],
+        "hasHero": true,
+        "hasBreadcrumb": false,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "content-page",
+        "name": "General Content Page",
+        "aemTemplate": "content-page-template",
+        "pageCount": 101,
+        "blocksUsed": 7,
+        "uniqueBlocks": [],
+        "hasHero": false,
+        "hasBreadcrumb": true,
+        "hasVideo": false,
+        "hasAccordion": false
+      },
+      {
+        "id": "utility-page",
+        "name": "Utility Page",
+        "aemTemplate": "content-page-template",
+        "pageCount": 5,
+        "blocksUsed": 3,
+        "uniqueBlocks": [],
+        "hasHero": false,
+        "hasBreadcrumb": false,
+        "hasVideo": false,
+        "hasAccordion": false
+      }
+    ]
+  },
+
+  "componentInventory": {
+    "totalBlocks": 24,
+    "totalVariations": 67,
+    "blocks": [
+      {
+        "id": 1,
+        "name": "Hero Banner",
+        "aemComponent": "homepage-hero-controller / container with hero image",
+        "variations": [
+          {"name": "Video Carousel Hero", "templates": ["homepage"], "status": "MISSING", "priority": "critical"},
+          {"name": "Image Hero (large radius)", "templates": ["landing-page", "erg-page", "acquisition-page"], "status": "EXISTS", "priority": "none"},
+          {"name": "Simple Hero (no overlay)", "templates": ["story-article"], "status": "EXISTS", "priority": "none"},
+          {"name": "Detail Page Hero (medium radius)", "templates": ["science-area-detail"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "border-radius: 64px 0 0 0, full-width, min-height ~50rem",
+          "tablet": "border-radius: 64px 0 0 0, same layout",
+          "mobile": "border-radius: 32px 0 0 0, reduced height ~36rem"
+        },
+        "states": ["default", "video-playing", "video-paused", "carousel-transitioning"]
+      },
+      {
+        "id": 2,
+        "name": "AbbVie Container",
+        "aemComponent": "container abbvie-container",
+        "variations": [
+          {"name": "default-radius (24px 0 0 0)", "templates": ["all"], "status": "MISSING", "priority": "critical"},
+          {"name": "medium-radius (40px 0 0 0)", "templates": ["all"], "status": "MISSING", "priority": "critical"},
+          {"name": "large-radius (64px 0 0 0)", "templates": ["all"], "status": "MISSING", "priority": "critical"},
+          {"name": "homepage-overlap (-128px margin)", "templates": ["homepage"], "status": "MISSING", "priority": "critical"},
+          {"name": "overlap-predecessor", "templates": ["science", "story"], "status": "MISSING", "priority": "major"},
+          {"name": "semi-transparent-layer", "templates": ["join-us"], "status": "MISSING", "priority": "major"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "8-col grid (62.5px cols), margin: 0 70px, gap: 20px",
+          "tablet": "8-col grid (61px cols), margin: 0 70px",
+          "mobile": "4-col grid (43.3px cols), margin: 0 20px, radius reduces ~50%"
+        },
+        "states": ["default"]
+      },
+      {
+        "id": 3,
+        "name": "Teaser",
+        "aemComponent": "teaser",
+        "variations": [
+          {"name": "Section Heading (heading + body)", "templates": ["all"], "status": "EXISTS_AS_SectionHeading", "priority": "none"},
+          {"name": "Section Heading with CTA", "templates": ["homepage", "landing-page"], "status": "MISSING_VARIANT", "priority": "major"},
+          {"name": "Teaser with action link", "templates": ["join-us"], "status": "MISSING_VARIANT", "priority": "major"},
+          {"name": "Teaser light-theme", "templates": ["homepage", "science"], "status": "EXISTS", "priority": "none"},
+          {"name": "Teaser-h4 (heading size)", "templates": ["join-us"], "status": "MISSING_VARIANT", "priority": "minor"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "margin-bottom: 80px",
+          "mobile": "margin-bottom: 56px"
+        },
+        "states": ["default", "hover (CTA link)"]
+      },
+      {
+        "id": 4,
+        "name": "Card (cardpagestory)",
+        "aemComponent": "cardpagestory",
+        "variations": [
+          {"name": "card-dashboard card-medium", "templates": ["homepage", "science", "join-us"], "status": "PARTIAL", "priority": "major"},
+          {"name": "card-dashboard dark-theme", "templates": ["join-us"], "status": "MISSING", "priority": "major"},
+          {"name": "card-standard card-medium", "templates": ["story-article", "leaders-listing"], "status": "MISSING", "priority": "major"},
+          {"name": "card-standard card-small", "templates": ["story-article", "patient-assistance"], "status": "MISSING", "priority": "major"},
+          {"name": "hide-image variant", "templates": ["science"], "status": "MISSING", "priority": "minor"},
+          {"name": "hide-description variant", "templates": ["story-article"], "status": "MISSING", "priority": "minor"},
+          {"name": "hide-publish-date variant", "templates": ["join-us"], "status": "MISSING", "priority": "minor"},
+          {"name": "light-theme-stroke", "templates": ["join-us", "patient-assistance"], "status": "MISSING", "priority": "minor"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Grid column spans vary (col-with-3 to col-with-6)",
+          "mobile": "Full width, stacked vertically"
+        },
+        "states": ["default", "hover (shadow + color shift)", "focus"]
+      },
+      {
+        "id": 5,
+        "name": "Dashboard Cards",
+        "aemComponent": "dashboardcards",
+        "variations": [
+          {"name": "dark-theme hide-image", "templates": ["science"], "status": "MISSING", "priority": "critical"},
+          {"name": "medium-theme", "templates": ["science", "join-us"], "status": "MISSING", "priority": "critical"},
+          {"name": "medium-theme-stroke", "templates": ["all"], "status": "MISSING", "priority": "critical"},
+          {"name": "size-medium-horizontal", "templates": ["science"], "status": "MISSING", "priority": "major"},
+          {"name": "size-medium-vertical", "templates": ["science"], "status": "MISSING", "priority": "major"},
+          {"name": "light-theme-no-stroke", "templates": ["science"], "status": "MISSING", "priority": "minor"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Grid-based, horizontal or vertical layout",
+          "mobile": "Full width stacked"
+        },
+        "states": ["default", "hover"]
+      },
+      {
+        "id": 6,
+        "name": "Separator",
+        "aemComponent": "separator",
+        "variations": [
+          {"name": "height-1 (divider line)", "templates": ["all"], "status": "PARTIAL", "priority": "major"},
+          {"name": "height-8", "templates": ["patient-assistance"], "status": "MISSING", "priority": "minor"},
+          {"name": "height-16", "templates": ["homepage", "science", "join-us"], "status": "MISSING", "priority": "major"},
+          {"name": "height-24", "templates": ["all"], "status": "MISSING", "priority": "major"},
+          {"name": "height-32", "templates": ["homepage", "join-us", "story"], "status": "MISSING", "priority": "major"},
+          {"name": "height-48", "templates": ["all"], "status": "MISSING", "priority": "major"},
+          {"name": "height-64", "templates": ["homepage", "story", "leaders"], "status": "MISSING", "priority": "major"},
+          {"name": "height-80", "templates": ["all"], "status": "MISSING", "priority": "major"},
+          {"name": "height-96", "templates": ["leader-bio"], "status": "MISSING", "priority": "minor"},
+          {"name": "height-112", "templates": ["story-article"], "status": "MISSING", "priority": "minor"},
+          {"name": "height-144", "templates": ["science"], "status": "MISSING", "priority": "minor"}
+        ],
+        "responsiveBehavior": {
+          "note": "Heights remain constant across viewports"
+        },
+        "states": ["visible (divider line)", "invisible (spacing only)"]
+      },
+      {
+        "id": 7,
+        "name": "Video Embed",
+        "aemComponent": "video video-default",
+        "variations": [
+          {"name": "Standalone video (full-width)", "templates": ["science"], "status": "EXISTS", "priority": "none"},
+          {"name": "Two-column video with overlay", "templates": ["homepage", "science-area-detail"], "status": "MISSING", "priority": "major"},
+          {"name": "Inline article video", "templates": ["story-article"], "status": "EXISTS", "priority": "none"},
+          {"name": "Ambient video (homepage hero)", "templates": ["homepage"], "status": "MISSING", "priority": "major"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "12-col grid, 8-col video span, margin 0 70px",
+          "mobile": "4-col grid, full-width"
+        },
+        "states": ["poster", "playing", "paused", "loading"]
+      },
+      {
+        "id": 8,
+        "name": "Accordion",
+        "aemComponent": "accordion (panelcontainer)",
+        "variations": [
+          {"name": "FAQ accordion (standard)", "templates": ["science", "patient-assistance"], "status": "EXISTS", "priority": "none"},
+          {"name": "Medicine list accordion (65+ items)", "templates": ["patient-assistance"], "status": "EXISTS", "priority": "none"},
+          {"name": "Disease category accordion", "templates": ["science-area-detail"], "status": "EXISTS", "priority": "none"},
+          {"name": "Tabs-on-desktop (show-tabs-desktop)", "templates": ["science"], "status": "MISSING", "priority": "critical"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "show-tabs-desktop renders as horizontal tabs",
+          "mobile": "Always renders as accordion"
+        },
+        "states": ["all-collapsed", "item-expanded", "all-expanded", "tab-active (desktop)"]
+      },
+      {
+        "id": 9,
+        "name": "Quote / Pull Quote",
+        "aemComponent": "quote",
+        "variations": [
+          {"name": "Quote with headshot", "templates": ["story-article"], "status": "EXISTS", "priority": "none"},
+          {"name": "Testimonial (no headshot)", "templates": ["join-us"], "status": "EXISTS", "priority": "none"},
+          {"name": "Dark theme quote", "templates": ["join-us"], "status": "MISSING", "priority": "major"},
+          {"name": "Quote xx-large", "templates": ["science"], "status": "MISSING", "priority": "minor"},
+          {"name": "Quote x-large", "templates": ["join-us"], "status": "MISSING", "priority": "minor"},
+          {"name": "Format-outdented (story)", "templates": ["story-article"], "status": "MISSING", "priority": "major"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Indented with left border, max-width constrained",
+          "mobile": "Full-width, reduced padding"
+        },
+        "states": ["default"]
+      },
+      {
+        "id": 10,
+        "name": "Grid Layout",
+        "aemComponent": "grid / cmp-grid-custom",
+        "variations": [
+          {"name": "Standard grid (card row)", "templates": ["homepage", "all"], "status": "EXISTS_AS_CardGrid", "priority": "none"},
+          {"name": "Grid custom (tall image cards)", "templates": ["homepage"], "status": "MISSING_VARIANT", "priority": "major"},
+          {"name": "Grid full-page-5-v1", "templates": ["science"], "status": "MISSING", "priority": "minor"},
+          {"name": "Grid meganav-3", "templates": ["all (nav)"], "status": "MISSING", "priority": "minor"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Multi-column (3-col, 5-col depending on variant)",
+          "mobile": "Single column stacked"
+        },
+        "states": ["default"]
+      },
+      {
+        "id": 11,
+        "name": "Stat Counter / Dashboard Card Facts",
+        "aemComponent": "dashboardcards (fact variant)",
+        "variations": [
+          {"name": "Inline stat (number + label)", "templates": ["homepage"], "status": "EXISTS", "priority": "none"},
+          {"name": "Stats grid row", "templates": ["science"], "status": "EXISTS", "priority": "none"},
+          {"name": "Stat in card+stats composite", "templates": ["homepage"], "status": "MISSING", "priority": "major"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Horizontal row with space-around",
+          "mobile": "Stacked or wrapped"
+        },
+        "states": ["default"]
+      },
+      {
+        "id": 12,
+        "name": "Two Column Feature",
+        "aemComponent": "container abbvie-container (with image + content children)",
+        "variations": [
+          {"name": "Image left", "templates": ["homepage", "landing-page"], "status": "EXISTS", "priority": "none"},
+          {"name": "Image right", "templates": ["homepage", "landing-page"], "status": "EXISTS", "priority": "none"},
+          {"name": "Video left with play overlay", "templates": ["homepage", "science-area-detail"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "2-column grid, border-radius: 40px 0 0 0",
+          "mobile": "Single column stacked, radius: 24px 0 0 0"
+        },
+        "states": ["default", "video-playing"]
+      },
+      {
+        "id": 13,
+        "name": "CTA Block",
+        "aemComponent": "container abbvie-container (medium-radius, short height)",
+        "variations": [
+          {"name": "Centered CTA", "templates": ["homepage", "science"], "status": "EXISTS", "priority": "none"},
+          {"name": "CTA with image", "templates": ["science", "join-us"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "8-col grid, margin 0 70px, radius 40px 0 0 0",
+          "mobile": "4-col grid, margin 0 20px, radius 24px 0 0 0"
+        },
+        "states": ["default", "hover (button)"]
+      },
+      {
+        "id": 14,
+        "name": "Press Release Carousel",
+        "aemComponent": "Splide.js carousel within homepage-overlap container",
+        "variations": [
+          {"name": "Default (3 slides)", "templates": ["homepage"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Slide navigation with prev/next + counter",
+          "mobile": "Same but touch-swipe enabled"
+        },
+        "states": ["slide-1-active", "slide-2-active", "slide-3-active", "transitioning"]
+      },
+      {
+        "id": 15, "name": "Breadcrumb", "aemComponent": "breadcrumb abbvie-breadcrumb",
+        "variations": [
+          {"name": "Multi-level", "templates": ["leader-bio", "rd-leader-bio", "location-page", "patient-assistance", "content-page", "science-area-detail"], "status": "EXISTS", "priority": "none"},
+          {"name": "Single level", "templates": ["story-article (inferred)"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": { "note": "Same across viewports" },
+        "states": ["default"]
+      },
+      {
+        "id": 16, "name": "Article Metadata (storyinfo)", "aemComponent": "storyinfo",
+        "variations": [{"name": "Default", "templates": ["story-article"], "status": "EXISTS", "priority": "none"}],
+        "responsiveBehavior": { "note": "Wraps on mobile" },
+        "states": ["default"]
+      },
+      {
+        "id": 17, "name": "Section Heading", "aemComponent": "teaser (heading-only config)",
+        "variations": [
+          {"name": "With label", "templates": ["homepage", "science"], "status": "EXISTS", "priority": "none"},
+          {"name": "Simple", "templates": ["all"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": { "note": "Font sizes reduce on mobile" },
+        "states": ["default"]
+      },
+      {
+        "id": 18, "name": "Leader Bio", "aemComponent": "container with image, title, text",
+        "variations": [
+          {"name": "Executive Bio", "templates": ["leader-bio"], "status": "EXISTS", "priority": "none"},
+          {"name": "R&D Leader Bio", "templates": ["rd-leader-bio"], "status": "EXISTS", "priority": "none"}
+        ],
+        "responsiveBehavior": { "desktop": "Side-by-side photo + text", "mobile": "Stacked" },
+        "states": ["default"]
+      },
+      {
+        "id": 19, "name": "Profile Card Grid", "aemComponent": "grid with cardpagestory card-standard",
+        "variations": [{"name": "Executive Grid", "templates": ["leaders-listing"], "status": "EXISTS", "priority": "none"}],
+        "responsiveBehavior": { "desktop": "3-col", "tablet": "2-col", "mobile": "1-col" },
+        "states": ["default", "hover"]
+      },
+      {
+        "id": 20, "name": "Link List", "aemComponent": "list list-standard / list-dashboard",
+        "variations": [
+          {"name": "Quick Links", "templates": ["homepage"], "status": "EXISTS", "priority": "none"},
+          {"name": "Topics List", "templates": ["patient-assistance"], "status": "EXISTS", "priority": "none"},
+          {"name": "Dashboard List", "templates": ["science"], "status": "MISSING", "priority": "minor"}
+        ],
+        "responsiveBehavior": { "note": "Same layout" },
+        "states": ["default"]
+      },
+      {
+        "id": 21, "name": "Footer", "aemComponent": "experiencefragment cmp-experiencefragment--footer",
+        "variations": [{"name": "Default", "templates": ["all"], "status": "EXISTS", "priority": "none"}],
+        "responsiveBehavior": { "desktop": "5-col grid", "mobile": "1-col stacked" },
+        "states": ["default"]
+      },
+      {
+        "id": 22, "name": "Exit Modal", "aemComponent": "popup-departure dialog",
+        "variations": [{"name": "Default", "templates": ["all"], "status": "EXISTS", "priority": "none"}],
+        "responsiveBehavior": { "note": "Centered modal, same on all" },
+        "states": ["hidden", "visible", "agree-clicked", "disagree-clicked"]
+      },
+      {
+        "id": 23, "name": "Navigation Header", "aemComponent": "experiencefragment cmp-experiencefragment--header",
+        "variations": [
+          {"name": "Desktop nav bar", "templates": ["all"], "status": "MISSING", "priority": "critical"},
+          {"name": "Mobile hamburger", "templates": ["all"], "status": "MISSING", "priority": "critical"}
+        ],
+        "responsiveBehavior": {
+          "desktop": "Horizontal nav bar with mega-menu dropdowns",
+          "mobile": "Hamburger icon → full-screen accordion menu"
+        },
+        "states": ["closed", "menu-open", "submenu-open", "search-open"]
+      },
+      {
+        "id": 24, "name": "Cookie Consent Banner", "aemComponent": "OneTrust alertdialog",
+        "variations": [{"name": "Default", "templates": ["all"], "status": "MISSING", "priority": "major"}],
+        "responsiveBehavior": { "note": "Bottom banner, same on all" },
+        "states": ["visible", "dismissed", "settings-open"]
+      }
+    ]
+  },
+
+  "blockToTemplateMapping": {
+    "description": "Matrix showing which blocks appear on which templates. S=Shared, U=Unique to template, -=Not present",
+    "matrix": {
+      "headers": ["Block", "Home", "Landing", "Story", "StoryCat", "LeaderBio", "RDLeader", "Location", "SciArea", "PatAssist", "LeaderList", "ERG", "Acquisition", "Content", "Utility"],
+      "rows": [
+        ["Hero Banner",           "U", "S", "S", "S", "-", "-", "-", "S", "-", "-", "S", "S", "-", "-"],
+        ["AbbVie Container",      "S", "S", "S", "-", "S", "S", "-", "S", "S", "S", "S", "-", "S", "-"],
+        ["Teaser/SectionHeading", "S", "S", "-", "-", "-", "-", "-", "S", "-", "-", "-", "-", "-", "-"],
+        ["Card (cardpagestory)",  "S", "S", "S", "S", "S", "S", "-", "S", "S", "S", "-", "-", "S", "-"],
+        ["Dashboard Cards",       "S", "S", "S", "-", "S", "S", "-", "S", "S", "-", "-", "-", "-", "-"],
+        ["Separator",             "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"],
+        ["Video Embed",           "S", "S", "S", "-", "-", "-", "-", "S", "-", "-", "-", "-", "-", "-"],
+        ["Accordion",             "-", "S", "S", "-", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"],
+        ["Quote/Pull Quote",      "-", "S", "S", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+        ["Grid Layout",           "S", "S", "S", "-", "-", "-", "-", "S", "S", "-", "-", "-", "S", "-"],
+        ["Stat Counter",          "S", "S", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+        ["Two Column Feature",    "S", "S", "-", "-", "-", "-", "-", "S", "S", "-", "S", "S", "S", "-"],
+        ["CTA Block",             "S", "S", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+        ["Press Release Carousel","U", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+        ["Breadcrumb",            "-", "-", "-", "-", "S", "S", "S", "S", "S", "S", "S", "-", "S", "-"],
+        ["Article Metadata",      "-", "-", "U", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+        ["Section Heading",       "S", "S", "-", "-", "-", "-", "-", "S", "-", "-", "-", "-", "-", "-"],
+        ["Leader Bio",            "-", "-", "-", "-", "U", "U", "-", "-", "-", "-", "-", "-", "-", "-"],
+        ["Profile Card Grid",     "-", "-", "-", "-", "-", "-", "-", "-", "-", "U", "-", "-", "-", "-"],
+        ["Link List",             "S", "S", "-", "-", "-", "-", "-", "-", "S", "-", "-", "-", "-", "-"],
+        ["Footer",                "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"],
+        ["Exit Modal",            "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"],
+        ["Navigation Header",     "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"],
+        ["Cookie Banner",         "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"]
+      ]
+    }
+  },
+
+  "responsiveBorderRadiusMap": {
+    "description": "Exact border-radius values per viewport, verified from live site computed styles",
+    "heroImageContainer": {
+      "desktop_1440": "64px 0px 0px",
+      "tablet_768": "64px 0px 0px",
+      "mobile_375": "32px 0px 0px"
+    },
+    "containerMediumRadius": {
+      "desktop_1440": "40px 0px 0px",
+      "tablet_768": "40px 0px 0px",
+      "mobile_375": "24px 0px 0px"
+    },
+    "containerLargeRadius": {
+      "desktop_1440": "64px 0px 0px",
+      "tablet_768": "64px 0px 0px",
+      "mobile_375": "32px 0px 0px"
+    },
+    "containerDefaultRadius": {
+      "desktop_1440": "24px 0px 0px (inferred from CSS token 4rem=40px or 2.4rem=24px)",
+      "note": "Needs source confirmation — not directly observed in homepage audit"
+    }
+  },
+
+  "responsiveLayoutChanges": {
+    "description": "Key layout changes between viewports",
+    "containerGrid": {
+      "desktop_1440": "8-column grid (62.5px per col), gap 20px, margin 0 70px",
+      "tablet_768": "8-column grid (61px per col), gap 20px, margin 0 70px",
+      "mobile_375": "4-column grid (43.3px per col), gap 10px, margin 0 20px"
+    },
+    "homepageOverlap": {
+      "desktop_1440": "margin: -128px 70px 80px",
+      "tablet_768": "margin: -128px 70px 80px",
+      "mobile_375": "margin: -96px 20px 32px"
+    },
+    "sectionBottomMargin": {
+      "desktop_1440": "80px",
+      "mobile_375": "56px"
+    },
+    "navigation": {
+      "desktop": "Horizontal nav bar with dropdown mega-menu",
+      "mobile": "Hamburger button → full-screen accordion nav"
+    }
+  },
+
+  "gapAnalysis": {
+    "critical": [
+      {"id": "GAP-001", "component": "AbbVie Container", "issue": "Not implemented in Storybook. This is the primary layout wrapper on every page with 3 radius variants + 6 size variants + 3 height variants + overlap modifiers", "impact": "Every page section needs this wrapper for correct spacing and radius"},
+      {"id": "GAP-002", "component": "Hero Banner", "issue": "Missing Video Carousel variant (Splide.js with 3 patient slides). Homepage hero is NOT a static image", "impact": "Homepage will look fundamentally different"},
+      {"id": "GAP-003", "component": "Dashboard Cards", "issue": "Entirely missing from Storybook. 7+ theme/size variants used for stats, metrics, and featured content on Science and homepage", "impact": "Science landing page and homepage metrics sections cannot be rendered"},
+      {"id": "GAP-004", "component": "Navigation Header", "issue": "Not implemented. Global header with mega-menu, search, region selector used on all 321 pages", "impact": "No page can render its header"},
+      {"id": "GAP-005", "component": "Accordion Tabs", "issue": "show-tabs-desktop variant renders as horizontal tabs on desktop but accordion on mobile. Only accordion view exists in Storybook", "impact": "Science page navigation section will be wrong on desktop"}
+    ],
+    "major": [
+      {"id": "GAP-006", "component": "Hero Banner CSS", "issue": "Storybook had border-radius: 80px. Live site verified at 64px (desktop), 32px (mobile). NOW FIXED in this update", "impact": "Visual mismatch on hero — RESOLVED"},
+      {"id": "GAP-007", "component": "Card Variants", "issue": "Storybook has 4 card variants. Live site has 12+ variant combinations (card-dashboard, card-standard, dark-theme, hide-image, hide-description, etc.)", "impact": "Many card layouts will be wrong"},
+      {"id": "GAP-008", "component": "Separator", "issue": "Storybook has 1 separator. Live site uses 11 height variants (1px to 144px) as critical layout spacers", "impact": "Section spacing will be wrong throughout"},
+      {"id": "GAP-009", "component": "Quote Dark Theme", "issue": "Dark background quote variant missing from Storybook", "impact": "Join Us page quote section wrong"},
+      {"id": "GAP-010", "component": "Cookie Consent Banner", "issue": "Missing from Storybook entirely", "impact": "GDPR compliance component not represented"},
+      {"id": "GAP-011", "component": "Video Two-Column Overlay", "issue": "Video with heading overlay in 2-col layout missing", "impact": "Homepage and Science area video sections wrong"},
+      {"id": "GAP-012", "component": "Teaser CTA", "issue": "Teaser with action-link/action-container missing", "impact": "Join Us page CTAs wrong"}
+    ],
+    "minor": [
+      {"id": "GAP-013", "component": "Grid Variants", "issue": "grid-full-page-5-v1, grid-meganav-3 missing", "impact": "Science page 5-column layout wrong"},
+      {"id": "GAP-014", "component": "Link List Dashboard", "issue": "list-dashboard variant missing", "impact": "Minor visual difference"},
+      {"id": "GAP-015", "component": "Quote Sizes", "issue": "xx-large and x-large size variants missing", "impact": "Subtle font size differences"},
+      {"id": "GAP-016", "component": "Teaser-h4", "issue": "Heading size variant missing", "impact": "Minor typography difference"},
+      {"id": "GAP-017", "component": "Back Button", "issue": "back-cta component missing from story pages", "impact": "Minor navigation feature missing"},
+      {"id": "GAP-018", "component": "Scroll to Top", "issue": "back-to-top button not in Storybook", "impact": "UX convenience feature"}
+    ]
+  },
+
+  "recommendations": {
+    "blocksNeeded": {
+      "total": 24,
+      "existing": 19,
+      "newRequired": 5,
+      "newBlocks": [
+        "AbbVie Container (layout wrapper with radius/size/height variants)",
+        "Dashboard Cards (metric/stat cards with theme variants)",
+        "Navigation Header (mega-menu with search and region selector)",
+        "Cookie Consent Banner (GDPR compliance)",
+        "Hero Carousel (Splide.js patient carousel for homepage)"
+      ]
+    },
+    "variationsNeeded": {
+      "total": 67,
+      "existing": 40,
+      "newRequired": 27,
+      "highPriorityVariations": [
+        "Card: card-dashboard, card-standard, dark-theme, hide-image, hide-description (8 new)",
+        "Separator: 11 height variants (11 new — but can be parametric)",
+        "Accordion: show-tabs-desktop (1 new)",
+        "Quote: dark-theme, format-outdented (2 new)",
+        "AbbVie Container: 6 new variant combinations",
+        "Video: two-column overlay, ambient (2 new)"
+      ]
+    },
+    "templatesNeeded": {
+      "total": 14,
+      "note": "All 14 templates identified from URL analysis are confirmed by page inspection"
+    },
+    "mergeRecommendations": [
+      "MERGE: SectionHeading + Teaser (heading-only) into a single 'Teaser' block with config variants — they are the same AEM component",
+      "MERGE: StatCounter + Dashboard Cards (fact variant) — stats are rendered by dashboardcards in AEM",
+      "KEEP SEPARATE: Card (cardpagestory) vs Dashboard Cards — different AEM components with different structures"
+    ],
+    "splitRecommendations": [
+      "SPLIT: Current Card component should split into CardDashboard (horizontal) and CardStandard (vertical) — they have different layouts",
+      "SPLIT: Separator should be parametric (height prop) not 11 separate components"
+    ],
+    "retireRecommendations": [
+      "RETIRE: RelatedContent can be composed from CardGrid + Card — not a separate block",
+      "RETIRE: FeaturedStory can be composed from Card (card-dashboard large) — not separate"
+    ],
+    "implementationSequence": [
+      {"phase": 1, "priority": "P0 — Foundation", "blocks": ["AbbVie Container", "Separator (parametric)", "Navigation Header"], "reason": "Every page depends on these"},
+      {"phase": 2, "priority": "P0 — Homepage", "blocks": ["Hero Carousel", "Dashboard Cards", "Card variants (dashboard/standard)"], "reason": "Homepage is the highest-traffic page"},
+      {"phase": 3, "priority": "P1 — Content Pages", "blocks": ["Accordion tabs variant", "Quote dark-theme", "Video two-column", "Cookie Banner"], "reason": "Landing pages and story pages"},
+      {"phase": 4, "priority": "P2 — Polish", "blocks": ["Card modifier variants (hide-image, etc.)", "Link List dashboard", "Grid variants", "Back button, Scroll-to-top"], "reason": "Completeness and edge cases"}
+    ]
+  },
+
+  "risksAndMitigation": [
+    {
+      "risk": "AbbVie Container is deeply nested — every content block sits inside one",
+      "severity": "HIGH",
+      "mitigation": "Build AbbVie Container first as a wrapper component. All other blocks should be designed to work inside it.",
+      "owner": "Development Lead"
+    },
+    {
+      "risk": "Border-radius values are responsive and change per viewport — easy to get wrong",
+      "severity": "HIGH",
+      "mitigation": "Create CSS custom properties for radius tokens: --radius-default, --radius-medium, --radius-large with viewport-specific values. Use media queries to swap them.",
+      "owner": "CSS Developer"
+    },
+    {
+      "risk": "Teaser component is polymorphic — 1 AEM component maps to 4+ EDS blocks",
+      "severity": "MEDIUM",
+      "mitigation": "Create a teaser-to-block mapping table. During migration, inspect teaser configuration (has image? has CTA? has body?) to determine which EDS block to use.",
+      "owner": "Migration Engineer"
+    },
+    {
+      "risk": "Homepage hero carousel uses Splide.js — external JS dependency",
+      "severity": "MEDIUM",
+      "mitigation": "Use EDS-compatible carousel implementation or lightweight Splide.js bundle. Test thoroughly on all viewports.",
+      "owner": "Frontend Developer"
+    },
+    {
+      "risk": "65-item accordion on patient assistance page — performance concern",
+      "severity": "LOW",
+      "mitigation": "Implement lazy rendering or virtual scrolling for large accordion lists.",
+      "owner": "Frontend Developer"
+    },
+    {
+      "risk": "Brightcove video player integration required for 2 template types",
+      "severity": "MEDIUM",
+      "mitigation": "Use Brightcove embed SDK. Ensure poster images load from Scene7 CDN as fallback.",
+      "owner": "Integration Engineer"
+    }
+  ]
+}
