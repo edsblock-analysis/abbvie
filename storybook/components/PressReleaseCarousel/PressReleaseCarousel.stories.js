@@ -9,19 +9,19 @@ export const Default = {
   args: {
     slides: [
       {
-        date: 'October 15, 2024',
-        headline: 'Company Announces Positive Phase 3 Results for Novel Cancer Treatment',
-        href: '/press/phase-3-results',
+        date: 'January 7, 2025',
+        headline: 'Allergan Aesthetics Announces New Data Reinforcing the Long-Term Safety and Efficacy of BOTOX Cosmetic',
+        href: '/news/press-releases/allergan-aesthetics-botox-data.html',
       },
       {
-        date: 'September 28, 2024',
-        headline: 'FDA Grants Breakthrough Therapy Designation for Rare Disease Program',
-        href: '/press/breakthrough-therapy',
+        date: 'November 15, 2024',
+        headline: 'AbbVie to Host CoolSculpting Elite Launch Event Highlighting Next-Generation Body Contouring Technology',
+        href: '/news/press-releases/coolsculpting-elite-launch.html',
       },
       {
-        date: 'September 10, 2024',
-        headline: 'Strategic Partnership to Advance Next-Generation Cell Therapies',
-        href: '/press/strategic-partnership',
+        date: 'October 30, 2024',
+        headline: 'AbbVie Reports Third-Quarter 2024 Financial Results and Hosts Earnings Conference Call',
+        href: '/news/press-releases/q3-2024-earnings.html',
       },
     ],
   },

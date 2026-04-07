@@ -7,9 +7,9 @@ export default {
 
 export const Default = {
   args: {
-    date: 'Sep 25, 2024',
+    date: 'September 25, 2024',
     category: 'Science',
-    categoryHref: '/topics/science',
+    categoryHref: '/science.html',
     readTime: '6 Minute Read',
   },
 };

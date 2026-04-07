@@ -1,34 +1,32 @@
-import styles from './SectionHeading.css?inline';
+import './SectionHeading.css';
 
 export default {
   title: 'Components/SectionHeading',
 };
 
-const wrap = (html) => `<style>${styles}</style>${html}`;
-
 export const WithLabel = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="section-heading">
-      <p class="section-heading__label">Our Approach</p>
-      <h2 class="section-heading__headline">Science-Driven Innovation</h2>
+      <p class="section-heading__label">SCIENCE &amp; INNOVATION</p>
+      <h2 class="section-heading__headline">We solve the tough challenges.</h2>
       <p class="section-heading__body">
-        We leverage cutting-edge science and data to develop breakthrough therapies
-        that transform the standard of care across key therapeutic areas.
+        Working alongside patients, physicians, and researchers, we pursue the
+        most complex health challenges with rigor and compassion—turning bold
+        science into real solutions that improve lives.
       </p>
     </div>
-  `),
+  `,
 };
 
 export const Simple = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="section-heading section-heading--small">
-      <h2 class="section-heading__headline">Therapeutic Areas</h2>
+      <h2 class="section-heading__headline">Areas of Focus</h2>
       <p class="section-heading__body">
-        Explore the conditions and diseases where we are making a meaningful
-        difference in patients' lives.
+        From immunology and oncology to neuroscience and eye care, we
+        concentrate our expertise in therapeutic areas where we can make the
+        greatest difference for patients worldwide.
       </p>
     </div>
-  `),
+  `,
 };

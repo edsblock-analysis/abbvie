@@ -1,76 +1,78 @@
-import styles from './TwoColumnFeature.css?inline';
+import './TwoColumnFeature.css';
 
 export default {
   title: 'Components/TwoColumnFeature',
 };
 
-const wrap = (html) => `<style>${styles}</style>${html}`;
-
 export const ImageLeft = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="two-column-feature">
       <div class="two-column-feature__image-wrapper">
         <img
-          src="https://scene7.abbvie.com/is/image/abbvie/two-col-placeholder?fmt=webp&wid=800"
-          alt="Feature image"
+          src="https://abbvie.scene7.com/is/image/abbviecorp/woman-in-lab-looking-down?fmt=webp"
+          alt="AbbVie scientist examining research samples in the lab"
         />
       </div>
       <div class="two-column-feature__content">
-        <h2 class="two-column-feature__heading">Advancing Science to Transform Lives</h2>
+        <h2 class="two-column-feature__heading">Striving for Breakthroughs</h2>
         <p class="two-column-feature__body">
-          We combine advanced science with deep expertise to design and deliver
-          innovative therapies that address some of the world's most complex health issues.
+          At AbbVie, our science-first approach means we tackle the toughest
+          challenges in healthcare. By combining deep expertise with bold
+          innovation, we develop therapies that make a real difference for
+          patients around the world.
         </p>
         <a href="#" class="two-column-feature__cta">Learn More</a>
       </div>
     </div>
-  `),
+  `,
 };
 
 export const ImageRight = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="two-column-feature two-column-feature--reversed">
       <div class="two-column-feature__image-wrapper">
         <img
-          src="https://scene7.abbvie.com/is/image/abbvie/two-col-placeholder-alt?fmt=webp&wid=800"
-          alt="Feature image"
+          src="https://abbvie.scene7.com/is/image/abbviecorp/young-woman-smiling?fmt=webp"
+          alt="AbbVie employee smiling"
         />
       </div>
       <div class="two-column-feature__content">
-        <h2 class="two-column-feature__heading">Our Commitment to Patients</h2>
+        <h2 class="two-column-feature__heading">Life at AbbVie</h2>
         <p class="two-column-feature__body">
-          From discovery through delivery, we work tirelessly to bring new solutions
-          to patients around the world.
+          Our people are our greatest strength. At AbbVie, you'll find a
+          collaborative culture that values diverse perspectives, encourages
+          bold thinking, and supports your growth at every stage of your career.
         </p>
-        <a href="#" class="two-column-feature__cta">Discover Our Pipeline</a>
+        <a href="#" class="two-column-feature__cta">Explore Careers</a>
       </div>
     </div>
-  `),
+  `,
 };
 
 export const VideoLeft = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="two-column-feature">
-      <div class="two-column-feature__image-wrapper">
-        <video
-          src="https://scene7.abbvie.com/is/content/abbvie/video-placeholder.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-        ></video>
+      <div class="two-column-feature__image-wrapper two-column-feature__image-wrapper--video">
+        <img
+          src="https://abbvie.scene7.com/is/image/abbviecorp/man-looking-at-testtube-feature-tall-2?fmt=webp"
+          alt="Researcher examining a test tube"
+        />
+        <button class="two-column-feature__play-btn" aria-label="Play video">
+          <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+            <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.55)"/>
+            <polygon points="26,20 26,44 46,32" fill="#fff"/>
+          </svg>
+        </button>
       </div>
       <div class="two-column-feature__content">
-        <h2 class="two-column-feature__heading">See the Impact We Make</h2>
+        <h2 class="two-column-feature__heading">Beyond the Diagnosis</h2>
         <p class="two-column-feature__body">
-          Watch how our research and innovation are helping people live healthier
-          lives every day.
+          Watch how AbbVie researchers are pioneering new approaches to
+          Parkinson's disease—moving beyond symptom management to explore
+          treatments that target the underlying causes of neurodegeneration.
         </p>
         <a href="#" class="two-column-feature__cta">Watch Video</a>
       </div>
     </div>
-  `),
+  `,
 };

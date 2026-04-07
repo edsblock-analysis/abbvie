@@ -7,12 +7,11 @@ export default {
 
 export const QuickLinks = {
   args: {
-    heading: 'Quick Links',
+    heading: "AbbVie's Positions & Views",
     links: [
-      { label: 'Annual Report 2024', href: '/annual-report', external: true },
-      { label: 'Corporate Governance', href: '/governance' },
-      { label: 'Investor Presentations', href: '/investors/presentations', external: true },
-      { label: 'SEC Filings', href: '/investors/sec-filings', external: true },
+      { label: 'Our Environmental Stewardship', href: '/sustainability/environment.html' },
+      { label: 'Pricing and Access', href: '/patients/pricing-and-access.html' },
+      { label: "AbbVie's Code of Conduct", href: '/who-we-are/code-of-conduct.html' },
     ],
   },
 };
@@ -20,11 +19,10 @@ export const QuickLinks = {
 export const TopicsList = {
   args: {
     links: [
-      { label: 'Oncology', href: '/topics/oncology' },
-      { label: 'Immunology', href: '/topics/immunology' },
-      { label: 'Cardiovascular', href: '/topics/cardiovascular' },
-      { label: 'Rare Diseases', href: '/topics/rare-diseases' },
-      { label: 'Neuroscience', href: '/topics/neuroscience' },
+      { label: 'Pipeline', href: '/science/pipeline.html' },
+      { label: 'Products', href: '/science/products.html' },
+      { label: 'Partner with Us', href: '/science/partner-with-us.html' },
+      { label: 'Patient Support', href: '/patients/patient-support.html' },
     ],
   },
 };

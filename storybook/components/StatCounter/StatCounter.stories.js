@@ -1,63 +1,59 @@
-import styles from './StatCounter.css?inline';
+import './StatCounter.css';
 
 export default {
   title: 'Components/StatCounter',
 };
 
-const wrap = (html) => `<style>${styles}</style>${html}`;
-
 export const InlineStat = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="stat-counter">
       <div>
         <span class="stat-counter__number">75</span><span class="stat-counter__suffix">+</span>
       </div>
       <p class="stat-counter__label">Conditions treated across our portfolio</p>
     </div>
-  `),
+  `,
 };
 
 export const GridStats = {
-  render: () =>
-    wrap(`
+  render: () => `
     <div class="stat-counter-grid">
       <div class="stat-counter">
         <div>
-          <span class="stat-counter__number">50</span><span class="stat-counter__suffix">M+</span>
+          <span class="stat-counter__number">90</span><span class="stat-counter__suffix">+</span>
         </div>
-        <p class="stat-counter__label">Patients served worldwide</p>
+        <p class="stat-counter__label">Compounds in pipeline</p>
       </div>
       <div class="stat-counter">
         <div>
-          <span class="stat-counter__prefix">$</span><span class="stat-counter__number">7.7</span><span class="stat-counter__suffix">B</span>
+          <span class="stat-counter__prefix">~</span><span class="stat-counter__number">50</span>
         </div>
-        <p class="stat-counter__label">Invested in R&amp;D annually</p>
+        <p class="stat-counter__label">New molecular entities</p>
       </div>
       <div class="stat-counter">
         <div>
-          <span class="stat-counter__number">175</span><span class="stat-counter__suffix">+</span>
+          <span class="stat-counter__number">9</span>
         </div>
-        <p class="stat-counter__label">Countries with our products</p>
+        <p class="stat-counter__label">R&amp;D centers globally</p>
       </div>
       <div class="stat-counter">
         <div>
-          <span class="stat-counter__number">48</span><span class="stat-counter__suffix">K</span>
+          <span class="stat-counter__number">75</span><span class="stat-counter__suffix">+</span>
         </div>
-        <p class="stat-counter__label">Employees globally</p>
+        <p class="stat-counter__label">Conditions treated</p>
       </div>
       <div class="stat-counter">
         <div>
-          <span class="stat-counter__number">30</span><span class="stat-counter__suffix">+</span>
+          <span class="stat-counter__number">375</span><span class="stat-counter__suffix">+</span>
         </div>
-        <p class="stat-counter__label">Approved therapies</p>
+        <p class="stat-counter__label">Active clinical trials</p>
       </div>
       <div class="stat-counter">
         <div>
-          <span class="stat-counter__number">100</span><span class="stat-counter__suffix">+</span>
+          <span class="stat-counter__prefix">$</span><span class="stat-counter__number">10.8</span><span class="stat-counter__suffix">B</span>
         </div>
-        <p class="stat-counter__label">Clinical trials underway</p>
+        <p class="stat-counter__label">Invested in R&amp;D</p>
       </div>
     </div>
-  `),
+  `,
 };

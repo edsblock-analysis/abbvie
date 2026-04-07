@@ -8,9 +8,9 @@ export default {
 export const MultiLevel = {
   args: {
     items: [
-      { label: 'Who We Are', href: '/who-we-are' },
-      { label: 'Our Leaders', href: '/who-we-are/our-leaders' },
-      { label: 'Robert Michael' },
+      { label: 'Who We Are', href: '/who-we-are.html' },
+      { label: 'Our Leaders', href: '/who-we-are/our-leaders.html' },
+      { label: 'Robert A. Michael' },
     ],
   },
 };
@@ -18,7 +18,7 @@ export const MultiLevel = {
 export const SingleLevel = {
   args: {
     items: [
-      { label: 'All Stories' },
+      { label: 'All Stories', href: '/who-we-are/our-stories.html' },
     ],
   },
 };

@@ -1,48 +1,47 @@
-import styles from './PullQuote.css?inline';
+import './PullQuote.css';
 
 export default {
   title: 'Components/PullQuote',
 };
 
-const wrap = (html) => `<style>${styles}</style>${html}`;
-
 export const WithHeadshot = {
-  render: () =>
-    wrap(`
+  render: () => `
     <blockquote class="pull-quote">
       <p class="pull-quote__text">
-        "AbbVie's commitment to innovation has fundamentally changed the way we
-        approach treatment for patients with chronic conditions."
+        "Our ability to integrate computational chemistry with high-throughput
+        screening has fundamentally changed the speed and precision of drug
+        discovery at AbbVie."
       </p>
       <div class="pull-quote__attribution">
         <img
           class="pull-quote__headshot"
-          src="https://scene7.abbvie.com/is/image/abbvie/headshot-placeholder?fmt=webp&wid=160"
-          alt="Dr. Jane Smith"
+          src="https://abbvie.scene7.com/is/image/abbviecorp/phil-hajduk-headshot-1?fmt=webp"
+          alt="Phil Hajduk, Ph.D."
         />
         <div class="pull-quote__author-info">
-          <p class="pull-quote__name">Dr. Jane Smith</p>
-          <p class="pull-quote__title">Chief Medical Officer</p>
+          <p class="pull-quote__name">Phil Hajduk, Ph.D.</p>
+          <p class="pull-quote__title">Vice President, IT Information Research, AbbVie</p>
         </div>
       </div>
     </blockquote>
-  `),
+  `,
 };
 
 export const Testimonial = {
-  render: () =>
-    wrap(`
+  render: () => `
     <blockquote class="pull-quote">
       <p class="pull-quote__text">
-        "Thanks to their dedication to research, my quality of life has improved
-        in ways I never thought possible."
+        "What drew me to AbbVie was the culture of ownership—everyone here
+        genuinely cares about the impact of their work. I've grown more in
+        three years than I thought possible, surrounded by people who push
+        each other to do meaningful science."
       </p>
       <div class="pull-quote__attribution">
         <div class="pull-quote__author-info">
-          <p class="pull-quote__name">Michael R.</p>
-          <p class="pull-quote__title">Patient Advocate</p>
+          <p class="pull-quote__name">Sarah M.</p>
+          <p class="pull-quote__title">Senior Research Scientist, AbbVie</p>
         </div>
       </div>
     </blockquote>
-  `),
+  `,
 };

@@ -1,60 +1,95 @@
+import './Card.css';
+
 export default {
   title: 'Components/Card',
 };
 
-export const FeatureCard = () => `
-  <a class="card" href="#" style="max-width: 380px;">
-    <div class="card-image">
-      <img src="https://scene7.abbvie.com/is/image/abbvie/feature-highlight" alt="Feature Highlight" />
-    </div>
-    <div class="card-content">
-      <h3 class="card-title">Transforming Patient Lives</h3>
-      <p class="card-body">Our innovative therapies are making a remarkable difference for patients around the world, delivering new hope where it is needed most.</p>
-      <span class="card-cta">Learn More</span>
-    </div>
-  </a>
-`;
+const scene7 = (name) => `https://abbvie.scene7.com/is/image/abbviecorp/${name}?fmt=webp`;
 
-export const StoryCard = () => `
-  <a class="card" href="#" style="max-width: 380px;">
-    <div class="card-image">
-      <img src="https://scene7.abbvie.com/is/image/abbvie/story-spotlight" alt="Story Spotlight" />
-    </div>
-    <div class="card-content">
-      <span class="card-category">Research</span>
-      <span class="card-date">March 22, 2026</span>
-      <h3 class="card-title">Behind the Breakthrough</h3>
-      <p class="card-body">An inside look at the dedicated team of researchers who turned years of study into a life-changing treatment.</p>
-      <span class="card-read-time">7 min read</span>
-    </div>
-  </a>
-`;
+/**
+ * FeatureCard - Highlights a key AbbVie science area with an image,
+ * description, and call-to-action link.
+ */
+export const FeatureCard = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <a class="card" href="#" style="max-width: 380px;">
+      <div class="card-image">
+        <img src="${scene7('man-looking-at-testtube-feature-tall-2')}" alt="Scientist examining a test tube" />
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">Pushing the Boundaries of Science</h3>
+        <p class="card-body">AbbVie combines deep scientific expertise with cutting-edge technology platforms to discover and develop therapies that address serious health conditions across immunology, oncology, neuroscience, and eye care.</p>
+        <span class="card-cta">Explore Our Pipeline</span>
+      </div>
+    </a>
+  `;
+  return el.firstElementChild;
+};
 
-export const ArticleCard = () => `
-  <a class="card" href="#" style="max-width: 380px;">
-    <div class="card-image">
-      <img src="https://scene7.abbvie.com/is/image/abbvie/article-immunology" alt="Immunology Article" />
-    </div>
-    <div class="card-content">
-      <span class="card-category">Immunology</span>
-      <span class="card-date">January 15, 2026</span>
-      <h3 class="card-title">The Future of Immunology Treatment</h3>
-      <p class="card-body">New research findings are paving the way for more targeted and effective immunology therapies with fewer side effects.</p>
-      <span class="card-read-time">6 min read</span>
-      <span class="card-cta">Read Article</span>
-    </div>
-  </a>
-`;
+/**
+ * StoryCard - A story card featuring a date, category tag,
+ * estimated read time, and an article about AI in drug discovery.
+ */
+export const StoryCard = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <a class="card" href="#" style="max-width: 380px;">
+      <div class="card-image">
+        <img src="${scene7('the-persistence-lab-promo')}" alt="Inside the persistence lab" />
+      </div>
+      <div class="card-content">
+        <span class="card-category">Data Science</span>
+        <span class="card-date">March 22, 2026</span>
+        <h3 class="card-title">How AI Is Accelerating Drug Discovery at AbbVie</h3>
+        <p class="card-body">Machine-learning models are helping AbbVie scientists predict molecular behavior earlier in the pipeline, reducing development timelines and increasing the probability of clinical success.</p>
+        <span class="card-read-time">7 min read</span>
+      </div>
+    </a>
+  `;
+  return el.firstElementChild;
+};
 
-export const ResourceCard = () => `
-  <a class="card" href="/assets/documents/resource-guide.pdf" style="max-width: 380px;">
-    <div class="card-image">
-      <img src="https://scene7.abbvie.com/is/image/abbvie/resource-pdf" alt="Resource PDF" />
-    </div>
-    <div class="card-content">
-      <h3 class="card-title">Patient Resource Guide</h3>
-      <p class="card-body">Download our comprehensive guide covering treatment options, support programs, and frequently asked questions.</p>
-      <span class="card-cta">Download PDF</span>
-    </div>
-  </a>
-`;
+/**
+ * ArticleCard - An oncology article card with full metadata
+ * including category, date, read time, and CTA.
+ */
+export const ArticleCard = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <a class="card" href="#" style="max-width: 380px;">
+      <div class="card-image">
+        <img src="${scene7('two-women-scientist-talking-hero')}" alt="Scientists discussing oncology research" />
+      </div>
+      <div class="card-content">
+        <span class="card-category">Oncology</span>
+        <span class="card-date">February 10, 2026</span>
+        <h3 class="card-title">Targeting Solid Tumors with Next-Generation ADCs</h3>
+        <p class="card-body">Antibody-drug conjugates represent a rapidly evolving class of cancer therapeutics. AbbVie's ADC portfolio leverages proprietary linker-payload technology to improve tumor selectivity while minimizing off-target effects.</p>
+        <span class="card-read-time">9 min read</span>
+        <span class="card-cta">Read Article</span>
+      </div>
+    </a>
+  `;
+  return el.firstElementChild;
+};
+
+/**
+ * ResourceCard - A downloadable patient assistance PDF resource card.
+ */
+export const ResourceCard = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <a class="card" href="/assets/documents/abbvie-patient-assistance.pdf" style="max-width: 380px;">
+      <div class="card-image">
+        <img src="${scene7('young-woman-smiling')}" alt="Patient smiling" />
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">myAbbVie Assist Patient Savings Program</h3>
+        <p class="card-body">Eligible patients may pay as little as $5 per month for qualifying AbbVie medications. Download the enrollment guide to learn about eligibility requirements, covered products, and how to apply.</p>
+        <span class="card-cta">Download PDF</span>
+      </div>
+    </a>
+  `;
+  return el.firstElementChild;
+};

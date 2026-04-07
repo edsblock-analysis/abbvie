@@ -1,4 +1,4 @@
-import accordionStyles from './Accordion.css?raw';
+import './Accordion.css';
 
 export default {
   title: 'Components/Accordion',
@@ -41,7 +41,6 @@ function attachAccordionJS(container) {
 export const FAQAccordion = () => {
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
-    <style>${accordionStyles}</style>
     <div class="accordion-container">
       <div class="accordion-controls">
         <button class="accordion-toggle-all" data-action="expand">Expand All</button>
@@ -49,41 +48,41 @@ export const FAQAccordion = () => {
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">What is this program about?</span>
+          <span class="accordion-item-title">What is AbbVie's research pipeline?</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p>This program provides resources and support for patients and caregivers navigating treatment options. It includes educational materials and access to specialists.</p>
+          <p>AbbVie's pipeline includes more than 90 compounds or indications in development across key therapeutic areas including immunology, oncology, neuroscience, eye care, and aesthetics. Our scientists focus on discovering and developing transformative therapies that address serious health conditions and unmet medical needs worldwide.</p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">Who is eligible to enroll?</span>
+          <span class="accordion-item-title">How can I participate in AbbVie clinical trials?</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p>Patients who have been prescribed a qualifying medication and reside in the United States are eligible. Please consult your healthcare provider for specific eligibility criteria.</p>
+          <p>AbbVie conducts clinical trials globally to evaluate the safety and efficacy of investigational therapies. You can explore currently enrolling studies at <a href="https://www.abbvieclinicaltrials.com" target="_blank" rel="noopener">abbvieclinicaltrials.com</a>. Speak with your healthcare provider to determine whether a clinical trial may be appropriate for your condition.</p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">How do I contact support?</span>
+          <span class="accordion-item-title">What patient support programs does AbbVie offer?</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p>You can reach our support team by calling 1-800-555-0199 Monday through Friday, 8 AM to 8 PM ET. You may also submit a request through our online contact form.</p>
+          <p>AbbVie offers a range of patient support programs, including myAbbVie Assist, which provides eligible patients with AbbVie medicines at no cost. Additional programs help patients navigate insurance coverage, find co-pay assistance, and connect with nurse ambassadors who provide personalized support throughout their treatment journey.</p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">What are the side effects?</span>
+          <span class="accordion-item-title">How do I explore career opportunities at AbbVie?</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p>Common side effects may include nausea, fatigue, and headache. Serious side effects are rare but should be reported to your healthcare provider immediately.</p>
+          <p>AbbVie employs approximately 50,000 people worldwide and is consistently recognized as a great place to work. Career opportunities span R&amp;D, commercial, manufacturing, data science, and corporate functions. Visit <a href="https://careers.abbvie.com" target="_blank" rel="noopener">careers.abbvie.com</a> to search open positions, learn about our culture, and apply online.</p>
         </div>
       </div>
     </div>
@@ -95,7 +94,6 @@ export const FAQAccordion = () => {
 export const MedicineListAccordion = () => {
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
-    <style>${accordionStyles}</style>
     <div class="accordion-container">
       <div class="accordion-controls">
         <button class="accordion-toggle-all" data-action="expand">Expand All</button>
@@ -103,51 +101,51 @@ export const MedicineListAccordion = () => {
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">Abelcet (Amphotericin B Lipid Complex)</span>
+          <span class="accordion-item-title">HUMIRA (adalimumab)</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p><a href="#">Prescribing Information (EN)</a> | <a href="#">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
+          <p><a href="https://www.rxabbvie.com/pdf/humira.pdf" target="_blank" rel="noopener">Prescribing Information (EN)</a> | <a href="https://www.rxabbvie.com/pdf/humira_sp.pdf" target="_blank" rel="noopener">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">Revlimid (Lenalidomide)</span>
+          <span class="accordion-item-title">RINVOQ (upadacitinib)</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p><a href="#">Prescribing Information (EN)</a> | <a href="#">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
+          <p><a href="https://www.rxabbvie.com/pdf/rinvoq_pi.pdf" target="_blank" rel="noopener">Prescribing Information (EN)</a> | <a href="https://www.rxabbvie.com/pdf/rinvoq_pi_sp.pdf" target="_blank" rel="noopener">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">Pomalyst (Pomalidomide)</span>
+          <span class="accordion-item-title">SKYRIZI (risankizumab-rzaa)</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p><a href="#">Prescribing Information (EN)</a> | <a href="#">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
+          <p><a href="https://www.rxabbvie.com/pdf/skyrizi_pi.pdf" target="_blank" rel="noopener">Prescribing Information (EN)</a> | <a href="https://www.rxabbvie.com/pdf/skyrizi_pi_sp.pdf" target="_blank" rel="noopener">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">Opdivo (Nivolumab)</span>
+          <span class="accordion-item-title">VENCLEXTA (venetoclax)</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p><a href="#">Prescribing Information (EN)</a> | <a href="#">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
+          <p><a href="https://www.rxabbvie.com/pdf/venclexta.pdf" target="_blank" rel="noopener">Prescribing Information (EN)</a> | <a href="https://www.rxabbvie.com/pdf/venclexta_sp.pdf" target="_blank" rel="noopener">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
         </div>
       </div>
 
       <div class="accordion-item">
         <div class="accordion-item-header">
-          <span class="accordion-item-title">Eliquis (Apixaban)</span>
+          <span class="accordion-item-title">BOTOX (onabotulinumtoxinA)</span>
           <span class="accordion-toggle-icon">&#9660;</span>
         </div>
         <div class="accordion-item-content">
-          <p><a href="#">Prescribing Information (EN)</a> | <a href="#">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
+          <p><a href="https://www.rxabbvie.com/pdf/botox_pi.pdf" target="_blank" rel="noopener">Prescribing Information (EN)</a> | <a href="https://www.rxabbvie.com/pdf/botox_pi_sp.pdf" target="_blank" rel="noopener">Informaci&oacute;n de Prescripci&oacute;n (ES)</a></p>
         </div>
       </div>
     </div>
@@ -159,7 +157,6 @@ export const MedicineListAccordion = () => {
 export const DiseaseCategoryAccordion = () => {
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
-    <style>${accordionStyles}</style>
     <div class="accordion-container">
       <div class="accordion-controls">
         <button class="accordion-toggle-all" data-action="expand">Expand All</button>
@@ -172,9 +169,25 @@ export const DiseaseCategoryAccordion = () => {
         </div>
         <div class="accordion-item-content">
           <ul>
-            <li><strong>Acute Myeloid Leukemia (AML)</strong> &mdash; A fast-growing cancer of the blood and bone marrow that affects myeloid cells.</li>
-            <li><strong>Acute Lymphoblastic Leukemia (ALL)</strong> &mdash; A type of cancer that starts in white blood cells called lymphocytes in the bone marrow.</li>
-            <li><strong>Chronic Lymphocytic Leukemia (CLL)</strong> &mdash; A slow-growing cancer that begins in lymphocytes in the bone marrow and extends into the blood.</li>
+            <li><strong>Acute Myeloid Leukemia (AML)</strong> &mdash; A fast-growing cancer of the blood and bone marrow that affects myeloid cells. AbbVie's VENCLEXTA, in combination with other agents, is approved for newly diagnosed AML in adults.</li>
+            <li><strong>Acute Lymphoblastic Leukemia (ALL)</strong> &mdash; A type of cancer that starts in white blood cells called lymphocytes in the bone marrow. AbbVie is investigating novel targeted therapies for relapsed or refractory ALL.</li>
+            <li><strong>Chronic Lymphocytic Leukemia (CLL)</strong> &mdash; A slow-growing cancer that begins in lymphocytes in the bone marrow and extends into the blood. VENCLEXTA is approved for CLL/SLL as both a first-line and relapsed/refractory treatment.</li>
+            <li><strong>Diffuse Large B-Cell Lymphoma (DLBCL)</strong> &mdash; The most common type of aggressive non-Hodgkin lymphoma. AbbVie is advancing therapies targeting key signaling pathways involved in DLBCL progression.</li>
+            <li><strong>Multiple Myeloma (MM)</strong> &mdash; A cancer of plasma cells in the bone marrow. AbbVie is exploring combination strategies to improve outcomes for patients with multiple myeloma.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span class="accordion-item-title">Solid Tumors</span>
+          <span class="accordion-toggle-icon">&#9660;</span>
+        </div>
+        <div class="accordion-item-content">
+          <ul>
+            <li><strong>Colorectal Cancer (CRC)</strong> &mdash; A cancer that begins in the colon or rectum. AbbVie is developing targeted therapies and immunotherapy combinations for advanced colorectal cancer.</li>
+            <li><strong>Lung Cancer</strong> &mdash; One of the most common cancers worldwide. AbbVie's oncology pipeline includes investigational agents targeting driver mutations and immune evasion mechanisms in non-small cell lung cancer.</li>
+            <li><strong>Ovarian Cancer</strong> &mdash; A cancer that forms in the tissues of the ovary. AbbVie is investigating novel approaches, including antibody-drug conjugates, for patients with advanced ovarian cancer.</li>
           </ul>
         </div>
       </div>

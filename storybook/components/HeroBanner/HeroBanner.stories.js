@@ -4,8 +4,7 @@ export default {
   title: 'Components/HeroBanner',
 };
 
-const SCENE7_IMAGE =
-  'https://abbvie.scene7.com/is/image/abbviecorp/woman-in-lab-looking-down?fmt=webp';
+const scene7 = (name) => `https://abbvie.scene7.com/is/image/abbviecorp/${name}?fmt=webp`;
 
 const pauseIcon = `
   <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -20,105 +19,132 @@ const playIcon = `
 
 /**
  * VideoHero - Hero banner with a video background.
- * Uses a poster image as fallback and includes pause/play controls.
+ * Uses a poster image as fallback and includes working pause/play controls.
  */
-export const VideoHero = () => `
-  <div class="hero-banner">
-    <video
-      class="hero-banner__media hero-banner__media--video"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="${SCENE7_IMAGE}"
-    >
-      <!-- Video source would be provided in production -->
-      <source src="" type="video/mp4" />
-    </video>
+export const VideoHero = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <div class="hero-banner">
+      <video
+        class="hero-banner__media hero-banner__media--video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="${scene7('woman-in-lab-looking-down')}"
+      >
+        <source src="" type="video/mp4" />
+      </video>
 
-    <div class="hero-banner__overlay"></div>
+      <div class="hero-banner__overlay"></div>
 
-    <div class="hero-banner__content">
-      <h1 class="hero-banner__title">Discovering and delivering transformative medicines</h1>
-      <p class="hero-banner__subheading">
-        We pursue innovative science to make a remarkable impact on people&rsquo;s lives.
-      </p>
-      <a href="#" class="hero-banner__cta">Learn More</a>
+      <div class="hero-banner__content">
+        <h1 class="hero-banner__title">We find answers that make life better for patients and our world.</h1>
+        <p class="hero-banner__subheading">
+          At AbbVie, our science drives innovative therapies across immunology, oncology,
+          neuroscience, eye care, and aesthetics &mdash; reaching patients in more than 175 countries.
+        </p>
+        <a href="#" class="hero-banner__cta">Explore Our Science</a>
+      </div>
+
+      <button class="hero-banner__pause-btn" aria-label="Pause background video" type="button">
+        ${pauseIcon}
+      </button>
     </div>
+  `;
 
-    <button class="hero-banner__pause-btn" aria-label="Pause background video" type="button">
-      ${pauseIcon}
-    </button>
-  </div>
-`;
+  const btn = el.querySelector('.hero-banner__pause-btn');
+  const video = el.querySelector('video');
+  let playing = true;
+
+  btn.addEventListener('click', () => {
+    if (playing) {
+      video.pause();
+      btn.innerHTML = playIcon;
+      btn.setAttribute('aria-label', 'Play background video');
+    } else {
+      video.play();
+      btn.innerHTML = pauseIcon;
+      btn.setAttribute('aria-label', 'Pause background video');
+    }
+    playing = !playing;
+  });
+
+  return el.firstElementChild;
+};
 
 /**
- * ImageHero - Hero banner with a static background image,
- * heading, subheading, and CTA link.
+ * ImageHero - Hero banner with a static background image.
+ * Careers-focused messaging with heading, subheading, and CTA.
  */
-export const ImageHero = () => `
-  <div class="hero-banner">
-    <img
-      class="hero-banner__media"
-      src="${SCENE7_IMAGE}"
-      alt="Woman in laboratory"
-      loading="eager"
-    />
+export const ImageHero = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <div class="hero-banner">
+      <img
+        class="hero-banner__media"
+        src="${scene7('kids-playing-soccer-grass')}"
+        alt="Children playing soccer outdoors"
+        loading="eager"
+      />
 
-    <div class="hero-banner__overlay"></div>
+      <div class="hero-banner__overlay"></div>
 
-    <div class="hero-banner__content">
-      <h1 class="hero-banner__title">Discovering and delivering transformative medicines</h1>
-      <p class="hero-banner__subheading">
-        We pursue innovative science to make a remarkable impact on people&rsquo;s lives.
-      </p>
-      <a href="#" class="hero-banner__cta">Learn More</a>
+      <div class="hero-banner__content">
+        <h1 class="hero-banner__title">Join AbbVie</h1>
+        <p class="hero-banner__subheading">
+          Build a career where your work helps transform the lives of patients around the world.
+          We offer bold opportunities in research, manufacturing, commercial, and beyond.
+        </p>
+        <a href="#" class="hero-banner__cta">Search Open Positions</a>
+      </div>
     </div>
-
-    <button class="hero-banner__pause-btn" aria-label="Pause background media" type="button">
-      ${pauseIcon}
-    </button>
-  </div>
-`;
+  `;
+  return el.firstElementChild;
+};
 
 /**
  * SimpleHero - Image-only hero with no text overlay.
- * Typically used for article or content pages.
+ * Typically used as a visual lead-in for article or content pages.
  */
-export const SimpleHero = () => `
-  <div class="hero-banner hero-banner--simple">
-    <img
-      class="hero-banner__media"
-      src="${SCENE7_IMAGE}"
-      alt="Woman in laboratory"
-      loading="eager"
-      style="position:relative;"
-    />
-  </div>
-`;
+export const SimpleHero = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <div class="hero-banner hero-banner--simple">
+      <img
+        class="hero-banner__media"
+        src="${scene7('two-women-scientist-talking-hero')}"
+        alt="Two women scientists in discussion"
+        loading="eager"
+        style="position:relative;"
+      />
+    </div>
+  `;
+  return el.firstElementChild;
+};
 
 /**
  * DetailPageHero - Hero with a centered topic heading.
  * Used on detail/interior pages with a category label above the title.
  */
-export const DetailPageHero = () => `
-  <div class="hero-banner hero-banner--detail">
-    <img
-      class="hero-banner__media"
-      src="${SCENE7_IMAGE}"
-      alt="Woman in laboratory"
-      loading="eager"
-    />
+export const DetailPageHero = () => {
+  const el = document.createElement('div');
+  el.innerHTML = `
+    <div class="hero-banner hero-banner--detail">
+      <img
+        class="hero-banner__media"
+        src="${scene7('man-looking-screen-hero-1')}"
+        alt="Researcher reviewing data on screen"
+        loading="eager"
+      />
 
-    <div class="hero-banner__overlay"></div>
+      <div class="hero-banner__overlay"></div>
 
-    <div class="hero-banner__content">
-      <p class="hero-banner__topic">Science &amp; Innovation</p>
-      <h1 class="hero-banner__title">Our approach to transformative science</h1>
+      <div class="hero-banner__content">
+        <p class="hero-banner__topic">Areas of Focus</p>
+        <h1 class="hero-banner__title">Oncology</h1>
+      </div>
     </div>
-
-    <button class="hero-banner__pause-btn" aria-label="Pause background media" type="button">
-      ${pauseIcon}
-    </button>
-  </div>
-`;
+  `;
+  return el.firstElementChild;
+};
