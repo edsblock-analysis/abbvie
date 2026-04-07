@@ -1,0 +1,188 @@
+/* AbbVie Global Design Tokens - Extracted from live site */
+/* Root font-size: 62.5% (computed 10px) - All rem values relative to this */
+
+:root {
+  /* CSS Custom Properties */
+  --direction-multiplier: 1;
+
+  /* Brand Colors */
+  --color-navy: #071d49;
+  --color-blue: #0066f5;
+  --color-blue-light: #479ff8;
+
+  /* Text Colors */
+  --color-text-default: #071d49;
+  --color-text-secondary: #666b7a;
+  --color-text-white: #ffffff;
+  --color-text-black: #000000;
+  --color-text-gray: #888888;
+  --color-text-accent-orange: #cf451c;
+  --color-text-accent-purple: #8a2ecc;
+  --color-text-accent-green: #338700;
+
+  /* Background Colors */
+  --color-bg-white: #ffffff;
+  --color-bg-navy: #071d49;
+  --color-bg-light-blue: #f1f3ff;
+  --color-bg-light-gray: #efefef;
+  --color-bg-off-white: #fafafa;
+  --color-bg-off-white-alt: #f8f8f8;
+  --color-bg-mid-blue: #3860be;
+  --color-bg-royal-blue: #243fd6;
+  --color-bg-soft-blue: #cddcf2;
+  --color-bg-muted-blue: #a6b5e0;
+  --color-bg-warm-gray: #f2f1f1;
+
+  /* Overlay Colors */
+  --overlay-dark-45: rgba(0, 0, 0, 0.45);
+  --overlay-dark-50: rgba(0, 0, 0, 0.5);
+  --overlay-dark-80: rgba(0, 0, 0, 0.8);
+  --overlay-dark-90: rgba(0, 0, 0, 0.9);
+  --overlay-white-80: rgba(255, 255, 255, 0.8);
+
+  /* Border */
+  --border-light: #b9b4b4;
+  --border-lighter: #ccc;
+
+  /* Spacing Scale (rem at 10px root) */
+  --space-xs: 0.3rem;   /* 3px */
+  --space-sm: 0.6rem;   /* 6px */
+  --space-md: 1.2rem;   /* 12px */
+  --space-base: 1.6rem; /* 16px */
+  --space-lg: 2rem;     /* 20px */
+  --space-xl: 2.4rem;   /* 24px */
+  --space-2xl: 3.2rem;  /* 32px */
+  --space-3xl: 4rem;    /* 40px */
+  --space-4xl: 5rem;    /* 50px */
+  --space-5xl: 6.4rem;  /* 64px */
+  --space-6xl: 8rem;    /* 80px */
+
+  /* Transitions */
+  --transition-color: color 0.4s ease;
+  --transition-bg: background-color 0.3s ease;
+  --transition-transform: transform 0.2s linear;
+  --transition-max-height: max-height 0.2s ease;
+  --transition-opacity: opacity 0.2s ease;
+}
+
+/* Root font-size exactly as live site */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  color: var(--color-text-default);
+  margin: 0;
+  padding: 0;
+}
+
+/* Font Face Declarations */
+/* Note: F37 Lineca is a commercial font. These are placeholder declarations.
+   In production, use the actual font files from AbbVie's CDN. */
+
+/* Typography Scale */
+h1 {
+  font-family: "F37 Lineca Medium", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 4.4rem;
+  letter-spacing: normal;
+}
+
+h2 {
+  font-family: "Roboto Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+}
+
+h3 {
+  font-family: "Roboto Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.08rem;
+}
+
+h4 {
+  font-family: "F37 Lineca Medium", Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 3.4rem;
+}
+
+h5 {
+  font-family: "F37 Lineca Medium", Helvetica, Arial, sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 3.2rem;
+}
+
+p {
+  font-family: "Roboto Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: var(--transition-color);
+}
+
+a:hover {
+  color: var(--color-blue-light);
+}
+
+/* CTA Link Style */
+.cta-link {
+  font-family: "Roboto Bold", Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container-narrow {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Grid utilities */
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
+.grid-8 { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2rem; }
+.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; }
+
+/* Section divider */
+hr, .section-divider {
+  border: none;
+  border-top: 1px solid var(--border-lighter);
+  margin: var(--space-3xl) 0;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 743px) {
+  h1 { font-size: 2.8rem; line-height: 3.2rem; }
+  h4 { font-size: 2.4rem; line-height: 2.8rem; }
+  h5 { font-size: 2rem; line-height: 2.4rem; }
+  .grid-6, .grid-8, .grid-12 { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 744px) and (max-width: 1023px) {
+  .grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .grid-12 { grid-template-columns: repeat(6, 1fr); }
+}

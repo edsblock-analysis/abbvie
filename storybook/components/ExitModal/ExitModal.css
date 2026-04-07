@@ -1,0 +1,74 @@
+/* ExitModal Component Styles */
+
+.exit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exit-modal-dialog {
+  background: #fff;
+  max-width: 500px;
+  width: 100%;
+  padding: 3.2rem;
+  border-radius: 4px;
+}
+
+.exit-modal-title {
+  font-family: 'F37 Lineca', sans-serif;
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: #071d49;
+  margin: 0 0 1.6rem;
+}
+
+.exit-modal-body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: #071d49;
+  margin: 0;
+}
+
+.exit-modal-buttons {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+
+.exit-modal-btn-disagree {
+  border: 2px solid #0066f5;
+  background: #fff;
+  color: #0066f5;
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.exit-modal-btn-agree {
+  background: #0066f5;
+  color: #fff;
+  padding: 1rem 2.4rem;
+  border-radius: 4px;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.exit-modal-btn-disagree:hover {
+  background: #e8f0fe;
+}
+
+.exit-modal-btn-agree:hover {
+  background: #0052cc;
+}

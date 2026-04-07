@@ -1,0 +1,290 @@
+{
+  "version": "1.0.0",
+  "site": "https://www.abbvie.com",
+  "generatedDate": "2026-04-07",
+  "note": "All values extracted from live site CSS. No approximations. Units preserved exactly as found.",
+  "rootFontSize": "62.5%",
+  "computedRootFontSize": "10px",
+  "cssCustomProperties": {
+    "--direction-multiplier": "1"
+  },
+  "breakpoints": {
+    "primary": [
+      { "name": "mobile-small", "query": "(max-width: 480px)", "description": "Small mobile devices" },
+      { "name": "mobile", "query": "(max-width: 743px)", "description": "Mobile breakpoint upper bound" },
+      { "name": "tablet", "query": "(min-width: 744px)", "description": "Tablet and above" },
+      { "name": "tablet-alt", "query": "(min-width: 48em)", "description": "Tablet alt (768px equivalent at 16px root)" },
+      { "name": "desktop", "query": "(min-width: 1024px)", "description": "Desktop and above" },
+      { "name": "large-desktop", "query": "(min-width: 1440px)", "description": "Large desktop" },
+      { "name": "xl-desktop", "query": "(min-width: 1920px)", "description": "Extra large desktop" }
+    ],
+    "secondary": [
+      { "name": "below-desktop", "query": "(max-width: 1023px)" },
+      { "name": "below-tablet", "query": "(max-width: 743px)" },
+      { "name": "below-tablet-768", "query": "(max-width: 768px)" },
+      { "name": "mid-mobile", "query": "(min-width: 390px)" },
+      { "name": "small-mobile-max", "query": "(max-width: 389px)" },
+      { "name": "tablet-to-mobile", "query": "(min-width: 555px) and (max-width: 743px)" },
+      { "name": "below-large-desktop", "query": "(max-width: 1439px)" },
+      { "name": "above-desktop", "query": "(min-width: 1025px)" },
+      { "name": "below-48em", "query": "(max-width: 47.99em)" },
+      { "name": "max-640", "query": "(max-width: 640px)" },
+      { "name": "max-600-or-short", "query": "(max-width: 600px), (max-height: 250px)" }
+    ],
+    "layoutBehavior": {
+      "singleColumn": "< 744px",
+      "twoColumn": ">= 744px",
+      "fullDesktop": ">= 1024px"
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": {
+        "name": "F37 Lineca",
+        "variants": [
+          { "family": "\"F37 Lineca Medium\", Helvetica, Arial, sans-serif", "weight": "800", "usage": "H1, display headings" },
+          { "family": "\"F37 Lineca Book\", Helvetica, Arial, sans-serif", "weight": "650", "usage": "H4, H5, secondary headings" },
+          { "family": "\"F37 Lineca Medium\"", "weight": "800", "usage": "H5 alternate" }
+        ]
+      },
+      "secondary": {
+        "name": "Roboto",
+        "variants": [
+          { "family": "\"Roboto Regular\", Helvetica, Arial, sans-serif", "weight": "400", "usage": "Body text, paragraphs" },
+          { "family": "\"Roboto Bold\", Helvetica, Arial, sans-serif", "weight": "700", "usage": "CTA links (uppercase)" }
+        ]
+      },
+      "supplementary": {
+        "name": "Heebo",
+        "weights": ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+        "usage": "Alternate body text"
+      },
+      "international": [
+        { "name": "Noto Sans", "weights": ["400", "700"], "usage": "International/fallback" },
+        { "name": "Noto Sans JP", "weights": ["100-900"], "usage": "Japanese locale" },
+        { "name": "Noto Sans KR", "weights": ["300", "400", "700"], "usage": "Korean locale" },
+        { "name": "Noto Sans Hebrew", "weights": ["300", "400", "700"], "usage": "Hebrew locale" }
+      ],
+      "icon": {
+        "name": "abbvie-icon",
+        "usage": "Icon font for UI elements"
+      }
+    },
+    "scale": [
+      {
+        "element": "H1",
+        "fontFamily": "\"F37 Lineca Medium\", Helvetica, Arial, sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "800",
+        "lineHeight": "44px",
+        "color": "rgb(255, 255, 255)",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "usage": "Page title / hero heading"
+      },
+      {
+        "element": "H2",
+        "fontFamily": "\"Roboto Regular\", Helvetica, Arial, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "700",
+        "lineHeight": "24px",
+        "color": "rgb(7, 29, 73)",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "usage": "Section headings, category labels"
+      },
+      {
+        "element": "H3",
+        "fontFamily": "\"Roboto Regular\", Helvetica, Arial, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "700",
+        "lineHeight": "20.8px",
+        "color": "rgb(7, 29, 73)",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "usage": "Sub-section headings"
+      },
+      {
+        "element": "H4 (display)",
+        "fontFamily": "\"F37 Lineca Medium\", Helvetica, Arial, sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "800",
+        "lineHeight": "34px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Card titles, feature headings"
+      },
+      {
+        "element": "H4 (secondary)",
+        "fontFamily": "\"F37 Lineca Book\", Helvetica, Arial, sans-serif",
+        "fontSize": "28px",
+        "fontWeight": "650",
+        "lineHeight": "32px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Secondary card headings"
+      },
+      {
+        "element": "H4 (body)",
+        "fontFamily": "\"Roboto Regular\", Helvetica, Arial, sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "26px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Sub-headings within content"
+      },
+      {
+        "element": "H4 (dark-theme)",
+        "fontFamily": "\"F37 Lineca Book\", Helvetica, Arial, sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "650",
+        "lineHeight": "34px",
+        "color": "rgb(255, 255, 255)",
+        "usage": "Headings on dark backgrounds"
+      },
+      {
+        "element": "H5 (display)",
+        "fontFamily": "\"F37 Lineca Medium\"",
+        "fontSize": "28px",
+        "fontWeight": "800",
+        "lineHeight": "32px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Smaller display headings"
+      },
+      {
+        "element": "H5 (large)",
+        "fontFamily": "\"F37 Lineca Medium\", Helvetica, Arial, sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "800",
+        "lineHeight": "36px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Large feature headings"
+      },
+      {
+        "element": "Body (default)",
+        "fontFamily": "\"Roboto Regular\", Helvetica, Arial, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Primary body text"
+      },
+      {
+        "element": "Body (small)",
+        "fontFamily": "\"Roboto Regular\", Helvetica, Arial, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "20px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Secondary body text, metadata"
+      },
+      {
+        "element": "CTA Link",
+        "fontFamily": "\"Roboto Bold\", Helvetica, Arial, sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "700",
+        "lineHeight": "20px",
+        "color": "rgb(0, 102, 245)",
+        "letterSpacing": "0.84px",
+        "textTransform": "uppercase",
+        "usage": "Call-to-action links"
+      },
+      {
+        "element": "Nav Link",
+        "fontFamily": "\"Roboto Regular\", Helvetica, Arial, sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "color": "rgb(7, 29, 73)",
+        "usage": "Navigation menu links"
+      }
+    ],
+    "remScale": ["1.2rem", "1.4rem", "1.6rem", "1.8rem", "2rem", "2.4rem", "2.6rem", "2.8rem", "3rem", "3.2rem", "3.6rem", "4rem", "4.4rem", "4.8rem", "5.2rem", "5.6rem", "6.8rem"]
+  },
+  "colors": {
+    "brand": {
+      "primary-dark": { "value": "#071d49", "rgb": "rgb(7, 29, 73)", "usage": "Primary text, headings, dark backgrounds" },
+      "primary-blue": { "value": "#0066f5", "rgb": "rgb(0, 102, 245)", "usage": "Links, CTAs, accent color" },
+      "primary-blue-light": { "value": "#479ff8", "rgb": "rgb(71, 159, 248)", "usage": "Links on dark backgrounds" }
+    },
+    "text": {
+      "default": { "value": "#071d49", "rgb": "rgb(7, 29, 73)" },
+      "secondary": { "value": "#666b7a", "rgb": "rgb(102, 107, 122)" },
+      "white": { "value": "#ffffff", "rgb": "rgb(255, 255, 255)" },
+      "black": { "value": "#000000", "rgb": "rgb(0, 0, 0)" },
+      "gray": { "value": "#888888", "rgb": "rgb(136, 136, 136)" },
+      "dark-gray": { "value": "#555555", "rgb": "rgb(85, 85, 85)" },
+      "medium-gray": { "value": "#696969", "rgb": "rgb(105, 105, 105)" },
+      "accent-orange": { "value": "#cf451c", "rgb": "rgb(207, 69, 28)" },
+      "accent-purple": { "value": "#8a2ecc", "rgb": "rgb(138, 46, 204)" },
+      "accent-green": { "value": "#338700", "rgb": "rgb(51, 135, 0)" }
+    },
+    "backgrounds": {
+      "white": { "value": "#ffffff", "rgb": "rgb(255, 255, 255)" },
+      "dark-navy": { "value": "#071d49", "rgb": "rgb(7, 29, 73)" },
+      "light-blue": { "value": "#f1f3ff", "rgb": "rgb(241, 243, 255)" },
+      "light-gray": { "value": "#efefef", "rgb": "rgb(239, 239, 239)" },
+      "near-black": { "value": "#151b17", "rgb": "rgb(21, 27, 23)" },
+      "black": { "value": "#000000", "rgb": "rgb(0, 0, 0)" },
+      "mid-blue": { "value": "#3860be", "rgb": "rgb(56, 96, 190)" },
+      "royal-blue": { "value": "#243fd6", "rgb": "rgb(36, 63, 214)" },
+      "deep-blue": { "value": "#08088c", "rgb": "rgb(8, 8, 140)" },
+      "teal": { "value": "#27455c", "rgb": "rgb(39, 69, 92)" },
+      "dark-gray": { "value": "#212121", "rgb": "rgb(33, 33, 33)" },
+      "off-white": { "value": "#fafafa", "rgb": "rgb(250, 250, 250)" },
+      "light-gray-alt": { "value": "#f8f8f8", "rgb": "rgb(248, 248, 248)" },
+      "soft-blue": { "value": "#cddcf2", "rgb": "rgb(205, 220, 242)" },
+      "warm-gray": { "value": "#f2f1f1", "rgb": "rgb(242, 241, 241)" },
+      "green-tint": { "value": "#f9fffa", "rgb": "rgb(249, 255, 250)" },
+      "muted-blue": { "value": "#a6b5e0", "rgb": "rgb(166, 181, 224)" }
+    },
+    "overlays": {
+      "dark-45": "rgba(0, 0, 0, 0.45)",
+      "dark-50": "rgba(0, 0, 0, 0.5)",
+      "dark-80": "rgba(0, 0, 0, 0.8)",
+      "dark-90": "rgba(0, 0, 0, 0.9)",
+      "white-80": "rgba(255, 255, 255, 0.8)",
+      "gray-50": "rgba(115, 133, 159, 0.5)",
+      "gray-75": "rgba(115, 133, 159, 0.75)",
+      "charcoal-75": "rgba(43, 51, 63, 0.75)"
+    }
+  },
+  "spacing": {
+    "rem": ["0", "0.3rem", "0.6rem", "1.2rem", "1.5rem", "1.6rem", "2rem", "2.4rem", "2.8rem", "3.2rem", "3.5rem", "4rem", "5rem", "5.5rem", "6.4rem", "7rem", "8rem"],
+    "px": ["0", "5px", "10px", "15px", "20px", "40px"],
+    "gridColumns": {
+      "6-col": "repeat(6, 1fr)",
+      "8-col": "repeat(8, 1fr)",
+      "12-col": "repeat(12, 1fr)"
+    },
+    "columnGap": ["1.5rem", "2rem"],
+    "sectionSpacing": "Section dividers (horizontal rules) with vertical padding",
+    "containerMaxWidth": "Varies by content type (full-width, contained, contained-narrow)"
+  },
+  "borders": {
+    "radius": ["0", "4px", "50%"],
+    "colors": ["#b9b4b4", "#ccc"]
+  },
+  "zIndex": {
+    "layers": ["0", "1", "-1", "1024", "1040", "1050"]
+  },
+  "transitions": {
+    "color": "color 0.4s ease",
+    "backgroundColor": "background-color 0.3s ease",
+    "transform": "transform 0.2s linear",
+    "maxHeight": "max-height 0.2s ease",
+    "paddingTop": "padding-top 0.2s ease",
+    "opacity": "opacity 0.2s ease"
+  },
+  "imageCDN": {
+    "provider": "Adobe Scene7 Dynamic Media",
+    "baseURL": "https://abbvie.scene7.com/is/image/abbviecorp/",
+    "presets": {
+      "$Hero$": "Full-width hero images",
+      "$Square$": "1:1 card thumbnails",
+      "$Tall$": "Portrait/tall feature images (~2:3)",
+      "$Responsive$": "Dynamic responsive sizing"
+    },
+    "format": "fmt=webp",
+    "scaleFactor": "scl=1",
+    "dpr": "dpr=off"
+  }
+}

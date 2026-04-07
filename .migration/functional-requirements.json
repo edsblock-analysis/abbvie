@@ -1,0 +1,485 @@
+{
+  "version": "1.0.0",
+  "site": "https://www.abbvie.com",
+  "generatedDate": "2026-04-07",
+  "blocks": [
+    {
+      "blockId": "hero-banner",
+      "name": "Hero Banner",
+      "variations": [
+        {
+          "id": "hero-banner--video",
+          "name": "Video Hero",
+          "functionalBehavior": "Autoplays muted background video with heading overlay. Includes pause/play toggle button. Falls back to static image on mobile or low bandwidth.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "backgroundVideo", "type": "video", "required": true, "description": "Background video asset (MP4, WebM)" },
+              { "name": "backgroundImage", "type": "image", "required": true, "description": "Fallback static image" },
+              { "name": "heading", "type": "text", "required": true, "description": "H1 overlay heading" },
+              { "name": "ctaLabel", "type": "text", "required": false, "description": "CTA link text" },
+              { "name": "ctaUrl", "type": "url", "required": false, "description": "CTA link target" }
+            ]
+          },
+          "dataDependencies": ["Video asset from DAM", "Image fallback from DAM"],
+          "acceptanceCriteria": [
+            "Video autoplays muted on desktop (min-width: 1024px)",
+            "Static image displayed on mobile (max-width: 743px)",
+            "Pause/play button toggles video playback",
+            "H1 heading overlays on video/image with readable contrast",
+            "CTA link navigates to target on click",
+            "Full viewport width on all breakpoints"
+          ]
+        },
+        {
+          "id": "hero-banner--image",
+          "name": "Image Hero",
+          "functionalBehavior": "Full-width hero image with centered text overlay. Responsive image sizing via Scene7 presets.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "backgroundImage", "type": "image", "required": true, "description": "Hero background image" },
+              { "name": "imageAlt", "type": "text", "required": true, "description": "Alt text for accessibility" },
+              { "name": "heading", "type": "text", "required": true, "description": "H1 overlay heading" },
+              { "name": "subheading", "type": "richtext", "required": false, "description": "Supporting text below heading" },
+              { "name": "ctaLabel", "type": "text", "required": false, "description": "CTA button text" },
+              { "name": "ctaUrl", "type": "url", "required": false, "description": "CTA button link" }
+            ]
+          },
+          "dataDependencies": ["Image asset from DAM/Scene7"],
+          "acceptanceCriteria": [
+            "Image spans full viewport width",
+            "Text overlay is centered and readable (contrast ratio >= 4.5:1)",
+            "Responsive image served via Scene7 $Hero$ preset",
+            "H1 heading renders in F37 Lineca Medium 40px/44px white",
+            "Optional CTA button renders as primary button style"
+          ]
+        },
+        {
+          "id": "hero-banner--simple",
+          "name": "Simple Hero (Article)",
+          "functionalBehavior": "Full-width image only, no text overlay. Used as article header image.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "heroImage", "type": "image", "required": true, "description": "Article header image" },
+              { "name": "imageAlt", "type": "text", "required": true, "description": "Alt text" }
+            ]
+          },
+          "dataDependencies": ["Image asset from DAM/Scene7"],
+          "acceptanceCriteria": [
+            "Image spans full viewport width",
+            "No text overlay rendered",
+            "Image maintains aspect ratio across breakpoints",
+            "WebP format served with fallback"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "card-grid",
+      "name": "Card Grid",
+      "variations": [
+        {
+          "id": "card-grid--three-column",
+          "name": "Three Column Cards",
+          "functionalBehavior": "3 cards in equal-width columns. Stacks to single column on mobile. Each card is fully clickable.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "cards", "type": "multifield", "required": true, "minItems": 3, "maxItems": 3, "description": "Exactly 3 card items" },
+              { "name": "cards[].image", "type": "image", "required": true },
+              { "name": "cards[].heading", "type": "text", "required": true },
+              { "name": "cards[].description", "type": "richtext", "required": false },
+              { "name": "cards[].ctaLabel", "type": "text", "required": true },
+              { "name": "cards[].ctaUrl", "type": "url", "required": true }
+            ]
+          },
+          "dataDependencies": ["3 images from DAM"],
+          "acceptanceCriteria": [
+            "3 cards display in equal-width columns at desktop (min-width: 1024px)",
+            "Cards stack vertically on mobile (max-width: 743px)",
+            "Each card shows image, heading, optional description, and CTA",
+            "Entire card area is clickable (not just CTA text)",
+            "Hover state shows visual feedback (shadow or color change)",
+            "Images maintain consistent aspect ratio"
+          ]
+        },
+        {
+          "id": "card-grid--article-cards",
+          "name": "Article Cards",
+          "functionalBehavior": "3-column grid of article preview cards with rich metadata (category, date, read time).",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "cards", "type": "multifield", "required": true, "minItems": 1, "maxItems": 6 },
+              { "name": "cards[].image", "type": "image", "required": true },
+              { "name": "cards[].category", "type": "select", "required": true, "options": ["Science", "Neuroscience", "Oncology", "Immunology", "Eye Care", "Aesthetics", "Company", "Sustainability"] },
+              { "name": "cards[].date", "type": "date", "required": true },
+              { "name": "cards[].title", "type": "text", "required": true },
+              { "name": "cards[].excerpt", "type": "text", "required": false },
+              { "name": "cards[].readTime", "type": "number", "required": false, "description": "Reading time in minutes" },
+              { "name": "cards[].articleUrl", "type": "url", "required": true }
+            ]
+          },
+          "dataDependencies": ["Article pages for linking", "Category taxonomy"],
+          "acceptanceCriteria": [
+            "Cards display in 3-column grid at desktop",
+            "Category tag renders as colored label",
+            "Date formats as 'Month DD, YYYY'",
+            "Read time shows as 'X Minute Read'",
+            "'Read Article' CTA is visible",
+            "Cards are fully clickable to article URL"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "press-release-carousel",
+      "name": "Press Release Carousel",
+      "variations": [
+        {
+          "id": "press-release-carousel--default",
+          "name": "Default Carousel",
+          "functionalBehavior": "Horizontal carousel with prev/next navigation showing 1 press release at a time. 3 slides total. Auto-advances optional.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "slides", "type": "multifield", "required": true, "minItems": 1, "maxItems": 10 },
+              { "name": "slides[].date", "type": "date", "required": true },
+              { "name": "slides[].headline", "type": "text", "required": true },
+              { "name": "slides[].url", "type": "url", "required": true }
+            ]
+          },
+          "dataDependencies": ["Press release URLs from news.abbvie.com"],
+          "acceptanceCriteria": [
+            "Carousel displays one slide at a time with prev/next arrows",
+            "Navigation arrows are clickable and cycle through slides",
+            "Date renders above headline",
+            "Headline is clickable link to press release",
+            "Touch swipe works on mobile",
+            "Keyboard navigation supported (arrow keys)"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "accordion",
+      "name": "Accordion",
+      "variations": [
+        {
+          "id": "accordion--faq",
+          "name": "FAQ Accordion",
+          "functionalBehavior": "Expandable Q&A items. Global 'Expand All / Collapse All' control. Only one item open at a time by default.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "items", "type": "multifield", "required": true, "minItems": 1 },
+              { "name": "items[].question", "type": "text", "required": true },
+              { "name": "items[].answer", "type": "richtext", "required": true },
+              { "name": "expandAllLabel", "type": "text", "required": false, "default": "Expand All" },
+              { "name": "collapseAllLabel", "type": "text", "required": false, "default": "Collapse All" }
+            ]
+          },
+          "dataDependencies": [],
+          "acceptanceCriteria": [
+            "All items collapsed by default on page load",
+            "Clicking item header toggles expand/collapse with smooth animation",
+            "'Expand All' opens all items simultaneously",
+            "'Collapse All' closes all items simultaneously",
+            "aria-expanded attribute toggles correctly",
+            "Keyboard accessible (Enter/Space to toggle)",
+            "Content within answer supports rich text (links, lists, etc.)"
+          ]
+        },
+        {
+          "id": "accordion--medicine-list",
+          "name": "Medicine List Accordion",
+          "functionalBehavior": "Large accordion (50+ items) for medicine program listings. Each item contains medicine name and EN/ES download links.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "items", "type": "multifield", "required": true },
+              { "name": "items[].medicineName", "type": "text", "required": true },
+              { "name": "items[].englishPdfUrl", "type": "url", "required": true },
+              { "name": "items[].spanishPdfUrl", "type": "url", "required": false },
+              { "name": "items[].medicareLink", "type": "url", "required": false }
+            ]
+          },
+          "dataDependencies": ["PDF documents from DAM"],
+          "acceptanceCriteria": [
+            "All items collapsed by default",
+            "Global Expand All / Collapse All works for all 50+ items",
+            "Each item shows medicine name as header",
+            "Expanded content shows EN and ES PDF download links",
+            "PDF links open in new tab",
+            "Performance remains smooth with 50+ accordion items"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "two-column-feature",
+      "name": "Two Column Feature",
+      "variations": [
+        {
+          "id": "two-column-feature--image-left",
+          "name": "Image Left",
+          "functionalBehavior": "50/50 layout with image on left, text + CTA on right. Stacks image-on-top on mobile.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "image", "type": "image", "required": true },
+              { "name": "imageAlt", "type": "text", "required": true },
+              { "name": "heading", "type": "text", "required": true },
+              { "name": "bodyText", "type": "richtext", "required": true },
+              { "name": "ctaLabel", "type": "text", "required": false },
+              { "name": "ctaUrl", "type": "url", "required": false }
+            ]
+          },
+          "dataDependencies": ["Image from DAM"],
+          "acceptanceCriteria": [
+            "Image occupies left 50% at desktop",
+            "Text content occupies right 50% at desktop",
+            "Stacks to single column on mobile (image on top)",
+            "CTA link renders in uppercase blue style",
+            "Image maintains aspect ratio"
+          ]
+        },
+        {
+          "id": "two-column-feature--video-left",
+          "name": "Video Left",
+          "functionalBehavior": "Video thumbnail with play button on left, descriptive text/quote on right.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "videoUrl", "type": "url", "required": true },
+              { "name": "posterImage", "type": "image", "required": true },
+              { "name": "videoDuration", "type": "text", "required": true, "description": "Duration string (e.g. '3:49')" },
+              { "name": "heading", "type": "text", "required": false },
+              { "name": "bodyText", "type": "richtext", "required": false },
+              { "name": "ctaLabel", "type": "text", "required": false, "default": "Watch" }
+            ]
+          },
+          "dataDependencies": ["Video asset", "Poster image from DAM"],
+          "acceptanceCriteria": [
+            "Video thumbnail with play button overlay on left",
+            "Duration badge visible (e.g. 'Watch 3:49')",
+            "Clicking play opens video player",
+            "Text/quote on right side",
+            "Responsive: stacks on mobile"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "stat-counter",
+      "name": "Stat Counter",
+      "variations": [
+        {
+          "id": "stat-counter--inline",
+          "name": "Inline Stat",
+          "functionalBehavior": "Large numerical display with optional prefix/suffix and descriptive label.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "prefix", "type": "text", "required": false, "description": "Prefix character (e.g. ~, $)" },
+              { "name": "number", "type": "text", "required": true, "description": "The main number (e.g. 75, 57, 32)" },
+              { "name": "suffix", "type": "text", "required": false, "description": "Suffix (e.g. +, k, %, B)" },
+              { "name": "label", "type": "text", "required": true, "description": "Descriptive label below number" }
+            ]
+          },
+          "dataDependencies": [],
+          "acceptanceCriteria": [
+            "Number renders in large display font (F37 Lineca)",
+            "Prefix and suffix render adjacent to number",
+            "Label text renders below in smaller body font",
+            "Responsive sizing maintains readability"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "pull-quote",
+      "name": "Pull Quote",
+      "variations": [
+        {
+          "id": "pull-quote--with-headshot",
+          "name": "Quote with Headshot",
+          "functionalBehavior": "Styled blockquote with circular headshot image and attribution (name, title, company).",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "quoteText", "type": "richtext", "required": true },
+              { "name": "headshot", "type": "image", "required": true },
+              { "name": "personName", "type": "text", "required": true },
+              { "name": "personTitle", "type": "text", "required": true },
+              { "name": "organization", "type": "text", "required": false }
+            ]
+          },
+          "dataDependencies": ["Headshot image from DAM"],
+          "acceptanceCriteria": [
+            "Quote text renders in slightly larger font (italic)",
+            "Circular headshot (~100-150px diameter)",
+            "Name renders bold, title and org in regular weight",
+            "Visual distinction from surrounding body text (border/background)",
+            "Accessible: proper blockquote semantics"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "video-embed",
+      "name": "Video Embed",
+      "variations": [
+        {
+          "id": "video-embed--standalone",
+          "name": "Standalone Video",
+          "functionalBehavior": "Video player with poster image, title, description, and play button overlay.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "videoUrl", "type": "url", "required": true },
+              { "name": "posterImage", "type": "image", "required": true },
+              { "name": "title", "type": "text", "required": true },
+              { "name": "description", "type": "text", "required": false },
+              { "name": "duration", "type": "text", "required": true }
+            ]
+          },
+          "dataDependencies": ["Video hosted on Brightcove/YouTube", "Poster image from DAM"],
+          "acceptanceCriteria": [
+            "Poster image displays initially with play button overlay",
+            "Duration badge visible",
+            "Click triggers video playback (inline or lightbox)",
+            "Video player controls visible during playback",
+            "Responsive: full-width on mobile"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "profile-card-grid",
+      "name": "Profile Card Grid",
+      "variations": [
+        {
+          "id": "profile-card-grid--executive",
+          "name": "Executive Grid",
+          "functionalBehavior": "Responsive grid of leadership profile cards. 2-3 columns at desktop, single column on mobile.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "profiles", "type": "multifield", "required": true },
+              { "name": "profiles[].headshot", "type": "image", "required": true },
+              { "name": "profiles[].name", "type": "text", "required": true },
+              { "name": "profiles[].title", "type": "text", "required": true },
+              { "name": "profiles[].bioPageUrl", "type": "url", "required": true }
+            ]
+          },
+          "dataDependencies": ["Leader bio pages", "Headshot images from DAM"],
+          "acceptanceCriteria": [
+            "Cards display in 2-3 column responsive grid",
+            "Square headshot per card",
+            "Name in bold, title below",
+            "'Meet [Name]' link navigates to bio page",
+            "Single column on mobile",
+            "Cards maintain consistent height within row"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "leader-bio",
+      "name": "Leader Bio",
+      "variations": [
+        {
+          "id": "leader-bio--executive",
+          "name": "Executive Bio",
+          "functionalBehavior": "Full biography display with headshot, name, title, multi-paragraph narrative, and social link.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "headshot", "type": "image", "required": true },
+              { "name": "name", "type": "text", "required": true },
+              { "name": "jobTitle", "type": "text", "required": true },
+              { "name": "biography", "type": "richtext", "required": true },
+              { "name": "linkedInUrl", "type": "url", "required": false }
+            ]
+          },
+          "dataDependencies": ["Headshot image from DAM"],
+          "acceptanceCriteria": [
+            "Square headshot rendered prominently",
+            "Name as H1 heading",
+            "Job title as styled subtitle",
+            "Biography paragraphs in readable body text",
+            "LinkedIn icon/link if provided",
+            "Single-column layout, narrow content width"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "exit-modal",
+      "name": "Exit Warning Modal",
+      "variations": [
+        {
+          "id": "exit-modal--default",
+          "name": "Default Exit Modal",
+          "functionalBehavior": "Modal dialog triggered when user clicks external link. Warns user they are leaving AbbVie. Two buttons: 'No, I disagree' (closes modal) and 'Yes, I agree' (proceeds to external URL).",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "warningText", "type": "richtext", "required": true },
+              { "name": "disagreeLabel", "type": "text", "required": true, "default": "No, I disagree" },
+              { "name": "agreeLabel", "type": "text", "required": true, "default": "Yes, I agree" }
+            ]
+          },
+          "dataDependencies": ["External domain whitelist configuration"],
+          "acceptanceCriteria": [
+            "Modal triggers on click of any external link (not whitelisted domains)",
+            "'No, I disagree' closes modal and stays on page",
+            "'Yes, I agree' opens external URL (new tab)",
+            "Modal has overlay backdrop",
+            "Focus trapped within modal when open",
+            "Escape key closes modal",
+            "Accessible: role=dialog, aria-modal=true"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "breadcrumb",
+      "name": "Breadcrumb",
+      "variations": [
+        {
+          "id": "breadcrumb--multi-level",
+          "name": "Multi-Level Breadcrumb",
+          "functionalBehavior": "Horizontal breadcrumb trail showing page hierarchy. All levels except current page are clickable links.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "autoGenerate", "type": "boolean", "required": true, "default": true, "description": "Auto-generate from page hierarchy" }
+            ]
+          },
+          "dataDependencies": ["Page tree hierarchy from AEM"],
+          "acceptanceCriteria": [
+            "Displays full path from section root to current page",
+            "Separator character between levels (> or /)",
+            "All ancestor levels are clickable links",
+            "Current page name displayed as plain text (not linked)",
+            "Renders in smaller font, gray-toned",
+            "Accessible: nav element with aria-label='breadcrumb'"
+          ]
+        }
+      ]
+    },
+    {
+      "blockId": "article-metadata",
+      "name": "Article Metadata Bar",
+      "variations": [
+        {
+          "id": "article-metadata--default",
+          "name": "Default Metadata Bar",
+          "functionalBehavior": "Horizontal bar displaying article publish date, category tag (linked), and estimated reading time.",
+          "authoringRequirements": {
+            "fields": [
+              { "name": "publishDate", "type": "date", "required": true },
+              { "name": "category", "type": "select", "required": true },
+              { "name": "readingTime", "type": "number", "required": false, "description": "Minutes to read" }
+            ]
+          },
+          "dataDependencies": ["Category taxonomy for linking"],
+          "acceptanceCriteria": [
+            "Date formatted as 'Month DD, YYYY'",
+            "Category renders as clickable tag linking to category listing page",
+            "Reading time shows as 'X Minute Read'",
+            "Horizontal layout with separator between elements",
+            "Smaller font size than body text"
+          ]
+        }
+      ]
+    }
+  ]
+}

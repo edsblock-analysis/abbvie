@@ -1,0 +1,52 @@
+/* PullQuote */
+
+.pull-quote {
+  border-left: 4px solid #0066f5;
+  padding: 2.4rem;
+  margin: 3.2rem 0;
+}
+
+.pull-quote__text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  font-style: italic;
+  color: #071d49;
+  margin: 0;
+}
+
+.pull-quote__attribution {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+}
+
+.pull-quote__headshot {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pull-quote__author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pull-quote__name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #071d49;
+  margin: 0;
+}
+
+.pull-quote__title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #666b7a;
+  margin: 0.2rem 0 0;
+}

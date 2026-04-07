@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbbVie.com Migration Dashboard</title>
+  <style>
+    :root {
+      --navy: #071d49;
+      --blue: #0066f5;
+      --blue-light: #479ff8;
+      --white: #ffffff;
+      --gray-100: #f8f8f8;
+      --gray-200: #efefef;
+      --gray-300: #ccc;
+      --gray-600: #666b7a;
+      --text: #071d49;
+      --bg: #ffffff;
+      --section-bg: #f1f3ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 600; }
+    header p { color: var(--blue-light); font-size: 0.875rem; margin-top: 0.25rem; }
+    nav.tabs {
+      display: flex;
+      background: var(--navy);
+      padding: 0 3rem;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 68px;
+      z-index: 99;
+    }
+    nav.tabs button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    nav.tabs button:hover { color: var(--white); }
+    nav.tabs button.active {
+      color: var(--white);
+      border-bottom-color: var(--blue);
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem 3rem; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--section-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .stat-card .label {
+      font-size: 0.8125rem;
+      color: var(--gray-600);
+      margin-top: 0.25rem;
+    }
+    h2 { font-size: 1.375rem; margin-bottom: 1rem; color: var(--navy); }
+    h3 { font-size: 1.125rem; margin: 1.5rem 0 0.75rem; color: var(--navy); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+    }
+    th {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 500;
+    }
+    td {
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+    }
+    tr:hover td { background: var(--gray-100); }
+    .badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .badge-global { background: #e8f5e9; color: #2e7d32; }
+    .badge-high { background: #e3f2fd; color: #1565c0; }
+    .badge-medium { background: #fff3e0; color: #e65100; }
+    .badge-low { background: var(--gray-200); color: var(--gray-600); }
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.25rem 0;
+    }
+    .color-swatch .swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--gray-300);
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .font-sample {
+      padding: 1rem;
+      background: var(--gray-100);
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+    .font-sample .sample-text { margin-top: 0.5rem; }
+    .font-sample .meta { font-size: 0.75rem; color: var(--gray-600); }
+    .breakpoint-bar {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      gap: 1rem;
+    }
+    .breakpoint-bar .bar {
+      flex: 1;
+      height: 8px;
+      background: var(--gray-200);
+      border-radius: 4px;
+      position: relative;
+    }
+    .breakpoint-bar .fill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 4px;
+    }
+    .breakpoint-bar .label { font-size: 0.75rem; min-width: 100px; }
+    .breakpoint-bar .value { font-size: 0.75rem; color: var(--gray-600); min-width: 80px; text-align: right; }
+    .template-card {
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--blue);
+    }
+    .template-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .template-card .meta { font-size: 0.8125rem; color: var(--gray-600); }
+    .block-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin-top: 0.5rem;
+    }
+    .block-tag {
+      background: var(--section-bg);
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: var(--navy);
+    }
+    .fragment-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--gray-200);
+      align-items: center;
+    }
+    .fragment-card .count {
+      background: var(--blue);
+      color: var(--white);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    .requirement-block {
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .requirement-block summary {
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      background: var(--gray-100);
+    }
+    .requirement-block .content { padding: 1rem; }
+    .criteria-list { list-style: none; padding: 0; }
+    .criteria-list li {
+      padding: 0.375rem 0 0.375rem 1.5rem;
+      position: relative;
+      font-size: 0.875rem;
+    }
+    .criteria-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #2e7d32;
+      font-weight: 700;
+    }
+    .query-card {
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .query-card code {
+      display: block;
+      background: var(--navy);
+      color: #a6e22e;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8125rem;
+      margin-top: 0.75rem;
+      overflow-x: auto;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      header { padding: 1.5rem 1rem; }
+      nav.tabs { padding: 0 1rem; overflow-x: auto; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AbbVie.com &mdash; Migration Dashboard</h1>
+    <p>Site analysis report &bull; Generated 2026-04-07 &bull; 321 URLs analyzed</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="active" onclick="showTab('overview')">Overview</button>
+    <button onclick="showTab('blocks')">Block Inventory</button>
+    <button onclick="showTab('templates')">Template Mapping</button>
+    <button onclick="showTab('requirements')">Functional Reqs</button>
+    <button onclick="showTab('fragments')">Fragments</button>
+    <button onclick="showTab('queries')">Index Queries</button>
+    <button onclick="showTab('design')">Design System</button>
+  </nav>
+
+  <div class="container">
+
+    <!-- OVERVIEW TAB -->
+    <div id="overview" class="tab-content active">
+      <div class="summary-grid">
+        <div class="stat-card"><div class="number">321</div><div class="label">Total URLs</div></div>
+        <div class="stat-card"><div class="number">14</div><div class="label">Template Types</div></div>
+        <div class="stat-card"><div class="number">28</div><div class="label">Unique Blocks</div></div>
+        <div class="stat-card"><div class="number">8</div><div class="label">Content Fragments</div></div>
+        <div class="stat-card"><div class="number">6</div><div class="label">Query Components</div></div>
+        <div class="stat-card"><div class="number">136</div><div class="label">Query Instances</div></div>
+      </div>
+
+      <h2>Template Distribution</h2>
+      <table>
+        <thead>
+          <tr><th>Template</th><th>Pages</th><th>% of Site</th><th>Layout</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Story Article</td><td>116</td><td>36.1%</td><td>Single column article</td></tr>
+          <tr><td>General Content Page</td><td>101</td><td>31.5%</td><td>Single column content</td></tr>
+          <tr><td>Leader Bio</td><td>24</td><td>7.5%</td><td>Single column content</td></tr>
+          <tr><td>Story Category Listing</td><td>15</td><td>4.7%</td><td>Single column grid</td></tr>
+          <tr><td>Location/Contact</td><td>15</td><td>4.7%</td><td>Single column content</td></tr>
+          <tr><td>Science Area Detail</td><td>14</td><td>4.4%</td><td>Single column rich</td></tr>
+          <tr><td>R&D Leader Bio</td><td>13</td><td>4.0%</td><td>Single column content</td></tr>
+          <tr><td>Landing/Hub Page</td><td>12</td><td>3.7%</td><td>Full width sections</td></tr>
+          <tr><td>Acquisition Page</td><td>9</td><td>2.8%</td><td>Single column content</td></tr>
+          <tr><td>Patient Assistance</td><td>8</td><td>2.5%</td><td>Utility / accordion</td></tr>
+          <tr><td>ERG Page</td><td>7</td><td>2.2%</td><td>Single column content</td></tr>
+          <tr><td>Utility Page</td><td>5</td><td>1.6%</td><td>Text-only</td></tr>
+          <tr><td>Leaders Listing</td><td>2</td><td>0.6%</td><td>Grid + list</td></tr>
+          <tr><td>Homepage</td><td>1</td><td>0.3%</td><td>Full width sections</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Block Reusability Overview</h2>
+      <table>
+        <thead><tr><th>Reuse Level</th><th>Count</th><th>Blocks</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>5</td>
+            <td>Header, Footer, Exit Modal, Section Divider, Region Selector</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-high">High</span></td>
+            <td>15</td>
+            <td>Hero Banner, Breadcrumb, Card Grid, Card, Two-Column Feature, Video Embed, Accordion, CTA Block, Stat Counter, Leader Bio, Section Heading, Article Metadata, Related Content, Pull Quote, Link List</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>5</td>
+            <td>Featured Story, Profile Card Grid, Profile Card, Address Block, Mega Menu Panel</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-low">Low</span></td>
+            <td>3</td>
+            <td>Press Release Carousel, Investor Resources, Board/Committee List</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BLOCK INVENTORY TAB -->
+    <div id="blocks" class="tab-content">
+      <h2>Block Inventory (28 Blocks)</h2>
+      <table>
+        <thead>
+          <tr><th>Block</th><th>Category</th><th>Variations</th><th>Reuse</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hero Banner</strong></td>
+            <td>Hero</td>
+            <td>Video, Image, Simple, Detail</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Full-width hero image/video with heading overlay, optional CTA</td>
+          </tr>
+          <tr>
+            <td><strong>Navigation Header</strong></td>
+            <td>Navigation</td>
+            <td>Default</td>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>Logo + 5-item mega-menu + search + region selector</td>
+          </tr>
+          <tr>
+            <td><strong>Mega Menu Panel</strong></td>
+            <td>Navigation</td>
+            <td>Default</td>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>Multi-level expandable nav panels</td>
+          </tr>
+          <tr>
+            <td><strong>Breadcrumb</strong></td>
+            <td>Navigation</td>
+            <td>Multi-level, Single-level</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Hierarchical path navigation</td>
+          </tr>
+          <tr>
+            <td><strong>Card Grid</strong></td>
+            <td>Content</td>
+            <td>3-column, 4-column, Article</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Responsive card grids with image + text + CTA</td>
+          </tr>
+          <tr>
+            <td><strong>Card</strong></td>
+            <td>Content</td>
+            <td>Feature, Story, Article, Resource</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Individual card component</td>
+          </tr>
+          <tr>
+            <td><strong>Press Release Carousel</strong></td>
+            <td>Content</td>
+            <td>Default</td>
+            <td><span class="badge badge-low">Low</span></td>
+            <td>Horizontal carousel of press release items with arrows</td>
+          </tr>
+          <tr>
+            <td><strong>Featured Story</strong></td>
+            <td>Content</td>
+            <td>Default</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>Prominent story card with large image and metadata</td>
+          </tr>
+          <tr>
+            <td><strong>Stat Counter</strong></td>
+            <td>Data Display</td>
+            <td>Inline, Grid</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Large numbers with prefix/suffix and label</td>
+          </tr>
+          <tr>
+            <td><strong>Two Column Feature</strong></td>
+            <td>Content</td>
+            <td>Image Left, Image Right, Video Left</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>50/50 split with image/video and text + CTA</td>
+          </tr>
+          <tr>
+            <td><strong>Video Embed</strong></td>
+            <td>Media</td>
+            <td>Standalone, Inline</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Video player with poster, play button, and duration badge</td>
+          </tr>
+          <tr>
+            <td><strong>Accordion</strong></td>
+            <td>Interactive</td>
+            <td>FAQ, Medicine List, Disease Category</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Expandable/collapsible panels with global toggle</td>
+          </tr>
+          <tr>
+            <td><strong>Pull Quote</strong></td>
+            <td>Content</td>
+            <td>With Headshot, Testimonial</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>Highlighted quote with attribution and photo</td>
+          </tr>
+          <tr>
+            <td><strong>CTA Block</strong></td>
+            <td>Action</td>
+            <td>Centered, With Image</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Call-to-action section with heading + button</td>
+          </tr>
+          <tr>
+            <td><strong>Profile Card Grid</strong></td>
+            <td>People</td>
+            <td>Executive</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>Responsive grid of leadership profile cards</td>
+          </tr>
+          <tr>
+            <td><strong>Profile Card</strong></td>
+            <td>People</td>
+            <td>Leader</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>Individual person card with headshot + title</td>
+          </tr>
+          <tr>
+            <td><strong>Leader Bio</strong></td>
+            <td>People</td>
+            <td>Executive, R&D Leader</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Full biography layout with photo, name, title, body, social link</td>
+          </tr>
+          <tr>
+            <td><strong>Section Heading</strong></td>
+            <td>Typography</td>
+            <td>With Label, Simple</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Category label + headline + supporting text</td>
+          </tr>
+          <tr>
+            <td><strong>Section Divider</strong></td>
+            <td>Layout</td>
+            <td>Default</td>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>Horizontal rule between content sections</td>
+          </tr>
+          <tr>
+            <td><strong>Article Metadata</strong></td>
+            <td>Content</td>
+            <td>Default</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Date + category tag + reading time bar</td>
+          </tr>
+          <tr>
+            <td><strong>Related Content</strong></td>
+            <td>Content</td>
+            <td>Article Cards, Topic Links</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Bottom-of-page related articles/topics</td>
+          </tr>
+          <tr>
+            <td><strong>Link List</strong></td>
+            <td>Navigation</td>
+            <td>Quick Links, Topics</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>Grouped vertical list of links</td>
+          </tr>
+          <tr>
+            <td><strong>Investor Resources</strong></td>
+            <td>Content</td>
+            <td>Default</td>
+            <td><span class="badge badge-low">Low</span></td>
+            <td>Earnings card + investor quick links</td>
+          </tr>
+          <tr>
+            <td><strong>Address Block</strong></td>
+            <td>Content</td>
+            <td>Default</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td>Structured address with phone links</td>
+          </tr>
+          <tr>
+            <td><strong>Board/Committee List</strong></td>
+            <td>People</td>
+            <td>Members, Committees</td>
+            <td><span class="badge badge-low">Low</span></td>
+            <td>Structured text lists of board members</td>
+          </tr>
+          <tr>
+            <td><strong>Exit Warning Modal</strong></td>
+            <td>Interactive</td>
+            <td>Default</td>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>External link confirmation dialog</td>
+          </tr>
+          <tr>
+            <td><strong>Global Footer</strong></td>
+            <td>Navigation</td>
+            <td>Default</td>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>Multi-column footer with nav, social, legal links</td>
+          </tr>
+          <tr>
+            <td><strong>Region Selector</strong></td>
+            <td>Navigation</td>
+            <td>Header</td>
+            <td><span class="badge badge-global">Global</span></td>
+            <td>50+ country/region link chooser</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TEMPLATES TAB -->
+    <div id="templates" class="tab-content">
+      <h2>Template Mapping (14 Templates &rarr; 321 URLs)</h2>
+
+      <div class="template-card">
+        <h4>Homepage <span class="badge badge-low">1 page</span></h4>
+        <div class="meta">AEM Template: home-page-template &bull; Component: abbvie-com2/components/homepage</div>
+        <div class="block-list">
+          <span class="block-tag">Hero Banner (Video)</span>
+          <span class="block-tag">Press Release Carousel</span>
+          <span class="block-tag">Featured Story</span>
+          <span class="block-tag">Two-Column Feature</span>
+          <span class="block-tag">Card Grid (3-col)</span>
+          <span class="block-tag">Stat Counter</span>
+          <span class="block-tag">CTA Block</span>
+          <span class="block-tag">Investor Resources</span>
+          <span class="block-tag">Link List</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Landing/Hub Page <span class="badge badge-high">12 pages</span></h4>
+        <div class="meta">Pages: join-us, sustainability, science, who-we-are, patients, + section hubs</div>
+        <div class="block-list">
+          <span class="block-tag">Hero Banner (Image)</span>
+          <span class="block-tag">Card Grid (3-col)</span>
+          <span class="block-tag">Two-Column Feature</span>
+          <span class="block-tag">Stat Counter (Grid)</span>
+          <span class="block-tag">Video Embed</span>
+          <span class="block-tag">Accordion (FAQ)</span>
+          <span class="block-tag">CTA Block</span>
+          <span class="block-tag">Section Heading</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Story/Article Page <span class="badge badge-high">116 pages</span></h4>
+        <div class="meta">AEM Template: story-landing-page &bull; Component: abbvie-com2/components/storypage</div>
+        <div class="block-list">
+          <span class="block-tag">Hero Banner (Simple)</span>
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Article Metadata</span>
+          <span class="block-tag">Pull Quote</span>
+          <span class="block-tag">Video Embed (Inline)</span>
+          <span class="block-tag">Related Content</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Story Category Listing <span class="badge badge-medium">15 pages</span></h4>
+        <div class="meta">Categories: oncology, science, immunology, neuroscience, eye-care, aesthetics, etc.</div>
+        <div class="block-list">
+          <span class="block-tag">Hero Banner</span>
+          <span class="block-tag">Featured Story</span>
+          <span class="block-tag">Card Grid (Article)</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Leader Bio Page <span class="badge badge-high">24 pages</span></h4>
+        <div class="meta">URL pattern: /who-we-are/our-leaders/{person}.html</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Leader Bio</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>R&D Leader Bio <span class="badge badge-medium">13 pages</span></h4>
+        <div class="meta">URL pattern: /science/our-people/our-rd-leaders/{person}.html</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Leader Bio (R&D)</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Location/Contact Page <span class="badge badge-medium">15 pages</span></h4>
+        <div class="meta">URL pattern: /contact-center/locations/{country}.html</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Address Block</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Science Area Detail <span class="badge badge-medium">14 pages</span></h4>
+        <div class="meta">Areas of focus + innovation sub-pages</div>
+        <div class="block-list">
+          <span class="block-tag">Hero Banner (Detail)</span>
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Two-Column Feature (Video)</span>
+          <span class="block-tag">Card Grid (Article)</span>
+          <span class="block-tag">Accordion</span>
+          <span class="block-tag">Related Topics</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Patient Assistance <span class="badge badge-medium">8 pages</span></h4>
+        <div class="meta">Utility pages with accordion-heavy layout</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Accordion (Medicine List)</span>
+          <span class="block-tag">Two-Column Feature</span>
+          <span class="block-tag">Link List</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Leaders Listing <span class="badge badge-low">2 pages</span></h4>
+        <div class="meta">Executive + R&D leaders directory</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Profile Card Grid</span>
+          <span class="block-tag">Board/Committee List</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>ERG Page <span class="badge badge-medium">7 pages</span></h4>
+        <div class="meta">Employee Resource Group pages</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Hero Banner</span>
+          <span class="block-tag">Two-Column Feature</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Acquisition Page <span class="badge badge-medium">9 pages</span></h4>
+        <div class="meta">Allergan, Cerevel, ImmunoGen, etc.</div>
+        <div class="block-list">
+          <span class="block-tag">Hero Banner</span>
+          <span class="block-tag">Two-Column Feature</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>General Content Page <span class="badge badge-high">101 pages</span></h4>
+        <div class="meta">Career, science, sustainability, policies sub-pages</div>
+        <div class="block-list">
+          <span class="block-tag">Breadcrumb</span>
+          <span class="block-tag">Two-Column Feature</span>
+          <span class="block-tag">Link List</span>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <h4>Utility Page <span class="badge badge-low">5 pages</span></h4>
+        <div class="meta">Terms, accessibility, patents, social media guidelines, site map</div>
+        <div class="block-list">
+          <span class="block-tag">Text Content Only</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUNCTIONAL REQUIREMENTS TAB -->
+    <div id="requirements" class="tab-content">
+      <h2>Functional Requirements &amp; Acceptance Criteria</h2>
+
+      <details class="requirement-block">
+        <summary>Hero Banner (4 variations)</summary>
+        <div class="content">
+          <h4>Video Hero</h4>
+          <p>Autoplays muted background video with heading overlay. Includes pause/play toggle. Falls back to static image on mobile.</p>
+          <ul class="criteria-list">
+            <li>Video autoplays muted on desktop (min-width: 1024px)</li>
+            <li>Static image displayed on mobile (max-width: 743px)</li>
+            <li>Pause/play button toggles video playback</li>
+            <li>H1 heading overlays with readable contrast</li>
+            <li>Full viewport width on all breakpoints</li>
+          </ul>
+          <h4>Image Hero</h4>
+          <p>Full-width hero image with centered text overlay and optional CTA button.</p>
+          <ul class="criteria-list">
+            <li>Image spans full viewport width</li>
+            <li>Text overlay centered with contrast ratio &ge; 4.5:1</li>
+            <li>Responsive image via Scene7 $Hero$ preset</li>
+            <li>H1 in F37 Lineca Medium 40px/44px white</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Card Grid (3 variations)</summary>
+        <div class="content">
+          <h4>Three Column Cards</h4>
+          <ul class="criteria-list">
+            <li>3 cards in equal columns at desktop (min-width: 1024px)</li>
+            <li>Stacks vertically on mobile (max-width: 743px)</li>
+            <li>Entire card area clickable</li>
+            <li>Hover shows visual feedback (shadow/color)</li>
+            <li>Images maintain consistent aspect ratio</li>
+          </ul>
+          <h4>Article Cards</h4>
+          <ul class="criteria-list">
+            <li>3-column grid at desktop</li>
+            <li>Category tag as colored label</li>
+            <li>Date as "Month DD, YYYY"</li>
+            <li>Read time as "X Minute Read"</li>
+            <li>Cards fully clickable to article URL</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Accordion (3 variations)</summary>
+        <div class="content">
+          <h4>FAQ Accordion</h4>
+          <ul class="criteria-list">
+            <li>All items collapsed by default</li>
+            <li>Click header toggles expand/collapse with smooth animation</li>
+            <li>"Expand All" opens all items simultaneously</li>
+            <li>aria-expanded attribute toggles correctly</li>
+            <li>Keyboard accessible (Enter/Space)</li>
+          </ul>
+          <h4>Medicine List Accordion (50+ items)</h4>
+          <ul class="criteria-list">
+            <li>Global Expand All / Collapse All for 50+ items</li>
+            <li>EN and ES PDF download links per item</li>
+            <li>PDF links open in new tab</li>
+            <li>Performance smooth with 50+ items</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Two Column Feature (3 variations)</summary>
+        <div class="content">
+          <ul class="criteria-list">
+            <li>50/50 layout at desktop, stacks on mobile</li>
+            <li>Image Left: image left, text+CTA right</li>
+            <li>Image Right: text+CTA left, image right</li>
+            <li>Video Left: video thumbnail+play on left, text on right</li>
+            <li>CTA renders in uppercase blue style</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Video Embed (2 variations)</summary>
+        <div class="content">
+          <ul class="criteria-list">
+            <li>Poster image with play button overlay</li>
+            <li>Duration badge visible (e.g. "Watch 3:49")</li>
+            <li>Click triggers video playback</li>
+            <li>Player controls visible during playback</li>
+            <li>Full-width on mobile</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Exit Warning Modal</summary>
+        <div class="content">
+          <ul class="criteria-list">
+            <li>Triggers on click of external links (not whitelisted)</li>
+            <li>"No, I disagree" closes modal, stays on page</li>
+            <li>"Yes, I agree" opens external URL (new tab)</li>
+            <li>Overlay backdrop</li>
+            <li>Focus trapped within modal</li>
+            <li>Escape key closes modal</li>
+            <li>role=dialog, aria-modal=true</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Profile Card Grid &amp; Leader Bio</summary>
+        <div class="content">
+          <h4>Profile Grid</h4>
+          <ul class="criteria-list">
+            <li>2-3 column responsive grid</li>
+            <li>Square headshot per card</li>
+            <li>"Meet [Name]" link to bio page</li>
+            <li>Single column on mobile</li>
+          </ul>
+          <h4>Leader Bio</h4>
+          <ul class="criteria-list">
+            <li>Square headshot prominently displayed</li>
+            <li>Name as H1, title as subtitle</li>
+            <li>Multi-paragraph biography in body text</li>
+            <li>LinkedIn link if provided</li>
+            <li>Narrow content width, single column</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="requirement-block">
+        <summary>Breadcrumb &amp; Article Metadata</summary>
+        <div class="content">
+          <h4>Breadcrumb</h4>
+          <ul class="criteria-list">
+            <li>Full path from section root to current page</li>
+            <li>Separator between levels</li>
+            <li>All ancestors are clickable links</li>
+            <li>Current page as plain text</li>
+            <li>nav element with aria-label="breadcrumb"</li>
+          </ul>
+          <h4>Article Metadata</h4>
+          <ul class="criteria-list">
+            <li>Date as "Month DD, YYYY"</li>
+            <li>Category as clickable tag</li>
+            <li>Reading time as "X Minute Read"</li>
+            <li>Horizontal layout with separators</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <!-- FRAGMENTS TAB -->
+    <div id="fragments" class="tab-content">
+      <h2>Content Fragments (8 fragments, ~1,516 instances)</h2>
+
+      <div class="fragment-card">
+        <div class="count">321</div>
+        <div>
+          <strong>Global Header Navigation</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">Logo + 5-item mega-menu + search + region selector. Used on all pages.</div>
+        </div>
+        <span class="badge badge-global">Experience Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">321</div>
+        <div>
+          <strong>Global Footer</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">Multi-column footer: nav, social icons, popular pages, external links, legal bar.</div>
+        </div>
+        <span class="badge badge-global">Experience Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">321</div>
+        <div>
+          <strong>External Link Warning Modal</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">"You are about to leave AbbVie" dialog with agree/disagree buttons.</div>
+        </div>
+        <span class="badge badge-global">Experience Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">321</div>
+        <div>
+          <strong>Cookie Consent Banner</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">Privacy cookie banner with consent description and settings button.</div>
+        </div>
+        <span class="badge badge-global">Experience Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">116</div>
+        <div>
+          <strong>Story Related Content Section</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">3-column related article cards at bottom of story pages. Dynamic by category.</div>
+        </div>
+        <span class="badge badge-high">Content Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">116</div>
+        <div>
+          <strong>Article Metadata Fragment</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">Date + category tag + read time. Auto-generated from article metadata.</div>
+        </div>
+        <span class="badge badge-high">Content Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">321</div>
+        <div>
+          <strong>Region/Country Selector</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">50+ country links organized by continent. In header + footer.</div>
+        </div>
+        <span class="badge badge-medium">Content Fragment</span>
+      </div>
+
+      <div class="fragment-card">
+        <div class="count">321</div>
+        <div>
+          <strong>Social Media Links</strong>
+          <div style="font-size:0.8125rem;color:var(--gray-600)">Facebook, Twitter, Instagram, LinkedIn, YouTube, TikTok</div>
+        </div>
+        <span class="badge badge-medium">Content Fragment</span>
+      </div>
+    </div>
+
+    <!-- INDEX QUERIES TAB -->
+    <div id="queries" class="tab-content">
+      <h2>Index/Query Components (6 components, 136 instances)</h2>
+
+      <div class="query-card">
+        <h4>Story Category Listing Grid <span class="badge badge-high">15 instances</span></h4>
+        <p style="font-size:0.875rem">Dynamic grid of story article cards filtered by category (e.g. oncology-stories, science-stories).</p>
+        <code>filter: category = {currentPageCategory}
+orderBy: publishDate DESC
+limit: paginated (12-24 per page)
+fields: title, image, category, publishDate, readTime, path, excerpt</code>
+      </div>
+
+      <div class="query-card">
+        <h4>Related Stories Section <span class="badge badge-high">116 instances</span></h4>
+        <p style="font-size:0.875rem">3 related article cards at the bottom of each story page, filtered by the article's category.</p>
+        <code>filter: category = {currentArticleCategory} AND path != {currentPage}
+orderBy: publishDate DESC
+limit: 3
+fields: title, image, category, path</code>
+      </div>
+
+      <div class="query-card">
+        <h4>Press Release Carousel <span class="badge badge-low">1 instance</span></h4>
+        <p style="font-size:0.875rem">Latest press releases from news.abbvie.com on the homepage.</p>
+        <code>source: news.abbvie.com (External API / RSS)
+orderBy: publishDate DESC
+limit: 3
+fields: date, headline, url</code>
+      </div>
+
+      <div class="query-card">
+        <h4>Leadership Profile Grid <span class="badge badge-low">2 instances</span></h4>
+        <p style="font-size:0.875rem">Grid of executive leader profile cards on listing pages.</p>
+        <code>path: /who-we-are/our-leaders OR /science/our-people/our-rd-leaders
+orderBy: sortOrder ASC
+fields: name, title, headshot, path</code>
+      </div>
+
+      <div class="query-card">
+        <h4>Latest Earnings Release <span class="badge badge-low">1 instance</span></h4>
+        <p style="font-size:0.875rem">Most recent quarterly earnings card on homepage investor section.</p>
+        <code>source: investors.abbvie.com (External / Manual)
+limit: 1
+fields: title, date, url</code>
+      </div>
+
+      <div class="query-card">
+        <h4>Patient Assistance Medicine List <span class="badge badge-low">1 instance</span></h4>
+        <p style="font-size:0.875rem">50+ medicine programs with PDF download links in accordion format.</p>
+        <code>source: Spreadsheet / Data Source
+orderBy: medicineName ASC
+fields: medicineName, englishPdfUrl, spanishPdfUrl, medicareLink</code>
+      </div>
+    </div>
+
+    <!-- DESIGN SYSTEM TAB -->
+    <div id="design" class="tab-content">
+      <h2>Design System</h2>
+      <p style="margin-bottom:1.5rem;color:var(--gray-600)">All values extracted from live site CSS. Root font-size: 62.5% (computed 10px). No approximations.</p>
+
+      <h3>Breakpoints</h3>
+      <div style="margin-bottom:2rem">
+        <div class="breakpoint-bar">
+          <div class="label">Mobile Small</div>
+          <div class="bar"><div class="fill" style="width:25%"></div></div>
+          <div class="value">max: 480px</div>
+        </div>
+        <div class="breakpoint-bar">
+          <div class="label">Mobile</div>
+          <div class="bar"><div class="fill" style="width:39%"></div></div>
+          <div class="value">max: 743px</div>
+        </div>
+        <div class="breakpoint-bar">
+          <div class="label">Tablet</div>
+          <div class="bar"><div class="fill" style="width:39%"></div></div>
+          <div class="value">min: 744px</div>
+        </div>
+        <div class="breakpoint-bar">
+          <div class="label">Desktop</div>
+          <div class="bar"><div class="fill" style="width:53%"></div></div>
+          <div class="value">min: 1024px</div>
+        </div>
+        <div class="breakpoint-bar">
+          <div class="label">Large Desktop</div>
+          <div class="bar"><div class="fill" style="width:75%"></div></div>
+          <div class="value">min: 1440px</div>
+        </div>
+        <div class="breakpoint-bar">
+          <div class="label">XL Desktop</div>
+          <div class="bar"><div class="fill" style="width:100%"></div></div>
+          <div class="value">min: 1920px</div>
+        </div>
+      </div>
+
+      <h3>Typography</h3>
+      <div class="font-sample">
+        <div class="meta">H1 &mdash; F37 Lineca Medium, 800, 40px/44px</div>
+        <div class="sample-text" style="font-size:2rem;font-weight:800;line-height:1.1;color:#071d49">We find answers that make life better</div>
+      </div>
+      <div class="font-sample">
+        <div class="meta">H4 Display &mdash; F37 Lineca Medium, 800, 30px/34px</div>
+        <div class="sample-text" style="font-size:1.5rem;font-weight:800;line-height:1.13;color:#071d49">Science & Innovation</div>
+      </div>
+      <div class="font-sample">
+        <div class="meta">H4 Secondary &mdash; F37 Lineca Book, 650, 28px/32px</div>
+        <div class="sample-text" style="font-size:1.375rem;font-weight:600;line-height:1.14;color:#071d49">Environmental, Social & Governance</div>
+      </div>
+      <div class="font-sample">
+        <div class="meta">Body &mdash; Roboto Regular, 400, 16px/22px</div>
+        <div class="sample-text" style="font-size:1rem;font-weight:400;line-height:1.375;color:#071d49">AbbVie combines advanced science with expertise to make strides in drug and treatment discovery.</div>
+      </div>
+      <div class="font-sample">
+        <div class="meta">CTA Link &mdash; Roboto Bold, 700, 14px/20px, uppercase, letter-spacing: 0.84px</div>
+        <div class="sample-text" style="font-size:0.875rem;font-weight:700;line-height:1.43;color:#0066f5;text-transform:uppercase;letter-spacing:0.84px">Learn More</div>
+      </div>
+
+      <h3>Colors &mdash; Brand</h3>
+      <div class="color-grid">
+        <div class="color-swatch"><span class="swatch" style="background:#071d49"></span> #071d49 &mdash; Primary Navy</div>
+        <div class="color-swatch"><span class="swatch" style="background:#0066f5"></span> #0066f5 &mdash; Primary Blue</div>
+        <div class="color-swatch"><span class="swatch" style="background:#479ff8"></span> #479ff8 &mdash; Light Blue</div>
+      </div>
+
+      <h3>Colors &mdash; Text</h3>
+      <div class="color-grid">
+        <div class="color-swatch"><span class="swatch" style="background:#071d49"></span> #071d49 &mdash; Default text</div>
+        <div class="color-swatch"><span class="swatch" style="background:#666b7a"></span> #666b7a &mdash; Secondary</div>
+        <div class="color-swatch"><span class="swatch" style="background:#000000"></span> #000000 &mdash; Black</div>
+        <div class="color-swatch"><span class="swatch" style="background:#ffffff;border:1px solid #ccc"></span> #ffffff &mdash; White</div>
+        <div class="color-swatch"><span class="swatch" style="background:#cf451c"></span> #cf451c &mdash; Accent Orange</div>
+        <div class="color-swatch"><span class="swatch" style="background:#8a2ecc"></span> #8a2ecc &mdash; Accent Purple</div>
+        <div class="color-swatch"><span class="swatch" style="background:#338700"></span> #338700 &mdash; Accent Green</div>
+      </div>
+
+      <h3>Colors &mdash; Backgrounds</h3>
+      <div class="color-grid">
+        <div class="color-swatch"><span class="swatch" style="background:#ffffff;border:1px solid #ccc"></span> #ffffff &mdash; White</div>
+        <div class="color-swatch"><span class="swatch" style="background:#071d49"></span> #071d49 &mdash; Dark Navy</div>
+        <div class="color-swatch"><span class="swatch" style="background:#f1f3ff"></span> #f1f3ff &mdash; Light Blue</div>
+        <div class="color-swatch"><span class="swatch" style="background:#efefef"></span> #efefef &mdash; Light Gray</div>
+        <div class="color-swatch"><span class="swatch" style="background:#f8f8f8"></span> #f8f8f8 &mdash; Off White Alt</div>
+        <div class="color-swatch"><span class="swatch" style="background:#3860be"></span> #3860be &mdash; Mid Blue</div>
+        <div class="color-swatch"><span class="swatch" style="background:#243fd6"></span> #243fd6 &mdash; Royal Blue</div>
+        <div class="color-swatch"><span class="swatch" style="background:#cddcf2"></span> #cddcf2 &mdash; Soft Blue</div>
+        <div class="color-swatch"><span class="swatch" style="background:#a6b5e0"></span> #a6b5e0 &mdash; Muted Blue</div>
+      </div>
+
+      <h3>Spacing Scale (rem)</h3>
+      <table>
+        <thead><tr><th>Value</th><th>Computed (at 10px root)</th><th>Visual</th></tr></thead>
+        <tbody>
+          <tr><td>0.3rem</td><td>3px</td><td><div style="width:3px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>0.6rem</td><td>6px</td><td><div style="width:6px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>1.2rem</td><td>12px</td><td><div style="width:12px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>1.6rem</td><td>16px</td><td><div style="width:16px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>2rem</td><td>20px</td><td><div style="width:20px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>2.4rem</td><td>24px</td><td><div style="width:24px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>3.2rem</td><td>32px</td><td><div style="width:32px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>4rem</td><td>40px</td><td><div style="width:40px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>5rem</td><td>50px</td><td><div style="width:50px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>6.4rem</td><td>64px</td><td><div style="width:64px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+          <tr><td>8rem</td><td>80px</td><td><div style="width:80px;height:12px;background:var(--blue);border-radius:2px"></div></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Grid System</h3>
+      <table>
+        <thead><tr><th>Grid</th><th>Columns</th><th>Gap</th></tr></thead>
+        <tbody>
+          <tr><td>6-column</td><td>repeat(6, 1fr)</td><td>1.5rem</td></tr>
+          <tr><td>8-column</td><td>repeat(8, 1fr)</td><td>2rem</td></tr>
+          <tr><td>12-column</td><td>repeat(12, 1fr)</td><td>2rem</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Transitions</h3>
+      <table>
+        <thead><tr><th>Property</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Color</td><td>color 0.4s ease</td></tr>
+          <tr><td>Background</td><td>background-color 0.3s ease</td></tr>
+          <tr><td>Transform</td><td>transform 0.2s linear</td></tr>
+          <tr><td>Max Height</td><td>max-height 0.2s ease</td></tr>
+          <tr><td>Opacity</td><td>opacity 0.2s ease</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Image CDN</h3>
+      <table>
+        <thead><tr><th>Property</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Provider</td><td>Adobe Scene7 Dynamic Media</td></tr>
+          <tr><td>Base URL</td><td>abbvie.scene7.com/is/image/abbviecorp/</td></tr>
+          <tr><td>Presets</td><td>$Hero$, $Square$, $Tall$, $Responsive$</td></tr>
+          <tr><td>Format</td><td>fmt=webp</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

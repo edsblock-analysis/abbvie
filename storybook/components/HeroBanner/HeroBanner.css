@@ -1,0 +1,184 @@
+:root {
+  font-size: 62.5%; /* 10px base */
+}
+
+/* =========================================================
+   HeroBanner - Full-width hero component
+   Matches AbbVie live site styling
+   ========================================================= */
+
+.hero-banner {
+  position: relative;
+  width: 100vw;
+  min-height: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-banner__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-banner__media--video {
+  object-fit: cover;
+}
+
+/* Dark overlay */
+.hero-banner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+/* Content area */
+.hero-banner__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 80rem;
+  padding: 2rem;
+}
+
+/* H1 heading */
+.hero-banner__title {
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', sans-serif;
+  font-size: 4rem;
+  line-height: 4.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 1.6rem;
+  text-align: center;
+}
+
+/* Subheading paragraph */
+.hero-banner__subheading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 2.4rem;
+  text-align: center;
+}
+
+/* CTA link */
+.hero-banner__cta {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.084rem;
+  color: #fff;
+  text-decoration: none;
+  border: 0.2rem solid #fff;
+  padding: 1.2rem 3.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-banner__cta:hover,
+.hero-banner__cta:focus {
+  background-color: #fff;
+  color: #071d49;
+}
+
+/* Pause / Play button */
+.hero-banner__pause-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 4;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0.2rem solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.hero-banner__pause-btn:hover,
+.hero-banner__pause-btn:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero-banner__pause-btn svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #fff;
+}
+
+/* ---------------------------------------------------------
+   Simple Hero variant (image only, no overlay or text)
+   --------------------------------------------------------- */
+.hero-banner--simple {
+  min-height: auto;
+}
+
+.hero-banner--simple .hero-banner__overlay {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   Detail Page Hero variant (centered topic heading)
+   --------------------------------------------------------- */
+.hero-banner--detail .hero-banner__content {
+  padding: 4rem 2rem;
+}
+
+.hero-banner--detail .hero-banner__topic {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.084rem;
+  color: #fff;
+  margin: 0 0 1.2rem;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Responsive: mobile breakpoint (max-width: 743px)
+   --------------------------------------------------------- */
+@media (max-width: 743px) {
+  .hero-banner {
+    min-height: 36rem;
+  }
+
+  .hero-banner__title {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+
+  .hero-banner__subheading {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+
+  .hero-banner__content {
+    padding: 1.6rem;
+  }
+
+  .hero-banner__pause-btn {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}

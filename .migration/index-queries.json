@@ -1,0 +1,162 @@
+{
+  "version": "1.0.0",
+  "site": "https://www.abbvie.com",
+  "generatedDate": "2026-04-07",
+  "totalQueryComponents": 6,
+  "components": [
+    {
+      "id": "query-story-category-listing",
+      "name": "Story Category Listing Grid",
+      "description": "Dynamic grid of story article cards filtered by category. Shows articles matching a specific topic category (e.g. oncology-stories, science-stories).",
+      "locations": [
+        "https://www.abbvie.com/who-we-are/our-stories/oncology-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/science-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/immunology-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/neuroscience-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/eye-care-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/aesthetics-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/company-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/eedi-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/partnerships-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/patient-support-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/philanthropy-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/serving-communities-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/sustainability-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/virology-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/working-at-abbvie-stories.html"
+      ],
+      "instanceCount": 15,
+      "queryLogic": {
+        "type": "AEM Query Builder / EDS Index",
+        "path": "/content/abbvie-com2/us/en/who-we-are/our-stories",
+        "filter": "category = {currentPageCategory}",
+        "orderBy": "publishDate DESC",
+        "limit": "paginated (12-24 per page)",
+        "fields": ["title", "image", "category", "publishDate", "readTime", "path", "excerpt"]
+      },
+      "edsEquivalent": {
+        "indexSheet": "query-index.xlsx",
+        "filterProperty": "category",
+        "sortBy": "lastModified",
+        "renderAs": "card-grid--article-cards"
+      }
+    },
+    {
+      "id": "query-press-releases",
+      "name": "Press Release Carousel",
+      "description": "Latest press releases from news.abbvie.com displayed in a carousel on the homepage.",
+      "locations": [
+        "https://www.abbvie.com/"
+      ],
+      "instanceCount": 1,
+      "queryLogic": {
+        "type": "External API / RSS",
+        "source": "news.abbvie.com",
+        "orderBy": "publishDate DESC",
+        "limit": 3,
+        "fields": ["date", "headline", "url"]
+      },
+      "edsEquivalent": {
+        "approach": "Spreadsheet (press-releases.xlsx) or external fetch",
+        "updateFrequency": "Manual or automated via webhook",
+        "renderAs": "press-release-carousel"
+      }
+    },
+    {
+      "id": "query-related-stories",
+      "name": "Related Stories Section",
+      "description": "3 related article cards at the bottom of each story page, filtered by the article's category.",
+      "locations": [
+        "All 116 story-article pages"
+      ],
+      "instanceCount": 116,
+      "queryLogic": {
+        "type": "AEM Query Builder / EDS Index",
+        "path": "/content/abbvie-com2/us/en/who-we-are/our-stories",
+        "filter": "category = {currentArticleCategory} AND path != {currentPage}",
+        "orderBy": "publishDate DESC",
+        "limit": 3,
+        "fields": ["title", "image", "category", "path"]
+      },
+      "edsEquivalent": {
+        "indexSheet": "query-index.xlsx",
+        "filterProperty": "category",
+        "excludeSelf": true,
+        "limit": 3,
+        "renderAs": "related-content--article"
+      }
+    },
+    {
+      "id": "query-leader-grid",
+      "name": "Leadership Profile Grid",
+      "description": "Grid of executive leader profile cards on the Our Leaders listing page.",
+      "locations": [
+        "https://www.abbvie.com/who-we-are/our-leaders.html",
+        "https://www.abbvie.com/science/our-people/our-rd-leaders.html"
+      ],
+      "instanceCount": 2,
+      "queryLogic": {
+        "type": "AEM Query Builder",
+        "path": "/content/abbvie-com2/us/en/who-we-are/our-leaders",
+        "resourceType": "abbvie-com2/components/page",
+        "orderBy": "jcr:content/sortOrder ASC",
+        "fields": ["name", "title", "headshot", "path"]
+      },
+      "edsEquivalent": {
+        "approach": "Spreadsheet (leaders.xlsx) or child page enumeration",
+        "renderAs": "profile-card-grid--executive"
+      }
+    },
+    {
+      "id": "query-latest-earnings",
+      "name": "Latest Earnings Release",
+      "description": "Most recent quarterly earnings release card displayed on the homepage investor section.",
+      "locations": [
+        "https://www.abbvie.com/"
+      ],
+      "instanceCount": 1,
+      "queryLogic": {
+        "type": "External API / Manual",
+        "source": "investors.abbvie.com",
+        "limit": 1,
+        "fields": ["title", "date", "url"]
+      },
+      "edsEquivalent": {
+        "approach": "Manually authored or spreadsheet-driven",
+        "renderAs": "investor-resources"
+      }
+    },
+    {
+      "id": "query-medicine-programs",
+      "name": "Patient Assistance Medicine List",
+      "description": "Dynamic list of 50+ medicine programs with PDF download links. Used in the patient assistance accordion.",
+      "locations": [
+        "https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html"
+      ],
+      "instanceCount": 1,
+      "queryLogic": {
+        "type": "Spreadsheet / Data Source",
+        "orderBy": "medicineName ASC",
+        "fields": ["medicineName", "englishPdfUrl", "spanishPdfUrl", "medicareLink"]
+      },
+      "edsEquivalent": {
+        "approach": "Spreadsheet (medicines.xlsx) with PDF paths",
+        "renderAs": "accordion--medicine-list"
+      }
+    }
+  ],
+  "summary": {
+    "totalQueryBasedComponents": 6,
+    "totalInstances": 136,
+    "byType": {
+      "indexBased": 3,
+      "externalAPI": 2,
+      "spreadsheet": 1
+    },
+    "edsIndexRequirements": {
+      "queryIndex": "Required for story filtering and related content",
+      "spreadsheets": ["press-releases.xlsx", "leaders.xlsx", "medicines.xlsx"],
+      "properties": ["title", "category", "publishDate", "readTime", "image", "path", "description"]
+    }
+  }
+}

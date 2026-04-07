@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "site": "https://www.abbvie.com",
+  "generatedDate": "2026-04-07",
+  "totalFragments": 8,
+  "reuseStrategy": "Content fragments are identified based on cross-page reuse. Global fragments (header, footer) are shared across all 321 pages. Section-level fragments are shared across template groups.",
+  "fragments": [
+    {
+      "id": "fragment-global-header",
+      "name": "Global Header Navigation",
+      "type": "experience-fragment",
+      "description": "Complete header with AbbVie logo, 5-item mega-menu navigation, search input, and region/country selector.",
+      "structure": {
+        "logo": "AbbVie logo (linked to homepage)",
+        "primaryNav": ["Who We Are", "Science", "Patients", "Join Us", "Sustainability"],
+        "quickLinks": "Quick links dropdown",
+        "search": "Search input with validation",
+        "regionSelector": "Globe icon → 50+ country links by continent"
+      },
+      "reuseCount": 321,
+      "reusePages": "All pages",
+      "contentModel": "Navigation tree with 3 levels of hierarchy"
+    },
+    {
+      "id": "fragment-global-footer",
+      "name": "Global Footer",
+      "type": "experience-fragment",
+      "description": "Multi-column footer with logo, section navigation, social media icons, popular pages, external links, legal bar, and copyright.",
+      "structure": {
+        "logo": "AbbVie logo",
+        "sectionNav": ["Who We Are", "Science", "Patients", "Join Us", "Sustainability"],
+        "socialIcons": ["Facebook", "Twitter", "Instagram", "LinkedIn", "YouTube", "TikTok"],
+        "popularPages": ["Pipeline", "Products", "Partner with Us", "Patient Support"],
+        "externalLinks": ["News Center", "Investors", "Contract Manufacturing", "Medical Information"],
+        "legalLinks": ["Contact Us", "Accessibility Statement", "Site Map", "Terms of Use", "Privacy Notice", "Consumer Health Data Privacy Notice", "Cookie Settings", "Your Privacy Choices"],
+        "copyright": "Copyright © 2026 AbbVie Inc."
+      },
+      "reuseCount": 321,
+      "reusePages": "All pages",
+      "contentModel": "Static content fragment with link collections"
+    },
+    {
+      "id": "fragment-exit-modal",
+      "name": "External Link Warning Modal",
+      "type": "experience-fragment",
+      "description": "Modal dialog warning users they are leaving AbbVie website, with agree/disagree buttons.",
+      "structure": {
+        "title": "You are about to leave the AbbVie website",
+        "body": "Warning description text",
+        "disagreeButton": "No, I disagree",
+        "agreeButton": "Yes, I agree"
+      },
+      "reuseCount": 321,
+      "reusePages": "All pages (triggered by JS on external link clicks)",
+      "contentModel": "Dialog content with configurable text"
+    },
+    {
+      "id": "fragment-cookie-banner",
+      "name": "Cookie Consent Banner",
+      "type": "experience-fragment",
+      "description": "Privacy cookie banner with consent description and settings button. Appears on first visit.",
+      "structure": {
+        "description": "Privacy notice about cookies and tracking",
+        "settingsButton": "Cookies Settings",
+        "closeButton": "Close",
+        "privacyLink": "Privacy Notice link"
+      },
+      "reuseCount": 321,
+      "reusePages": "All pages (conditional display)",
+      "contentModel": "Legal content fragment"
+    },
+    {
+      "id": "fragment-story-related-content",
+      "name": "Story Related Content Section",
+      "type": "content-fragment",
+      "description": "3-column card grid of related stories shown at the bottom of article pages. Content varies by article category.",
+      "structure": {
+        "cards": [
+          { "image": "Thumbnail", "category": "Tag", "title": "Article title", "cta": "Learn More" }
+        ],
+        "maxCards": 3
+      },
+      "reuseCount": 116,
+      "reusePages": "All story-article pages",
+      "contentModel": "Dynamic: queried by article category tag"
+    },
+    {
+      "id": "fragment-story-metadata",
+      "name": "Article Metadata Fragment",
+      "type": "content-fragment",
+      "description": "Reusable metadata bar pattern (date + category + read time) used on all article pages.",
+      "structure": {
+        "date": "Published date",
+        "category": "Category tag (linked to listing page)",
+        "readTime": "X Minute Read"
+      },
+      "reuseCount": 116,
+      "reusePages": "All story-article pages",
+      "contentModel": "Auto-generated from article metadata"
+    },
+    {
+      "id": "fragment-region-selector",
+      "name": "Region/Country Selector",
+      "type": "experience-fragment",
+      "description": "Country/region chooser organized by continent. 50+ country links to localized AbbVie sites.",
+      "structure": {
+        "regions": ["Africa", "Asia Pacific", "Europe", "Latin America", "Middle East", "North America"],
+        "countriesPerRegion": "5-20 country links each"
+      },
+      "reuseCount": 321,
+      "reusePages": "All pages (in header + footer)",
+      "contentModel": "Reference list of country URLs"
+    },
+    {
+      "id": "fragment-social-media-links",
+      "name": "Social Media Links",
+      "type": "content-fragment",
+      "description": "Collection of 6 social media platform links with branded icons.",
+      "structure": {
+        "platforms": [
+          { "name": "Facebook", "url": "https://www.facebook.com/AbbVieGlobal" },
+          { "name": "Twitter", "url": "https://twitter.com/abbvie" },
+          { "name": "Instagram", "url": "https://www.instagram.com/abbvie" },
+          { "name": "LinkedIn", "url": "https://www.linkedin.com/company/abbvie" },
+          { "name": "YouTube", "url": "https://www.youtube.com/user/AbbVie" },
+          { "name": "TikTok", "url": "https://www.tiktok.com/@abbvie" }
+        ]
+      },
+      "reuseCount": 321,
+      "reusePages": "All pages (footer)",
+      "contentModel": "Static content fragment"
+    }
+  ],
+  "summary": {
+    "globalFragments": 4,
+    "globalFragmentNames": ["Global Header", "Global Footer", "Exit Modal", "Cookie Banner"],
+    "sectionFragments": 2,
+    "sectionFragmentNames": ["Story Related Content", "Article Metadata"],
+    "utilityFragments": 2,
+    "utilityFragmentNames": ["Region Selector", "Social Media Links"],
+    "totalFragmentInstances": "321 pages × 4 global + 116 articles × 2 article-specific = 1,516 fragment instances"
+  }
+}

@@ -1,0 +1,644 @@
+{
+  "version": "1.0.0",
+  "site": "https://www.abbvie.com",
+  "generatedDate": "2026-04-07",
+  "totalBlocks": 28,
+  "blocks": [
+    {
+      "id": "hero-banner",
+      "name": "Hero Banner",
+      "category": "hero",
+      "description": "Full-width hero image with heading overlay, optional subheading and CTA button. Used as primary page entry point on landing and hub pages.",
+      "variations": [
+        {
+          "id": "hero-banner--video",
+          "name": "Video Hero",
+          "description": "Hero with background video (autoplay, muted) plus heading and CTA. Includes pause/play button.",
+          "usedOn": ["homepage"]
+        },
+        {
+          "id": "hero-banner--image",
+          "name": "Image Hero",
+          "description": "Full-width static image with centered H1 heading + subheading + optional CTA link.",
+          "usedOn": ["join-us", "sustainability", "science", "who-we-are"]
+        },
+        {
+          "id": "hero-banner--simple",
+          "name": "Simple Hero",
+          "description": "Full-width image only, no text overlay. Used as article/story header.",
+          "usedOn": ["story-article"]
+        },
+        {
+          "id": "hero-banner--detail",
+          "name": "Detail Page Hero",
+          "description": "Hero image with centered topic heading and descriptive subheading.",
+          "usedOn": ["science-area-of-focus", "science-area-of-innovation"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "landing-page", "story-article", "science-area-of-focus", "science-area-of-innovation"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "navigation-header",
+      "name": "Navigation Header",
+      "category": "navigation",
+      "description": "Global site header with AbbVie logo, primary mega-menu navigation (5 categories), search, and region/country selector.",
+      "variations": [
+        {
+          "id": "navigation-header--default",
+          "name": "Default Header",
+          "description": "Standard header with logo, 5-item mega-menu, search, and globe icon for region selector.",
+          "usedOn": ["all-pages"]
+        }
+      ],
+      "reusability": "global",
+      "templates": ["all"],
+      "parentBlock": null,
+      "childBlocks": ["mega-menu-panel", "search-overlay", "region-selector"]
+    },
+    {
+      "id": "mega-menu-panel",
+      "name": "Mega Menu Panel",
+      "category": "navigation",
+      "description": "Expandable accordion-style navigation panel with multi-level sub-items, 'Go to Page' anchor links.",
+      "variations": [
+        {
+          "id": "mega-menu-panel--default",
+          "name": "Default Panel",
+          "description": "Multi-level expandable panel with category headers and nested links.",
+          "usedOn": ["all-pages"]
+        }
+      ],
+      "reusability": "global",
+      "templates": ["all"],
+      "parentBlock": "navigation-header",
+      "childBlocks": []
+    },
+    {
+      "id": "breadcrumb",
+      "name": "Breadcrumb",
+      "category": "navigation",
+      "description": "Hierarchical path navigation showing page location within site structure. Each parent segment is a clickable link.",
+      "variations": [
+        {
+          "id": "breadcrumb--multi-level",
+          "name": "Multi-Level Breadcrumb",
+          "description": "Full hierarchy breadcrumb (e.g. Who We Are > Our Leaders > Person Name).",
+          "usedOn": ["leader-bio", "location-page", "patient-assistance"]
+        },
+        {
+          "id": "breadcrumb--single-level",
+          "name": "Single Level Breadcrumb",
+          "description": "Simple parent-only breadcrumb (e.g. 'All Stories').",
+          "usedOn": ["story-article"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["leader-bio", "rd-leader-bio", "location-page", "story-article", "patient-assistance", "content-page", "science-area-of-focus"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "card-grid",
+      "name": "Card Grid",
+      "category": "content",
+      "description": "Responsive grid of cards with image, heading, description, and CTA link.",
+      "variations": [
+        {
+          "id": "card-grid--three-column",
+          "name": "Three Column Cards",
+          "description": "3 cards in a row, each with image + heading + description + link. Used on landing pages.",
+          "usedOn": ["join-us", "sustainability", "homepage"]
+        },
+        {
+          "id": "card-grid--four-column",
+          "name": "Four Column Story Cards",
+          "description": "4 story cards with image, title, description, and action-oriented CTA.",
+          "usedOn": ["science"]
+        },
+        {
+          "id": "card-grid--article-cards",
+          "name": "Article Cards",
+          "description": "3-column cards with image, category tag, date, title, excerpt, read time, and 'Read Article' CTA.",
+          "usedOn": ["science-area-of-focus", "story-article"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "landing-page", "science", "science-area-of-focus", "story-article"],
+      "parentBlock": null,
+      "childBlocks": ["card"]
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "category": "content",
+      "description": "Individual card component within a card grid.",
+      "variations": [
+        {
+          "id": "card--feature",
+          "name": "Feature Card",
+          "description": "Image (landscape) + heading + description + link. Basic navigation card.",
+          "usedOn": ["join-us", "sustainability"]
+        },
+        {
+          "id": "card--story",
+          "name": "Story Card",
+          "description": "Image + date + category tag + title + description + read time + link.",
+          "usedOn": ["homepage", "story-category-listing"]
+        },
+        {
+          "id": "card--article",
+          "name": "Article Card",
+          "description": "Image + category + date + title + excerpt + 'Read Article' CTA + reading time.",
+          "usedOn": ["science-area-of-focus"]
+        },
+        {
+          "id": "card--resource",
+          "name": "Resource Card",
+          "description": "Single card with image, title, description, and PDF/download link.",
+          "usedOn": ["science-area-of-focus"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "landing-page", "science-area-of-focus", "story-article", "story-category-listing"],
+      "parentBlock": "card-grid",
+      "childBlocks": []
+    },
+    {
+      "id": "press-release-carousel",
+      "name": "Press Release Carousel",
+      "category": "content",
+      "description": "Horizontal carousel of press release items with date and title. Includes prev/next navigation buttons.",
+      "variations": [
+        {
+          "id": "press-release-carousel--default",
+          "name": "Default Carousel",
+          "description": "3-slide carousel with date + headline per slide, navigated via arrow buttons.",
+          "usedOn": ["homepage"]
+        }
+      ],
+      "reusability": "low",
+      "templates": ["homepage"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "featured-story",
+      "name": "Featured Story",
+      "category": "content",
+      "description": "Prominent story card with large image (1:1 or landscape), date, category, title, description, read time, and link.",
+      "variations": [
+        {
+          "id": "featured-story--default",
+          "name": "Default Featured Story",
+          "description": "Two-column layout with large image left, metadata and text right.",
+          "usedOn": ["homepage"]
+        }
+      ],
+      "reusability": "medium",
+      "templates": ["homepage", "story-category-listing"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "stat-counter",
+      "name": "Stat Counter",
+      "category": "data-display",
+      "description": "Large numerical statistic with unit/symbol and label text. Displays key metrics prominently.",
+      "variations": [
+        {
+          "id": "stat-counter--inline",
+          "name": "Inline Stat",
+          "description": "Large number + symbol (e.g. 75+, ~57k, 32%) with descriptive label below.",
+          "usedOn": ["homepage", "sustainability"]
+        },
+        {
+          "id": "stat-counter--grid",
+          "name": "Stats Grid",
+          "description": "6 stat blocks in horizontal layout (90+ compounds, ~50 NMEs, 9 R&D centers, etc.).",
+          "usedOn": ["science"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "sustainability", "science"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "two-column-feature",
+      "name": "Two Column Feature",
+      "category": "content",
+      "description": "Side-by-side layout with image on one side and text content (heading, body, CTA) on the other. Alternating left/right variants.",
+      "variations": [
+        {
+          "id": "two-column-feature--image-left",
+          "name": "Image Left",
+          "description": "Image on left, text + heading + CTA on right.",
+          "usedOn": ["homepage", "join-us", "sustainability"]
+        },
+        {
+          "id": "two-column-feature--image-right",
+          "name": "Image Right",
+          "description": "Text + heading + CTA on left, image on right.",
+          "usedOn": ["homepage", "join-us"]
+        },
+        {
+          "id": "two-column-feature--video-left",
+          "name": "Video Left",
+          "description": "Video thumbnail with play button on left, quote/text on right.",
+          "usedOn": ["homepage", "science-area-of-focus"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "landing-page", "science-area-of-focus"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "video-embed",
+      "name": "Video Embed",
+      "category": "media",
+      "description": "Embedded video player with poster image thumbnail, play button overlay, and duration badge.",
+      "variations": [
+        {
+          "id": "video-embed--standalone",
+          "name": "Standalone Video",
+          "description": "Centered video with poster image, title, description, and duration badge.",
+          "usedOn": ["sustainability", "homepage"]
+        },
+        {
+          "id": "video-embed--inline",
+          "name": "Inline Article Video",
+          "description": "Video embedded within article body content.",
+          "usedOn": ["story-article"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "sustainability", "science", "story-article", "science-area-of-focus"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "accordion",
+      "name": "Accordion",
+      "category": "interactive",
+      "description": "Expandable/collapsible content panels with global Expand All / Collapse All controls.",
+      "variations": [
+        {
+          "id": "accordion--faq",
+          "name": "FAQ Accordion",
+          "description": "Question/answer format with 4+ items and global toggle.",
+          "usedOn": ["science"]
+        },
+        {
+          "id": "accordion--medicine-list",
+          "name": "Medicine List Accordion",
+          "description": "50+ items with medicine name, EN/ES PDF download links per item.",
+          "usedOn": ["patient-assistance"]
+        },
+        {
+          "id": "accordion--disease-category",
+          "name": "Disease Category Accordion",
+          "description": "Grouped expandable sections (Blood Cancers, Solid Tumors) with disease details.",
+          "usedOn": ["science-area-of-focus"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["science", "patient-assistance", "science-area-of-focus"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "pull-quote",
+      "name": "Pull Quote",
+      "category": "content",
+      "description": "Highlighted quote with headshot thumbnail, name, title, and company attribution.",
+      "variations": [
+        {
+          "id": "pull-quote--with-headshot",
+          "name": "Quote with Headshot",
+          "description": "Quote text + circular headshot (~100-150px) + name/title/company.",
+          "usedOn": ["story-article"]
+        },
+        {
+          "id": "pull-quote--testimonial",
+          "name": "Employee Testimonial",
+          "description": "Quote + headshot + name + role. Used for employee stories.",
+          "usedOn": ["join-us"]
+        }
+      ],
+      "reusability": "medium",
+      "templates": ["story-article", "join-us"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "cta-block",
+      "name": "CTA Block",
+      "category": "action",
+      "description": "Call-to-action section with heading, body text, and prominent button or link.",
+      "variations": [
+        {
+          "id": "cta-block--centered",
+          "name": "Centered CTA",
+          "description": "Centered heading + text + link button. Often used for career/recruitment.",
+          "usedOn": ["homepage"]
+        },
+        {
+          "id": "cta-block--with-image",
+          "name": "CTA with Image",
+          "description": "Side-by-side image + heading + body + button.",
+          "usedOn": ["science", "join-us"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "science", "join-us", "landing-page"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "profile-card-grid",
+      "name": "Profile Card Grid",
+      "category": "people",
+      "description": "Responsive grid of profile cards for leadership team display.",
+      "variations": [
+        {
+          "id": "profile-card-grid--executive",
+          "name": "Executive Grid",
+          "description": "Portrait headshot + name + title + 'Meet [Name]' link in 2-3 column responsive grid.",
+          "usedOn": ["our-leaders"]
+        }
+      ],
+      "reusability": "medium",
+      "templates": ["our-leaders", "science-people"],
+      "parentBlock": null,
+      "childBlocks": ["profile-card"]
+    },
+    {
+      "id": "profile-card",
+      "name": "Profile Card",
+      "category": "people",
+      "description": "Individual person card within the profile grid.",
+      "variations": [
+        {
+          "id": "profile-card--leader",
+          "name": "Leader Card",
+          "description": "Square headshot + full name + title + 'Meet [Name]' CTA link.",
+          "usedOn": ["our-leaders"]
+        }
+      ],
+      "reusability": "medium",
+      "templates": ["our-leaders", "science-people"],
+      "parentBlock": "profile-card-grid",
+      "childBlocks": []
+    },
+    {
+      "id": "leader-bio",
+      "name": "Leader Bio",
+      "category": "people",
+      "description": "Full biography layout with headshot, name, title, multi-paragraph bio, and social link.",
+      "variations": [
+        {
+          "id": "leader-bio--executive",
+          "name": "Executive Bio",
+          "description": "Square headshot + H1 name + subtitle title + 4 bio paragraphs + LinkedIn link.",
+          "usedOn": ["leader-bio"]
+        },
+        {
+          "id": "leader-bio--rd-leader",
+          "name": "R&D Leader Bio",
+          "description": "Same structure as executive bio, used for science/R&D leadership.",
+          "usedOn": ["rd-leader-bio"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["leader-bio", "rd-leader-bio"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "section-heading",
+      "name": "Section Heading",
+      "category": "typography",
+      "description": "Section header with uppercase category label, H2/H3 headline, and supporting body text.",
+      "variations": [
+        {
+          "id": "section-heading--with-label",
+          "name": "Labeled Section Heading",
+          "description": "Uppercase category label (e.g. 'INVESTOR RESOURCES') + H3 tagline + body text.",
+          "usedOn": ["homepage"]
+        },
+        {
+          "id": "section-heading--simple",
+          "name": "Simple Section Heading",
+          "description": "H2 heading with optional subheading paragraph.",
+          "usedOn": ["science", "sustainability"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["homepage", "landing-page", "science"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "section-divider",
+      "name": "Section Divider",
+      "category": "layout",
+      "description": "Horizontal rule separator between major content sections.",
+      "variations": [
+        {
+          "id": "section-divider--default",
+          "name": "Default Divider",
+          "description": "Simple horizontal rule with vertical spacing above/below.",
+          "usedOn": ["all-pages"]
+        }
+      ],
+      "reusability": "global",
+      "templates": ["all"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "article-metadata",
+      "name": "Article Metadata Bar",
+      "category": "content",
+      "description": "Horizontal bar showing article date, category tag (linked), and reading time.",
+      "variations": [
+        {
+          "id": "article-metadata--default",
+          "name": "Default Metadata Bar",
+          "description": "Date + category link + 'X Minute Read' in horizontal layout.",
+          "usedOn": ["story-article"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["story-article"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "related-content",
+      "name": "Related Content",
+      "category": "content",
+      "description": "Bottom-of-page section with 3 related article/page cards.",
+      "variations": [
+        {
+          "id": "related-content--article",
+          "name": "Related Articles",
+          "description": "3-column card grid with thumbnail + category + title + CTA.",
+          "usedOn": ["story-article", "science-area-of-focus"]
+        },
+        {
+          "id": "related-content--topics",
+          "name": "Related Topics",
+          "description": "Horizontal list of topic links (e.g. Immunology, Neuroscience, Eye Care).",
+          "usedOn": ["science-area-of-focus"]
+        }
+      ],
+      "reusability": "high",
+      "templates": ["story-article", "science-area-of-focus"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "link-list",
+      "name": "Link List",
+      "category": "navigation",
+      "description": "Grouped vertical list of links, sometimes under a category heading. Used for quick links and related pages.",
+      "variations": [
+        {
+          "id": "link-list--quick-links",
+          "name": "Quick Links",
+          "description": "Category heading + vertical list of external/internal links with arrow icons.",
+          "usedOn": ["homepage"]
+        },
+        {
+          "id": "link-list--topics",
+          "name": "Topics List",
+          "description": "Simple list of 4-6 related page links, no icons.",
+          "usedOn": ["patient-assistance"]
+        }
+      ],
+      "reusability": "medium",
+      "templates": ["homepage", "patient-assistance"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "investor-resources",
+      "name": "Investor Resources",
+      "category": "content",
+      "description": "Composite block with earnings card + resource links for investor section of homepage.",
+      "variations": [
+        {
+          "id": "investor-resources--default",
+          "name": "Default Investor Block",
+          "description": "Earnings release card (category + title + CTA) + 3 quick links (events, stakeholders, annual report).",
+          "usedOn": ["homepage"]
+        }
+      ],
+      "reusability": "low",
+      "templates": ["homepage"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "address-block",
+      "name": "Address Block",
+      "category": "content",
+      "description": "Structured address display with location name, street address, city/state/zip, and optional phone number.",
+      "variations": [
+        {
+          "id": "address-block--default",
+          "name": "Default Address",
+          "description": "Location heading + multi-line address + optional tel: phone link.",
+          "usedOn": ["location-page"]
+        }
+      ],
+      "reusability": "medium",
+      "templates": ["location-page"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "board-list",
+      "name": "Board/Committee List",
+      "category": "people",
+      "description": "Vertical text list of board members or committee assignments with names, titles, and affiliations.",
+      "variations": [
+        {
+          "id": "board-list--members",
+          "name": "Board Members List",
+          "description": "Bold name + title + affiliation + location.",
+          "usedOn": ["our-leaders"]
+        },
+        {
+          "id": "board-list--committees",
+          "name": "Committee Assignments",
+          "description": "Grouped sections (Audit, Compensation, etc.) with header + member names.",
+          "usedOn": ["our-leaders"]
+        }
+      ],
+      "reusability": "low",
+      "templates": ["our-leaders"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "exit-modal",
+      "name": "Exit Warning Modal",
+      "category": "interactive",
+      "description": "Confirmation dialog shown when user clicks external link. 'You are about to leave AbbVie' with Yes/No buttons.",
+      "variations": [
+        {
+          "id": "exit-modal--default",
+          "name": "Default Exit Modal",
+          "description": "Modal with warning text + 'No, I disagree' + 'Yes, I agree' buttons.",
+          "usedOn": ["all-pages"]
+        }
+      ],
+      "reusability": "global",
+      "templates": ["all"],
+      "parentBlock": null,
+      "childBlocks": []
+    },
+    {
+      "id": "footer",
+      "name": "Global Footer",
+      "category": "navigation",
+      "description": "Multi-column footer with logo, section navigation, social media icons, popular pages, external links, and legal bar.",
+      "variations": [
+        {
+          "id": "footer--default",
+          "name": "Default Footer",
+          "description": "Logo + 5 nav columns + social icons (6) + popular pages + external links + legal links + copyright.",
+          "usedOn": ["all-pages"]
+        }
+      ],
+      "reusability": "global",
+      "templates": ["all"],
+      "parentBlock": null,
+      "childBlocks": ["region-selector"]
+    },
+    {
+      "id": "region-selector",
+      "name": "Region Selector",
+      "category": "navigation",
+      "description": "Country/region chooser organized by continent with 50+ country links.",
+      "variations": [
+        {
+          "id": "region-selector--header",
+          "name": "Header Region Selector",
+          "description": "Globe icon trigger opening region selection overlay.",
+          "usedOn": ["all-pages"]
+        }
+      ],
+      "reusability": "global",
+      "templates": ["all"],
+      "parentBlock": "navigation-header",
+      "childBlocks": []
+    }
+  ]
+}

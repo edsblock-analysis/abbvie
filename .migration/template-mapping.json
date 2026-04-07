@@ -1,0 +1,468 @@
+{
+  "version": "1.0.0",
+  "site": "https://www.abbvie.com",
+  "generatedDate": "2026-04-07",
+  "totalTemplates": 14,
+  "totalURLs": 321,
+  "templates": [
+    {
+      "id": "homepage",
+      "name": "Homepage",
+      "aemTemplate": "home-page-template",
+      "aemComponent": "abbvie-com2/components/homepage",
+      "urlCount": 1,
+      "urlPattern": "/",
+      "layout": "single-column-full-width",
+      "blocks": [
+        "hero-banner--video",
+        "press-release-carousel",
+        "featured-story",
+        "two-column-feature--video-left",
+        "section-heading--with-label",
+        "card-grid--three-column",
+        "stat-counter--inline",
+        "two-column-feature--image-left",
+        "cta-block--centered",
+        "investor-resources",
+        "link-list--quick-links",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Hero", "blocks": ["hero-banner--video"], "width": "full-width" },
+          { "name": "Press Releases", "blocks": ["press-release-carousel"], "width": "contained" },
+          { "name": "Featured Story", "blocks": ["featured-story"], "width": "contained" },
+          { "name": "Patient Focus", "blocks": ["section-heading--simple", "two-column-feature--image-left"], "width": "contained" },
+          { "name": "Parkinson's Research", "blocks": ["two-column-feature--video-left"], "width": "full-width" },
+          { "name": "Science & Innovation", "blocks": ["section-heading--with-label", "card-grid--three-column", "stat-counter--inline"], "width": "contained" },
+          { "name": "Podcast", "blocks": ["two-column-feature--image-left"], "width": "contained" },
+          { "name": "Culture", "blocks": ["section-heading--with-label", "card-grid--three-column"], "width": "contained" },
+          { "name": "Careers CTA", "blocks": ["cta-block--centered"], "width": "contained" },
+          { "name": "Investor Resources", "blocks": ["investor-resources", "link-list--quick-links"], "width": "contained" },
+          { "name": "ESG", "blocks": ["section-heading--with-label", "stat-counter--inline", "card-grid--three-column", "link-list--quick-links"], "width": "full-width" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "exit-modal"],
+      "uniqueSections": ["press-release-carousel", "investor-resources"],
+      "urls": ["https://www.abbvie.com/"]
+    },
+    {
+      "id": "landing-page",
+      "name": "Landing/Hub Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 12,
+      "urlPattern": "/{section}.html",
+      "layout": "single-column-full-width",
+      "blocks": [
+        "hero-banner--image",
+        "card-grid--three-column",
+        "two-column-feature--image-left",
+        "two-column-feature--image-right",
+        "stat-counter--grid",
+        "video-embed--standalone",
+        "accordion--faq",
+        "cta-block--with-image",
+        "section-heading--with-label",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Hero", "blocks": ["hero-banner--image"], "width": "full-width" },
+          { "name": "Cards", "blocks": ["card-grid--three-column"], "width": "contained" },
+          { "name": "Feature Sections", "blocks": ["two-column-feature (alternating)"], "width": "contained" },
+          { "name": "Stats/KPIs", "blocks": ["stat-counter--grid"], "width": "contained" },
+          { "name": "Video", "blocks": ["video-embed--standalone"], "width": "contained" },
+          { "name": "FAQ", "blocks": ["accordion--faq"], "width": "contained" },
+          { "name": "CTA", "blocks": ["cta-block--with-image"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "hero-banner--image", "card-grid--three-column"],
+      "uniqueSections": [],
+      "urls": [
+        "https://www.abbvie.com/join-us.html",
+        "https://www.abbvie.com/sustainability.html",
+        "https://www.abbvie.com/science.html",
+        "https://www.abbvie.com/who-we-are.html",
+        "https://www.abbvie.com/patients.html",
+        "https://www.abbvie.com/join-us/opportunities.html",
+        "https://www.abbvie.com/join-us/life-at-abbvie.html",
+        "https://www.abbvie.com/science/areas-of-focus.html",
+        "https://www.abbvie.com/science/areas-of-innovation.html",
+        "https://www.abbvie.com/science/our-people.html",
+        "https://www.abbvie.com/science/partner-with-us.html",
+        "https://www.abbvie.com/sustainability/abbvie-foundation.html"
+      ]
+    },
+    {
+      "id": "story-article",
+      "name": "Story/Article Page",
+      "aemTemplate": "story-landing-page",
+      "aemComponent": "abbvie-com2/components/storypage",
+      "urlCount": 116,
+      "urlPattern": "/who-we-are/our-stories/{slug}.html",
+      "layout": "single-column-article",
+      "blocks": [
+        "hero-banner--simple",
+        "breadcrumb--single-level",
+        "article-metadata",
+        "pull-quote--with-headshot",
+        "video-embed--inline",
+        "related-content--article",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Hero Image", "blocks": ["hero-banner--simple"], "width": "full-width" },
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--single-level"], "width": "contained" },
+          { "name": "Article Header", "blocks": ["article-metadata"], "width": "contained-narrow" },
+          { "name": "Article Body", "blocks": ["(default content)", "pull-quote--with-headshot", "video-embed--inline"], "width": "contained-narrow" },
+          { "name": "Related Content", "blocks": ["related-content--article"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb", "article-metadata", "related-content"],
+      "uniqueSections": ["article body content"],
+      "urls": "(116 URLs - see story-article pattern in siteurl.txt)"
+    },
+    {
+      "id": "story-category-listing",
+      "name": "Story Category Listing",
+      "aemTemplate": "story-listing-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 15,
+      "urlPattern": "/who-we-are/our-stories/{topic}-stories.html",
+      "layout": "single-column-grid",
+      "blocks": [
+        "hero-banner--image",
+        "card-grid--article-cards",
+        "featured-story"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Hero", "blocks": ["hero-banner--image"], "width": "full-width" },
+          { "name": "Featured Story", "blocks": ["featured-story"], "width": "contained" },
+          { "name": "Story Grid", "blocks": ["card-grid--article-cards"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer"],
+      "uniqueSections": ["story grid (dynamic/query-based)"],
+      "urls": [
+        "https://www.abbvie.com/who-we-are/our-stories/aesthetics-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/company-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/eedi-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/eye-care-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/immunology-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/neuroscience-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/oncology-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/partnerships-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/patient-support-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/philanthropy-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/science-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/serving-communities-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/sustainability-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/virology-stories.html",
+        "https://www.abbvie.com/who-we-are/our-stories/working-at-abbvie-stories.html"
+      ]
+    },
+    {
+      "id": "leader-bio",
+      "name": "Leader Bio Page",
+      "aemTemplate": "leader-bio-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 24,
+      "urlPattern": "/who-we-are/our-leaders/{person}.html",
+      "layout": "single-column-content",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "leader-bio--executive",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Bio Content", "blocks": ["leader-bio--executive"], "width": "contained-narrow" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb"],
+      "uniqueSections": ["bio content"],
+      "urls": "(24 URLs - see leader-bio pattern)"
+    },
+    {
+      "id": "rd-leader-bio",
+      "name": "R&D Leader Bio Page",
+      "aemTemplate": "leader-bio-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 13,
+      "urlPattern": "/science/our-people/our-rd-leaders/{person}.html",
+      "layout": "single-column-content",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "leader-bio--rd-leader",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Bio Content", "blocks": ["leader-bio--rd-leader"], "width": "contained-narrow" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb"],
+      "uniqueSections": ["bio content"],
+      "urls": "(13 URLs - see rd-leader-bio pattern)"
+    },
+    {
+      "id": "location-page",
+      "name": "Location/Contact Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 15,
+      "urlPattern": "/contact-center/locations/{country}.html",
+      "layout": "single-column-content",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "address-block",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Page Title", "blocks": ["(H1)"], "width": "contained" },
+          { "name": "Addresses", "blocks": ["address-block (repeated)"], "width": "contained-narrow" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb"],
+      "uniqueSections": ["address data"],
+      "urls": "(15 URLs - see location-page pattern)"
+    },
+    {
+      "id": "science-area-detail",
+      "name": "Science Area Detail Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 14,
+      "urlPattern": "/science/areas-of-{focus|innovation}/{topic}.html",
+      "layout": "single-column-rich",
+      "blocks": [
+        "hero-banner--detail",
+        "breadcrumb--multi-level",
+        "two-column-feature--video-left",
+        "card-grid--article-cards",
+        "accordion--disease-category",
+        "related-content--topics",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Hero", "blocks": ["hero-banner--detail"], "width": "full-width" },
+          { "name": "Video Feature", "blocks": ["two-column-feature--video-left"], "width": "contained" },
+          { "name": "Body Content", "blocks": ["(default content)"], "width": "contained" },
+          { "name": "Article Cards", "blocks": ["card-grid--article-cards"], "width": "contained" },
+          { "name": "Accordion", "blocks": ["accordion--disease-category"], "width": "contained" },
+          { "name": "Related Topics", "blocks": ["related-content--topics"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb", "hero-banner"],
+      "uniqueSections": ["disease-specific content", "accordion data"],
+      "urls": "(14 URLs - see science-area patterns)"
+    },
+    {
+      "id": "patient-assistance",
+      "name": "Patient Assistance Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 8,
+      "urlPattern": "/patients/patient-support/patient-assistance/{page}.html",
+      "layout": "single-column-utility",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "accordion--medicine-list",
+        "two-column-feature--image-left",
+        "link-list--topics",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Page Title + Intro", "blocks": ["(H1 + paragraph)"], "width": "contained" },
+          { "name": "Medicine Accordion", "blocks": ["accordion--medicine-list"], "width": "contained" },
+          { "name": "Related Content", "blocks": ["two-column-feature--image-left"], "width": "contained" },
+          { "name": "Topics", "blocks": ["link-list--topics"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb"],
+      "uniqueSections": ["medicine accordion data"],
+      "urls": "(8 URLs - see patient-assistance pattern)"
+    },
+    {
+      "id": "leaders-listing",
+      "name": "Leaders Listing Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 2,
+      "urlPattern": "/who-we-are/our-leaders.html, /science/our-people/our-rd-leaders.html",
+      "layout": "single-column-grid-to-list",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "profile-card-grid--executive",
+        "board-list--members",
+        "board-list--committees",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Title + Tagline", "blocks": ["(H1 + paragraph)"], "width": "contained" },
+          { "name": "Executive Grid", "blocks": ["profile-card-grid"], "width": "contained" },
+          { "name": "Board List", "blocks": ["board-list--members"], "width": "contained" },
+          { "name": "Committees", "blocks": ["board-list--committees"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb"],
+      "uniqueSections": ["board and committee data"],
+      "urls": [
+        "https://www.abbvie.com/who-we-are/our-leaders.html",
+        "https://www.abbvie.com/science/our-people/our-rd-leaders.html"
+      ]
+    },
+    {
+      "id": "erg-page",
+      "name": "Employee Resource Group Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 7,
+      "urlPattern": "/join-us/life-at-abbvie/employee-resource-groups/{erg}.html",
+      "layout": "single-column-content",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "hero-banner--image",
+        "two-column-feature--image-left",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Hero", "blocks": ["hero-banner--image"], "width": "full-width" },
+          { "name": "Content", "blocks": ["two-column-feature", "(default content)"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb", "hero-banner"],
+      "uniqueSections": ["ERG-specific content"],
+      "urls": "(7 URLs - see erg-page pattern)"
+    },
+    {
+      "id": "acquisition-page",
+      "name": "Acquisition/Company Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 9,
+      "urlPattern": "/{company-name}.html",
+      "layout": "single-column-content",
+      "blocks": [
+        "hero-banner--image",
+        "two-column-feature--image-left",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Hero", "blocks": ["hero-banner--image"], "width": "full-width" },
+          { "name": "Content", "blocks": ["two-column-feature", "(default content)"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "hero-banner"],
+      "uniqueSections": ["acquisition-specific content"],
+      "urls": [
+        "https://www.abbvie.com/aliada-therapeutics.html",
+        "https://www.abbvie.com/allergan.html",
+        "https://www.abbvie.com/capstan-therapeutics.html",
+        "https://www.abbvie.com/celsius-therapeutics.html",
+        "https://www.abbvie.com/cerevel.html",
+        "https://www.abbvie.com/immunogen.html",
+        "https://www.abbvie.com/mitokinin.html",
+        "https://www.abbvie.com/nimbletherapeutics.html",
+        "https://www.abbvie.com/allergan-labeling.html"
+      ]
+    },
+    {
+      "id": "content-page",
+      "name": "General Content Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 101,
+      "urlPattern": "various deep paths",
+      "layout": "single-column-content",
+      "blocks": [
+        "breadcrumb--multi-level",
+        "two-column-feature--image-left",
+        "link-list--topics",
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Breadcrumb", "blocks": ["breadcrumb--multi-level"], "width": "contained" },
+          { "name": "Page Title", "blocks": ["(H1)"], "width": "contained" },
+          { "name": "Body Content", "blocks": ["(default content)", "two-column-feature"], "width": "contained" },
+          { "name": "Related Links", "blocks": ["link-list--topics"], "width": "contained" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer", "breadcrumb"],
+      "uniqueSections": ["page-specific content"],
+      "urls": "(101 URLs - career sub-pages, science sub-pages, sustainability sub-pages, policies, etc.)"
+    },
+    {
+      "id": "utility-page",
+      "name": "Utility Page",
+      "aemTemplate": "content-page-template",
+      "aemComponent": "abbvie-com2/components/page",
+      "urlCount": 5,
+      "urlPattern": "/{page}.html (accessibility, terms, site-map, etc.)",
+      "layout": "single-column-text",
+      "blocks": [
+        "section-divider"
+      ],
+      "layoutStructure": {
+        "header": "navigation-header",
+        "sections": [
+          { "name": "Page Title", "blocks": ["(H1)"], "width": "contained" },
+          { "name": "Body Text", "blocks": ["(default content)"], "width": "contained-narrow" }
+        ],
+        "footer": "footer"
+      },
+      "reusableSections": ["navigation-header", "footer"],
+      "uniqueSections": ["legal/utility text content"],
+      "urls": [
+        "https://www.abbvie.com/accessibility-statement.html",
+        "https://www.abbvie.com/terms-of-use.html",
+        "https://www.abbvie.com/site-map.html",
+        "https://www.abbvie.com/patents.html",
+        "https://www.abbvie.com/social-media-community-guidelines.html"
+      ]
+    }
+  ]
+}
