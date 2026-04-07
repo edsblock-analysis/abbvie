@@ -5,11 +5,13 @@ export default {
 };
 
 /**
- * AliadaTherapeutics — Full-width hero image with overlapping white content card.
- * Matches live site: https://www.abbvie.com/aliada-therapeutics.html
+ * Default — Full-width hero image with overlapping white content card.
+ * Used on all acquisition pages (Aliada, Cerevel, ImmunoGen, Capstan, etc.)
+ * All share identical structure — only content differs per acquisition.
+ *
  * Hero image: 80px top-left radius, card: 40px top-left, -112px overlap.
  */
-export const AliadaTherapeutics = () => `
+export const Default = () => `
   <div class="acquisition-hero">
     <div class="acquisition-hero__image-section">
       <div class="acquisition-hero__image-wrapper">
@@ -33,60 +35,6 @@ export const AliadaTherapeutics = () => `
          rel="noopener noreferrer">
         Read the Announcement
       </a>
-    </div>
-  </div>
-`;
-
-/**
- * CerevelTherapeutics — Same template, different content.
- */
-export const CerevelTherapeutics = () => `
-  <div class="acquisition-hero">
-    <div class="acquisition-hero__image-section">
-      <div class="acquisition-hero__image-wrapper">
-        <img
-          class="acquisition-hero__image"
-          src="/images/hero-lab.webp"
-          alt="Scientist in laboratory"
-          loading="eager"
-        />
-      </div>
-    </div>
-    <div class="acquisition-hero__card">
-      <h1 class="acquisition-hero__title">Cerevel Therapeutics is now part of AbbVie</h1>
-      <p class="acquisition-hero__description">
-        AbbVie's acquisition of Cerevel strengthens our neuroscience portfolio with a diversified pipeline of
-        differentiated therapies for patients with neurological and psychiatric diseases.
-      </p>
-      <hr class="acquisition-hero__divider" />
-      <a href="#" class="acquisition-hero__cta">Read the Announcement</a>
-    </div>
-  </div>
-`;
-
-/**
- * ImmunoGen — Same template, different content.
- */
-export const ImmunoGen = () => `
-  <div class="acquisition-hero">
-    <div class="acquisition-hero__image-section">
-      <div class="acquisition-hero__image-wrapper">
-        <img
-          class="acquisition-hero__image"
-          src="/images/scientist-examining.webp"
-          alt="Scientist examining data"
-          loading="eager"
-        />
-      </div>
-    </div>
-    <div class="acquisition-hero__card">
-      <h1 class="acquisition-hero__title">ImmunoGen is now part of AbbVie</h1>
-      <p class="acquisition-hero__description">
-        With the addition of ImmunoGen, AbbVie expands its oncology portfolio with innovative
-        antibody-drug conjugate (ADC) technology for the treatment of cancer.
-      </p>
-      <hr class="acquisition-hero__divider" />
-      <a href="#" class="acquisition-hero__cta">Read the Announcement</a>
     </div>
   </div>
 `;

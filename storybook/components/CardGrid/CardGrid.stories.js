@@ -6,10 +6,10 @@ export default {
 };
 
 /**
- * ThreeColumnCards - A 3-column grid featuring AbbVie focus areas:
- * Science, Patients, and Careers.
+ * FeatureCards — 3-column grid of feature cards (image + title + body + CTA).
+ * Used on landing pages for navigating to major site sections.
  */
-export const ThreeColumnCards = () => {
+export const FeatureCards = () => {
   const el = document.createElement('div');
   el.innerHTML = `
     <div class="card-grid">
@@ -49,71 +49,10 @@ export const ThreeColumnCards = () => {
 };
 
 /**
- * FourColumnStoryCards - A 4-column grid of story cards with dates,
- * categories, and estimated read times.
+ * StoryCards — 3-column grid of story cards with metadata (category, date, read time).
+ * Column count is controlled by CSS/inline style — same card internals for 3 or 4 columns.
  */
-export const FourColumnStoryCards = () => {
-  const el = document.createElement('div');
-  el.innerHTML = `
-    <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/podcast-promo.webp" alt="The Persistence Lab podcast" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">Innovation</span>
-          <span class="card-date">March 28, 2026</span>
-          <h3 class="card-title">Inside the Persistence Lab</h3>
-          <p class="card-body">How AbbVie researchers are using novel screening platforms to identify next-generation small-molecule therapies.</p>
-          <span class="card-read-time">5 min read</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/card-science.webp" alt="AbbVie employee spotlight" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">People</span>
-          <span class="card-date">March 14, 2026</span>
-          <h3 class="card-title">From Bench to Boardroom</h3>
-          <p class="card-body">Meet the immunology lead whose 15-year journey at AbbVie spans three continents and two breakthrough therapies.</p>
-          <span class="card-read-time">7 min read</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/hero-soccer.webp" alt="Children playing soccer outdoors" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">Community</span>
-          <span class="card-date">February 20, 2026</span>
-          <h3 class="card-title">Week of Possibilities 2026</h3>
-          <p class="card-body">AbbVie employees volunteered over 100,000 hours across 30 countries during our annual community service initiative.</p>
-          <span class="card-read-time">4 min read</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/culture-testtube.webp" alt="Researcher working with test tubes in the lab" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">Leadership</span>
-          <span class="card-date">January 30, 2026</span>
-          <h3 class="card-title">Q&amp;A with Our CFO</h3>
-          <p class="card-body">Rob Michael discusses AbbVie's capital allocation strategy and long-term growth outlook heading into 2026.</p>
-          <span class="card-read-time">6 min read</span>
-        </div>
-      </a>
-    </div>
-  `;
-  return el.firstElementChild;
-};
-
-/**
- * ArticleCards - A 3-column grid of article cards covering
- * Immunology, Oncology, and Neuroscience topics.
- */
-export const ArticleCards = () => {
+export const StoryCards = () => {
   const el = document.createElement('div');
   el.innerHTML = `
     <div class="card-grid">
