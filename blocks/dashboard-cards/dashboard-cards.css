@@ -1,0 +1,75 @@
+/* Dashboard Cards Block */
+
+.dashboard-cards-container .dashboard-cards-wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--container-padding);
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.dashboard-card {
+  background: var(--color-bg-light-blue);
+  border: 1px solid var(--color-border-light);
+  padding: 24px 32px;
+  border-radius: 0;
+  flex: 1 1 0;
+  min-width: 200px;
+}
+
+/* Stat number */
+.dashboard-card-number {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-navy);
+  margin: 0 0 8px;
+}
+
+/* Label */
+.dashboard-card-label {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: var(--font-weight-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Dark variant */
+.dashboard-cards-container.dark .dashboard-card,
+.dark .dashboard-card {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+.dashboard-cards-container.dark .dashboard-card-number,
+.dark .dashboard-card-number {
+  color: var(--color-white);
+}
+
+.dashboard-cards-container.dark .dashboard-card-label,
+.dark .dashboard-card-label {
+  color: var(--color-white);
+}
+
+/* Mobile */
+@media (max-width: 743px) {
+  .dashboard-cards {
+    flex-direction: column;
+  }
+
+  .dashboard-card {
+    min-width: unset;
+  }
+
+  .dashboard-card-number {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,17 @@
+.separator {
+  display: block;
+  width: 100%;
+}
+
+.separator .separator-spacer {
+  display: block;
+  width: 100%;
+}
+
+.separator.divider {
+  border-top: 1px solid var(--color-border-divider);
+}
+
+.separator .separator-spacer.divider {
+  border-top: 1px solid var(--color-border-divider);
+}
