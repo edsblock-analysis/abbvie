@@ -1,0 +1,95 @@
+  <div class="contact-form">
+    <h5 class="contact-form__section-heading">Personal information</h5>
+    <div class="contact-form__row">
+      <div class="contact-form__field">
+        <label class="contact-form__label">First Name <span class="contact-form__required">*</span></label>
+        <input type="text" class="contact-form__input" placeholder="First Name" required />
+      </div>
+      <div class="contact-form__field">
+        <label class="contact-form__label">Last Name <span class="contact-form__required">*</span></label>
+        <input type="text" class="contact-form__input" placeholder="Last Name" required />
+      </div>
+    </div>
+
+    <h5 class="contact-form__section-heading">Contact information</h5>
+    <div class="contact-form__row">
+      <div class="contact-form__field">
+        <label class="contact-form__label">Email <span class="contact-form__required">*</span></label>
+        <input type="email" class="contact-form__input" placeholder="Email" required />
+      </div>
+      <div class="contact-form__field">
+        <label class="contact-form__label">Verify Email <span class="contact-form__required">*</span></label>
+        <input type="email" class="contact-form__input" placeholder="Verify Email" required />
+      </div>
+    </div>
+    <div class="contact-form__field">
+      <label class="contact-form__label">Phone Number <span class="contact-form__required">*</span></label>
+      <input type="tel" class="contact-form__input" placeholder="Phone Number" />
+      <span class="contact-form__hint">(will only be used if required for follow-up to this communication)</span>
+    </div>
+    <div class="contact-form__row">
+      <div class="contact-form__field">
+        <label class="contact-form__label">Address</label>
+        <input type="text" class="contact-form__input" placeholder="Address" />
+      </div>
+      <div class="contact-form__field">
+        <label class="contact-form__label">City</label>
+        <input type="text" class="contact-form__input" placeholder="City" />
+      </div>
+    </div>
+    <div class="contact-form__row">
+      <div class="contact-form__field">
+        <label class="contact-form__label">State/Province</label>
+        <input type="text" class="contact-form__input" placeholder="State/Province" />
+      </div>
+      <div class="contact-form__field">
+        <label class="contact-form__label">Zip Code/Postal Code</label>
+        <input type="text" class="contact-form__input" placeholder="Zip Code/Postal Code" />
+      </div>
+    </div>
+    <div class="contact-form__field">
+      <label class="contact-form__label">Country or Region <span class="contact-form__required">*</span></label>
+      <select class="contact-form__select" required>
+        <option value="">Select Country or Region</option>
+        <option>United States</option>
+        <option>Canada</option>
+        <option>United Kingdom</option>
+        <option>Germany</option>
+        <option>France</option>
+        <option>Japan</option>
+      </select>
+    </div>
+
+    <h5 class="contact-form__section-heading">Message</h5>
+    <div class="contact-form__field">
+      <label class="contact-form__label">Subject</label>
+      <select class="contact-form__select">
+        <option value="">Select Subject</option>
+        <option>Careers</option>
+        <option>Investor Information</option>
+        <option>Product Availability</option>
+        <option>Medical/Product Information</option>
+        <option>Sales Representative Contact</option>
+        <option>Clinical Trials</option>
+        <option>Website Questions</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="contact-form__field">
+      <label class="contact-form__label">Questions/Comments <span class="contact-form__required">*</span></label>
+      <textarea class="contact-form__textarea" placeholder="Questions/Comments" maxlength="1000" required></textarea>
+      <span class="contact-form__char-count">1000 of 1000 characters available</span>
+    </div>
+
+    <p class="contact-form__privacy">We are collecting this personal information in order to respond to the inquiry you are sending via this Contact Us form. Further information about how AbbVie handles personal data is available in our <a href="https://abbv.ie/corpprivacy" target="_blank">Online Privacy Notice</a>.</p>
+
+    <div class="contact-form__captcha">
+      <div style="background:#f9f9f9; border:1px solid #d3d3d3; border-radius:4px; padding:1.2rem 2.4rem; display:inline-flex; align-items:center; gap:1.2rem;">
+        <input type="checkbox" /> <span style="font-size:1.4rem; color:#071d49;">I'm not a robot</span>
+        <span style="font-size:1rem; color:#666b7a;">reCAPTCHA</span>
+      </div>
+    </div>
+
+    <hr class="contact-form__divider" />
+    <button type="submit" class="contact-form__submit">Submit</button>
+  </div>
