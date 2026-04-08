@@ -1,28 +1,69 @@
+/* Columns Stats — 3-column statistics */
+
 .columns-stats-container .columns-stats-wrapper {
-  max-width: 1200px;
+  max-width: var(--content-width);
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: var(--spacing-xl) var(--container-padding);
 }
 
 .columns-stats > div {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-lg);
 }
 
+/* Each stat column */
 .columns-stats-col {
   flex: 1;
   text-align: center;
 }
 
+/* Stat number */
+.columns-stats-col strong,
+.columns-stats-col .stat-number,
+.columns-stats-col h2,
+.columns-stats-col h3 {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: var(--font-weight-heading);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-xs);
+}
+
+/* Stat label */
+.columns-stats-col p,
+.columns-stats-col .stat-label {
+  font-family: var(--font-body);
+  font-size: var(--spacing-sm);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Image column */
 .columns-stats-img-col img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
-@media (width >= 900px) {
+/* Desktop — 3 columns */
+@media (min-width: 900px) {
   .columns-stats > div {
     flex-direction: row;
+    align-items: flex-start;
   }
-  .columns-stats-container .columns-stats-wrapper { padding: 40px 32px; }
+}
+
+/* Mobile */
+@media (max-width: 743px) {
+  .columns-stats-col strong,
+  .columns-stats-col .stat-number,
+  .columns-stats-col h2,
+  .columns-stats-col h3 {
+    font-size: 40px;
+  }
 }
