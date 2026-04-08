@@ -1,0 +1,51 @@
+footer {
+  background: var(--color-white, #fff);
+  padding: 40px var(--container-padding, 55px);
+  color: var(--color-navy, #071d49);
+}
+
+footer a {
+  color: var(--color-navy, #071d49);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--color-blue, #0066f5);
+}
+
+footer h2 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary, #666b7a);
+  margin-bottom: 16px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+footer li {
+  margin-bottom: 8px;
+}
+
+footer > div > div:first-child a {
+  font-family: var(--font-heading-book, 'F37 Lineca Book', sans-serif);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 650;
+}
+
+@media (max-width: 743px) {
+  footer {
+    padding: 32px 20px;
+  }
+
+  footer > div > div:first-child a {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}

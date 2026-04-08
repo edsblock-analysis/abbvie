@@ -69,6 +69,80 @@ export default function transform(hookName, element, payload) {
       '.separator',
     ]);
 
+    // Remove Brightcove video player chrome (controls, captions, dialogs)
+    WebImporter.DOMUtils.remove(element, [
+      '.vjs-control-bar',
+      '.vjs-modal-dialog',
+      '.vjs-loading-spinner',
+      '.vjs-big-play-button',
+      '.vjs-text-track-display',
+      '.vjs-error-display',
+      '[class*="vjs-"]',
+      '.video-js',
+      '.cmp-video__panel.hide',
+      '[role="dialog"]',
+    ]);
+
+    // Remove Brightcove text artifacts that leak through
+    element.querySelectorAll('p').forEach((p) => {
+      const text = p.textContent.trim();
+      if (text === 'Play' || text === 'Mute' || text === 'Fullscreen' ||
+          text === 'Play Video' || text === 'Picture-in-Picture' ||
+          text === 'Picture-in-PictureFullscreen' ||
+          text === 'Close Modal Dialog' || text === 'Video Player is loading.' ||
+          text.startsWith('Current Time') || text.startsWith('Duration') ||
+          text.startsWith('Remaining Time') || text.startsWith('Stream Type') ||
+          text.startsWith('Loaded:') || text.startsWith('Seek to live') ||
+          text.startsWith('Playback Rate') || text === 'Chapters' ||
+          text === 'Descriptions' || text === 'Captions' || text === 'Audio Track' ||
+          text.startsWith('Text Edge Style') || text.startsWith('Font Family') ||
+          text.startsWith('Font Size') || text.startsWith('Background') ||
+          text.startsWith('Window') || text.startsWith('Color') ||
+          text.startsWith('Reset restore') || text.startsWith('End of dialog') ||
+          text.startsWith('Beginning of dialog') || text.startsWith('This is a modal') ||
+          text === '1x' || text === 'Text' || text === '/' ||
+          text === 'LIVE' || text === '0:00' ||
+          text.match(/^descriptions off/) || text.match(/^captions off/) ||
+          text.match(/^captions settings/) || text.match(/^en \(Main\)/) ||
+          text.match(/^\d+% \(\d/) || text.match(/^50%/) ||
+          text.match(/^None \(/) || text.match(/^Proportional/) ||
+          text.match(/^-?\d+:\d+$/)) {
+        p.remove();
+      }
+    });
+
+    // Remove "No results found" search artifacts
+    element.querySelectorAll('p').forEach((p) => {
+      if (p.textContent.includes('No results found') && p.textContent.includes('Change your')) {
+        p.remove();
+      }
+    });
+
+    // Remove mega-nav accordion content that leaked through
+    WebImporter.DOMUtils.remove(element, [
+      '.cmp-accordion',
+      '[class*="mega-nav"]',
+      '.accordion.panelcontainer.show-tabs-desktop',
+      '.accordion.panelcontainer',
+    ]);
+
+    // Remove "No results found" search artifacts
+    element.querySelectorAll('p').forEach((p) => {
+      const text = p.textContent.trim();
+      if (text === 'No results found' ||
+          (text.includes('No results found') && text.includes('Change your'))) {
+        p.remove();
+      }
+    });
+
+    // Remove "Expand All / Collapse All" text artifacts
+    element.querySelectorAll('p').forEach((p) => {
+      const text = p.textContent.trim();
+      if (text === 'Expand All Collapse All' || text === 'Expand All' || text === 'Collapse All') {
+        p.remove();
+      }
+    });
+
     // Remove tracking pixel images
     element.querySelectorAll('img').forEach((img) => {
       const src = img.src || img.getAttribute('src') || '';
