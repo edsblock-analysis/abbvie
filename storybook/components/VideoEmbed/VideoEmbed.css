@@ -1,4 +1,4 @@
-/* VideoEmbed Component Styles */
+/* VideoEmbed — poster, play control, watch CTA (homepage / article variants) */
 
 .video-embed-container {
   position: relative;
@@ -8,7 +8,7 @@
 .video-embed-poster {
   width: 100%;
   display: block;
-  border-radius: 4px;
+  border-radius: 0.4rem;
 }
 
 .video-embed-play-button {
@@ -16,20 +16,26 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
+  width: 6.4rem;
+  height: 6.4rem;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--overlay-dark-80);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .video-embed-play-button:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.08);
+  background: var(--overlay-dark-90);
+}
+
+.video-embed-play-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .video-embed-play-button::after {
@@ -54,43 +60,49 @@
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
   font-weight: 700;
-  padding: 16px 40px;
+  padding: 1.6rem 4rem;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.3s ease;
 }
 
 .video-embed-watch-btn:hover {
-  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.video-embed-watch-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .video-embed-duration {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: rgba(0, 0, 0, 0.8);
+  bottom: 1.2rem;
+  right: 1.2rem;
+  background: var(--overlay-dark-80);
   color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
 }
 
 .video-embed-title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2rem;
   font-weight: 700;
+  line-height: 2.6rem;
   color: #071d49;
-  margin-top: 12px;
-  margin-bottom: 4px;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
 }
 
 .video-embed-description {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 22px;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
   color: #071d49;
   margin: 0;
 }

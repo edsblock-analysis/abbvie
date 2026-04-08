@@ -1,5 +1,4 @@
-/* Accordion Component Styles */
-/* Root base: 10px (1rem = 10px) */
+/* Accordion — panelcontainer / FAQ / medicine list (live site) */
 
 .accordion-container {
   width: 100%;
@@ -12,22 +11,33 @@
 }
 
 .accordion-toggle-all {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
-  color: #0066f5;
+  color: var(--color-blue);
   text-transform: uppercase;
+  letter-spacing: 0.84px;
   cursor: pointer;
   background: none;
   border: none;
   padding: 0;
+  transition: var(--transition-color);
+}
+
+.accordion-toggle-all:hover {
+  color: var(--color-blue-light);
+}
+
+.accordion-toggle-all:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
 }
 
 /* VERIFIED: Roboto Regular 24px/32px weight 400, padding 32px 0 */
 .accordion-item-header {
   padding: 3.2rem 0;
   cursor: pointer;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--border-lighter);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,11 +45,17 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 3.2rem;
-  color: #071d49;
+  color: var(--color-text-default);
+  transition: var(--transition-bg);
 }
 
 .accordion-item-header:hover {
-  background-color: #f5f5f5;
+  background-color: var(--color-bg-off-white);
+}
+
+.accordion-item-header:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: -2px;
 }
 
 .accordion-item-content {
@@ -67,21 +83,25 @@
 .accordion-item-content p,
 .accordion-item-content a,
 .accordion-item-content li {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 2.2rem;
-  color: #071d49;
+  color: var(--color-text-default);
 }
 
 .accordion-item-content a {
-  color: #0066f5;
+  color: var(--color-blue);
   text-decoration: underline;
+}
+
+.accordion-item-content a:hover {
+  color: var(--color-blue-light);
 }
 
 /* Tabs variant (show-tabs-desktop) */
 .accordion-container--tabs .accordion-tabs-bar {
   display: flex;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid var(--border-separator);
   gap: 0;
   margin-bottom: 2.4rem;
 }
@@ -89,7 +109,7 @@
   font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
@@ -98,11 +118,16 @@
   margin-bottom: -2px;
   transition: color 0.2s ease;
 }
-.accordion-tab:hover { color: #071d49; }
+.accordion-tab:hover { color: var(--color-text-default); }
 .accordion-tab.active {
-  color: #071d49;
+  color: var(--color-text-default);
   font-weight: 700;
-  border-bottom-color: #071d49;
+  border-bottom-color: var(--color-text-default);
+}
+
+.accordion-tab:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 .accordion-tab-panel { display: none; padding: 2.4rem 0; }
 .accordion-tab-panel.active { display: block; }
@@ -111,7 +136,13 @@
   font-size: 1.8rem; line-height: 2.6rem; color: #071d49;
 }
 @media (max-width: 743px) {
+  .accordion-item-header {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    padding: 2.4rem 0;
+  }
+
   .accordion-container--tabs .accordion-tabs-bar { flex-direction: column; }
-  .accordion-tab { text-align: left; border-bottom: 1px solid #e0e0e0; border-left: 2px solid transparent; }
-  .accordion-tab.active { border-bottom-color: #e0e0e0; border-left-color: #071d49; }
+  .accordion-tab { text-align: left; border-bottom: 1px solid var(--border-separator); border-left: 2px solid transparent; }
+  .accordion-tab.active { border-bottom-color: var(--border-separator); border-left-color: var(--color-text-default); }
 }

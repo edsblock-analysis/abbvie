@@ -5,7 +5,7 @@
 }
 
 .section-heading__label {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -15,7 +15,7 @@
 }
 
 .section-heading__headline {
-  font-family: 'F37 Lineca', sans-serif;
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 3rem;
   line-height: 3.4rem;
@@ -37,4 +37,25 @@
   color: #071d49;
   margin-top: 1.2rem;
   max-width: 80rem;
+}
+
+@media (max-width: 743px) {
+  .section-heading {
+    padding: 2rem 0;
+  }
+
+  .section-heading__headline {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+
+  .section-heading--small .section-heading__headline {
+    font-size: 2.6rem;
+    line-height: 3rem;
+  }
+
+  .section-heading__body {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
 }

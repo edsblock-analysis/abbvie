@@ -66,14 +66,14 @@ export const LargeRadius = () => `
  */
 export const OverlapContainer = () => `
   ${refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}])}
-  <div style="background:#071d49; padding:60px 55px 140px;">
+  <div style="background:#071d49; padding:60px 70px 140px;">
     <h2 style="font-family:'F37 Lineca Book',Helvetica,sans-serif; font-size:40px; color:#fff; margin:0;">Hero Area</h2>
   </div>
   <div class="abbvie-container abbvie-container--overlap abbvie-container--default-radius abbvie-container--large">
     <div class="abbvie-container__inner" style="background:#fff; padding-bottom:40px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
       <h3 style="font-family:'F37 Lineca Book',Helvetica,sans-serif; font-size:24px; color:#071d49; margin:0 0 12px;">Press Releases</h3>
       <p style="font-family:'Roboto Regular',Roboto,sans-serif; font-size:16px; line-height:22px; color:#071d49;">
-        This container uses margin-top: -112px to overlap the hero section above, creating a layered visual effect commonly seen with press release listings.
+        This container uses margin: -128px 70px 80px (desktop) to overlap the hero, matching the homepage press-release band.
       </p>
     </div>
   </div>

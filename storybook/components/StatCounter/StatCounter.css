@@ -1,4 +1,4 @@
-/* StatCounter */
+/* StatCounter — dashboardcards / fact metrics (homepage, science) */
 
 .stat-counter {
   display: inline-flex;
@@ -8,39 +8,57 @@
 }
 
 .stat-counter__number {
-  font-family: 'F37 Lineca', sans-serif;
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 5.6rem;
   line-height: 1;
-  color: #071d49;
+  color: var(--color-text-default);
 }
 
 .stat-counter__prefix,
 .stat-counter__suffix {
-  font-family: 'F37 Lineca', sans-serif;
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 4rem;
-  color: #071d49;
+  color: var(--color-text-default);
 }
 
 .stat-counter__label {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.2rem;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   margin-top: 0.8rem;
+  max-width: 24rem;
 }
 
-/* Grid variant — multiple stats in a row */
+/* Grid variant — row of metrics */
 .stat-counter-grid {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 3.2rem;
-  padding: 4rem 0;
+  padding: var(--space-3xl) 0;
 }
 
 .stat-counter-grid .stat-counter {
   min-width: 14rem;
+}
+
+@media (max-width: 743px) {
+  .stat-counter__number {
+    font-size: 4.8rem;
+  }
+
+  .stat-counter__prefix,
+  .stat-counter__suffix {
+    font-size: 3.2rem;
+  }
+
+  .stat-counter-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+  }
 }

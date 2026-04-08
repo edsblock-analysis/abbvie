@@ -6,7 +6,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: '**Production reference:** [abbvie.com](https://www.abbvie.com/) (VideoHero), [join-us](https://www.abbvie.com/join-us.html) (ImageHero), [story article](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html) (SimpleHero), [oncology](https://www.abbvie.com/science/areas-of-focus/oncology.html) (DetailPageHero)\n\nFull-width hero with 64px top-left border-radius on image container. Responsive: 32px on mobile.',
+        component: '**Production reference:** [abbvie.com](https://www.abbvie.com/) (VideoHero), [join-us](https://www.abbvie.com/join-us.html) (ImageHero), [story article](https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html) (SimpleHero), [oncology](https://www.abbvie.com/science/areas-of-focus/oncology.html) (DetailPageHero)\n\n**Radii:** VideoHero & ImageHero use large (64px / 32px mobile). SimpleHero & DetailPageHero use medium (40px / 24px mobile). Modifiers: `hero-banner--radius-large|medium|small`.',
       },
     },
   },
@@ -24,8 +24,7 @@ const playIcon = `
   </svg>`;
 
 /**
- * VideoHero — Hero with background video, 80px top-left radius, pause/play.
- * Matches live site: border-radius: 80px 0 0 0 on image container.
+ * VideoHero — background video, large top-left radius (64px / 32px mobile), pause/play.
  */
 export const VideoHero = () => {
   const el = document.createElement('div');
@@ -82,8 +81,7 @@ export const VideoHero = () => {
 };
 
 /**
- * ImageHero — Static background image with 80px top-left radius.
- * Careers-focused messaging.
+ * ImageHero — static image hero with large top-left radius (join-us style).
  */
 export const ImageHero = () => {
   const el = document.createElement('div');
@@ -114,8 +112,7 @@ export const ImageHero = () => {
 };
 
 /**
- * SimpleHero — Image-only hero with no text overlay.
- * Still has the 80px top-left radius clipping.
+ * SimpleHero — image-only, no overlay (story articles). Medium radius 40px / 24px mobile.
  */
 export const SimpleHero = () => {
   const el = document.createElement('div');
@@ -135,8 +132,7 @@ export const SimpleHero = () => {
 };
 
 /**
- * DetailPageHero — Interior page hero with 64px top-left radius.
- * Category label above title. Used on science area pages.
+ * DetailPageHero — science area pages. Medium radius 40px / 24px mobile; topic eyebrow + title.
  */
 export const DetailPageHero = () => {
   const el = document.createElement('div');

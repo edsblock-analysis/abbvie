@@ -1,0 +1,1 @@
+function s(e){return`<div class="story-reference"><span class="story-reference__label">Live Reference</span> ${e.map(({label:r,url:n})=>`<a href="${n}" target="_blank" rel="noopener noreferrer">${r}</a>`).join(" &nbsp;|&nbsp; ")}</div>`}export{s as r};

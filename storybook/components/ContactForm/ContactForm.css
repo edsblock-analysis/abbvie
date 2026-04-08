@@ -4,19 +4,20 @@
 .contact-form {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 4rem;
-  font-family: 'Roboto', sans-serif;
+  padding: 4rem var(--layout-gutter-x);
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 /* Section headings */
 .contact-form__section-heading {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #071d49;
+  color: var(--color-text-default);
   margin: 3.2rem 0 1.6rem;
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-separator);
 }
 
 .contact-form__section-heading:first-child {
@@ -39,55 +40,60 @@
 
 /* Labels */
 .contact-form__label {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   margin-bottom: 0.4rem;
 }
 
 /* Required asterisk */
 .contact-form__required {
-  color: #cf451c;
+  color: var(--color-text-accent-orange);
 }
 
 /* Inputs */
 .contact-form__input {
   width: 100%;
   padding: 1.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-lighter);
   border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  color: #071d49;
-  background: #fff;
+  color: var(--color-text-default);
+  background: var(--color-bg-white);
   box-sizing: border-box;
   transition: border-color 0.2s ease;
 }
 
 .contact-form__input:focus {
-  border-color: #0066f5;
+  border-color: var(--color-blue);
   outline: none;
+}
+
+.contact-form__input:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
 /* Error state */
 .contact-form__input--error {
-  border-color: #cf451c;
+  border-color: var(--color-text-accent-orange);
 }
 
 .contact-form__error {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
-  color: #cf451c;
+  color: var(--color-text-accent-orange);
   margin-top: 0.4rem;
 }
 
 /* Hint text */
 .contact-form__hint {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   margin-top: 0.4rem;
 }
 
@@ -95,13 +101,13 @@
 .contact-form__select {
   width: 100%;
   padding: 1.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-lighter);
   border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  color: #071d49;
-  background-color: #fff;
+  color: var(--color-text-default);
+  background-color: var(--color-bg-white);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23071d49' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1.2rem center;
@@ -115,8 +121,13 @@
 }
 
 .contact-form__select:focus {
-  border-color: #0066f5;
+  border-color: var(--color-blue);
   outline: none;
+}
+
+.contact-form__select:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
 /* Textarea */
@@ -124,43 +135,52 @@
   width: 100%;
   min-height: 12rem;
   padding: 1.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-lighter);
   border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  color: #071d49;
+  color: var(--color-text-default);
   resize: vertical;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
 }
 
 .contact-form__textarea:focus {
-  border-color: #0066f5;
+  border-color: var(--color-blue);
   outline: none;
+}
+
+.contact-form__textarea:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
 /* Character counter */
 .contact-form__char-count {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   text-align: right;
   margin-top: 0.4rem;
 }
 
 /* Privacy notice */
 .contact-form__privacy {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   margin-top: 2.4rem;
   line-height: 1.6;
 }
 
 .contact-form__privacy a {
-  color: #0066f5;
+  color: var(--color-blue);
   text-decoration: underline;
+}
+
+.contact-form__privacy a:hover {
+  color: var(--color-blue-light);
 }
 
 /* CAPTCHA */
@@ -171,16 +191,16 @@
 /* Divider */
 .contact-form__divider {
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-separator);
   margin: 2.4rem 0;
 }
 
 /* Submit button */
 .contact-form__submit {
-  background-color: #0066f5;
-  color: #fff;
+  background-color: var(--color-blue);
+  color: var(--color-text-white);
   padding: 1.2rem 3.2rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -188,17 +208,22 @@
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: var(--transition-bg);
 }
 
 .contact-form__submit:hover {
-  background-color: #479ff8;
+  background-color: var(--color-blue-light);
+}
+
+.contact-form__submit:focus-visible {
+  outline: 2px solid var(--color-text-default);
+  outline-offset: 3px;
 }
 
 /* Mobile – single column, reduced padding */
 @media (max-width: 743px) {
   .contact-form {
-    padding: 2rem;
+    padding: 2rem var(--layout-gutter-x);
   }
 
   .contact-form__row {

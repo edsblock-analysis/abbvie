@@ -1,14 +1,26 @@
+/* LinkList — Quick Links (homepage ESG) / topics (patient pages) */
+
 .link-list {
   padding: 0;
 }
 
-.link-list-heading {
-  font-family: 'Roboto', sans-serif;
+.link-list__eyebrow {
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   text-transform: uppercase;
-  color: #071d49;
-  margin: 0 0 1.2rem;
+  letter-spacing: 0.84px;
+  color: var(--color-blue);
+  margin: 0 0 0.8rem;
+}
+
+.link-list-heading {
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 3.2rem;
+  color: var(--color-text-default);
+  margin: 0 0 1.6rem;
 }
 
 .link-list ul {
@@ -22,18 +34,25 @@
 }
 
 .link-list a {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
-  color: #0066f5;
+  line-height: 2.2rem;
+  color: var(--color-blue);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  transition: var(--transition-color);
 }
 
 .link-list a:hover {
-  text-decoration: underline;
+  color: var(--color-blue-light);
+}
+
+.link-list a:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
 .link-list a[target="_blank"]::after {
@@ -41,4 +60,11 @@
   font-size: 1.2rem;
   display: inline-block;
   margin-left: 0.2rem;
+}
+
+@media (max-width: 743px) {
+  .link-list-heading {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
 }

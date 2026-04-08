@@ -19,15 +19,17 @@
 .back-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
   text-decoration: none;
   cursor: pointer;
+  color: var(--color-blue);
+  transition: var(--transition-color);
 }
 
 /* ---- Icon ---- */
 .back-cta__icon {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   transform: rotate(180deg);
   flex-shrink: 0;
 }
@@ -41,19 +43,21 @@
 /* ---- Text ---- */
 .back-cta__text {
   font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #0066f5;
+  color: inherit;
   text-transform: uppercase;
   letter-spacing: 0.84px;
   line-height: 1;
 }
 
-/* ---- Hover ---- */
-.back-cta:hover .back-cta__text {
-  color: #479ff8;
+/* ---- Hover / focus (live: blue → lighter blue) ---- */
+.back-cta:hover,
+.back-cta:focus-visible {
+  color: var(--color-blue-light);
 }
 
-.back-cta:hover .back-cta__icon {
-  color: #479ff8;
+.back-cta:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
 }

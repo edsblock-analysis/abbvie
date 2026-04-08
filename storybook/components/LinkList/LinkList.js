@@ -1,8 +1,15 @@
 import './LinkList.css';
 
-export const LinkList = ({ heading, links = [] }) => {
+export const LinkList = ({ eyebrow, heading, links = [] }) => {
   const wrapper = document.createElement('div');
   wrapper.className = 'link-list';
+
+  if (eyebrow) {
+    const kicker = document.createElement('p');
+    kicker.className = 'link-list__eyebrow';
+    kicker.textContent = eyebrow;
+    wrapper.appendChild(kicker);
+  }
 
   if (heading) {
     const h3 = document.createElement('h3');

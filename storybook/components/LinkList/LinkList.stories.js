@@ -6,7 +6,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: '**Production reference:** [homepage](https://www.abbvie.com/) (ESG Quick Links section, Investor Resources links), [available-programs](https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html) (related topics)\n\nGrouped list of links. QuickLinks: with heading + external link indicators. TopicsList: simple list, no heading.',
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (ESG Quick Links section, Investor Resources links), [available-programs](https://www.abbvie.com/patients/patient-support/patient-assistance/available-programs.html) (related topics)\n\nGrouped list of links. **QuickLinks:** optional `eyebrow` (e.g. “Quick Links”) + `heading` (F37 title) + external link indicators. **TopicsList:** links only, no heading.',
       },
     },
   },
@@ -21,6 +21,7 @@ export const QuickLinks = {
     return w;
   },
   args: {
+    eyebrow: 'Quick Links',
     heading: "AbbVie's Positions & Views",
     links: [
       { label: 'Our Environmental Stewardship', href: 'https://www.abbvie.com/sustainability/environment.html', external: true },

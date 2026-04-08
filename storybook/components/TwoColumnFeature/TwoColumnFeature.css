@@ -1,12 +1,11 @@
-/* TwoColumnFeature */
-/* Live site wraps these in abbvie-container with border-radius variants */
+/* TwoColumnFeature — medium radius desktop, 24px mobile (responsiveBorderRadiusMap) */
 
 .two-column-feature {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
   align-items: center;
-  border-radius: 40px 0px 0px 0px;
+  border-radius: var(--radius-tl-medium) 0 0 0;
   overflow: hidden;
 }
 
@@ -23,11 +22,11 @@
 }
 
 .two-column-feature__content {
-  padding: 4rem;
+  padding: 4rem 5.6rem;
 }
 
 .two-column-feature__heading {
-  font-family: 'F37 Lineca', sans-serif;
+  font-family: 'F37 Lineca Medium', 'F37Lineca-Medium', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 4.8rem;
   line-height: 5.2rem;
@@ -36,17 +35,19 @@
 }
 
 .two-column-feature__body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.8rem;
-  line-height: 2.4rem;
+  line-height: 2.6rem;
   color: #071d49;
   margin-top: 1.6rem;
 }
 
 .two-column-feature__cta {
-  display: inline-block;
-  font-family: 'Roboto', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -54,10 +55,17 @@
   color: #0066f5;
   text-decoration: none;
   margin-top: 2.4rem;
+  transition: color 0.4s ease;
 }
 
 .two-column-feature__cta:hover {
-  text-decoration: underline;
+  color: #479ff8;
+}
+
+.two-column-feature__cta:focus-visible {
+  color: #479ff8;
+  outline: 2px solid #0066f5;
+  outline-offset: 2px;
 }
 
 /* Reversed variant — image on right */
@@ -69,10 +77,24 @@
   order: 1;
 }
 
-/* Mobile — max-width 743px */
-@media (max-width: 74.3rem) {
+@media (max-width: 743px) {
   .two-column-feature {
     grid-template-columns: 1fr;
+    border-radius: var(--radius-tl-medium) 0 0 0;
+  }
+
+  .two-column-feature__content {
+    padding: 3.2rem 0;
+  }
+
+  .two-column-feature__heading {
+    font-size: 3.6rem;
+    line-height: 4rem;
+  }
+
+  .two-column-feature__body {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
   }
 
   .two-column-feature--reversed .two-column-feature__image-wrapper {

@@ -43,6 +43,11 @@
   /* Border */
   --border-light: #b9b4b4;
   --border-lighter: #ccc;
+  --border-separator: #e0e0e0;
+
+  /* Page gutters (responsiveLayoutChanges) */
+  --layout-gutter-x: 7rem;
+  --layout-gutter-x-mobile: 2rem;
 
   /* Spacing Scale (rem at 10px root) */
   --space-xs: 0.3rem;   /* 3px */
@@ -63,6 +68,11 @@
   --transition-transform: transform 0.2s linear;
   --transition-max-height: max-height 0.2s ease;
   --transition-opacity: opacity 0.2s ease;
+
+  /* Top-left radii — verified responsive map (complete-migration-package.json) */
+  --radius-tl-default: 2.4rem; /* 24px desktop */
+  --radius-tl-medium: 4rem; /* 40px */
+  --radius-tl-large: 6.4rem; /* 64px */
 }
 
 /* Root font-size exactly as live site */
@@ -178,6 +188,13 @@ hr, .section-divider {
 
 /* Responsive breakpoints */
 @media (max-width: 743px) {
+  :root {
+    --radius-tl-default: 1.2rem; /* ~50% of 24px */
+    --radius-tl-medium: 2.4rem; /* 24px */
+    --radius-tl-large: 3.2rem; /* 32px */
+    --layout-gutter-x: var(--layout-gutter-x-mobile);
+  }
+
   h1 { font-size: 4rem; line-height: 4.4rem; }
   h4 { font-size: 2.4rem; line-height: 2.8rem; }
   h5 { font-size: 2rem; line-height: 2.4rem; }

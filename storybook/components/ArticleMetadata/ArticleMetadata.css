@@ -10,9 +10,10 @@
 
 .article-metadata {
   display: flex;
+  flex-wrap: wrap;
   gap: 0;
   align-items: center;
-  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 2rem;
@@ -20,25 +21,31 @@
 }
 
 .article-metadata-date {
-  color: #666b7a;
+  color: var(--color-text-secondary);
 }
 
 .article-metadata-separator {
-  color: #666b7a;
+  color: var(--color-text-secondary);
   margin: 0 0.8rem;
 }
 
 .article-metadata-category {
-  color: #071d49;
+  color: var(--color-text-default);
   text-decoration: none;
   margin-left: 1.6rem;
   font-weight: 700;
+  transition: var(--transition-color);
 }
 
 .article-metadata-category:hover {
-  color: #0066f5;
+  color: var(--color-blue);
+}
+
+.article-metadata-category:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
 .article-metadata-read-time {
-  color: #666b7a;
+  color: var(--color-text-secondary);
 }

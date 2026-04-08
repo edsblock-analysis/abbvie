@@ -20,7 +20,7 @@
   font-size: 4rem;
   line-height: 4.4rem;
   font-style: normal;
-  color: #071d49;
+  color: var(--color-text-default);
   margin: 0;
   padding-top: 8rem;
 }
@@ -48,7 +48,7 @@
   font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
-  color: #071d49;
+  color: var(--color-text-default);
   margin: 0;
 }
 
@@ -56,7 +56,7 @@
   font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
-  color: #666b7a;
+  color: var(--color-text-secondary);
   margin: 0.2rem 0 0;
 }
 
