@@ -42,6 +42,12 @@
   border-radius: 0;
 }
 
+/* ---- No Stroke (light-theme-no-stroke) ---- */
+.card--no-stroke {
+  background: #f1f3ff;
+  border: none;
+}
+
 /* ---- Dark Theme ---- */
 .card--dark-theme {
   background: #071d49;
