@@ -59,12 +59,12 @@
   margin-bottom: 1.2rem;
 }
 
-/* VERIFIED: F37 Lineca Book 30px/34px weight 650 */
+/* VERIFIED: F37 Lineca Book 40px/44px weight 650 */
 .footer-section:first-child a {
   font-family: 'F37 Lineca Book', Helvetica, Arial, sans-serif;
   font-weight: 650;
-  font-size: 3rem;
-  line-height: 3.4rem;
+  font-size: 4rem;
+  line-height: 4.4rem;
   color: #071d49;
   text-decoration: none;
 }
@@ -158,6 +158,8 @@
   font-size: 1.2rem;
   color: #071d49;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.48px;
 }
 
 .footer-legal a:hover {
