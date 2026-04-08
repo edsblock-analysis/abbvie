@@ -168,27 +168,42 @@
   padding: 1.6rem 0;
 }
 
-/* Pipeline compound card — expandable */
+/* ==========================================================
+   Pipeline Compound Card — VERIFIED from live site at 1440px
+
+   Card: display grid, 3 columns (394px | 690px | 98px)
+   bg: white, border: 1px solid #a6b5e0, radius: 40px 0 0 0
+   padding: 64px 40px
+   Title: 40px weight 650
+   Phase bars: 4px height, filled=navy, empty=light gray
+   ========================================================== */
+
 .pipeline-filter__card {
-  border-bottom: 1px solid #e0e0e0;
-  padding: 2.4rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1.8fr auto;
+  gap: 0;
+  background: #ffffff;
+  border: 1px solid #a6b5e0;
+  border-radius: 40px 0px 0px 0px;
+  padding: 6.4rem 4rem;
+  margin-bottom: 2.4rem;
 }
 
 .pipeline-filter__card-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.6rem;
+  flex-direction: column;
 }
 
 .pipeline-filter__card-left {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
+/* VERIFIED: pipeline-title 40px/44px weight 650 */
 .pipeline-filter__compound-name {
   font-family: 'F37 Lineca Book', Helvetica, Arial, sans-serif;
-  font-size: 3.2rem;
-  line-height: 3.6rem;
+  font-size: 4rem;
+  line-height: 4.4rem;
   font-weight: 650;
   color: #071d49;
   margin: 0 0 0.8rem;
@@ -270,11 +285,75 @@
   margin-bottom: 0.4rem;
 }
 
+/* Phase progress bars area (middle column) */
+.pipeline-filter__phases {
+  display: flex;
+  flex-direction: column;
+}
+
+.pipeline-filter__phase-header {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 1fr) 1fr;
+  gap: 0;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666b7a;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1.6rem;
+}
+
+.pipeline-filter__phase-header span:first-child {
+  font-weight: 700;
+  color: #071d49;
+}
+
+.pipeline-filter__indication-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 1fr) 1fr;
+  gap: 0;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.pipeline-filter__indication-name {
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #071d49;
+}
+
+/* Phase progress bar */
+.pipeline-filter__phase-bar {
+  height: 0.4rem;
+  border-radius: 0.2rem;
+  position: relative;
+}
+
+.pipeline-filter__phase-bar--filled {
+  background: #071d49;
+}
+
+.pipeline-filter__phase-bar--empty {
+  background: #e0e0e0;
+}
+
+/* Expand button (right column) */
+.pipeline-filter__expand-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
 /* Expandable content — hidden by default */
 .pipeline-filter__card-details {
   display: none;
-  margin-top: 2rem;
-  padding-top: 2rem;
+  grid-column: 1 / -1;
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
   border-top: 1px solid #e0e0e0;
 }
 
