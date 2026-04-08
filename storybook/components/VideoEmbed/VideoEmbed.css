@@ -43,6 +43,29 @@
   margin-left: 4px;
 }
 
+/* Rectangular outlined "Watch X:XX" text button variant (live site homepage style) */
+.video-embed-watch-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.video-embed-watch-btn:hover {
+  opacity: 0.85;
+}
+
 .video-embed-duration {
   position: absolute;
   bottom: 12px;

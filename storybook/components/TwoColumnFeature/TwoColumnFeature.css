@@ -29,8 +29,8 @@
 .two-column-feature__heading {
   font-family: 'F37 Lineca', sans-serif;
   font-weight: 800;
-  font-size: 3rem;
-  line-height: 3.4rem;
+  font-size: 4.8rem;
+  line-height: 5.2rem;
   color: #071d49;
   margin: 0;
 }
@@ -38,8 +38,8 @@
 .two-column-feature__body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 2.2rem;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
   color: #071d49;
   margin-top: 1.6rem;
 }
