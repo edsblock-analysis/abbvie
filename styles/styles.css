@@ -1,0 +1,325 @@
+/*
+ * AbbVie.com Design System — AEM Edge Delivery Services
+ * All values verified from live site getComputedStyle() at 1440px viewport
+ */
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
+
+:root {
+  /* Brand Colors */
+  --color-navy: #071d49;
+  --color-blue: #0066f5;
+  --color-blue-light: #479ff8;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Text Colors */
+  --color-text-primary: #071d49;
+  --color-text-secondary: #666b7a;
+  --color-text-white: #ffffff;
+  --color-text-accent: #0066f5;
+
+  /* Background Colors */
+  --color-bg-white: #ffffff;
+  --color-bg-light-blue: #f1f3ff;
+  --color-bg-navy: #071d49;
+  --color-bg-light-gray: #efefef;
+  --color-bg-off-white: #f8f8f8;
+
+  /* Border Colors */
+  --color-border-light: #a6b5e0;
+  --color-border-divider: #e0e0e0;
+  --color-border-gray: #ccc;
+
+  /* Typography — Font Families */
+  --font-heading: 'F37 Lineca Medium', Helvetica, Arial, sans-serif;
+  --font-heading-book: 'F37 Lineca Book', Helvetica, Arial, sans-serif;
+  --font-body: 'Roboto', Helvetica, Arial, sans-serif;
+  --font-body-bold: 'Roboto', Helvetica, Arial, sans-serif;
+
+  /* Typography — Sizes (at root 16px for EDS) */
+  --font-size-h1: 64px;
+  --font-size-h2: 16px;
+  --font-size-h3: 16px;
+  --font-size-h4: 40px;
+  --font-size-h5: 48px;
+  --font-size-body: 18px;
+  --font-size-body-small: 14px;
+  --font-size-cta: 14px;
+  --font-size-label: 12px;
+
+  /* Typography — Line Heights */
+  --line-height-h1: 68px;
+  --line-height-h4: 44px;
+  --line-height-h5: 52px;
+  --line-height-body: 24px;
+
+  /* Typography — Weights */
+  --font-weight-heading: 800;
+  --font-weight-heading-book: 650;
+  --font-weight-body: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 80px;
+
+  /* Layout */
+  --max-width: 1440px;
+  --content-width: 1200px;
+  --container-padding: 55px;
+  --container-padding-mobile: 20px;
+
+  /* Border Radius — AbbVie signature top-left only */
+  --radius-default: 24px 0 0 0;
+  --radius-medium: 40px 0 0 0;
+  --radius-large: 64px 0 0 0;
+
+  /* Transitions */
+  --transition-color: color 0.4s ease;
+  --transition-bg: background-color 0.3s ease;
+  --transition-transform: transform 0.2s linear;
+
+  /* EDS Standard Properties */
+  --nav-height: 88px;
+  --header-height: 88px;
+  --background-color: var(--color-white);
+  --text-color: var(--color-text-primary);
+  --link-color: var(--color-blue);
+  --link-hover-color: var(--color-blue-light);
+}
+
+/* ============================================================
+   2. BASE RESET & TYPOGRAPHY
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  background: var(--color-white);
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-h1);
+  letter-spacing: -1.28px;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-family: var(--font-body);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: 24px;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  line-height: 20.8px;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+h4 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-h4);
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+h5 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-h5);
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+/* ============================================================
+   3. LINKS
+   ============================================================ */
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: var(--transition-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* CTA Links — uppercase bold blue */
+a.button,
+a.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body-bold);
+  font-size: var(--font-size-cta);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  color: var(--color-blue);
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  transition: var(--transition-color);
+}
+
+a.button:hover,
+a.cta:hover {
+  color: var(--color-blue-light);
+}
+
+/* Outline Button */
+a.button.secondary {
+  border: 2px solid var(--color-blue);
+  padding: 12px 32px;
+  transition: var(--transition-bg), var(--transition-color);
+}
+
+a.button.secondary:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+/* Filled Button */
+a.button.primary {
+  background: var(--color-blue);
+  color: var(--color-white);
+  padding: 12px 32px;
+  border: none;
+  border-radius: 4px;
+  transition: var(--transition-bg);
+}
+
+a.button.primary:hover {
+  background: var(--color-blue-light);
+}
+
+/* ============================================================
+   4. IMAGES
+   ============================================================ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   5. LAYOUT — EDS Default Content
+   ============================================================ */
+
+main .section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+main .section > .default-content-wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   6. SECTION BACKGROUNDS
+   ============================================================ */
+
+main .section.dark {
+  background: var(--color-bg-navy);
+  color: var(--color-text-white);
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark p {
+  color: var(--color-text-white);
+}
+
+main .section.dark a {
+  color: var(--color-blue-light);
+}
+
+main .section.light-blue {
+  background: var(--color-bg-light-blue);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+}
+
+main .section.grey {
+  background: var(--color-bg-light-gray);
+}
+
+/* ============================================================
+   7. SEPARATOR (HR)
+   ============================================================ */
+
+main hr {
+  border: none;
+  border-top: 1px solid var(--color-border-divider);
+  margin: var(--spacing-xl) 0;
+}
+
+/* ============================================================
+   8. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1023px) {
+  :root {
+    --nav-height: 72px;
+    --header-height: 72px;
+    --container-padding: 35px;
+  }
+}
+
+@media (max-width: 743px) {
+  :root {
+    --container-padding: 20px;
+    --font-size-h1: 40px;
+    --line-height-h1: 44px;
+    --font-size-h4: 28px;
+    --line-height-h4: 32px;
+    --font-size-h5: 32px;
+    --line-height-h5: 36px;
+  }
+
+  main .section {
+    padding: 0 var(--container-padding);
+  }
+}
