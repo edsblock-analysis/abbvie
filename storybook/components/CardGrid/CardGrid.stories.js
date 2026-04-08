@@ -7,100 +7,106 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: '**Production reference:** [join-us](https://www.abbvie.com/join-us.html) (3-col feature cards), [homepage](https://www.abbvie.com/) (story cards section), [science](https://www.abbvie.com/science.html) (article grid)\n\nResponsive card grid: 3-col desktop, 2-col tablet, 1-col mobile. Column count controlled by CSS.',
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (card + stats row), [join-us](https://www.abbvie.com/join-us.html) (3-col), [science](https://www.abbvie.com/science.html)\n\nResponsive card grid: 3-col desktop, 2-col tablet, 1-col mobile.',
       },
     },
   },
 };
 
 /**
- * FeatureCards — 3-column grid of feature cards (image + title + body + CTA).
- * Used on landing pages for navigating to major site sections.
+ * DashboardCards — Text-only cards (image hidden) in a grid.
+ * Matches the homepage press/featured section cards.
  */
-export const FeatureCards = () => {
-  const el = document.createElement('div');
-  el.innerHTML = refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
-    <div class="card-grid">
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/card-science.webp" alt="Scientist examining molecular data" />
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Our Science</h3>
-          <p class="card-body">AbbVie scientists are pioneering targeted therapies across immunology, oncology, neuroscience, and eye care to address the most complex health challenges of our time.</p>
-          <span class="card-cta">Explore Our Research</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/culture-smile.webp" alt="Three women meeting in a collaborative workspace" />
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">For Patients</h3>
-          <p class="card-body">From patient assistance programs to disease education resources, we are committed to supporting patients at every step of their treatment journey.</p>
-          <span class="card-cta">Patient Resources</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/culture-conference.webp" alt="Woman speaking to colleague at a conference" />
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Join Us</h3>
-          <p class="card-body">At AbbVie you will find bold career opportunities where your talent fuels the discovery and delivery of medicines that change millions of lives.</p>
-          <span class="card-cta">View Careers</span>
+export const DashboardCards = () => `
+  ${refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}])}
+  <div class="card-grid">
+    <div class="card card--dashboard card--medium-theme-stroke card--hide-image">
+      <a href="#">
+        <div class="card__image"><img src="/images/card-science.webp" alt="" /></div>
+        <div class="card__content">
+          <span class="card__category">Science</span>
+          <h4 class="card__title">Striving for Breakthroughs: First, Faster and for Patients</h4>
+          <div class="card__meta"><span class="card__cta">Learn More</span></div>
         </div>
       </a>
     </div>
-  `;
-  return el.firstElementChild;
-};
+    <div class="card card--dashboard card--medium-theme-stroke card--hide-image">
+      <a href="#">
+        <div class="card__image"><img src="/images/card-story.webp" alt="" /></div>
+        <div class="card__content">
+          <span class="card__category">Neuroscience</span>
+          <h4 class="card__title">Beyond the Diagnosis</h4>
+          <div class="card__meta">
+            <span class="card__cta">Read Story</span>
+            <span class="card__read-time">3 Minute Read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="card card--dashboard card--medium-theme-stroke card--hide-image">
+      <a href="#">
+        <div class="card__image"><img src="/images/podcast-promo.webp" alt="" /></div>
+        <div class="card__content">
+          <span class="card__category">Innovation</span>
+          <h4 class="card__title">The Persistence Lab Podcast</h4>
+          <div class="card__meta"><span class="card__cta">Listen Now</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+`;
 
 /**
- * StoryCards — 3-column grid of story cards with metadata (category, date, read time).
- * Column count is controlled by CSS/inline style — same card internals for 3 or 4 columns.
+ * StandardCards — Vertical cards with images, full metadata.
+ * Matches story listing pages.
  */
-export const StoryCards = () => {
-  const el = document.createElement('div');
-  el.innerHTML = refBanner([{label:'Homepage',url:'https://www.abbvie.com/'},{label:'Science',url:'https://www.abbvie.com/science.html'}]) + `
-    <div class="card-grid">
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/card-science.webp" alt="Scientist in immunology lab" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">Immunology</span>
-          <span class="card-date">March 15, 2026</span>
-          <h3 class="card-title">Redefining Treatment Goals in Rheumatoid Arthritis</h3>
-          <p class="card-body">New clinical data suggest that early intervention with targeted biologics can shift the standard of care for RA patients toward sustained remission.</p>
-          <span class="card-read-time">5 min read</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/card-story.webp" alt="Oncology research story" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">Oncology</span>
-          <span class="card-date">February 28, 2026</span>
-          <h3 class="card-title">Venclexta Combination Therapy: Five-Year Follow-Up</h3>
-          <p class="card-body">Long-term data from the CLL14 trial demonstrate durable responses with fixed-duration venetoclax-based regimens in chronic lymphocytic leukemia.</p>
-          <span class="card-read-time">8 min read</span>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card-image">
-          <img src="/images/hero-parkinsons.webp" alt="Neuroscience research focus" />
-        </div>
-        <div class="card-content">
-          <span class="card-category">Neuroscience</span>
-          <span class="card-date">January 10, 2026</span>
-          <h3 class="card-title">Advancing Precision Medicine in Parkinson's Disease</h3>
-          <p class="card-body">AbbVie is combining biomarker-driven patient selection with novel mechanisms of action to tackle the underlying biology of neurodegeneration.</p>
-          <span class="card-read-time">6 min read</span>
+export const StandardCards = () => `
+  ${refBanner([{label:'Our Stories',url:'https://www.abbvie.com/who-we-are/our-stories.html'}])}
+  <div class="card-grid">
+    <div class="card card--standard card--medium-theme-stroke">
+      <a href="#">
+        <div class="card__image"><img src="/images/card-science.webp" alt="Immunology research" /></div>
+        <div class="card__content">
+          <span class="card__category">Immunology</span>
+          <span class="card__date">March 15, 2026</span>
+          <h4 class="card__title">Redefining Treatment Goals in Rheumatoid Arthritis</h4>
+          <p class="card__body">New clinical data suggest that early intervention with targeted biologics can shift the standard of care for RA patients.</p>
+          <div class="card__meta">
+            <span class="card__cta">Read Article</span>
+            <span class="card__read-time">5 min read</span>
+          </div>
         </div>
       </a>
     </div>
-  `;
-  return el.firstElementChild;
-};
+    <div class="card card--standard card--medium-theme-stroke">
+      <a href="#">
+        <div class="card__image"><img src="/images/card-story.webp" alt="Oncology research" /></div>
+        <div class="card__content">
+          <span class="card__category">Oncology</span>
+          <span class="card__date">February 28, 2026</span>
+          <h4 class="card__title">Venclexta Combination Therapy: Five-Year Follow-Up</h4>
+          <p class="card__body">Long-term data demonstrate durable responses with fixed-duration venetoclax-based regimens in CLL.</p>
+          <div class="card__meta">
+            <span class="card__cta">Read Article</span>
+            <span class="card__read-time">8 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="card card--standard card--medium-theme-stroke">
+      <a href="#">
+        <div class="card__image"><img src="/images/hero-parkinsons.webp" alt="Neuroscience" /></div>
+        <div class="card__content">
+          <span class="card__category">Neuroscience</span>
+          <span class="card__date">January 10, 2026</span>
+          <h4 class="card__title">Advancing Precision Medicine in Parkinson's Disease</h4>
+          <p class="card__body">AbbVie is combining biomarker-driven patient selection with novel mechanisms of action.</p>
+          <div class="card__meta">
+            <span class="card__cta">Read Article</span>
+            <span class="card__read-time">6 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+`;

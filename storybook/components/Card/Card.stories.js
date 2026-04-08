@@ -6,77 +6,73 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: '**Production reference:** [homepage](https://www.abbvie.com/) (featured story card), [science](https://www.abbvie.com/science.html) (article cards), [our-stories](https://www.abbvie.com/who-we-are/our-stories.html) (story listing)\n\nCard component used as cardpagestory in AEM. Found on 311 of 321 pages. Variants: FeatureCard (image+title+body+CTA), StoryCard (with category/date/readtime), ArticleCard (full metadata+CTA).',
+        component: '**Production reference:** [homepage](https://www.abbvie.com/) (featured card), [science](https://www.abbvie.com/science.html), [our-stories](https://www.abbvie.com/who-we-are/our-stories.html)\n\nAEM component: cardpagestory. Found on 311/321 pages. Multiple layout and theme variants.',
       },
     },
   },
 };
 
 /**
- * FeatureCard — Image + title + body + CTA link.
- * Simplest card variant. Used for navigation cards on landing pages.
- * Also covers ResourceCard (identical structure, different content).
+ * DashboardCard — The most common variant on the live site.
+ * Horizontal layout, text-only (image hidden), light blue bg with border.
+ * Matches homepage: card-dashboard card-medium hide-image medium-theme-stroke
  */
-export const FeatureCard = () => {
-  const el = document.createElement('div');
-  el.innerHTML = refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
-    <a class="card" href="#" style="max-width: 380px;">
-      <div class="card-image">
-        <img src="/images/card-science.webp" alt="Scientist examining molecular data" />
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Pushing the Boundaries of Science</h3>
-        <p class="card-body">AbbVie combines deep scientific expertise with cutting-edge technology platforms to discover and develop therapies that address serious health conditions across immunology, oncology, neuroscience, and eye care.</p>
-        <span class="card-cta">Explore Our Pipeline</span>
+export const DashboardCard = () => `
+  ${refBanner([{label:'Homepage',url:'https://www.abbvie.com/'}])}
+  <div class="card card--dashboard card--medium-theme-stroke card--hide-image" style="max-width:500px;">
+    <a href="#">
+      <div class="card__image"><img src="/images/card-science.webp" alt="" /></div>
+      <div class="card__content">
+        <h4 class="card__title">Beyond the Diagnosis</h4>
+        <div class="card__meta">
+          <span class="card__cta">Read Story</span>
+          <span class="card__read-time">3 Minute Read</span>
+        </div>
       </div>
     </a>
-  `;
-  return el.firstElementChild;
-};
+  </div>
+`;
 
 /**
- * StoryCard — Image + category tag + date + title + body + read time.
- * Used for story/article listings. No explicit CTA.
+ * StandardCardWithImage — Vertical card with image, category, title, body, CTA.
+ * Matches story listing pages: card-standard card-medium
  */
-export const StoryCard = () => {
-  const el = document.createElement('div');
-  el.innerHTML = refBanner([{label:'Our Stories',url:'https://www.abbvie.com/who-we-are/our-stories.html'}]) + `
-    <a class="card" href="#" style="max-width: 380px;">
-      <div class="card-image">
-        <img src="/images/podcast-promo.webp" alt="The Persistence Lab podcast promo" />
-      </div>
-      <div class="card-content">
-        <span class="card-category">Data Science</span>
-        <span class="card-date">March 22, 2026</span>
-        <h3 class="card-title">How AI Is Accelerating Drug Discovery at AbbVie</h3>
-        <p class="card-body">Machine-learning models are helping AbbVie scientists predict molecular behavior earlier in the pipeline, reducing development timelines and increasing the probability of clinical success.</p>
-        <span class="card-read-time">7 min read</span>
+export const StandardCardWithImage = () => `
+  ${refBanner([{label:'Our Stories',url:'https://www.abbvie.com/who-we-are/our-stories.html'}])}
+  <div class="card card--standard card--medium-theme-stroke" style="max-width:380px;">
+    <a href="#">
+      <div class="card__image"><img src="/images/card-story.webp" alt="Story" /></div>
+      <div class="card__content">
+        <span class="card__category">Neuroscience</span>
+        <span class="card__date">December 15, 2025</span>
+        <h4 class="card__title">Beyond the Diagnosis</h4>
+        <p class="card__body">Meet a patient learning to navigate life with Parkinson's, and a scientist dedicated to advancing research in the field.</p>
+        <div class="card__meta">
+          <span class="card__cta">Read Story</span>
+          <span class="card__read-time">3 Minute Read</span>
+        </div>
       </div>
     </a>
-  `;
-  return el.firstElementChild;
-};
+  </div>
+`;
 
 /**
- * ArticleCard — Full metadata card: category + date + title + body + read time + CTA.
- * Superset of StoryCard — adds explicit "Read Article" CTA.
+ * DarkThemeCard — Navy background with white text.
+ * Used on Join Us and other dark-themed sections.
  */
-export const ArticleCard = () => {
-  const el = document.createElement('div');
-  el.innerHTML = refBanner([{label:'Science',url:'https://www.abbvie.com/science.html'}]) + `
-    <a class="card" href="#" style="max-width: 380px;">
-      <div class="card-image">
-        <img src="/images/card-story.webp" alt="AbbVie oncology research story" />
-      </div>
-      <div class="card-content">
-        <span class="card-category">Oncology</span>
-        <span class="card-date">February 10, 2026</span>
-        <h3 class="card-title">Targeting Solid Tumors with Next-Generation ADCs</h3>
-        <p class="card-body">Antibody-drug conjugates represent a rapidly evolving class of cancer therapeutics. AbbVie's ADC portfolio leverages proprietary linker-payload technology to improve tumor selectivity while minimizing off-target effects.</p>
-        <span class="card-read-time">9 min read</span>
-        <span class="card-cta">Read Article</span>
+export const DarkThemeCard = () => `
+  ${refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}])}
+  <div class="card card--dashboard card--dark-theme" style="max-width:500px;">
+    <a href="#">
+      <div class="card__image"><img src="/images/culture-testtube.webp" alt="Scientist" /></div>
+      <div class="card__content">
+        <span class="card__category" style="color:#479ff8;">Research & Development</span>
+        <h4 class="card__title">Explore R&D Opportunities</h4>
+        <p class="card__body">Join our world-class team of scientists and researchers who are developing therapies that make a real difference.</p>
+        <div class="card__meta">
+          <span class="card__cta">Learn More</span>
+        </div>
       </div>
     </a>
-  `;
-  return el.firstElementChild;
-};
+  </div>
+`;
