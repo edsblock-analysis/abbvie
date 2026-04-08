@@ -1,11 +1,22 @@
+/* ==========================================================
+   ArticleMetadata (storyinfo) — VERIFIED from story page at 1440px
+
+   Live computed styles:
+   - Date: Roboto 14px weight 700, color #666b7a
+   - Category: Roboto 14px weight 700, color #071d49 (navy, NOT blue)
+     margin-left: 16px, NO background color, NO border-radius
+   - Container margin-bottom: 32px
+   ========================================================== */
+
 .article-metadata {
   display: flex;
-  gap: 1.6rem;
+  gap: 0;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
   font-size: 1.4rem;
   line-height: 2rem;
+  margin-bottom: 3.2rem;
 }
 
 .article-metadata-date {
@@ -14,19 +25,18 @@
 
 .article-metadata-separator {
   color: #666b7a;
+  margin: 0 0.8rem;
 }
 
 .article-metadata-category {
-  background: #f1f3ff;
-  color: #0066f5;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
+  color: #071d49;
   text-decoration: none;
-  font-size: 1.4rem;
+  margin-left: 1.6rem;
+  font-weight: 700;
 }
 
 .article-metadata-category:hover {
-  opacity: 0.85;
+  color: #0066f5;
 }
 
 .article-metadata-read-time {

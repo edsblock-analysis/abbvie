@@ -1,26 +1,35 @@
-/* PullQuote */
+/* ==========================================================
+   PullQuote — VERIFIED from live story page at 1440px (2026-04-08)
+
+   Live computed styles:
+   - Quote text: F37 Lineca Book 40px/44px weight 650, NOT italic
+   - padding-top: 80px on quote text
+   - NO border-left (the live quote has no left border)
+   - Attribution: name + title displayed below
+   - Color: #071d49
+   ========================================================== */
 
 .pull-quote {
-  border-left: 4px solid #0066f5;
-  padding: 2.4rem;
+  padding: 0;
   margin: 3.2rem 0;
 }
 
 .pull-quote__text {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 1.8rem;
-  line-height: 2.6rem;
-  font-style: italic;
+  font-family: 'F37 Lineca Book', Helvetica, Arial, sans-serif;
+  font-weight: 650;
+  font-size: 4rem;
+  line-height: 4.4rem;
+  font-style: normal;
   color: #071d49;
   margin: 0;
+  padding-top: 8rem;
 }
 
 .pull-quote__attribution {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  margin-top: 1.6rem;
+  margin-top: 2.4rem;
 }
 
 .pull-quote__headshot {
@@ -36,7 +45,7 @@
 }
 
 .pull-quote__name {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   color: #071d49;
@@ -44,9 +53,17 @@
 }
 
 .pull-quote__title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
   color: #666b7a;
   margin: 0.2rem 0 0;
+}
+
+@media (max-width: 743px) {
+  .pull-quote__text {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+    padding-top: 4rem;
+  }
 }
