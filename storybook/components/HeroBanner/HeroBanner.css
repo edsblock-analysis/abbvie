@@ -12,7 +12,7 @@
 .hero-banner {
   position: relative;
   width: 100%;
-  min-height: 50rem;
+  height: 50rem;
   overflow: hidden;
 }
 
@@ -21,9 +21,9 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: inherit;
   border-radius: 40px 0px 0px 0px;
   overflow: hidden;
+  background: #071d49;
 }
 
 .hero-banner__media {
@@ -204,7 +204,7 @@
    --------------------------------------------------------- */
 @media (max-width: 743px) {
   .hero-banner {
-    min-height: 36rem;
+    height: 36rem;
   }
 
   .hero-banner__media-wrapper {

@@ -78,7 +78,7 @@ export const VideoHero = () => {
     playing = !playing;
   });
 
-  return el.firstElementChild;
+  return el;
 };
 
 /**
@@ -110,7 +110,7 @@ export const ImageHero = () => {
       </div>
     </div>
   `;
-  return el.firstElementChild;
+  return el;
 };
 
 /**
@@ -131,7 +131,7 @@ export const SimpleHero = () => {
       </div>
     </div>
   `;
-  return el.firstElementChild;
+  return el;
 };
 
 /**
@@ -159,5 +159,5 @@ export const DetailPageHero = () => {
       </div>
     </div>
   `;
-  return el.firstElementChild;
+  return el;
 };

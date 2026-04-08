@@ -100,5 +100,5 @@ export const VideoLeft = () => {
     video.play();
   });
 
-  return el.firstElementChild;
+  return el;
 };
