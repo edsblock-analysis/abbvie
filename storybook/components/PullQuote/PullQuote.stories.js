@@ -53,3 +53,21 @@ export const Testimonial = {
     </blockquote>
   `,
 };
+
+export const DarkTheme = {
+  render: () => refBanner([{label:'Join Us',url:'https://www.abbvie.com/join-us.html'}]) + `
+    <div style="background:#071d49; padding:6.4rem 4rem;">
+      <blockquote class="pull-quote pull-quote--dark">
+        <p class="pull-quote__text" style="color:#ffffff;">
+          "At AbbVie, I found a place where I can truly make a difference — not just for patients, but for the communities we serve around the world."
+        </p>
+        <div class="pull-quote__attribution" style="margin-top:2.4rem;">
+          <div class="pull-quote__author-info">
+            <p class="pull-quote__name" style="color:#ffffff;">Jody Alde</p>
+            <p class="pull-quote__title" style="color:rgba(255,255,255,0.7);">Vice President, Operations</p>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  `,
+};

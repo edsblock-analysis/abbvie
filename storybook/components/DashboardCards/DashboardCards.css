@@ -1,0 +1,99 @@
+/* ==========================================================
+   DashboardCards — VERIFIED from live site 2026-04-08
+
+   Metric/stat cards used on 310/321 pages.
+   Found in homepage (75+ conditions, ~57k employees) and footer areas.
+
+   Live HTML structure:
+   .dashboard-card > .dashboard-card__stat-number + .dashboard-card__stat-suffix
+                   > .dashboard-card__label
+
+   Key variants on live site:
+   - dark: navy bg, white text
+   - medium-theme: light blue bg with border
+   - no-stroke: light blue bg without border
+   - horizontal / vertical: layout direction
+
+   Verified computed styles:
+   - bg: #f1f3ff
+   - border: 1px solid #a6b5e0
+   - padding: 24px 32px
+   - stat number: F37 Lineca Medium 56px weight 800 color #071d49
+   - stat suffix: F37 Lineca Medium 40px
+   - label: Roboto Regular 16px/22px color #666b7a
+   ========================================================== */
+
+/* Base card */
+.dashboard-card {
+  background: #f1f3ff;
+  border: 1px solid #a6b5e0;
+  padding: 24px 32px;
+}
+
+/* ---- Theme Variants ---- */
+.dashboard-card--dark {
+  background: #071d49;
+  border: none;
+  color: #ffffff;
+}
+
+.dashboard-card--dark .dashboard-card__stat-number,
+.dashboard-card--dark .dashboard-card__stat-suffix {
+  color: #ffffff;
+}
+
+.dashboard-card--dark .dashboard-card__label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dashboard-card--medium-theme {
+  background: #f1f3ff;
+  border: 1px solid #a6b5e0;
+}
+
+.dashboard-card--no-stroke {
+  background: #f1f3ff;
+  border: none;
+}
+
+/* ---- Layout Variants ---- */
+.dashboard-card--horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.dashboard-card--vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Stat Number ---- */
+.dashboard-card__stat-number {
+  font-family: 'F37 Lineca Medium', 'F37 Lineca Book', Helvetica, Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #071d49;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ---- Stat Suffix ---- */
+.dashboard-card__stat-suffix {
+  font-family: 'F37 Lineca Medium', 'F37 Lineca Book', Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #071d49;
+  line-height: 1;
+}
+
+/* ---- Label ---- */
+.dashboard-card__label {
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #666b7a;
+  margin: 8px 0 0;
+}

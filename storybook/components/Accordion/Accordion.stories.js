@@ -110,3 +110,44 @@ export const Default = () => {
   attachAccordionJS(wrapper);
   return wrapper;
 };
+
+export const TabsOnDesktop = () => {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = refBanner([{label:'Science (tabs nav)',url:'https://www.abbvie.com/science.html'}]) + `
+    <div class="accordion-container accordion-container--tabs">
+      <div class="accordion-tabs-bar">
+        <button class="accordion-tab active" data-tab="0">Areas of Focus</button>
+        <button class="accordion-tab" data-tab="1">Areas of Innovation</button>
+        <button class="accordion-tab" data-tab="2">Our People</button>
+        <button class="accordion-tab" data-tab="3">Partner with Us</button>
+        <button class="accordion-tab" data-tab="4">Clinical Trials</button>
+      </div>
+      <div class="accordion-tab-panel active" data-panel="0">
+        <p>Explore our therapeutic focus areas: Immunology, Oncology, Neuroscience, Eye Care, Aesthetics, and Other Specialties.</p>
+      </div>
+      <div class="accordion-tab-panel" data-panel="1">
+        <p>Innovation at AbbVie spans AI & Data Convergence, Genomics, Precision Medicine, and Therapeutic Modalities.</p>
+      </div>
+      <div class="accordion-tab-panel" data-panel="2">
+        <p>Meet our scientists, explore the Lab of the Future, and discover the stories behind our breakthroughs.</p>
+      </div>
+      <div class="accordion-tab-panel" data-panel="3">
+        <p>Collaborate with AbbVie through ventures, partnering days, and business development opportunities.</p>
+      </div>
+      <div class="accordion-tab-panel" data-panel="4">
+        <p>Learn about our clinical trials and investigator-initiated studies worldwide.</p>
+      </div>
+    </div>
+  `;
+  // Tab switching JS
+  wrapper.querySelectorAll('.accordion-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = tab.dataset.tab;
+      wrapper.querySelectorAll('.accordion-tab').forEach(t => t.classList.remove('active'));
+      wrapper.querySelectorAll('.accordion-tab-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      wrapper.querySelector(`[data-panel="${idx}"]`).classList.add('active');
+    });
+  });
+  return wrapper;
+};

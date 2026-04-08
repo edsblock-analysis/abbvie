@@ -1,0 +1,86 @@
+/* ==========================================================
+   Separator — VERIFIED from live site 2026-04-08
+
+   Spacing and divider element used on 318/321 pages
+   with 12 different height variants.
+
+   Live HTML structure:
+   .separator.separator--h{N}
+   .separator.separator--divider
+   .separator.separator--spacer
+
+   Key variants on live site:
+   - divider: visible 1px line
+   - spacer: invisible spacing only
+   - h1 through h144: height variants in px
+
+   Verified computed styles:
+   - divider border: 1px solid #e0e0e0
+   - spacer border: none
+   - heights: 1, 8, 16, 24, 32, 48, 64, 80, 96, 112, 128, 144
+   ========================================================== */
+
+/* Base separator */
+.separator {
+  display: block;
+  width: 100%;
+}
+
+/* ---- Divider (visible line) ---- */
+.separator--divider {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ---- Spacer (invisible spacing) ---- */
+.separator--spacer {
+  border: none;
+}
+
+/* ---- Height Variants ---- */
+.separator--h1 {
+  height: 1px;
+}
+
+.separator--h8 {
+  height: 8px;
+}
+
+.separator--h16 {
+  height: 16px;
+}
+
+.separator--h24 {
+  height: 24px;
+}
+
+.separator--h32 {
+  height: 32px;
+}
+
+.separator--h48 {
+  height: 48px;
+}
+
+.separator--h64 {
+  height: 64px;
+}
+
+.separator--h80 {
+  height: 80px;
+}
+
+.separator--h96 {
+  height: 96px;
+}
+
+.separator--h112 {
+  height: 112px;
+}
+
+.separator--h128 {
+  height: 128px;
+}
+
+.separator--h144 {
+  height: 144px;
+}
