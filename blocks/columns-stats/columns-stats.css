@@ -1,0 +1,28 @@
+.columns-stats-container .columns-stats-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.columns-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-stats-col {
+  flex: 1;
+  text-align: center;
+}
+
+.columns-stats-img-col img {
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-stats > div {
+    flex-direction: row;
+  }
+  .columns-stats-container .columns-stats-wrapper { padding: 40px 32px; }
+}

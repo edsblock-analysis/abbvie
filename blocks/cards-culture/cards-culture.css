@@ -1,0 +1,36 @@
+.cards-culture-container .cards-culture-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.cards-culture {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.cards-culture-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--light-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cards-culture-card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cards-culture-card-body {
+  padding: 16px;
+}
+
+@media (width >= 900px) {
+  .cards-culture {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cards-culture-container .cards-culture-wrapper { padding: 40px 32px; }
+}

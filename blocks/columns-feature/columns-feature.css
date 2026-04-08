@@ -1,0 +1,28 @@
+.columns-feature-container .columns-feature-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.columns-feature > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-feature-col {
+  flex: 1;
+  text-align: center;
+}
+
+.columns-feature-img-col img {
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-feature > div {
+    flex-direction: row;
+  }
+  .columns-feature-container .columns-feature-wrapper { padding: 40px 32px; }
+}

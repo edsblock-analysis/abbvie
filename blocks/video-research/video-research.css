@@ -1,0 +1,28 @@
+.video-research-container .video-research-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.video-research {
+  position: relative;
+  background: var(--dark-color);
+  color: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-research-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+.video-research h2, .video-research h3, .video-research p {
+  padding: 16px;
+  color: var(--background-color);
+}
+
+@media (width >= 900px) {
+  .video-research-container .video-research-wrapper { padding: 40px 32px; }
+}

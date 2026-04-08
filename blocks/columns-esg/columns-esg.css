@@ -1,0 +1,28 @@
+.columns-esg-container .columns-esg-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.columns-esg > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-esg-col {
+  flex: 1;
+  text-align: center;
+}
+
+.columns-esg-img-col img {
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-esg > div {
+    flex-direction: row;
+  }
+  .columns-esg-container .columns-esg-wrapper { padding: 40px 32px; }
+}

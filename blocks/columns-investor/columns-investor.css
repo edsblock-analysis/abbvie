@@ -1,0 +1,28 @@
+.columns-investor-container .columns-investor-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.columns-investor > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-investor-col {
+  flex: 1;
+  text-align: center;
+}
+
+.columns-investor-img-col img {
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-investor > div {
+    flex-direction: row;
+  }
+  .columns-investor-container .columns-investor-wrapper { padding: 40px 32px; }
+}

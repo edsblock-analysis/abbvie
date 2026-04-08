@@ -1,0 +1,151 @@
+{
+  "url": "https://www.abbvie.com/",
+  "template": "homepage",
+  "sections": [
+    {
+      "id": "section-1",
+      "name": "Hero",
+      "style": "dark",
+      "aemComponent": "homepage-hero-controller",
+      "sequences": [
+        {"description": "Full-width video/carousel hero with patient slides, H1 heading, CTA link, pause/play button. Border-radius 40px top-left on image container."}
+      ]
+    },
+    {
+      "id": "section-2",
+      "name": "Press Releases + Featured Story",
+      "style": "light",
+      "aemComponent": "container abbvie-container homepage-overlap medium-radius",
+      "sequences": [
+        {"description": "Splide carousel with 3 press release slides (date + headline + link), prev/next navigation"},
+        {"description": "Featured story card with square image, date, category tag, title, description, read time, CTA"}
+      ]
+    },
+    {
+      "id": "section-3",
+      "name": "Patient Focus Teaser",
+      "style": "light",
+      "aemComponent": "teaser",
+      "sequences": [
+        {"description": "H3 heading 'Patients are at the heart of everything we do', body paragraph, 'Learn more' CTA link"}
+      ]
+    },
+    {
+      "id": "section-4",
+      "name": "Parkinson's Research Video",
+      "style": "dark",
+      "aemComponent": "video video-default cmp-video-xx-large",
+      "sequences": [
+        {"description": "Two-column: poster image with heading overlay (left), Brightcove video player (right). H2 'Advancing Parkinson's Research', subtitle, 'Watch 3:49' button"}
+      ]
+    },
+    {
+      "id": "section-5",
+      "name": "Science & Innovation Heading",
+      "style": "light",
+      "aemComponent": "teaser",
+      "sequences": [
+        {"description": "Section heading: H2 'Science & Innovation', H3 'We solve the tough challenges.', body paragraph"}
+      ]
+    },
+    {
+      "id": "section-6",
+      "name": "Card + Stats Row",
+      "style": "light",
+      "aemComponent": "grid",
+      "sequences": [
+        {"description": "3-column row: 1 linked card (image + 'Science' category + title + 'Learn More' CTA) + 2 stat counters ('75+' conditions, '~57k' employees)"}
+      ]
+    },
+    {
+      "id": "section-7",
+      "name": "Podcast Feature",
+      "style": "light",
+      "aemComponent": "container abbvie-container default-radius cmp-container-xxx-large",
+      "sequences": [
+        {"description": "Two-column: podcast promo image (left) + H2 'Science' category + H5 'The Persistence Lab Podcast' + body + 'Learn more' CTA (right)"}
+      ]
+    },
+    {
+      "id": "section-8",
+      "name": "Culture Heading",
+      "style": "light",
+      "aemComponent": "teaser light-theme",
+      "sequences": [
+        {"description": "Section heading: H2 'a culture of curiosity', H3 'We find the answers together.', body paragraph"}
+      ]
+    },
+    {
+      "id": "section-9",
+      "name": "Culture Cards",
+      "style": "light",
+      "aemComponent": "grid cmp-grid-custom",
+      "sequences": [
+        {"description": "3-column grid of tall image cards, each with portrait image, body text, and uppercase CTA link (SCIENCE, Learning and Development, Partnerships)"}
+      ]
+    },
+    {
+      "id": "section-10",
+      "name": "Explore Opportunities CTA",
+      "style": "light-blue",
+      "aemComponent": "container abbvie-container medium-radius cmp-container-xxx-large height-short",
+      "sequences": [
+        {"description": "CTA block: H4 'Explore opportunities', body paragraph, 'Browse jobs' link to careers.abbvie.com"}
+      ]
+    },
+    {
+      "id": "section-11",
+      "name": "Investor Resources Heading",
+      "style": "light",
+      "aemComponent": "teaser",
+      "sequences": [
+        {"description": "Section heading: H2 'INVESTOR RESOURCES', H3 'We invest in creating better futures.', body paragraph"}
+      ]
+    },
+    {
+      "id": "section-12",
+      "name": "Investor Content",
+      "style": "light",
+      "aemComponent": "grid",
+      "sequences": [
+        {"description": "Two-column: Earnings card (H2 'Quarterly Earnings' + H4 title + 'LATEST EARNINGS RELEASE' CTA) + Quick links column (H5 + 3 external links)"}
+      ]
+    },
+    {
+      "id": "section-13",
+      "name": "ESG Heading",
+      "style": "light",
+      "aemComponent": "teaser",
+      "sequences": [
+        {"description": "Section heading: H2 'ENVIRONMENTAL, SOCIAL AND GOVERNANCE', H3 'We make an impact that lasts.', body paragraph"}
+      ]
+    },
+    {
+      "id": "section-14",
+      "name": "ESG Composite",
+      "style": "light",
+      "aemComponent": "container abbvie-container large-radius cmp-container-full-width",
+      "sequences": [
+        {"description": "Full-width container with background image (kids soccer), containing: stat counter ('32%' + label), linked card ('SUSTAINABILITY' + 'Environmental, Social & Governance' + 'Learn More'), and quick links ('AbbVie's Positions & Views' with 3 PDF download links)"}
+      ]
+    },
+    {
+      "id": "section-15",
+      "name": "Footer",
+      "style": "light",
+      "aemComponent": "experiencefragment cmp-experiencefragment--footer",
+      "sequences": [
+        {"description": "AbbVie logo, 5 primary nav links (large text), social media icons (6), Popular Pages (4 links), External Links (4 links), legal disclaimer, copyright, legal links bar"}
+      ]
+    }
+  ],
+  "separators": [
+    {"between": "hero-and-overlap", "height": 0, "note": "overlap uses -128px negative margin"},
+    {"after": "section-4", "height": 32},
+    {"after": "section-6", "height": 48},
+    {"after": "section-7", "height": 80},
+    {"after": "section-9", "height": 16},
+    {"after": "section-10", "height": 64},
+    {"after": "section-12", "height": 64}
+  ]
+}
