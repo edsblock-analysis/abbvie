@@ -1,0 +1,100 @@
+.accordion {
+  width: 100%;
+}
+
+.accordion .accordion-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-sm);
+}
+
+.accordion .accordion-toggle-all {
+  font-family: var(--font-body);
+  font-size: var(--font-size-cta);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  padding: 0;
+}
+
+.accordion .accordion-toggle-all:hover {
+  color: var(--color-blue-light);
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid var(--color-border-divider);
+}
+
+.accordion .accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 32px 0;
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion .accordion-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-left: var(--spacing-sm);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.accordion .accordion-icon::before,
+.accordion .accordion-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-text-primary);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.accordion .accordion-icon::before {
+  width: 16px;
+  height: 2px;
+}
+
+.accordion .accordion-icon::after {
+  width: 2px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.accordion .accordion-item.active .accordion-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.accordion .accordion-item.active .accordion-icon {
+  transform: rotate(0deg);
+}
+
+.accordion .accordion-content {
+  display: none;
+  padding: 0 0 32px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+}
+
+.accordion .accordion-item.active .accordion-content {
+  display: block;
+}

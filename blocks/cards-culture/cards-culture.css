@@ -1,0 +1,117 @@
+/* Cards Culture — 3-column tall image cards */
+
+.cards-culture-container .cards-culture-wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--container-padding);
+}
+
+.cards-culture {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* Card */
+.cards-culture-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-light-blue);
+  border: 1px solid var(--color-border-light);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Card image — tall portrait aspect ratio */
+.cards-culture-card-image {
+  overflow: hidden;
+}
+
+.cards-culture-card-image img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body */
+.cards-culture-card-body {
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+/* Category */
+.cards-culture-card-body .category,
+.cards-culture-card-body p.category {
+  font-family: var(--font-body-bold);
+  font-size: var(--font-size-cta);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  color: var(--color-blue);
+  margin: 0;
+}
+
+/* Title */
+.cards-culture-card-body h2,
+.cards-culture-card-body h3 {
+  font-family: var(--font-heading-book);
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: var(--font-weight-heading-book);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Date */
+.cards-culture-card-body .date,
+.cards-culture-card-body p.date {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* CTA */
+.cards-culture-card-body a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body-bold);
+  font-size: var(--font-size-cta);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  color: var(--color-blue);
+  text-decoration: none;
+  margin-top: auto;
+  transition: var(--transition-color);
+}
+
+.cards-culture-card-body a:hover {
+  color: var(--color-blue-light);
+}
+
+/* Desktop — 3 columns */
+@media (min-width: 900px) {
+  .cards-culture {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 743px) {
+  .cards-culture-card-body h2,
+  .cards-culture-card-body h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .cards-culture-card-body {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}

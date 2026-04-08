@@ -1,0 +1,385 @@
+{
+  "url": "https://www.abbvie.com/",
+  "template": "homepage",
+  "analysisDate": "2026-04-08",
+  "sections": [
+    {
+      "id": "section-1",
+      "name": "Hero",
+      "style": "dark",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "hero-homepage",
+          "description": "Full-width hero with video background, patient carousel slides, H1 heading, CTA. Border-radius 40px top-left.",
+          "selector": ".homepage-hero-controller",
+          "content": {
+            "heading": "We find answers that make life better for patients and our world.",
+            "cta": {
+              "text": "Learn more",
+              "url": "#section01"
+            },
+            "backgroundVideo": true,
+            "backgroundImage": "woman-in-lab-looking-down"
+          },
+          "blockVariant": "hero-homepage"
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "name": "Press Releases + Featured Story",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "carousel-press",
+          "description": "Press release Splide carousel with 3 slides (date + headline). Prev/next arrows, '1 of 3' counter.",
+          "selector": ".homepage-overlap .carousel",
+          "content": {
+            "slides": [
+              {
+                "date": "April 7, 2026",
+                "headline": "Allergan Aesthetics Third State-of-the-Art AMI Center Opens in Austin"
+              },
+              {
+                "date": "March 31, 2026",
+                "headline": "Allergan Aesthetics Announces Fourth Annual, All-Access CoolMonth"
+              },
+              {
+                "date": "March 31, 2026",
+                "headline": "AbbVie to Host First-Quarter 2026 Earnings Conference Call"
+              }
+            ]
+          },
+          "blockVariant": "carousel-press"
+        },
+        {
+          "type": "block",
+          "blockName": "cards-featured",
+          "description": "Featured story card with image, date, category, title, description, read time, CTA.",
+          "selector": ".homepage-overlap .cardpagestory.card-standard",
+          "content": {
+            "image": "wp-card-story-image",
+            "date": "December 15, 2025",
+            "category": "Neuroscience",
+            "title": "Beyond the Diagnosis",
+            "description": "Meet a patient learning to navigate life with Parkinson's...",
+            "cta": "Read story",
+            "readTime": "3 Minute Read"
+          },
+          "blockVariant": "cards-featured"
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "name": "Patient Focus",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "default-content",
+          "description": "H3 heading, body paragraph, CTA link. Simple teaser — can be default content.",
+          "content": {
+            "heading": "Patients are at the heart of everything we do.",
+            "body": "Explore the real life stories that inspire us to make medicines and solutions that put impact first.",
+            "cta": {
+              "text": "Learn more",
+              "url": "/patients.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "name": "Parkinson's Research Video",
+      "style": "dark",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "video-research",
+          "description": "Two-column video section: poster image with heading overlay + Brightcove player.",
+          "selector": ".video.video-default.cmp-video-xx-large",
+          "content": {
+            "heading": "Advancing Parkinson's Research",
+            "subtitle": "One Patient's Journey, One Scientist's Mission",
+            "watchCta": "Watch 3:49",
+            "posterImage": "wp-sponsorship-hero"
+          },
+          "blockVariant": "video-research"
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "name": "Science & Innovation Heading",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "default-content",
+          "description": "Section heading teaser: H2 label + H3 tagline + body paragraph.",
+          "content": {
+            "label": "Science & Innovation",
+            "heading": "We solve the tough challenges.",
+            "body": "By working closely with patients and physicians, we solve real, complex challenges they're facing right now, first with science and support."
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "name": "Card + Stats Row",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "columns-stats",
+          "description": "3-column layout: 1 linked card + 2 stat counters. Card has image, category, title, CTA. Stats show large numbers.",
+          "selector": ".grid:not(.cmp-grid-custom)",
+          "content": {
+            "columns": [
+              {
+                "type": "card",
+                "image": "ambily-card-image",
+                "category": "Science",
+                "title": "Striving for Breakthroughs: First, Faster and for Patients",
+                "cta": "Learn More"
+              },
+              {
+                "type": "stat",
+                "number": "75+",
+                "label": "conditions treated"
+              },
+              {
+                "type": "stat",
+                "number": "~57k",
+                "label": "employees turning possibilities into reality"
+              }
+            ]
+          },
+          "blockVariant": "columns-stats"
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "name": "Podcast Feature",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "columns-feature",
+          "description": "Two-column: podcast promo image (left) + category H2 + H5 title + body + CTA (right).",
+          "selector": ".container.abbvie-container.default-radius",
+          "content": {
+            "image": "the-persistence-lab-promo",
+            "category": "Science",
+            "title": "The Persistence Lab Podcast",
+            "body": "Discover The Persistence Lab—stories of real people who are driving change...",
+            "cta": {
+              "text": "Learn more",
+              "url": "/who-we-are/our-stories/the-persistence-lab-podcasts.html"
+            }
+          },
+          "blockVariant": "columns-feature"
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "name": "Culture Heading",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "default-content",
+          "description": "Section heading: H2 label + H3 tagline + body paragraph.",
+          "content": {
+            "label": "a culture of curiosity",
+            "heading": "We find the answers together.",
+            "body": "We make investments that empower our people and strengthen our partnerships."
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "name": "Culture Cards",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "cards-culture",
+          "description": "3-column grid of tall image cards with portrait image, body text, and uppercase CTA link.",
+          "selector": ".grid.cmp-grid-custom",
+          "content": {
+            "cards": [
+              {
+                "image": "man-looking-at-testtube",
+                "body": "To develop innovative medicines, you need innovative people...",
+                "cta": "SCIENCE"
+              },
+              {
+                "image": "three-women-in-meeting",
+                "body": "Grow and fulfill your unique potential...",
+                "cta": "Learning and Development"
+              },
+              {
+                "image": "woman-speaking-to-man",
+                "body": "250+ active external innovation partners...",
+                "cta": "Partnerships"
+              }
+            ]
+          },
+          "blockVariant": "cards-culture"
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "name": "Explore Opportunities CTA",
+      "style": "light-blue",
+      "contentSequences": [
+        {
+          "type": "default-content",
+          "description": "CTA block: H4 heading + body + link button. Inside medium-radius container.",
+          "content": {
+            "heading": "Explore opportunities",
+            "body": "If you thrive as part of a diverse, collaborative team—we're ready for you.",
+            "cta": {
+              "text": "Browse jobs",
+              "url": "https://careers.abbvie.com"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "name": "Investor Resources Heading",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "default-content",
+          "description": "Section heading: H2 'INVESTOR RESOURCES' + H3 + body.",
+          "content": {
+            "label": "INVESTOR RESOURCES",
+            "heading": "We invest in creating better futures.",
+            "body": "Our focus and capabilities address tough challenges that lead to improved lives."
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "name": "Investor Content",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "columns-investor",
+          "description": "Two-column: Earnings card (linked, with category + title + CTA) + Quick links (heading + 3 external links).",
+          "selector": ".grid:last-of-type",
+          "content": {
+            "left": {
+              "type": "earnings-card",
+              "category": "Quarterly Earnings",
+              "title": "AbbVie Reports Third-Quarter 2025 Financial Results",
+              "cta": "LATEST EARNINGS RELEASE"
+            },
+            "right": {
+              "type": "quick-links",
+              "heading": "Get the latest information about AbbVie",
+              "links": [
+                "Events and presentations",
+                "Stakeholders contacts",
+                "Annual report"
+              ]
+            }
+          },
+          "blockVariant": "columns-investor"
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "name": "ESG Heading",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "default-content",
+          "description": "Section heading: H2 'ESG' + H3 + body paragraph.",
+          "content": {
+            "label": "ENVIRONMENTAL, SOCIAL AND GOVERNANCE",
+            "heading": "We make an impact that lasts.",
+            "body": "Leading with purpose, we are willing to make the tough choices..."
+          }
+        }
+      ]
+    },
+    {
+      "id": "section-14",
+      "name": "ESG Composite",
+      "style": "light",
+      "contentSequences": [
+        {
+          "type": "block",
+          "blockName": "columns-esg",
+          "description": "Full-width container with bg image, containing: stat counter (32%) + linked card (SUSTAINABILITY + ESG + Learn More) + quick links (3 PDF downloads).",
+          "selector": ".container.abbvie-container.large-radius.cmp-container-full-width",
+          "content": {
+            "backgroundImage": "kids-playing-soccer-grass",
+            "stat": {
+              "number": "32%",
+              "label": "reduction in absolute Scope 1 and 2 GHG emissions"
+            },
+            "card": {
+              "category": "SUSTAINABILITY",
+              "title": "Environmental, Social & Governance",
+              "cta": "Learn More"
+            },
+            "quickLinks": {
+              "heading": "AbbVie's Positions & Views",
+              "links": [
+                "Our Environmental Stewardship",
+                "Pricing and Access",
+                "AbbVie's Code of Conduct"
+              ]
+            }
+          },
+          "blockVariant": "columns-esg"
+        }
+      ]
+    }
+  ],
+  "fragments": [
+    {
+      "name": "header",
+      "type": "experience-fragment",
+      "selector": ".cmp-experiencefragment--header",
+      "reusedOnAllPages": true
+    },
+    {
+      "name": "footer",
+      "type": "experience-fragment",
+      "selector": ".cmp-experiencefragment--footer",
+      "reusedOnAllPages": true
+    }
+  ],
+  "metadata": {
+    "title": "Pharmaceutical Research & Development | AbbVie",
+    "description": "AbbVie pharmaceuticals combines advanced science with expertise to make strides in drug and treatment discovery",
+    "template": "homepage"
+  },
+  "variantMapping": {
+    "hero": "hero-homepage",
+    "carousel": "carousel-press",
+    "cards (featured)": "cards-featured",
+    "cards (culture)": "cards-culture",
+    "video": "video-research",
+    "columns (card+stats)": "columns-stats",
+    "columns (podcast)": "columns-feature",
+    "columns (investor)": "columns-investor",
+    "columns (esg)": "columns-esg"
+  }
+}

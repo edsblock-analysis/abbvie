@@ -1,0 +1,11 @@
+{
+  "variantName": "cards-featured",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-08T00:00:00.000Z",
+  "sourceContext": {"originUrl": "https://www.abbvie.com/", "originPage": "homepage", "blockPosition": "middle"},
+  "visualCharacteristics": {"colorScheme": "light", "density": "normal", "purpose": "featured-story", "imagePattern": "card"},
+  "contentPattern": {"structure": "image + heading + text", "buttonCount": 0, "imageCount": 3},
+  "reuseGuidance": {"suitableFor": ["featured content sections", "story highlights"], "notSuitableFor": ["hero sections", "navigation"]},
+  "usage": {"pagesUsing": ["/content/index"], "reuseCount": 1, "lastUsed": "2026-04-08T00:00:00.000Z"}
+}

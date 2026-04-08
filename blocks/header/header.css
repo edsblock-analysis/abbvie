@@ -1,0 +1,38 @@
+header .header {
+  display: flex;
+  align-items: center;
+  height: var(--nav-height, 88px);
+  padding: 0 var(--container-padding, 55px);
+  background: var(--color-white, #fff);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .header a {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-navy, #071d49);
+  text-decoration: none;
+  margin-right: 32px;
+}
+
+header .header a:hover {
+  color: var(--color-blue, #0066f5);
+}
+
+header .header ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+@media (max-width: 743px) {
+  header .header {
+    height: var(--nav-height, 72px);
+    padding: 0 20px;
+  }
+}

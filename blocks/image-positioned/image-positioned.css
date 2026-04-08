@@ -1,0 +1,102 @@
+/* Image Positioned Block */
+
+.image-positioned-container .image-positioned-wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--container-padding);
+}
+
+.image-positioned > div {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Right image: swap column order */
+.image-positioned > div.image-positioned-right {
+  grid-template-columns: 1fr 300px;
+}
+
+.image-positioned > div.image-positioned-right .image-positioned-image {
+  order: 2;
+}
+
+.image-positioned > div.image-positioned-right .image-positioned-text {
+  order: 1;
+}
+
+/* Image column */
+.image-positioned-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+/* Text column */
+.image-positioned-text h1 {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  line-height: 68px;
+  font-weight: 650;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+.image-positioned-text h2 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--font-weight-body);
+  color: var(--color-text-secondary);
+  margin: 0 0 12px;
+}
+
+.image-positioned-text p {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-text-secondary);
+  margin: 0 0 12px;
+}
+
+.image-positioned-text a {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: var(--transition-color);
+}
+
+.image-positioned-text a:hover {
+  color: var(--color-blue-light);
+}
+
+/* Mobile */
+@media (max-width: 743px) {
+  .image-positioned > div,
+  .image-positioned > div.image-positioned-right {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .image-positioned > div.image-positioned-right .image-positioned-image,
+  .image-positioned > div.image-positioned-right .image-positioned-text {
+    order: unset;
+  }
+
+  .image-positioned-image {
+    text-align: center;
+  }
+
+  .image-positioned-image img {
+    margin: 0 auto;
+  }
+
+  .image-positioned-text h1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}

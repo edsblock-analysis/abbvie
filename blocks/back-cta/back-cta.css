@@ -1,0 +1,43 @@
+/* Back CTA Block */
+
+.back-cta-container .back-cta-wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--container-padding);
+}
+
+.back-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: var(--transition-color);
+}
+
+.back-cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.back-cta-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.back-cta-label {
+  font-family: var(--font-body-bold);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  color: var(--color-blue);
+  transition: var(--transition-color);
+}
+
+.back-cta-link:hover .back-cta-label,
+.back-cta-link:hover .back-cta-arrow {
+  color: var(--color-blue-light);
+}
