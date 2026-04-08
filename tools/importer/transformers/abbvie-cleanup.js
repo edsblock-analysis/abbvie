@@ -69,6 +69,26 @@ export default function transform(hookName, element, payload) {
       '.separator',
     ]);
 
+    // Remove tracking pixel images
+    element.querySelectorAll('img').forEach((img) => {
+      const src = img.src || img.getAttribute('src') || '';
+      if (src.includes('t.co/') || src.includes('analytics.twitter') ||
+          src.includes('adsrvr.org') || src.includes('adservice.google') ||
+          src.includes('facebook.com/tr') || src.includes('linkedin.com/px') ||
+          src.includes('bat.bing.com') || src.includes('metrics.brightcove') ||
+          src.includes('e1.emxdgt.com') || src.includes('siteimproveanalytics') ||
+          src.includes('clarity.ms') || src.includes('snap.licdn') ||
+          src.startsWith('blob:') || src === '' ||
+          (img.width <= 1 && img.height <= 1)) {
+        img.remove();
+      }
+    });
+
+    // Remove empty divs and paragraphs
+    element.querySelectorAll('div:empty, p:empty').forEach((el) => {
+      if (!el.querySelector('*')) el.remove();
+    });
+
     // Clean up data attributes and event handlers
     element.querySelectorAll('*').forEach((el) => {
       if (el.hasAttribute('onclick')) el.removeAttribute('onclick');

@@ -276,6 +276,15 @@ var CustomImportScript = (() => {
       WebImporter.DOMUtils.remove(element, [
         ".separator"
       ]);
+      element.querySelectorAll("img").forEach((img) => {
+        const src = img.src || img.getAttribute("src") || "";
+        if (src.includes("t.co/") || src.includes("analytics.twitter") || src.includes("adsrvr.org") || src.includes("adservice.google") || src.includes("facebook.com/tr") || src.includes("linkedin.com/px") || src.includes("bat.bing.com") || src.includes("metrics.brightcove") || src.includes("e1.emxdgt.com") || src.includes("siteimproveanalytics") || src.includes("clarity.ms") || src.includes("snap.licdn") || src.startsWith("blob:") || src === "" || img.width <= 1 && img.height <= 1) {
+          img.remove();
+        }
+      });
+      element.querySelectorAll("div:empty, p:empty").forEach((el) => {
+        if (!el.querySelector("*")) el.remove();
+      });
       element.querySelectorAll("*").forEach((el) => {
         if (el.hasAttribute("onclick")) el.removeAttribute("onclick");
         if (el.hasAttribute("data-track")) el.removeAttribute("data-track");
