@@ -1,40 +1,78 @@
+/* ==========================================================
+   Footer — Global site footer.
+   VERIFIED from live site screenshot (2026-04-08):
+   - Background: WHITE (not dark navy)
+   - Text: navy (#071d49) for headings, blue (#0066f5) for links
+   - 3-column layout: Nav links | Popular Pages | External Links
+   - Social icons row
+   - Legal disclaimer text
+   - Bottom legal links bar
+   ========================================================== */
+
 .footer {
-  background: #071d49;
-  color: white;
-  padding: 4rem;
+  background: #ffffff;
+  color: #071d49;
+  padding: 4rem 5.5rem;
 }
 
 .footer-logo {
-  margin-bottom: 2.4rem;
+  margin-bottom: 3.2rem;
 }
 
-.footer-logo img {
-  height: 3.2rem;
+.footer-logo img,
+.footer-logo-image {
+  height: 2.4rem;
 }
 
 .footer-logo-placeholder {
-  font-family: 'F37 Lineca', sans-serif;
+  font-family: 'F37 Lineca Medium', Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 2rem;
-  color: white;
+  color: #071d49;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2.4rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
   margin-bottom: 3.2rem;
 }
 
 .footer-section-heading {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  color: white;
+  letter-spacing: 0.5px;
+  color: #666b7a;
   margin: 0 0 1.6rem;
 }
 
+/* Primary nav links (left column) — large navy text */
+.footer-section:first-child ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-section:first-child li {
+  margin-bottom: 1.2rem;
+}
+
+.footer-section:first-child a {
+  font-family: 'F37 Lineca Medium', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  color: #071d49;
+  text-decoration: none;
+}
+
+.footer-section:first-child a:hover {
+  color: #0066f5;
+}
+
+/* Other footer sections — smaller links */
 .footer-section ul {
   list-style: none;
   margin: 0;
@@ -48,19 +86,27 @@
 .footer-section a {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.6rem;
+  color: #071d49;
   text-decoration: none;
 }
 
 .footer-section a:hover {
-  color: white;
+  color: #0066f5;
+}
+
+/* External links with arrow icon */
+.footer-section a[target="_blank"]::after {
+  content: ' ↗';
+  font-size: 1.2rem;
 }
 
 .footer-social {
   display: flex;
   gap: 1.6rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 3.2rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid #e0e0e0;
 }
 
 .footer-social-icon {
@@ -69,45 +115,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  font-size: 1.4rem;
+}
+
+.footer-social-icon img {
+  width: 24px;
+  height: 24px;
 }
 
 .footer-social-icon:hover {
-  color: white;
+  opacity: 0.7;
 }
 
 .footer-legal {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid #e0e0e0;
   padding-top: 2.4rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.6rem;
-  align-items: center;
+  margin-top: 2.4rem;
 }
 
 .footer-legal-text {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #666b7a;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  align-items: center;
+  padding-top: 1.6rem;
+  border-top: 1px solid #e0e0e0;
 }
 
 .footer-legal a {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #071d49;
   text-decoration: none;
 }
 
 .footer-legal a:hover {
-  color: white;
+  color: #0066f5;
 }
 
 @media (max-width: 743px) {
+  .footer {
+    padding: 3.2rem 2rem;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .footer-section:first-child a {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
   }
 }

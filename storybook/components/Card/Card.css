@@ -1,8 +1,12 @@
+/* VERIFIED from live site:
+   bg: #f1f3ff, border: 1px solid #a6b5e0, border-radius: 0px
+   Cards have NO rounded corners on the live site */
 .card {
   display: block;
   text-decoration: none;
-  background-color: #ffffff;
-  border-radius: 4px;
+  background-color: #f1f3ff;
+  border: 1px solid #a6b5e0;
+  border-radius: 0;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
