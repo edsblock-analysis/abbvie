@@ -86,25 +86,26 @@
   text-align: center;
 }
 
-/* CTA link */
+/* CTA link — VERIFIED: inline-flex text link, NO border, NO padding */
 .hero-banner__cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.084rem;
-  color: #fff;
+  letter-spacing: 0.84px;
+  color: #0066f5;
   text-decoration: none;
-  border: 0.2rem solid #fff;
-  padding: 1.2rem 3.2rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  padding: 0;
+  transition: color 0.4s ease;
 }
 
 .hero-banner__cta:hover,
 .hero-banner__cta:focus {
-  background-color: #fff;
-  color: #071d49;
+  color: #479ff8;
 }
 
 /* Pause / Play button */

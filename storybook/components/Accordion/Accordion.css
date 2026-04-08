@@ -23,17 +23,18 @@
   padding: 0;
 }
 
+/* VERIFIED: Roboto Regular 24px/32px weight 400, padding 32px 0 */
 .accordion-item-header {
-  padding: 1.6rem;
+  padding: 3.2rem 0;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 2.2rem;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
   color: #071d49;
 }
 

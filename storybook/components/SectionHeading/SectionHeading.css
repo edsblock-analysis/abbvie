@@ -28,11 +28,12 @@
   line-height: 3.2rem;
 }
 
+/* VERIFIED: teaser body text is 20px/26px on live site */
 .section-heading__body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 2.2rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
   color: #071d49;
   margin-top: 1.2rem;
   max-width: 80rem;
