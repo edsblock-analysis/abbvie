@@ -86,14 +86,47 @@
   flex-direction: row;
 }
 
-/* Standard layout: vertical (image top, content bottom) */
+/* Standard layout: VERIFIED — transparent bg, no border, no padding */
+.card--standard {
+  background: transparent;
+  border: none;
+}
+
 .card--standard a {
-  flex-direction: column;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .card--standard .card__image {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.card--standard .card__content {
+  padding: 0;
+  display: block;
+}
+
+/* Standard title: 24px/32px weight 400 (NOT 32px/650 like dashboard) */
+.card--standard .card__title {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: 400;
+}
+
+/* Standard vertical (for grid listings) */
+.card--standard-vertical a {
+  flex-direction: column;
+  gap: 0;
+}
+
+.card--standard-vertical .card__image {
   width: 100%;
   aspect-ratio: 16 / 10;
+}
+
+.card--standard-vertical .card__content {
+  padding: 1.6rem 0;
 }
 
 /* Hide image variant */
@@ -108,13 +141,15 @@
   gap: 0.4rem;
 }
 
+/* VERIFIED: 14px, #0066f5, uppercase */
 .card__category {
   font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.84px;
   color: #0066f5;
+  margin-bottom: 0.4rem;
 }
 
 .card__date {

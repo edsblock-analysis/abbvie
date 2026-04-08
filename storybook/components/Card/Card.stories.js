@@ -71,22 +71,22 @@ export const WithImage = () => refBanner([{label:'Homepage (Featured)',url:'http
 `;
 
 /**
- * StandardVertical — Vertical card with image on top.
- * card-standard card-medium show-description
- * Used on story listing and related content sections.
+ * FeaturedStandard — Horizontal card with image, transparent bg, no border.
+ * VERIFIED: card-standard card-medium show-description (homepage Featured section)
+ * Title: 24px weight 400, flex gap 20px, no padding on content.
  */
-export const StandardVertical = () => refBanner([{label:'Our Stories',url:'https://www.abbvie.com/who-we-are/our-stories.html'}]) + `
-  <div class="card card--standard card--medium-theme-stroke" style="max-width:380px;">
+export const FeaturedStandard = () => refBanner([{label:'Homepage (Featured)',url:'https://www.abbvie.com/'}]) + `
+  <div class="card card--standard" style="max-width:640px;">
     <a href="#">
-      <div class="card__image"><img src="/images/card-science.webp" alt="Science" /></div>
+      <div class="card__image"><img src="/images/card-story.webp" alt="Story" style="width:100%; height:100%; object-fit:cover;" /></div>
       <div class="card__content">
-        <span class="card__category">Science</span>
-        <span class="card__date">March 15, 2026</span>
-        <h4 class="card__title">Redefining Treatment Goals in Rheumatoid Arthritis</h4>
-        <p class="card__body">New clinical data suggest early intervention with targeted biologics can shift the standard of care.</p>
+        <span class="card__date">December 15, 2025</span>
+        <span class="card__category">Neuroscience</span>
+        <h4 class="card__title">Beyond the Diagnosis</h4>
+        <p class="card__body">Meet a patient learning to navigate life with Parkinson's, and a scientist dedicated to advancing research in the field.</p>
         <div class="card__meta">
-          <span class="card__cta">Read Article</span>
-          <span class="card__read-time">5 min read</span>
+          <span class="card__cta">Read Story</span>
+          <span class="card__read-time">3 Minute Read</span>
         </div>
       </div>
     </a>
