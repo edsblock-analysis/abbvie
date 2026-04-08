@@ -168,18 +168,126 @@
   padding: 1.6rem 0;
 }
 
-/* Pipeline card */
+/* Pipeline compound card — expandable */
 .pipeline-filter__card {
   border-bottom: 1px solid #e0e0e0;
   padding: 2.4rem 0;
 }
 
+.pipeline-filter__card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.pipeline-filter__card-left {
+  flex: 1;
+}
+
 .pipeline-filter__compound-name {
-  font-family: 'F37 Lineca', 'Roboto', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 800;
+  font-family: 'F37 Lineca Book', Helvetica, Arial, sans-serif;
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  font-weight: 650;
   color: #071d49;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.8rem;
+}
+
+.pipeline-filter__chips {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.pipeline-filter__chip {
+  display: inline-block;
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #071d49;
+  background: #f1f3ff;
+  border: 1px solid #a6b5e0;
+  border-radius: 2rem;
+  padding: 0.4rem 1.2rem;
+}
+
+.pipeline-filter__share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Roboto Bold', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #071d49;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pipeline-filter__expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #071d49;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #071d49;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.pipeline-filter__expand-btn:hover {
+  background-color: #f1f3ff;
+}
+
+/* Metadata row (Target, Type) — always visible */
+.pipeline-filter__meta-row {
+  display: flex;
+  gap: 3.2rem;
+  margin-top: 1.2rem;
+}
+
+.pipeline-filter__meta-item {
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  color: #666b7a;
+}
+
+.pipeline-filter__meta-item strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #071d49;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+
+/* Expandable content — hidden by default */
+.pipeline-filter__card-details {
+  display: none;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pipeline-filter__card-details.expanded {
+  display: block;
+}
+
+.pipeline-filter__description {
+  font-family: 'Roboto Regular', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #071d49;
+  margin-bottom: 2.4rem;
 }
 
 .pipeline-filter__compound-target {
